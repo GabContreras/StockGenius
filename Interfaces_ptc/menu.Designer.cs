@@ -32,7 +32,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSalir = new System.Windows.Forms.Button();
             this.panelEmpleadosSubMenu = new System.Windows.Forms.Panel();
-            this.btnUsuarios = new System.Windows.Forms.Button();
             this.btnAdministrarEmpleados = new System.Windows.Forms.Button();
             this.btnEmpleado = new System.Windows.Forms.Button();
             this.btnCliente = new System.Windows.Forms.Button();
@@ -69,7 +68,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(250, 561);
+            this.panel1.Size = new System.Drawing.Size(250, 661);
             this.panel1.TabIndex = 0;
             // 
             // btnSalir
@@ -78,7 +77,7 @@
             this.btnSalir.FlatAppearance.BorderSize = 0;
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnSalir.Location = new System.Drawing.Point(0, 506);
+            this.btnSalir.Location = new System.Drawing.Point(0, 468);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnSalir.Size = new System.Drawing.Size(250, 45);
@@ -91,29 +90,12 @@
             // panelEmpleadosSubMenu
             // 
             this.panelEmpleadosSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(130)))), ((int)(((byte)(173)))));
-            this.panelEmpleadosSubMenu.Controls.Add(this.btnUsuarios);
             this.panelEmpleadosSubMenu.Controls.Add(this.btnAdministrarEmpleados);
             this.panelEmpleadosSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelEmpleadosSubMenu.Location = new System.Drawing.Point(0, 424);
             this.panelEmpleadosSubMenu.Name = "panelEmpleadosSubMenu";
-            this.panelEmpleadosSubMenu.Size = new System.Drawing.Size(250, 82);
+            this.panelEmpleadosSubMenu.Size = new System.Drawing.Size(250, 44);
             this.panelEmpleadosSubMenu.TabIndex = 6;
-            // 
-            // btnUsuarios
-            // 
-            this.btnUsuarios.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnUsuarios.FlatAppearance.BorderSize = 0;
-            this.btnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUsuarios.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnUsuarios.Location = new System.Drawing.Point(0, 40);
-            this.btnUsuarios.Name = "btnUsuarios";
-            this.btnUsuarios.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnUsuarios.Size = new System.Drawing.Size(250, 40);
-            this.btnUsuarios.TabIndex = 2;
-            this.btnUsuarios.Text = "Usuarios";
-            this.btnUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsuarios.UseVisualStyleBackColor = true;
-            this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click_1);
             // 
             // btnAdministrarEmpleados
             // 
@@ -124,7 +106,7 @@
             this.btnAdministrarEmpleados.Location = new System.Drawing.Point(0, 0);
             this.btnAdministrarEmpleados.Name = "btnAdministrarEmpleados";
             this.btnAdministrarEmpleados.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnAdministrarEmpleados.Size = new System.Drawing.Size(250, 40);
+            this.btnAdministrarEmpleados.Size = new System.Drawing.Size(250, 44);
             this.btnAdministrarEmpleados.TabIndex = 1;
             this.btnAdministrarEmpleados.Text = "Administrar empleados";
             this.btnAdministrarEmpleados.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -286,7 +268,7 @@
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(250, 0);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(634, 561);
+            this.panelContenedor.Size = new System.Drawing.Size(734, 661);
             this.panelContenedor.TabIndex = 4;
             // 
             // pictureBox1
@@ -295,7 +277,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(634, 561);
+            this.pictureBox1.Size = new System.Drawing.Size(734, 661);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -304,7 +286,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 561);
+            this.ClientSize = new System.Drawing.Size(984, 661);
             this.Controls.Add(this.panelContenedor);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -312,7 +294,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1000, 700);
-            this.MinimumSize = new System.Drawing.Size(900, 600);
+            this.MinimumSize = new System.Drawing.Size(1000, 700);
             this.Name = "menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "menu";
@@ -340,7 +322,6 @@
         private System.Windows.Forms.Button btnProducto;
         private System.Windows.Forms.Button btnProveedor;
         private System.Windows.Forms.Button btnFactura;
-        private System.Windows.Forms.Button btnUsuarios;
         private System.Windows.Forms.Panel panelContenedor;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnSalir;

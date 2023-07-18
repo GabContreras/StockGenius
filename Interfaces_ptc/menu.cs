@@ -69,10 +69,7 @@ namespace Interfaces_ptc
 
         private void btnUsuarios_Click_1(object sender, EventArgs e)
         {
-            openChildFormInPanel(new Usuarios());
-   
-            //Agregar código para abrir los formularios deseados
-            OcultarSubMenu();
+
         }
         #endregion
         private void btnFactura_Click_1(object sender, EventArgs e)
