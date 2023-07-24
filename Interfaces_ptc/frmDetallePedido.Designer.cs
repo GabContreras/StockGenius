@@ -167,11 +167,12 @@
             // cbPedido
             // 
             this.cbPedido.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbPedido.Font = new System.Drawing.Font("Cambria", 12F);
             this.cbPedido.ForeColor = System.Drawing.Color.Black;
             this.cbPedido.FormattingEnabled = true;
             this.cbPedido.Location = new System.Drawing.Point(314, 3);
             this.cbPedido.Name = "cbPedido";
-            this.cbPedido.Size = new System.Drawing.Size(305, 21);
+            this.cbPedido.Size = new System.Drawing.Size(305, 27);
             this.cbPedido.TabIndex = 114;
             // 
             // label4
@@ -204,11 +205,12 @@
             // cbProducto
             // 
             this.cbProducto.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbProducto.Font = new System.Drawing.Font("Cambria", 12F);
             this.cbProducto.ForeColor = System.Drawing.Color.Black;
             this.cbProducto.FormattingEnabled = true;
             this.cbProducto.Location = new System.Drawing.Point(314, 3);
             this.cbProducto.Name = "cbProducto";
-            this.cbProducto.Size = new System.Drawing.Size(305, 21);
+            this.cbProducto.Size = new System.Drawing.Size(305, 27);
             this.cbProducto.TabIndex = 114;
             // 
             // label2
@@ -245,7 +247,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCantidad.BackColor = System.Drawing.Color.White;
             this.txtCantidad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCantidad.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCantidad.Font = new System.Drawing.Font("Cambria", 12F);
             this.txtCantidad.ForeColor = System.Drawing.Color.Black;
             this.txtCantidad.Location = new System.Drawing.Point(314, 3);
             this.txtCantidad.Name = "txtCantidad";
@@ -286,7 +288,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTotal.BackColor = System.Drawing.Color.White;
             this.txtTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTotal.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotal.Font = new System.Drawing.Font("Cambria", 12F);
             this.txtTotal.ForeColor = System.Drawing.Color.Black;
             this.txtTotal.Location = new System.Drawing.Point(314, 3);
             this.txtTotal.Name = "txtTotal";
@@ -401,7 +403,7 @@
             this.txtBuscar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtBuscar.BackColor = System.Drawing.Color.White;
             this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBuscar.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscar.Font = new System.Drawing.Font("Cambria", 12F);
             this.txtBuscar.ForeColor = System.Drawing.Color.Black;
             this.txtBuscar.Location = new System.Drawing.Point(3, 10);
             this.txtBuscar.Name = "txtBuscar";

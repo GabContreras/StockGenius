@@ -106,7 +106,7 @@
             this.txtBuscar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtBuscar.BackColor = System.Drawing.Color.White;
             this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBuscar.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscar.Font = new System.Drawing.Font("Cambria", 12F);
             this.txtBuscar.ForeColor = System.Drawing.Color.Black;
             this.txtBuscar.Location = new System.Drawing.Point(3, 10);
             this.txtBuscar.Name = "txtBuscar";
@@ -176,11 +176,12 @@
             // cbPedido
             // 
             this.cbPedido.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbPedido.Font = new System.Drawing.Font("Cambria", 12F);
             this.cbPedido.ForeColor = System.Drawing.Color.Black;
             this.cbPedido.FormattingEnabled = true;
-            this.cbPedido.Location = new System.Drawing.Point(314, 16);
+            this.cbPedido.Location = new System.Drawing.Point(314, 13);
             this.cbPedido.Name = "cbPedido";
-            this.cbPedido.Size = new System.Drawing.Size(305, 21);
+            this.cbPedido.Size = new System.Drawing.Size(305, 27);
             this.cbPedido.TabIndex = 113;
             // 
             // label4
@@ -216,7 +217,7 @@
             this.txtTotal.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtTotal.BackColor = System.Drawing.Color.White;
             this.txtTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTotal.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotal.Font = new System.Drawing.Font("Cambria", 12F);
             this.txtTotal.ForeColor = System.Drawing.Color.Black;
             this.txtTotal.Location = new System.Drawing.Point(314, 13);
             this.txtTotal.Name = "txtTotal";

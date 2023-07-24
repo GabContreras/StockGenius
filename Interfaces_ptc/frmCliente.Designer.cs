@@ -149,7 +149,7 @@
             this.txtNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtNombre.BackColor = System.Drawing.Color.White;
             this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNombre.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre.Font = new System.Drawing.Font("Cambria", 12F);
             this.txtNombre.ForeColor = System.Drawing.Color.Black;
             this.txtNombre.Location = new System.Drawing.Point(309, 3);
             this.txtNombre.Name = "txtNombre";
@@ -188,7 +188,7 @@
             this.txtApellido.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtApellido.BackColor = System.Drawing.Color.White;
             this.txtApellido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtApellido.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtApellido.Font = new System.Drawing.Font("Cambria", 12F);
             this.txtApellido.ForeColor = System.Drawing.Color.Black;
             this.txtApellido.Location = new System.Drawing.Point(309, 3);
             this.txtApellido.Name = "txtApellido";
@@ -227,7 +227,7 @@
             this.txtDui.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtDui.BackColor = System.Drawing.Color.White;
             this.txtDui.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDui.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDui.Font = new System.Drawing.Font("Cambria", 12F);
             this.txtDui.ForeColor = System.Drawing.Color.Black;
             this.txtDui.Location = new System.Drawing.Point(309, 3);
             this.txtDui.Name = "txtDui";
@@ -267,7 +267,7 @@
             this.txtTelefono.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtTelefono.BackColor = System.Drawing.Color.White;
             this.txtTelefono.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTelefono.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefono.Font = new System.Drawing.Font("Cambria", 12F);
             this.txtTelefono.ForeColor = System.Drawing.Color.Black;
             this.txtTelefono.Location = new System.Drawing.Point(309, 3);
             this.txtTelefono.Name = "txtTelefono";
@@ -306,7 +306,7 @@
             this.txtDirección.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtDirección.BackColor = System.Drawing.Color.White;
             this.txtDirección.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDirección.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDirección.Font = new System.Drawing.Font("Cambria", 12F);
             this.txtDirección.ForeColor = System.Drawing.Color.Black;
             this.txtDirección.Location = new System.Drawing.Point(309, 3);
             this.txtDirección.Name = "txtDirección";
@@ -345,10 +345,11 @@
             // 
             this.numEdad.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.numEdad.BackColor = System.Drawing.Color.White;
+            this.numEdad.Font = new System.Drawing.Font("Cambria", 12F);
             this.numEdad.ForeColor = System.Drawing.Color.Black;
             this.numEdad.Location = new System.Drawing.Point(309, 3);
             this.numEdad.Name = "numEdad";
-            this.numEdad.Size = new System.Drawing.Size(300, 20);
+            this.numEdad.Size = new System.Drawing.Size(300, 26);
             this.numEdad.TabIndex = 109;
             // 
             // tableLayoutPanel9
@@ -493,7 +494,7 @@
             this.txtBuscar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtBuscar.BackColor = System.Drawing.Color.White;
             this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBuscar.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscar.Font = new System.Drawing.Font("Cambria", 12F);
             this.txtBuscar.ForeColor = System.Drawing.Color.Black;
             this.txtBuscar.Location = new System.Drawing.Point(3, 9);
             this.txtBuscar.Name = "txtBuscar";

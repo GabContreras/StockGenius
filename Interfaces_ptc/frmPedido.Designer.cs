@@ -106,7 +106,7 @@
             this.dtpFecha.CalendarMonthBackground = System.Drawing.Color.White;
             this.dtpFecha.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(124)))));
             this.dtpFecha.CalendarTrailingForeColor = System.Drawing.Color.Gray;
-            this.dtpFecha.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.dtpFecha.Font = new System.Drawing.Font("Cambria", 12F);
             this.dtpFecha.Location = new System.Drawing.Point(314, 3);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(305, 26);
@@ -142,11 +142,12 @@
             // cbEmpleado
             // 
             this.cbEmpleado.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbEmpleado.Font = new System.Drawing.Font("Cambria", 12F);
             this.cbEmpleado.ForeColor = System.Drawing.Color.Black;
             this.cbEmpleado.FormattingEnabled = true;
-            this.cbEmpleado.Location = new System.Drawing.Point(314, 6);
+            this.cbEmpleado.Location = new System.Drawing.Point(314, 3);
             this.cbEmpleado.Name = "cbEmpleado";
-            this.cbEmpleado.Size = new System.Drawing.Size(305, 21);
+            this.cbEmpleado.Size = new System.Drawing.Size(305, 27);
             this.cbEmpleado.TabIndex = 113;
             // 
             // label2
@@ -191,11 +192,12 @@
             // cbCliente
             // 
             this.cbCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbCliente.Font = new System.Drawing.Font("Cambria", 12F);
             this.cbCliente.ForeColor = System.Drawing.Color.Black;
             this.cbCliente.FormattingEnabled = true;
-            this.cbCliente.Location = new System.Drawing.Point(314, 6);
+            this.cbCliente.Location = new System.Drawing.Point(314, 3);
             this.cbCliente.Name = "cbCliente";
-            this.cbCliente.Size = new System.Drawing.Size(305, 21);
+            this.cbCliente.Size = new System.Drawing.Size(305, 27);
             this.cbCliente.TabIndex = 112;
             // 
             // tableLayoutPanel2
@@ -339,7 +341,7 @@
             this.txtBuscar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtBuscar.BackColor = System.Drawing.Color.White;
             this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBuscar.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscar.Font = new System.Drawing.Font("Cambria", 12F);
             this.txtBuscar.ForeColor = System.Drawing.Color.Black;
             this.txtBuscar.Location = new System.Drawing.Point(3, 11);
             this.txtBuscar.Name = "txtBuscar";
