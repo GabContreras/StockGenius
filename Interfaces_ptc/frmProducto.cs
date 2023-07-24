@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modelos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,6 +29,17 @@ namespace Interfaces_ptc
 
         private void txtStock_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void frmProducto_Load(object sender, EventArgs e)
+        {
+            MostrarProductos();
+        }
+        private void MostrarProductos()
+        {
+            dgvProductos.DataSource = null;
+            dgvProductos.DataSource = Producto.CargarProducto();
 
         }
     }

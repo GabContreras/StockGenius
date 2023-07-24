@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Modelos;
 
 namespace Interfaces_ptc
 {
@@ -25,6 +26,17 @@ namespace Interfaces_ptc
         private void tableLayoutPanel7_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+        private void MostrarProveedores()
+        {
+            dgvProveedores.DataSource = null;
+            dgvProveedores.DataSource = Proveedores.CargarProveedores();
+
+        }
+
+        private void frmProveedores_Load(object sender, EventArgs e)
+        {
+            MostrarProveedores();
         }
     }
 }

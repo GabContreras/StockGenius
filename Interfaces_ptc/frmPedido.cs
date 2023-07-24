@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modelos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,6 +25,17 @@ namespace Interfaces_ptc
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void frmPedido_Load(object sender, EventArgs e)
+        {
+            MostrarPedido();
+        }
+        private void MostrarPedido()
+        {
+            dgvPedido.DataSource = null;
+            dgvPedido.DataSource = Pedido.CargarPedido();
+
         }
     }
 }

@@ -32,36 +32,36 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSalir = new System.Windows.Forms.Button();
             this.panelEmpleadosSubMenu = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btnAdministrarEmpleados = new System.Windows.Forms.Button();
             this.btnEmpleado = new System.Windows.Forms.Button();
+            this.btnCliente = new System.Windows.Forms.Button();
+            this.btnProducto = new System.Windows.Forms.Button();
+            this.btnProveedores = new System.Windows.Forms.Button();
             this.panelPedidosubMenu = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnFactura = new System.Windows.Forms.Button();
             this.btnDetallePedido = new System.Windows.Forms.Button();
+            this.btnAdministrarPedido = new System.Windows.Forms.Button();
             this.btnPedidos = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.btnCliente = new System.Windows.Forms.Button();
-            this.btnProducto = new System.Windows.Forms.Button();
-            this.btnProveedores = new System.Windows.Forms.Button();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnAdministrarPedido = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panelEmpleadosSubMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panelPedidosubMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
             this.panelContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -113,6 +113,16 @@
             this.panelEmpleadosSubMenu.Size = new System.Drawing.Size(250, 44);
             this.panelEmpleadosSubMenu.TabIndex = 6;
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::Interfaces_ptc.Properties.Resources.iconoEmpleado;
+            this.pictureBox4.Location = new System.Drawing.Point(207, 3);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(46, 39);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 11;
+            this.pictureBox4.TabStop = false;
+            // 
             // btnAdministrarEmpleados
             // 
             this.btnAdministrarEmpleados.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -148,6 +158,63 @@
             this.btnEmpleado.UseVisualStyleBackColor = true;
             this.btnEmpleado.Click += new System.EventHandler(this.btnEmpleado_Click);
             // 
+            // btnCliente
+            // 
+            this.btnCliente.BackgroundImage = global::Interfaces_ptc.Properties.Resources.iconoCliente;
+            this.btnCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnCliente.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCliente.FlatAppearance.BorderSize = 0;
+            this.btnCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCliente.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCliente.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnCliente.Location = new System.Drawing.Point(0, 336);
+            this.btnCliente.Name = "btnCliente";
+            this.btnCliente.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnCliente.Size = new System.Drawing.Size(250, 45);
+            this.btnCliente.TabIndex = 4;
+            this.btnCliente.Text = "Clientes";
+            this.btnCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCliente.UseVisualStyleBackColor = true;
+            this.btnCliente.Click += new System.EventHandler(this.btnCliente_Click);
+            // 
+            // btnProducto
+            // 
+            this.btnProducto.BackgroundImage = global::Interfaces_ptc.Properties.Resources.iconoProductos;
+            this.btnProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnProducto.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnProducto.FlatAppearance.BorderSize = 0;
+            this.btnProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProducto.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProducto.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnProducto.Location = new System.Drawing.Point(0, 291);
+            this.btnProducto.Name = "btnProducto";
+            this.btnProducto.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnProducto.Size = new System.Drawing.Size(250, 45);
+            this.btnProducto.TabIndex = 3;
+            this.btnProducto.Text = "Productos";
+            this.btnProducto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProducto.UseVisualStyleBackColor = true;
+            this.btnProducto.Click += new System.EventHandler(this.btnProducto_Click);
+            // 
+            // btnProveedores
+            // 
+            this.btnProveedores.BackgroundImage = global::Interfaces_ptc.Properties.Resources.iconoProveedores;
+            this.btnProveedores.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnProveedores.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnProveedores.FlatAppearance.BorderSize = 0;
+            this.btnProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProveedores.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProveedores.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnProveedores.Location = new System.Drawing.Point(0, 246);
+            this.btnProveedores.Name = "btnProveedores";
+            this.btnProveedores.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnProveedores.Size = new System.Drawing.Size(250, 45);
+            this.btnProveedores.TabIndex = 2;
+            this.btnProveedores.Text = "Proveedores";
+            this.btnProveedores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProveedores.UseVisualStyleBackColor = true;
+            this.btnProveedores.Click += new System.EventHandler(this.btnProveedor_Click);
+            // 
             // panelPedidosubMenu
             // 
             this.panelPedidosubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(130)))), ((int)(((byte)(173)))));
@@ -162,6 +229,37 @@
             this.panelPedidosubMenu.Name = "panelPedidosubMenu";
             this.panelPedidosubMenu.Size = new System.Drawing.Size(250, 120);
             this.panelPedidosubMenu.TabIndex = 1;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::Interfaces_ptc.Properties.Resources.iconoFactura;
+            this.pictureBox3.Location = new System.Drawing.Point(105, 73);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(46, 39);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 10;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Interfaces_ptc.Properties.Resources.iconoAdministrarPedido;
+            this.pictureBox1.Location = new System.Drawing.Point(189, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(46, 34);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Interfaces_ptc.Properties.Resources.iconoDetallePedido;
+            this.pictureBox2.Location = new System.Drawing.Point(157, 37);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(46, 39);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 9;
+            this.pictureBox2.TabStop = false;
             // 
             // btnFactura
             // 
@@ -198,6 +296,24 @@
             this.btnDetallePedido.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDetallePedido.UseVisualStyleBackColor = true;
             this.btnDetallePedido.Click += new System.EventHandler(this.btnFactura_Click);
+            // 
+            // btnAdministrarPedido
+            // 
+            this.btnAdministrarPedido.BackgroundImage = global::Interfaces_ptc.Properties.Resources.iconoAdministrarPedido;
+            this.btnAdministrarPedido.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAdministrarPedido.FlatAppearance.BorderSize = 0;
+            this.btnAdministrarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdministrarPedido.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdministrarPedido.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnAdministrarPedido.Location = new System.Drawing.Point(0, 0);
+            this.btnAdministrarPedido.Name = "btnAdministrarPedido";
+            this.btnAdministrarPedido.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnAdministrarPedido.Size = new System.Drawing.Size(250, 40);
+            this.btnAdministrarPedido.TabIndex = 1;
+            this.btnAdministrarPedido.Text = "Administrar Pedido";
+            this.btnAdministrarPedido.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAdministrarPedido.UseVisualStyleBackColor = true;
+            this.btnAdministrarPedido.Click += new System.EventHandler(this.btnDetallePedido_Click);
             // 
             // btnPedidos
             // 
@@ -271,122 +387,6 @@
             this.pictureBox5.TabIndex = 11;
             this.pictureBox5.TabStop = false;
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::Interfaces_ptc.Properties.Resources.iconoEmpleado;
-            this.pictureBox4.Location = new System.Drawing.Point(207, 3);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(46, 39);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 11;
-            this.pictureBox4.TabStop = false;
-            // 
-            // btnCliente
-            // 
-            this.btnCliente.BackgroundImage = global::Interfaces_ptc.Properties.Resources.iconoCliente;
-            this.btnCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnCliente.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCliente.FlatAppearance.BorderSize = 0;
-            this.btnCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCliente.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCliente.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnCliente.Location = new System.Drawing.Point(0, 336);
-            this.btnCliente.Name = "btnCliente";
-            this.btnCliente.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnCliente.Size = new System.Drawing.Size(250, 45);
-            this.btnCliente.TabIndex = 4;
-            this.btnCliente.Text = "Clientes";
-            this.btnCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCliente.UseVisualStyleBackColor = true;
-            this.btnCliente.Click += new System.EventHandler(this.btnCliente_Click);
-            // 
-            // btnProducto
-            // 
-            this.btnProducto.BackgroundImage = global::Interfaces_ptc.Properties.Resources.iconoProductos;
-            this.btnProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnProducto.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnProducto.FlatAppearance.BorderSize = 0;
-            this.btnProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProducto.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProducto.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnProducto.Location = new System.Drawing.Point(0, 291);
-            this.btnProducto.Name = "btnProducto";
-            this.btnProducto.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnProducto.Size = new System.Drawing.Size(250, 45);
-            this.btnProducto.TabIndex = 3;
-            this.btnProducto.Text = "Productos";
-            this.btnProducto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProducto.UseVisualStyleBackColor = true;
-            this.btnProducto.Click += new System.EventHandler(this.btnProducto_Click);
-            // 
-            // btnProveedores
-            // 
-            this.btnProveedores.BackgroundImage = global::Interfaces_ptc.Properties.Resources.iconoProveedores;
-            this.btnProveedores.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnProveedores.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnProveedores.FlatAppearance.BorderSize = 0;
-            this.btnProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProveedores.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProveedores.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnProveedores.Location = new System.Drawing.Point(0, 246);
-            this.btnProveedores.Name = "btnProveedores";
-            this.btnProveedores.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnProveedores.Size = new System.Drawing.Size(250, 45);
-            this.btnProveedores.TabIndex = 2;
-            this.btnProveedores.Text = "Proveedores";
-            this.btnProveedores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProveedores.UseVisualStyleBackColor = true;
-            this.btnProveedores.Click += new System.EventHandler(this.btnProveedor_Click);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::Interfaces_ptc.Properties.Resources.iconoFactura;
-            this.pictureBox3.Location = new System.Drawing.Point(105, 73);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(46, 39);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 10;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Interfaces_ptc.Properties.Resources.iconoAdministrarPedido;
-            this.pictureBox1.Location = new System.Drawing.Point(189, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(46, 34);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Interfaces_ptc.Properties.Resources.iconoDetallePedido;
-            this.pictureBox2.Location = new System.Drawing.Point(157, 37);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(46, 39);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 9;
-            this.pictureBox2.TabStop = false;
-            // 
-            // btnAdministrarPedido
-            // 
-            this.btnAdministrarPedido.BackgroundImage = global::Interfaces_ptc.Properties.Resources.iconoAdministrarPedido;
-            this.btnAdministrarPedido.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAdministrarPedido.FlatAppearance.BorderSize = 0;
-            this.btnAdministrarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdministrarPedido.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdministrarPedido.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAdministrarPedido.Location = new System.Drawing.Point(0, 0);
-            this.btnAdministrarPedido.Name = "btnAdministrarPedido";
-            this.btnAdministrarPedido.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnAdministrarPedido.Size = new System.Drawing.Size(250, 40);
-            this.btnAdministrarPedido.TabIndex = 1;
-            this.btnAdministrarPedido.Text = "Administrar Pedido";
-            this.btnAdministrarPedido.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdministrarPedido.UseVisualStyleBackColor = true;
-            this.btnAdministrarPedido.Click += new System.EventHandler(this.btnDetallePedido_Click);
-            // 
             // frmmenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -405,16 +405,16 @@
             this.Text = "menu";
             this.panel1.ResumeLayout(false);
             this.panelEmpleadosSubMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panelPedidosubMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panelContenedor.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.dgvDetallePedido = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label9 = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
@@ -51,8 +52,8 @@
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.dgvDetallePedido = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetallePedido)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -60,7 +61,6 @@
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetallePedido)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -90,6 +90,19 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(628, 522);
             this.tableLayoutPanel1.TabIndex = 3;
+            // 
+            // dgvDetallePedido
+            // 
+            this.dgvDetallePedido.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDetallePedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetallePedido.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDetallePedido.Location = new System.Drawing.Point(3, 307);
+            this.dgvDetallePedido.Name = "dgvDetallePedido";
+            this.dgvDetallePedido.ReadOnly = true;
+            this.dgvDetallePedido.RowHeadersVisible = false;
+            this.dgvDetallePedido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDetallePedido.Size = new System.Drawing.Size(622, 212);
+            this.dgvDetallePedido.TabIndex = 4;
             // 
             // tableLayoutPanel2
             // 
@@ -154,6 +167,7 @@
             // cbPedido
             // 
             this.cbPedido.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbPedido.ForeColor = System.Drawing.Color.Black;
             this.cbPedido.FormattingEnabled = true;
             this.cbPedido.Location = new System.Drawing.Point(314, 3);
             this.cbPedido.Name = "cbPedido";
@@ -190,6 +204,7 @@
             // cbProducto
             // 
             this.cbProducto.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbProducto.ForeColor = System.Drawing.Color.Black;
             this.cbProducto.FormattingEnabled = true;
             this.cbProducto.Location = new System.Drawing.Point(314, 3);
             this.cbProducto.Name = "cbProducto";
@@ -231,7 +246,7 @@
             this.txtCantidad.BackColor = System.Drawing.Color.White;
             this.txtCantidad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCantidad.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCantidad.ForeColor = System.Drawing.Color.White;
+            this.txtCantidad.ForeColor = System.Drawing.Color.Black;
             this.txtCantidad.Location = new System.Drawing.Point(314, 3);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(305, 26);
@@ -272,7 +287,7 @@
             this.txtTotal.BackColor = System.Drawing.Color.White;
             this.txtTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTotal.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.ForeColor = System.Drawing.Color.White;
+            this.txtTotal.ForeColor = System.Drawing.Color.Black;
             this.txtTotal.Location = new System.Drawing.Point(314, 3);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(305, 26);
@@ -387,24 +402,11 @@
             this.txtBuscar.BackColor = System.Drawing.Color.White;
             this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBuscar.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.ForeColor = System.Drawing.Color.White;
+            this.txtBuscar.ForeColor = System.Drawing.Color.Black;
             this.txtBuscar.Location = new System.Drawing.Point(3, 10);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(305, 26);
             this.txtBuscar.TabIndex = 115;
-            // 
-            // dgvDetallePedido
-            // 
-            this.dgvDetallePedido.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvDetallePedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDetallePedido.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvDetallePedido.Location = new System.Drawing.Point(3, 307);
-            this.dgvDetallePedido.Name = "dgvDetallePedido";
-            this.dgvDetallePedido.ReadOnly = true;
-            this.dgvDetallePedido.RowHeadersVisible = false;
-            this.dgvDetallePedido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDetallePedido.Size = new System.Drawing.Size(622, 212);
-            this.dgvDetallePedido.TabIndex = 4;
             // 
             // frmDetallePedido
             // 
@@ -416,7 +418,9 @@
             this.MaximumSize = new System.Drawing.Size(734, 661);
             this.Name = "frmDetallePedido";
             this.Text = "DetallePedido";
+            this.Load += new System.EventHandler(this.frmDetallePedido_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetallePedido)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
@@ -430,7 +434,6 @@
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetallePedido)).EndInit();
             this.ResumeLayout(false);
 
         }

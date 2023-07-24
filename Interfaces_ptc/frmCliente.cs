@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Modelos;
+
 
 namespace Interfaces_ptc
 {
@@ -52,5 +54,17 @@ namespace Interfaces_ptc
             this.Close();
 
         }
+
+        private void frmCliente_Load(object sender, EventArgs e)
+        {
+            MostrarClientes();
+        }
+        private void MostrarClientes()
+        {
+            dgvClientes.DataSource = null;
+            dgvClientes.DataSource = Clientes.CargarClientes();
+
+        }
+
     }
 }

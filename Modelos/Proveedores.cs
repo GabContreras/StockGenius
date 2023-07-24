@@ -8,28 +8,22 @@ using System.Threading.Tasks;
 
 namespace Modelos
 {
-    public class Clientes
+    public class Proveedores
     {
-        private int id_Cliente;
+        private int id_Proveedor;
         private string nombre;
-        private string apellido;
-        private string dui;
-        private string telefono;
         private string direccion;
-        private int edad;
+        private string telefono;
 
-        public int Id_Cliente { get => id_Cliente; set => id_Cliente = value; }
+        public int Id_Proveedor { get => id_Proveedor; set => id_Proveedor = value; }
         public string Nombre { get => nombre; set => nombre = value; }
-        public string Apellido { get => apellido; set => apellido = value; }
-        public string Dui { get => dui; set => dui = value; }
-        public string Telefono { get => telefono; set => telefono = value; }
         public string Direccion { get => direccion; set => direccion = value; }
-        public int Edad { get => edad; set => edad = value; }
+        public string Telefono { get => telefono; set => telefono = value; }
 
-        public static DataTable CargarClientes()
+        public static DataTable CargarProveedores()
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = "select * from Cliente;";
+            string comando = "select * from Proveedor;";
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
 
             DataTable dt = new DataTable();

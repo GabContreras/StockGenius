@@ -142,6 +142,7 @@
             // cbEmpleado
             // 
             this.cbEmpleado.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbEmpleado.ForeColor = System.Drawing.Color.Black;
             this.cbEmpleado.FormattingEnabled = true;
             this.cbEmpleado.Location = new System.Drawing.Point(314, 6);
             this.cbEmpleado.Name = "cbEmpleado";
@@ -190,6 +191,7 @@
             // cbCliente
             // 
             this.cbCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbCliente.ForeColor = System.Drawing.Color.Black;
             this.cbCliente.FormattingEnabled = true;
             this.cbCliente.Location = new System.Drawing.Point(314, 6);
             this.cbCliente.Name = "cbCliente";
@@ -338,7 +340,7 @@
             this.txtBuscar.BackColor = System.Drawing.Color.White;
             this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBuscar.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.ForeColor = System.Drawing.Color.White;
+            this.txtBuscar.ForeColor = System.Drawing.Color.Black;
             this.txtBuscar.Location = new System.Drawing.Point(3, 11);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(305, 26);
@@ -367,6 +369,7 @@
             this.MaximumSize = new System.Drawing.Size(734, 661);
             this.Name = "frmPedido";
             this.Text = "AdministrarPedido";
+            this.Load += new System.EventHandler(this.frmPedido_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
