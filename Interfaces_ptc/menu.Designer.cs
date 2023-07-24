@@ -42,14 +42,16 @@
             this.btnDetallePedido = new System.Windows.Forms.Button();
             this.btnAdministrarPedido = new System.Windows.Forms.Button();
             this.btnPedidos = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panelEmpleadosSubMenu.SuspendLayout();
             this.panelPedidosubMenu.SuspendLayout();
             this.panelContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -76,8 +78,9 @@
             this.btnSalir.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnSalir.FlatAppearance.BorderSize = 0;
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnSalir.Location = new System.Drawing.Point(0, 468);
+            this.btnSalir.Location = new System.Drawing.Point(0, 470);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnSalir.Size = new System.Drawing.Size(250, 45);
@@ -92,7 +95,7 @@
             this.panelEmpleadosSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(130)))), ((int)(((byte)(173)))));
             this.panelEmpleadosSubMenu.Controls.Add(this.btnAdministrarEmpleados);
             this.panelEmpleadosSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelEmpleadosSubMenu.Location = new System.Drawing.Point(0, 424);
+            this.panelEmpleadosSubMenu.Location = new System.Drawing.Point(0, 426);
             this.panelEmpleadosSubMenu.Name = "panelEmpleadosSubMenu";
             this.panelEmpleadosSubMenu.Size = new System.Drawing.Size(250, 44);
             this.panelEmpleadosSubMenu.TabIndex = 6;
@@ -102,6 +105,7 @@
             this.btnAdministrarEmpleados.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAdministrarEmpleados.FlatAppearance.BorderSize = 0;
             this.btnAdministrarEmpleados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdministrarEmpleados.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdministrarEmpleados.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnAdministrarEmpleados.Location = new System.Drawing.Point(0, 0);
             this.btnAdministrarEmpleados.Name = "btnAdministrarEmpleados";
@@ -118,8 +122,9 @@
             this.btnEmpleado.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnEmpleado.FlatAppearance.BorderSize = 0;
             this.btnEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEmpleado.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEmpleado.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnEmpleado.Location = new System.Drawing.Point(0, 379);
+            this.btnEmpleado.Location = new System.Drawing.Point(0, 381);
             this.btnEmpleado.Name = "btnEmpleado";
             this.btnEmpleado.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnEmpleado.Size = new System.Drawing.Size(250, 45);
@@ -134,8 +139,9 @@
             this.btnCliente.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCliente.FlatAppearance.BorderSize = 0;
             this.btnCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCliente.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCliente.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnCliente.Location = new System.Drawing.Point(0, 334);
+            this.btnCliente.Location = new System.Drawing.Point(0, 336);
             this.btnCliente.Name = "btnCliente";
             this.btnCliente.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnCliente.Size = new System.Drawing.Size(250, 45);
@@ -150,8 +156,9 @@
             this.btnProducto.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnProducto.FlatAppearance.BorderSize = 0;
             this.btnProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProducto.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProducto.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnProducto.Location = new System.Drawing.Point(0, 289);
+            this.btnProducto.Location = new System.Drawing.Point(0, 291);
             this.btnProducto.Name = "btnProducto";
             this.btnProducto.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnProducto.Size = new System.Drawing.Size(250, 45);
@@ -166,8 +173,9 @@
             this.btnProveedor.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnProveedor.FlatAppearance.BorderSize = 0;
             this.btnProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProveedor.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProveedor.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnProveedor.Location = new System.Drawing.Point(0, 244);
+            this.btnProveedor.Location = new System.Drawing.Point(0, 246);
             this.btnProveedor.Name = "btnProveedor";
             this.btnProveedor.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnProveedor.Size = new System.Drawing.Size(250, 45);
@@ -184,7 +192,7 @@
             this.panelPedidosubMenu.Controls.Add(this.btnDetallePedido);
             this.panelPedidosubMenu.Controls.Add(this.btnAdministrarPedido);
             this.panelPedidosubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelPedidosubMenu.Location = new System.Drawing.Point(0, 124);
+            this.panelPedidosubMenu.Location = new System.Drawing.Point(0, 126);
             this.panelPedidosubMenu.Name = "panelPedidosubMenu";
             this.panelPedidosubMenu.Size = new System.Drawing.Size(250, 120);
             this.panelPedidosubMenu.TabIndex = 1;
@@ -194,6 +202,7 @@
             this.btnFactura.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnFactura.FlatAppearance.BorderSize = 0;
             this.btnFactura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFactura.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFactura.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnFactura.Location = new System.Drawing.Point(0, 76);
             this.btnFactura.Name = "btnFactura";
@@ -210,6 +219,7 @@
             this.btnDetallePedido.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnDetallePedido.FlatAppearance.BorderSize = 0;
             this.btnDetallePedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDetallePedido.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDetallePedido.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnDetallePedido.Location = new System.Drawing.Point(0, 40);
             this.btnDetallePedido.Name = "btnDetallePedido";
@@ -226,6 +236,7 @@
             this.btnAdministrarPedido.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAdministrarPedido.FlatAppearance.BorderSize = 0;
             this.btnAdministrarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdministrarPedido.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdministrarPedido.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnAdministrarPedido.Location = new System.Drawing.Point(0, 0);
             this.btnAdministrarPedido.Name = "btnAdministrarPedido";
@@ -242,8 +253,9 @@
             this.btnPedidos.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnPedidos.FlatAppearance.BorderSize = 0;
             this.btnPedidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPedidos.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPedidos.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnPedidos.Location = new System.Drawing.Point(0, 79);
+            this.btnPedidos.Location = new System.Drawing.Point(0, 81);
             this.btnPedidos.Name = "btnPedidos";
             this.btnPedidos.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnPedidos.Size = new System.Drawing.Size(250, 45);
@@ -252,14 +264,6 @@
             this.btnPedidos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPedidos.UseVisualStyleBackColor = true;
             this.btnPedidos.Click += new System.EventHandler(this.btnPedidos_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(250, 79);
-            this.panel2.TabIndex = 0;
             // 
             // panelContenedor
             // 
@@ -282,6 +286,27 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(250, 81);
+            this.panel2.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Cambria", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(2, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(245, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Bienvenido a StockGenius";
+            // 
             // menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -303,6 +328,8 @@
             this.panelPedidosubMenu.ResumeLayout(false);
             this.panelContenedor.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -311,7 +338,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnPedidos;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panelPedidosubMenu;
         private System.Windows.Forms.Button btnDetallePedido;
         private System.Windows.Forms.Button btnAdministrarPedido;
@@ -325,5 +351,7 @@
         private System.Windows.Forms.Panel panelContenedor;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label1;
     }
 }
