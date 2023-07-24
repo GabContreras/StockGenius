@@ -161,5 +161,29 @@
   <ItemGroup>
     <None Include="Resources\logoFinal.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconoAdministrarPedido.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconoDetallePedido.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconoFactura.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconoEmpleado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconoProveedores.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconoProductos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconoCliente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconSalir.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
