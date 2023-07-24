@@ -51,7 +51,7 @@
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.dgvPedido = new System.Windows.Forms.DataGridView();
+            this.dgvDetallePedido = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -60,13 +60,14 @@
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetallePedido)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.dgvDetallePedido, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel4, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel5, 0, 2);
@@ -74,7 +75,6 @@
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel7, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel8, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel9, 0, 6);
-            this.tableLayoutPanel1.Controls.Add(this.dgvPedido, 0, 7);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -388,19 +388,23 @@
             this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBuscar.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscar.ForeColor = System.Drawing.Color.White;
-            this.txtBuscar.Location = new System.Drawing.Point(6, 10);
+            this.txtBuscar.Location = new System.Drawing.Point(3, 10);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(299, 26);
+            this.txtBuscar.Size = new System.Drawing.Size(305, 26);
             this.txtBuscar.TabIndex = 115;
             // 
-            // dgvPedido
+            // dgvDetallePedido
             // 
-            this.dgvPedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPedido.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvPedido.Location = new System.Drawing.Point(3, 307);
-            this.dgvPedido.Name = "dgvPedido";
-            this.dgvPedido.Size = new System.Drawing.Size(622, 212);
-            this.dgvPedido.TabIndex = 0;
+            this.dgvDetallePedido.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDetallePedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetallePedido.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDetallePedido.Location = new System.Drawing.Point(3, 307);
+            this.dgvDetallePedido.Name = "dgvDetallePedido";
+            this.dgvDetallePedido.ReadOnly = true;
+            this.dgvDetallePedido.RowHeadersVisible = false;
+            this.dgvDetallePedido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDetallePedido.Size = new System.Drawing.Size(622, 212);
+            this.dgvDetallePedido.TabIndex = 4;
             // 
             // frmDetallePedido
             // 
@@ -426,7 +430,7 @@
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetallePedido)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -451,11 +455,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView dgvPedido;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.ComboBox cbPedido;
         private System.Windows.Forms.ComboBox cbProducto;
+        private System.Windows.Forms.DataGridView dgvDetallePedido;
     }
 }

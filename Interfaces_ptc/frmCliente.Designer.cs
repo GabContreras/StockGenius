@@ -30,34 +30,34 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.label7 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.label6 = new System.Windows.Forms.Label();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.label3 = new System.Windows.Forms.Label();
             this.txtDui = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.label5 = new System.Windows.Forms.Label();
             this.txtDirección = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.numEdad = new System.Windows.Forms.NumericUpDown();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.dgvClientes = new System.Windows.Forms.DataGridView();
+            this.btnActualizar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSalir = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
-            this.dgvBuscar = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -67,15 +67,16 @@
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numEdad)).BeginInit();
             this.tableLayoutPanel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.tableLayoutPanel10.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.dgvClientes, 0, 9);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel7, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel6, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel5, 0, 3);
@@ -83,7 +84,6 @@
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel9, 0, 7);
-            this.tableLayoutPanel1.Controls.Add(this.dgvClientes, 0, 9);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel10, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel11, 0, 8);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -119,6 +119,18 @@
             this.tableLayoutPanel7.Size = new System.Drawing.Size(612, 22);
             this.tableLayoutPanel7.TabIndex = 113;
             // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Cambria", 14.25F);
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(3, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(81, 22);
+            this.label7.TabIndex = 114;
+            this.label7.Text = "Nombre:";
+            // 
             // txtNombre
             // 
             this.txtNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -146,6 +158,18 @@
             this.tableLayoutPanel6.Size = new System.Drawing.Size(612, 22);
             this.tableLayoutPanel6.TabIndex = 113;
             // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Cambria", 14.25F);
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(3, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(78, 22);
+            this.label6.TabIndex = 113;
+            this.label6.Text = "Apellido";
+            // 
             // txtApellido
             // 
             this.txtApellido.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -172,6 +196,18 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(612, 22);
             this.tableLayoutPanel5.TabIndex = 113;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Cambria", 14.25F);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 22);
+            this.label3.TabIndex = 112;
+            this.label3.Text = "Dui:";
             // 
             // txtDui
             // 
@@ -240,6 +276,18 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(612, 22);
             this.tableLayoutPanel3.TabIndex = 112;
             // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Cambria", 14.25F);
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(3, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(92, 22);
+            this.label5.TabIndex = 113;
+            this.label5.Text = "Dirección:";
+            // 
             // txtDirección
             // 
             this.txtDirección.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -295,9 +343,9 @@
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel9.Controls.Add(this.button2, 0, 0);
-            this.tableLayoutPanel9.Controls.Add(this.button3, 0, 0);
-            this.tableLayoutPanel9.Controls.Add(this.button4, 2, 0);
+            this.tableLayoutPanel9.Controls.Add(this.btnActualizar, 0, 0);
+            this.tableLayoutPanel9.Controls.Add(this.btnAgregar, 0, 0);
+            this.tableLayoutPanel9.Controls.Add(this.btnEliminar, 2, 0);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel9.Location = new System.Drawing.Point(3, 215);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
@@ -307,58 +355,49 @@
             this.tableLayoutPanel9.Size = new System.Drawing.Size(612, 51);
             this.tableLayoutPanel9.TabIndex = 116;
             // 
-            // button2
+            // btnActualizar
             // 
-            this.button2.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(130)))), ((int)(((byte)(173)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Cambria", 12F);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(251, 9);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(109, 32);
-            this.button2.TabIndex = 105;
-            this.button2.Text = "Actualizar";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnActualizar.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
+            this.btnActualizar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(130)))), ((int)(((byte)(173)))));
+            this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnActualizar.Font = new System.Drawing.Font("Cambria", 12F);
+            this.btnActualizar.ForeColor = System.Drawing.Color.White;
+            this.btnActualizar.Location = new System.Drawing.Point(251, 9);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(109, 32);
+            this.btnActualizar.TabIndex = 105;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // btnAgregar
             // 
-            this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(130)))), ((int)(((byte)(173)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Font = new System.Drawing.Font("Cambria", 12F);
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(47, 9);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(109, 32);
-            this.button3.TabIndex = 104;
-            this.button3.Text = "Agregar";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnAgregar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(130)))), ((int)(((byte)(173)))));
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAgregar.Font = new System.Drawing.Font("Cambria", 12F);
+            this.btnAgregar.ForeColor = System.Drawing.Color.White;
+            this.btnAgregar.Location = new System.Drawing.Point(47, 9);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(109, 32);
+            this.btnAgregar.TabIndex = 104;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // btnEliminar
             // 
-            this.button4.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
-            this.button4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(130)))), ((int)(((byte)(173)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button4.Font = new System.Drawing.Font("Cambria", 12F);
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(455, 9);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(109, 32);
-            this.button4.TabIndex = 101;
-            this.button4.Text = "Eliminar";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // dgvClientes
-            // 
-            this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClientes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvClientes.Location = new System.Drawing.Point(3, 322);
-            this.dgvClientes.Name = "dgvClientes";
-            this.dgvClientes.Size = new System.Drawing.Size(612, 197);
-            this.dgvClientes.TabIndex = 0;
+            this.btnEliminar.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
+            this.btnEliminar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(130)))), ((int)(((byte)(173)))));
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEliminar.Font = new System.Drawing.Font("Cambria", 12F);
+            this.btnEliminar.ForeColor = System.Drawing.Color.White;
+            this.btnEliminar.Location = new System.Drawing.Point(455, 9);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(109, 32);
+            this.btnEliminar.TabIndex = 101;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = false;
             // 
             // tableLayoutPanel10
             // 
@@ -410,7 +449,7 @@
             this.tableLayoutPanel11.ColumnCount = 2;
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.23795F));
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.76206F));
-            this.tableLayoutPanel11.Controls.Add(this.dgvBuscar, 0, 0);
+            this.tableLayoutPanel11.Controls.Add(this.btnBuscar, 0, 0);
             this.tableLayoutPanel11.Controls.Add(this.txtBuscar, 0, 0);
             this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel11.Location = new System.Drawing.Point(3, 272);
@@ -420,20 +459,20 @@
             this.tableLayoutPanel11.Size = new System.Drawing.Size(612, 44);
             this.tableLayoutPanel11.TabIndex = 118;
             // 
-            // dgvBuscar
+            // btnBuscar
             // 
-            this.dgvBuscar.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
-            this.dgvBuscar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dgvBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(130)))), ((int)(((byte)(173)))));
-            this.dgvBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.dgvBuscar.Font = new System.Drawing.Font("Cambria", 9.75F);
-            this.dgvBuscar.ForeColor = System.Drawing.Color.White;
-            this.dgvBuscar.Location = new System.Drawing.Point(454, 6);
-            this.dgvBuscar.Name = "dgvBuscar";
-            this.dgvBuscar.Size = new System.Drawing.Size(109, 31);
-            this.dgvBuscar.TabIndex = 115;
-            this.dgvBuscar.Text = "Buscar";
-            this.dgvBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
+            this.btnBuscar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(130)))), ((int)(((byte)(173)))));
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBuscar.Font = new System.Drawing.Font("Cambria", 9.75F);
+            this.btnBuscar.ForeColor = System.Drawing.Color.White;
+            this.btnBuscar.Location = new System.Drawing.Point(454, 6);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(109, 31);
+            this.btnBuscar.TabIndex = 115;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = false;
             // 
             // txtBuscar
             // 
@@ -447,53 +486,18 @@
             this.txtBuscar.Size = new System.Drawing.Size(399, 26);
             this.txtBuscar.TabIndex = 114;
             // 
-            // label7
+            // dgvClientes
             // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Cambria", 14.25F);
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(3, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(81, 22);
-            this.label7.TabIndex = 114;
-            this.label7.Text = "Nombre:";
-            // 
-            // label6
-            // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Cambria", 14.25F);
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(3, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(78, 22);
-            this.label6.TabIndex = 113;
-            this.label6.Text = "Apellido";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Cambria", 14.25F);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 22);
-            this.label3.TabIndex = 112;
-            this.label3.Text = "Dui:";
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Cambria", 14.25F);
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(3, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(92, 22);
-            this.label5.TabIndex = 113;
-            this.label5.Text = "Dirección:";
+            this.dgvClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClientes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvClientes.Location = new System.Drawing.Point(3, 322);
+            this.dgvClientes.Name = "dgvClientes";
+            this.dgvClientes.ReadOnly = true;
+            this.dgvClientes.RowHeadersVisible = false;
+            this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvClientes.Size = new System.Drawing.Size(612, 197);
+            this.dgvClientes.TabIndex = 119;
             // 
             // frmCliente
             // 
@@ -520,11 +524,11 @@
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numEdad)).EndInit();
             this.tableLayoutPanel9.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             this.tableLayoutPanel10.ResumeLayout(false);
             this.tableLayoutPanel10.PerformLayout();
             this.tableLayoutPanel11.ResumeLayout(false);
             this.tableLayoutPanel11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -532,7 +536,6 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.DataGridView dgvClientes;
         private System.Windows.Forms.NumericUpDown numEdad;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
@@ -548,18 +551,19 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtDirección;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnActualizar;
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
-        private System.Windows.Forms.Button dgvBuscar;
+        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridView dgvClientes;
     }
 }

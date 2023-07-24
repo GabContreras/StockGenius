@@ -33,11 +33,11 @@
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbEmpleado = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbCliente = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label9 = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
@@ -48,7 +48,7 @@
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.dgvAdministrar = new System.Windows.Forms.DataGridView();
+            this.dgvPedido = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -56,7 +56,7 @@
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAdministrar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -69,7 +69,7 @@
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel8, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel9, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.dgvAdministrar, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.dgvPedido, 0, 6);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -129,7 +129,7 @@
             this.tableLayoutPanel4.ColumnCount = 2;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Controls.Add(this.comboBox2, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.cbEmpleado, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 86);
@@ -139,14 +139,14 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(622, 34);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
-            // comboBox2
+            // cbEmpleado
             // 
-            this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(314, 6);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(305, 21);
-            this.comboBox2.TabIndex = 113;
+            this.cbEmpleado.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbEmpleado.FormattingEnabled = true;
+            this.cbEmpleado.Location = new System.Drawing.Point(314, 6);
+            this.cbEmpleado.Name = "cbEmpleado";
+            this.cbEmpleado.Size = new System.Drawing.Size(305, 21);
+            this.cbEmpleado.TabIndex = 113;
             // 
             // label2
             // 
@@ -166,7 +166,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Controls.Add(this.label4, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.comboBox1, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.cbCliente, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 46);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -187,14 +187,14 @@
             this.label4.TabIndex = 111;
             this.label4.Text = "Cliente";
             // 
-            // comboBox1
+            // cbCliente
             // 
-            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(314, 6);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(305, 21);
-            this.comboBox1.TabIndex = 112;
+            this.cbCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbCliente.FormattingEnabled = true;
+            this.cbCliente.Location = new System.Drawing.Point(314, 6);
+            this.cbCliente.Name = "cbCliente";
+            this.cbCliente.Size = new System.Drawing.Size(305, 21);
+            this.cbCliente.TabIndex = 112;
             // 
             // tableLayoutPanel2
             // 
@@ -344,14 +344,18 @@
             this.txtBuscar.Size = new System.Drawing.Size(305, 26);
             this.txtBuscar.TabIndex = 115;
             // 
-            // dgvAdministrar
+            // dgvPedido
             // 
-            this.dgvAdministrar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAdministrar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvAdministrar.Location = new System.Drawing.Point(3, 301);
-            this.dgvAdministrar.Name = "dgvAdministrar";
-            this.dgvAdministrar.Size = new System.Drawing.Size(622, 218);
-            this.dgvAdministrar.TabIndex = 0;
+            this.dgvPedido.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPedido.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvPedido.Location = new System.Drawing.Point(3, 301);
+            this.dgvPedido.Name = "dgvPedido";
+            this.dgvPedido.ReadOnly = true;
+            this.dgvPedido.RowHeadersVisible = false;
+            this.dgvPedido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvPedido.Size = new System.Drawing.Size(622, 218);
+            this.dgvPedido.TabIndex = 0;
             // 
             // frmPedido
             // 
@@ -375,7 +379,7 @@
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAdministrar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -393,12 +397,12 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.DataGridView dgvAdministrar;
+        private System.Windows.Forms.DataGridView dgvPedido;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbEmpleado;
+        private System.Windows.Forms.ComboBox cbCliente;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnActualizar;
