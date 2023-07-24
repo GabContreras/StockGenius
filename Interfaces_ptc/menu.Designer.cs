@@ -85,7 +85,7 @@
             this.btnSalir.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnSalir.Size = new System.Drawing.Size(250, 45);
             this.btnSalir.TabIndex = 7;
-            this.btnSalir.Text = "Salir";
+            this.btnSalir.Text = "Salir de la aplicación";
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
