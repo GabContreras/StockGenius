@@ -10,18 +10,14 @@ using System.Windows.Forms;
 
 namespace Interfaces_ptc
 {
-    public partial class Producto : Form
+    public partial class frmFactura : Form
     {
-        public Producto()
+        public frmFactura()
         {
             InitializeComponent();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void btnSalir_Click_1(object sender, EventArgs e)
         {
             this.Close();
         }

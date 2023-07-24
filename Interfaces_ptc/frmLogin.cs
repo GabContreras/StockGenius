@@ -12,9 +12,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Interfaces_ptc
 {
-    public partial class Login : Form
+    public partial class frmLogin : Form
     {
-        public Login()
+        public frmLogin()
         {
             InitializeComponent();
         }
@@ -83,7 +83,7 @@ namespace Interfaces_ptc
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            menu menú = new menu();
+            frmmenu menú = new frmmenu();
             menú.Show();
            
             menú.FormClosed += delegate

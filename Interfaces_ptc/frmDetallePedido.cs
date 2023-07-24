@@ -10,11 +10,20 @@ using System.Windows.Forms;
 
 namespace Interfaces_ptc
 {
-    public partial class Usuarios : Form
+    public partial class frmDetallePedido : Form
     {
-        public Usuarios()
+        public frmDetallePedido()
         {
             InitializeComponent();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

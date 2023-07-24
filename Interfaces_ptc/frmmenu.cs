@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Interfaces_ptc
 {
-    public partial class menu : Form
+    public partial class frmmenu : Form
     {
-        public menu()
+        public frmmenu()
         {
             InitializeComponent();
             OcultarSubMenu();
@@ -41,14 +41,14 @@ namespace Interfaces_ptc
         #region SubMenuPedidos
         private void btnDetallePedido_Click(object sender, EventArgs e)
         {
-            openChildFormInPanel(new AdministrarPedido());
+            openChildFormInPanel(new frmPedido());
             //Agregar código para abrir los formularios deseados
             OcultarSubMenu();
         }
 
         private void btnFactura_Click(object sender, EventArgs e)
         {
-            openChildFormInPanel(new DetallePedido());
+            openChildFormInPanel(new frmDetallePedido());
             //Agregar código para abrir los formularios deseados
             OcultarSubMenu();
         }
@@ -62,7 +62,7 @@ namespace Interfaces_ptc
         #region SubmenuEmpleados
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
-            openChildFormInPanel(new AdministrarEmpleados());
+            openChildFormInPanel(new frmEmpleados());
             //Agregar código para abrir los formularios deseados
             OcultarSubMenu();
         }
@@ -74,7 +74,7 @@ namespace Interfaces_ptc
         #endregion
         private void btnFactura_Click_1(object sender, EventArgs e)
         {
-            openChildFormInPanel(new Factura());
+            openChildFormInPanel(new frmFactura());
             //Agregar código para abrir los formularios deseados
             OcultarSubMenu();
         }
@@ -95,26 +95,31 @@ namespace Interfaces_ptc
 
         private void btnProveedor_Click(object sender, EventArgs e)
         {
-            openChildFormInPanel(new Proveedores());
+            openChildFormInPanel(new frmProveedores());
             OcultarSubMenu();
         }
 
         private void btnProducto_Click(object sender, EventArgs e)
         {
-            openChildFormInPanel(new Producto());
+            openChildFormInPanel(new frmProducto());
             OcultarSubMenu();
 
         }
 
         private void btnCliente_Click(object sender, EventArgs e)
         {
-            openChildFormInPanel(new Cliente());
+            openChildFormInPanel(new frmCliente());
             OcultarSubMenu();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

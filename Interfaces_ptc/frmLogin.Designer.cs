@@ -1,6 +1,6 @@
 ﻿namespace Interfaces_ptc
 {
-    partial class Login
+    partial class frmLogin
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.panelPrincipal = new System.Windows.Forms.Panel();
             this.btnAcceder = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();

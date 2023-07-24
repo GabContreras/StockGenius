@@ -10,20 +10,21 @@ using System.Windows.Forms;
 
 namespace Interfaces_ptc
 {
-    public partial class DetallePedido : Form
+    public partial class frmProveedores : Form
     {
-        public DetallePedido()
+        public frmProveedores()
         {
             InitializeComponent();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void tableLayoutPanel7_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

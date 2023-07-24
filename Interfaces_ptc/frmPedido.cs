@@ -10,11 +10,15 @@ using System.Windows.Forms;
 
 namespace Interfaces_ptc
 {
-    public partial class Proveedores : Form
+    public partial class frmPedido : Form
     {
-        public Proveedores()
+        public frmPedido()
         {
             InitializeComponent();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

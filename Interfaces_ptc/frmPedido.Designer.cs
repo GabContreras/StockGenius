@@ -1,6 +1,6 @@
 ﻿namespace Interfaces_ptc
 {
-    partial class AdministrarPedido
+    partial class frmPedido
     {
         /// <summary>
         /// Required designer variable.
@@ -339,9 +339,9 @@
             this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBuscar.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscar.ForeColor = System.Drawing.Color.White;
-            this.txtBuscar.Location = new System.Drawing.Point(12, 11);
+            this.txtBuscar.Location = new System.Drawing.Point(3, 11);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(287, 26);
+            this.txtBuscar.Size = new System.Drawing.Size(305, 26);
             this.txtBuscar.TabIndex = 115;
             // 
             // dgvAdministrar
@@ -353,7 +353,7 @@
             this.dgvAdministrar.Size = new System.Drawing.Size(622, 218);
             this.dgvAdministrar.TabIndex = 0;
             // 
-            // AdministrarPedido
+            // frmPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -361,7 +361,7 @@
             this.ClientSize = new System.Drawing.Size(628, 522);
             this.Controls.Add(this.tableLayoutPanel1);
             this.MaximumSize = new System.Drawing.Size(734, 661);
-            this.Name = "AdministrarPedido";
+            this.Name = "frmPedido";
             this.Text = "AdministrarPedido";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);

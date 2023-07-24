@@ -10,11 +10,26 @@ using System.Windows.Forms;
 
 namespace Interfaces_ptc
 {
-    public partial class AdministrarEmpleados : Form
+    public partial class frmCliente : Form
     {
-        public AdministrarEmpleados()
+        public frmCliente()
         {
             InitializeComponent();
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtApellido_Empleado_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -22,12 +37,12 @@ namespace Interfaces_ptc
             this.Close();
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        private void txtID_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void tableLayoutPanel7_Paint(object sender, PaintEventArgs e)
+        private void label4_Click(object sender, EventArgs e)
         {
 
         }
@@ -35,6 +50,7 @@ namespace Interfaces_ptc
         private void btnSalir_Click_1(object sender, EventArgs e)
         {
             this.Close();
+
         }
     }
 }

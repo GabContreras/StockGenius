@@ -1,6 +1,6 @@
 ﻿namespace Interfaces_ptc
 {
-    partial class DetallePedido
+    partial class frmDetallePedido
     {
         /// <summary>
         /// Required designer variable.
@@ -402,7 +402,7 @@
             this.dgvPedido.Size = new System.Drawing.Size(622, 212);
             this.dgvPedido.TabIndex = 0;
             // 
-            // DetallePedido
+            // frmDetallePedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -410,7 +410,7 @@
             this.ClientSize = new System.Drawing.Size(628, 522);
             this.Controls.Add(this.tableLayoutPanel1);
             this.MaximumSize = new System.Drawing.Size(734, 661);
-            this.Name = "DetallePedido";
+            this.Name = "frmDetallePedido";
             this.Text = "DetallePedido";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);

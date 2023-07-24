@@ -10,16 +10,25 @@ using System.Windows.Forms;
 
 namespace Interfaces_ptc
 {
-    public partial class Factura : Form
+    public partial class frmProducto : Form
     {
-        public Factura()
+        public frmProducto()
         {
             InitializeComponent();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
+        }
+
+        private void btnSalir_Click_1(object sender, EventArgs e)
+        {
             this.Close();
+        }
+
+        private void txtStock_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
