@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace Modelos
 {
-    public class Empleados
+    public class Empleados:Cargo
     {
         private int id;
-        private string nombre;
+        private string nombre_Empleado;
         private string apellido;
         private string telefono;
         private string dui;
@@ -20,13 +20,14 @@ namespace Modelos
         private int id_Usuario;
 
         public int Id { get => id; set => id = value; }
-        public string Nombre { get => nombre; set => nombre = value; }
+
         public string Apellido { get => apellido; set => apellido = value; }
         public string Telefono { get => telefono; set => telefono = value; }
         public string Dui { get => dui; set => dui = value; }
         public string Correo { get => correo; set => correo = value; }
         public int Id_Cargo { get => id_Cargo; set => id_Cargo = value; }
         public int Id_Usuario { get => id_Usuario; set => id_Usuario = value; }
+        public string Nombre_Empleado { get => nombre_Empleado; set => nombre_Empleado = value; }
 
         public static DataTable CargarEmpleados()
         {

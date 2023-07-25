@@ -551,6 +551,7 @@
             this.cbCargo.Name = "cbCargo";
             this.cbCargo.Size = new System.Drawing.Size(350, 21);
             this.cbCargo.TabIndex = 116;
+            this.cbCargo.SelectedIndexChanged += new System.EventHandler(this.cbCargo_SelectedIndexChanged);
             // 
             // tableLayoutPanel3
             // 

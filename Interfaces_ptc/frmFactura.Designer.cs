@@ -134,11 +134,11 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Cambria", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(48, 5);
+            this.label9.Location = new System.Drawing.Point(108, 5);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(215, 25);
+            this.label9.Size = new System.Drawing.Size(94, 25);
             this.label9.TabIndex = 112;
-            this.label9.Text = "Administrar Facturas";
+            this.label9.Text = "Facturas";
             // 
             // btnSalir
             // 
