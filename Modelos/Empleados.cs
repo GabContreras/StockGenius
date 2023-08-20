@@ -32,7 +32,7 @@ namespace Modelos
         public static DataTable CargarEmpleados()
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = "select * from Empleado;";
+            string comando = "SELECT U.id_Usuario, E.Id_Empleado, U.NombreUsuario, U.contraseña,E.Nombre AS Nombre, E.Apellido AS Apellido, E.Teléfono AS Teléfono, E.DUI AS DUI, E.Correo AS Correo, C.Nombre AS Cargo\r\nFROM Usuario U\r\nINNER JOIN Empleado E ON U.id_Usuario = E.id_Usuario\r\nINNER JOIN Cargo C ON E.id_Cargo = C.Id_Cargo;\r\n";
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
 
             DataTable dt = new DataTable();

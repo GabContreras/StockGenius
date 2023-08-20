@@ -56,6 +56,30 @@ namespace Interfaces_ptc
             cbCargo.DataSource= dgvEmpleados.CurrentRow.Cells[1].Value;
 
         }
-       
+
+        private void btnNewCat_Click(object sender, EventArgs e)
+        {
+            frmCargo cat = new frmCargo();
+            cat.ShowDialog();
+        }
+
+        private void frmEmpleados_DoubleClick(object sender, EventArgs e)
+        {
+           
+
+        }
+
+        private void dgvEmpleados_DoubleClick(object sender, EventArgs e)
+        {
+            txtNombreUsuario.Text = dgvEmpleados.CurrentRow.Cells[2].Value.ToString();
+            txtContraseña.Text = dgvEmpleados.CurrentRow.Cells[3].Value.ToString();
+            cbCargo.Text = dgvEmpleados.CurrentRow.Cells[9].Value.ToString();
+            txtNombre.Text = dgvEmpleados.CurrentRow.Cells[4].Value.ToString();
+            txtApellido.Text = dgvEmpleados.CurrentRow.Cells[5].Value.ToString();
+            txtTelefono.Text = dgvEmpleados.CurrentRow.Cells[6].Value.ToString();
+            txtDui.Text = dgvEmpleados.CurrentRow.Cells[7].Value.ToString();
+            txtCorreo.Text = dgvEmpleados.CurrentRow.Cells[8].Value.ToString();
+
+        }
     }
 }

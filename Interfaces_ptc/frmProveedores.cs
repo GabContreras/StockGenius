@@ -46,8 +46,16 @@ namespace Interfaces_ptc
             p.Nombre = txtNombre.Text;
             p.Direccion = txtDireccion.Text;
             p.Telefono = txtTelefono.Text;
-            p.InsertarProovedores();
-            MostrarProveedores();
+           
+            if (p.InsertarProovedores()==true)
+            {
+                MessageBox.Show("Proovedor agregado satisfactoriamente", "Éxito");
+                MostrarProveedores();
+            }
+            else
+            {
+                MessageBox.Show("Se produjo un error", "Advertencia");
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -56,7 +64,7 @@ namespace Interfaces_ptc
             Proveedores p = new Proveedores();
             if (p.EliminarProveedores(id) == true)
             {
-                MessageBox.Show("Registro eliminado satisfactoriamente", "Éxito");
+                MessageBox.Show("Proveedor eliminado satisfactoriamente", "Éxito");
                 MostrarProveedores();
             }
             else
@@ -75,7 +83,7 @@ namespace Interfaces_ptc
             p.Id_Proveedor = (int)dgvProveedores.CurrentRow.Cells[0].Value;
             if (p.ActualizarProveedores() == true)
             {
-                MessageBox.Show("Registro actualizado satisfactoriamente", "Éxito");
+                MessageBox.Show("Proveedor actualizado satisfactoriamente", "Éxito");
                 MostrarProveedores();
             }
             else
