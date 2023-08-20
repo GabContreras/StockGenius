@@ -119,7 +119,7 @@ namespace Interfaces_ptc
             p.Id_Producto= (int)dgvProductos.CurrentRow.Cells[0].Value;
             if (p.ActualizarProducto() == true)
             {
-                MessageBox.Show("Proveedor actualizado satisfactoriamente", "Éxito");
+                MessageBox.Show("Producto actualizado satisfactoriamente", "Éxito");
                 MostrarProductos();
             }
             else
@@ -127,6 +127,23 @@ namespace Interfaces_ptc
                 MessageBox.Show("Se produjo un error", "Advertencia");
             }
             MostrarProductos();
+        }
+
+        private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si el carácter es un número o el punto decimal
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                MessageBox.Show("Solo números y punto decimal son permitidos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+            }
+
+            // Permitir solo un punto decimal
+            if (e.KeyChar == '.' && ((TextBox)sender).Text.IndexOf('.') > -1)
+            {
+                MessageBox.Show("Solo se permite un punto decimal", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+            }
         }
     }
 }

@@ -25,7 +25,8 @@ namespace Modelos
         public static DataTable CargarDetallePedido()
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = "select * from Detalle_Pedido;";
+            string comando = "SELECT DP.Id_Detalle, DP.Id_Pedido, DP.Id_Producto, P.Nombre AS Nombre_Producto, DP.cantidad, P.PrecioUnitario,\r\n" +
+                "DP.cantidad * P.PrecioUnitario AS Total\r\nFROM Detalle_Pedido DP\r\nINNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto;";
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
 
             DataTable dt = new DataTable();
