@@ -74,19 +74,19 @@ namespace Modelos
         public bool ActualizarPedido()
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = "update Pedido \r\nset Id_Cliente= @id_cliente, Id_Empleado= id_empleado, Fecha_Pedido= fecha_pedido  WHERE Id_Pedido = @id";
+            string comando = "update Pedido \r\n" +
+                             "set Id_Cliente = @id_cliente, Id_Empleado = @id_empleado, Fecha_Pedido = @fecha_pedido \r\n" +
+                             "WHERE Id_Pedido = @id";
             SqlCommand cmd = new SqlCommand(comando, con);
-            cmd.Parameters.AddWithValue("@id_cliente", id_Cliente);
-            cmd.Parameters.AddWithValue("@id_empleado", id_Empleado);
-            cmd.Parameters.AddWithValue("@fecha_pedido", fecha_Pedido);
-            cmd.Parameters.AddWithValue("@id", id_Pedido);
-
+            cmd.Parameters.AddWithValue("@id_cliente", Id_Cliente);
+            cmd.Parameters.AddWithValue("@id_empleado", Id_Empleado);
+            cmd.Parameters.AddWithValue("@fecha_pedido", Fecha_Pedido);
+            cmd.Parameters.AddWithValue("@id", Id_Pedido);
 
             if (cmd.ExecuteNonQuery() > 0)
             {
                 return true;
             }
-
             else
             {
                 return false;

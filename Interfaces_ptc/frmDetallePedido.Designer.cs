@@ -98,6 +98,7 @@
             this.dgvDetallePedido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDetallePedido.Size = new System.Drawing.Size(622, 212);
             this.dgvDetallePedido.TabIndex = 4;
+            this.dgvDetallePedido.DoubleClick += new System.EventHandler(this.dgvDetallePedido_DoubleClick);
             // 
             // tableLayoutPanel2
             // 
@@ -248,6 +249,7 @@
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(305, 26);
             this.txtCantidad.TabIndex = 112;
+            this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // label3
             // 
@@ -292,6 +294,7 @@
             this.btnEliminar.TabIndex = 107;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnActualizar
             // 
@@ -307,6 +310,7 @@
             this.btnActualizar.TabIndex = 106;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = false;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnAgregar
             // 
@@ -321,6 +325,7 @@
             this.btnAgregar.TabIndex = 105;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // tableLayoutPanel9
             // 

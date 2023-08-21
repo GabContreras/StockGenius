@@ -132,10 +132,10 @@ namespace Interfaces_ptc
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             Pedido p = new Pedido();
+            p.Id_Pedido = (int)dgvPedido.CurrentRow.Cells[0].Value;
             p.Id_Cliente = (int)cbCliente.SelectedValue;
             p.Id_Empleado = (int)cbEmpleado.SelectedValue;
             p.Fecha_Pedido = dtpFecha.Value;
-            p.Id_Pedido = (int)dgvPedido.CurrentRow.Cells[0].Value;
             if (p.ActualizarPedido() == true)
             {
                 MessageBox.Show("Pedido actualizado satisfactoriamente", "Éxito");
@@ -145,6 +145,7 @@ namespace Interfaces_ptc
             {
                 MessageBox.Show("Se produjo un error", "Advertencia");
             }
+            MostrarPedido();
         }
     }
 }

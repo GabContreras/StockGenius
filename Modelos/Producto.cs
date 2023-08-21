@@ -77,7 +77,7 @@ namespace Modelos
         public bool ActualizarProducto()
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = "update Producto \r\nset nombre = @nombre,Descripcion=@descripcion, Stock=@stock, Id_Proveedor= @id_Proveedor, PrecioUnitario= @precioUnitario WHERE Id_Producto = @id";
+            string comando = "update Producto \r\n set nombre = @nombre,Descripcion=@descripcion, Stock=@stock, Id_Proveedor= @id_Proveedor, PrecioUnitario= @precioUnitario WHERE Id_Producto = @id";
             SqlCommand cmd = new SqlCommand(comando, con);
 
             cmd.Parameters.AddWithValue("@nombre", nombre);
@@ -85,6 +85,27 @@ namespace Modelos
             cmd.Parameters.AddWithValue("@stock", stock);
             cmd.Parameters.AddWithValue("@precioUnitario", precioUnitario);
             cmd.Parameters.AddWithValue("@id_Proveedor", id_Proveedor);
+            cmd.Parameters.AddWithValue("@id", id_Producto);
+
+
+            if (cmd.ExecuteNonQuery() > 0)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool ActualizarStock()
+        {
+            SqlConnection con = Conexion.Conectar();
+            string comando = "update Producto\r\nset stock=@stock\r\nwhere Id_Producto=@id;";
+            SqlCommand cmd = new SqlCommand(comando, con);
+
+            cmd.Parameters.AddWithValue("@stock", stock);
             cmd.Parameters.AddWithValue("@id", id_Producto);
 
 
