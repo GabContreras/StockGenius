@@ -39,9 +39,33 @@ namespace Interfaces_ptc
         {
             this.Close();
         }
+        private void CargarCarg()
+        {
+            //Manejo de excepciones 
+            //El código que puede dar error
+            try
+            {
+                cbCargo.DataSource = null;
+                cbCargo.DataSource = Cargo.CargarCargos();
 
+                //El valor que se muestra en el combobox
+                //Se coloca el nombre de la columna en la tabla
+                cbCargo.DisplayMember = "Nombre";
+
+                //Valor que no se muestra (id)
+                //Se coloca el nombre de la columna en la tabla
+                cbCargo.ValueMember = "Id_Cargo";
+            }
+
+            //Bloque de código por si da error
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         private void frmEmpleados_Load(object sender, EventArgs e)
         {
+            CargarCarg();
             MostrarEmpleados();
         }
         private void MostrarEmpleados()
@@ -80,6 +104,30 @@ namespace Interfaces_ptc
             txtDui.Text = dgvEmpleados.CurrentRow.Cells[7].Value.ToString();
             txtCorreo.Text = dgvEmpleados.CurrentRow.Cells[8].Value.ToString();
 
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            //@nombre, @apellido, @teléfono, @dui, @correo, @id_Cargo, @id_Usuario
+
+            Empleados p = new Empleados();
+            p.Nombre = txtNombre.Text;
+            p.Apellido = txtApellido.Text;
+            p.Telefono = txtTelefono.Text;
+            p.Dui = txtDui.Text;
+            p.Correo = txtCorreo.Text;
+            p.Id_cargo = (int)cbCargo.SelectedValue;
+            p.Id_Usuario = int.Parse(txtNombreUsuario.Text);
+
+            if (p.InsertarEmpleado() == true)
+            {
+                MessageBox.Show("Producto agregado satisfactoriamente", "Éxito");
+                MostrarEmpleados();
+            }
+            else
+            {
+                MessageBox.Show("Se produjo un error", "Advertencia");
+            }
         }
     }
 }

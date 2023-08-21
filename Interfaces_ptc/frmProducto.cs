@@ -72,7 +72,8 @@ namespace Interfaces_ptc
             txtNombre.Text = dgvProductos.CurrentRow.Cells[1].Value.ToString();
             txtDescripcion.Text = dgvProductos.CurrentRow.Cells[2].Value.ToString();
             txtStock.Text = dgvProductos.CurrentRow.Cells[3].Value.ToString();
-            cbProveedor.Text = dgvProductos.CurrentRow.Cells[4].Value.ToString();
+            cbProveedor.Text = dgvProductos.CurrentRow.Cells[5].Value.ToString();
+            txtPrecio.Text = dgvProductos.CurrentRow.Cells[4].Value.ToString();
 
         }
 
@@ -82,7 +83,8 @@ namespace Interfaces_ptc
             p.Nombre = txtNombre.Text;
             p.Descripcion = txtDescripcion.Text;
             p.Stock = int.Parse(txtStock.Text);
-            p.Id_Proveedor = (int)cbProveedor.SelectedValue; 
+            p.Id_Proveedor = (int)cbProveedor.SelectedValue;
+            p.PrecioUnitario = double.Parse(txtPrecio.Text);
             if (p.InsertarProducto() == true)
             {
                 MessageBox.Show("Producto agregado satisfactoriamente", "Éxito");
@@ -115,6 +117,7 @@ namespace Interfaces_ptc
             p.Nombre = txtNombre.Text;
             p.Descripcion = txtDescripcion.Text;
             p.Stock = int.Parse(txtStock.Text);
+            p.PrecioUnitario = double.Parse(txtPrecio.Text);
             p.Id_Proveedor = (int)cbProveedor.SelectedValue;
             p.Id_Producto= (int)dgvProductos.CurrentRow.Cells[0].Value;
             if (p.ActualizarProducto() == true)

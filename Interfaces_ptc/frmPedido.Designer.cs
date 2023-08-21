@@ -276,6 +276,7 @@
             this.btnEliminar.TabIndex = 108;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnActualizar
             // 
@@ -291,6 +292,7 @@
             this.btnActualizar.TabIndex = 107;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = false;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnAgregar
             // 
@@ -305,6 +307,7 @@
             this.btnAgregar.TabIndex = 106;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // tableLayoutPanel9
             // 
@@ -360,6 +363,7 @@
             this.dgvPedido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPedido.Size = new System.Drawing.Size(622, 218);
             this.dgvPedido.TabIndex = 0;
+            this.dgvPedido.DoubleClick += new System.EventHandler(this.dgvPedido_DoubleClick);
             // 
             // frmPedido
             // 

@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace Modelos
 {
@@ -36,6 +37,31 @@ namespace Modelos
             ad.Fill(dt);
             return dt;
 
+        }
+
+        public bool insertarCiente()
+        {
+            SqlConnection con = Conexion.Conectar();
+            string comando = "insert into Producto(Nombre, Apellido, DUI, Telefono, Dirección, Edad) values \r\n" +
+                "(@nombre, @apellido, @dui, @telefono, @dirección, @edad)";
+            SqlCommand cmd = new SqlCommand(comando, con);
+
+            cmd.Parameters.AddWithValue("@nombre", nombre);
+            cmd.Parameters.AddWithValue("@apellido", apellido);
+            cmd.Parameters.AddWithValue("@dui", dui);
+            cmd.Parameters.AddWithValue("@telefono", telefono);
+            cmd.Parameters.AddWithValue("@dirección", direccion);
+            cmd.Parameters.AddWithValue("@edad", edad);
+
+            if (cmd.ExecuteNonQuery() > 0)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
         }
     }
 }

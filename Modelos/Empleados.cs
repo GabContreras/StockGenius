@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace Modelos
 {
@@ -39,6 +40,34 @@ namespace Modelos
             ad.Fill(dt);
             return dt;
 
+        }
+
+
+        public bool InsertarEmpleado()
+        {
+            SqlConnection con = Conexion.Conectar();
+            string comando = "insert into Empleado (Nombre, Apellido, Teléfono, DUI, Correo, id_Cargo, id_Usuario) values \r\n" +
+                "(@nombre, @apellido, @teléfono, @dui, @correo, @id_Cargo, @id_Usuario)";
+            SqlCommand cmd = new SqlCommand(comando, con);
+
+            cmd.Parameters.AddWithValue("@nombre", nombre_Empleado);
+            cmd.Parameters.AddWithValue("@apellido", apellido);
+            cmd.Parameters.AddWithValue("@teléfono", telefono);
+            cmd.Parameters.AddWithValue("@dui", dui);
+            cmd.Parameters.AddWithValue("@correo", correo);
+            cmd.Parameters.AddWithValue("@id_Cargo", id_Cargo);
+            cmd.Parameters.AddWithValue("@id_Usuario", id_Usuario);
+
+
+            if (cmd.ExecuteNonQuery() > 0)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
         }
     }
 }

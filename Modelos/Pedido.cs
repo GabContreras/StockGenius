@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace Modelos
 {
@@ -23,13 +24,73 @@ namespace Modelos
         public static DataTable CargarPedido()
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = "select * from Pedido;";
+            string comando = "SELECT P.Id_Pedido, C.Nombre AS Nombre_Cliente, E.Nombre AS Nombre_Empleado, P.Fecha_Pedido\r\nFROM Pedido P\r\n" +
+                "INNER JOIN Cliente C ON P.Id_Cliente = C.Id_Cliente\r\nINNER JOIN Empleado E ON P.Id_Empleado = E.Id_Empleado;";
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
 
             DataTable dt = new DataTable();
             ad.Fill(dt);
             return dt;
 
+        }
+
+        public bool InsertarPedido()
+        {
+            SqlConnection con = Conexion.Conectar();
+            string comando = "insert into Pedido(Id_Cliente, Id_Empleado, Fecha_Pedido) values \r\n" +
+                "(@id_cliente, @id_empleado, @fecha_pedido)";
+            SqlCommand cmd = new SqlCommand(comando, con);
+            cmd.Parameters.AddWithValue("@id_cliente", id_Cliente);
+            cmd.Parameters.AddWithValue("@id_empleado", id_Empleado);
+            cmd.Parameters.AddWithValue("@fecha_pedido", fecha_Pedido);
+ 
+
+            if (cmd.ExecuteNonQuery() > 0)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+        }
+        public bool EliminarPedido(int id)
+        {
+            SqlConnection con = Conexion.Conectar();
+            string comando = "DELETE FROM Pedido WHERE Id_Pedido = @id_pedido";
+            SqlCommand cmd = new SqlCommand(comando, con);
+            cmd.Parameters.AddWithValue("@id_pedido", id);
+            if (cmd.ExecuteNonQuery() > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool ActualizarPedido()
+        {
+            SqlConnection con = Conexion.Conectar();
+            string comando = "update Pedido \r\nset Id_Cliente= @id_cliente, Id_Empleado= id_empleado, Fecha_Pedido= fecha_pedido  WHERE Id_Pedido = @id";
+            SqlCommand cmd = new SqlCommand(comando, con);
+            cmd.Parameters.AddWithValue("@id_cliente", id_Cliente);
+            cmd.Parameters.AddWithValue("@id_empleado", id_Empleado);
+            cmd.Parameters.AddWithValue("@fecha_pedido", fecha_Pedido);
+            cmd.Parameters.AddWithValue("@id", id_Pedido);
+
+
+            if (cmd.ExecuteNonQuery() > 0)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
         }
     }
 }
