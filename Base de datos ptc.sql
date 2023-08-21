@@ -27,7 +27,7 @@ create table Empleado(
 Id_Empleado int PRIMARY KEY identity(1,1),
 Nombre varchar(50) not null,
 Apellido varchar(50) not null,
-Teléfono varchar(15) unique not null,
+Teléfono varchar(50) unique not null,
 DUI varchar (9) unique not null,
 Correo varchar(50)unique not null,
 id_Cargo int not null,
@@ -49,7 +49,7 @@ create table proveedor(
 Id_Proveedor int PRIMARY KEY identity(1,1),
 Nombre varchar(50) not null,
 Dirección varchar(150) not null,
-Telefono varchar (15) unique not null
+Telefono varchar(50) unique not null
 );
 go
 
@@ -58,7 +58,7 @@ Id_Cliente int PRIMARY KEY identity(1,1),
 Nombre varchar(50) not null,
 Apellido varchar(50) not null,
 DUI varchar (9) unique not null,
-Telefono varchar (15) unique not null,
+Telefono varchar(50) unique not null,
 Dirección varchar(150) not null,
 Edad int check (edad>21)
 );
@@ -96,12 +96,12 @@ on update cascade
 );
 go
 
-create table Detalle_Pedido(
-Id_Detalle int PRIMARY KEY identity(1,1),
-Id_Pedido int not null,
-Id_Producto int not null,
-cantidad int not null check(cantidad>0),
-Total decimal(10,2) not null check (total>0),
+CREATE TABLE Detalle_Pedido (
+    Id_Detalle INT PRIMARY KEY IDENTITY(1, 1),
+    Id_Pedido INT NOT NULL,
+    Id_Producto INT NOT NULL,
+    Cantidad INT NOT NULL CHECK(Cantidad > 0),
+    Total DECIMAL(10, 2) -- Elimina el check y la asignación de Total aquí
 
 constraint FK_Pedido
 FOREIGN KEY (Id_Pedido) references Pedido(Id_Pedido)
@@ -110,8 +110,28 @@ on update cascade,
 constraint FK_Producto
 FOREIGN KEY (Id_Producto) references Producto(Id_Producto)
 on delete cascade 
-on update cascade
+on update cascade,
 );
+
+CREATE TRIGGER CalcularTotalDetallePedido
+ON Detalle_Pedido
+AFTER INSERT, UPDATE
+AS
+BEGIN
+    -- Actualizar el total en Detalle_Pedido usando el precio unitario de Producto
+    UPDATE DP
+    SET Total = P.PrecioUnitario * DP.Cantidad
+    FROM Detalle_Pedido AS DP
+    INNER JOIN inserted AS I ON DP.Id_Detalle = I.Id_Detalle
+    INNER JOIN Producto AS P ON DP.Id_Producto = P.Id_Producto;
+
+    -- Actualizar la cantidad en stock de Producto
+    UPDATE P
+    SET Stock = Stock - DP.Cantidad
+    FROM Producto AS P
+    INNER JOIN Detalle_Pedido AS DP ON P.Id_Producto = DP.Id_Producto
+    INNER JOIN inserted AS I ON DP.Id_Detalle = I.Id_Detalle;
+END;
 
 create table Factura(
 Id_Factura int PRIMARY KEY identity(1,1),
@@ -152,42 +172,42 @@ values ('Juanito', 'qwerty123'),
 go
 
 insert into Empleado(Nombre, Apellido, Teléfono, DUI, Correo, id_Cargo, id_Usuario)
-values ('Pedro', 'López', '7854-9654', '0809234-0', 'pedro@example.com', 2, 3),
-('Ana', 'García', '6543-9876', '1234567-8', 'ana@example.com', 1, 6),
-  ('Carlos', 'Ramírez', '7890-4321', '9876543-2', 'carlos@example.com', 3, 2),
-  ('Sofia', 'Morales', '6754-3241', '5678901-2', 'sofia@example.com', 5, 8),
-  ('Luis', 'González', '4532-9876', '4567890-1', 'luis@example.com', 2, 3),
-  ('María', 'Hernández', '3254-6754', '0987654-3', 'maria@example.com', 4, 1),
-  ('Andrés', 'López', '9856-3214', '8765432-1', 'andres@example.com', 3, 4),
-  ('Isabel', 'Martínez', '7412-3654', '5678910-2', 'isabel@example.com', 2, 9),
-  ('Eduardo', 'Fernández', '6302-9867', '3456789-0', 'eduardo@example.com', 6, 5),
-  ('Paola', 'Rojas', '8475-1236', '9012345-6', 'paola@example.com', 7, 7);
+values ('Pedro', 'López', '+503 7854-9654', '0809234-0', 'pedro@example.com', 2, 3),
+('Ana', 'García', '+503 6543-9876', '1234567-8', 'ana@example.com', 1, 6),
+  ('Carlos', 'Ramírez', '+503 7890-4321', '9876543-2', 'carlos@example.com', 3, 2),
+  ('Sofia', 'Morales', '+503 6754-3241', '5678901-2', 'sofia@example.com', 5, 8),
+  ('Luis', 'González', '+503 4532-9876', '4567890-1', 'luis@example.com', 2, 3),
+  ('María', 'Hernández', '+503 3254-6754', '0987654-3', 'maria@example.com', 4, 1),
+  ('Andrés', 'López', '+503 9856-3214', '8765432-1', 'andres@example.com', 3, 4),
+  ('Isabel', 'Martínez', '+503 7412-3654', '5678910-2', 'isabel@example.com', 2, 9),
+  ('Eduardo', 'Fernández', '+503 6302-9867', '3456789-0', 'eduardo@example.com', 6, 5),
+  ('Paola', 'Rojas', '+503 8475-1236', '9012345-6', 'paola@example.com', 7, 7);
   go
 
 insert into Proveedor(Nombre, Dirección, Telefono)
-values('ElectroPro', 'Av. Tecnológica #456, San Salvador', '2222-3333'),
-      ('TecnoParts', 'Colonia Centro #789, Santa Tecla', '7777-8888'),
-      ('SuperTech', 'Colonia Moderna #123, San Salvador', '4444-5555'),
-	   ('ElectroPro', 'Av. Tecnológica #456, San Salvador', '2222-3353'),
-  ('TechnoPepe', 'Colonia norte #798, Santa Tecla', '7777-8889'),
-  ('SuperPepe', 'Colonia antigua #132, San Salvador', '4444-5535'),
-  ('MegaElectronics', 'Residencial Los Pinos #789, San Salvador', '6666-7777'),
-  ('TechZone', 'Colonia Escalón #567, San Salvador', '9999-0000'),
-  ('GadgetLand', 'Colonia Flor Blanca #432, San Salvador', '1111-2222'),
-  ('DigitalStore', 'Colonia Miramonte #987, San Salvador', '3333-4444');
+values('ElectroPro', 'Av. Tecnológica #456, San Salvador', '+503 2222-3333'),
+      ('TecnoParts', 'Colonia Centro #789, Santa Tecla', '+503 7777-8888'),
+      ('SuperTech', 'Colonia Moderna #123, San Salvador', '+503 4444-5555'),
+	   ('ElectroPro', 'Av. Tecnológica #456, San Salvador', '+503 2222-3353'),
+  ('TechnoPepe', 'Colonia norte #798, Santa Tecla', '+503 7777-8889'),
+  ('SuperPepe', 'Colonia antigua #132, San Salvador', '+503 4444-5535'),
+  ('MegaElectronics', 'Residencial Los Pinos #789, San Salvador', '+503 6666-7777'),
+  ('TechZone', 'Colonia Escalón #567, San Salvador', '+503 9999-0000'),
+  ('GadgetLand', 'Colonia Flor Blanca #432, San Salvador', '+503 1111-2222'),
+  ('DigitalStore', 'Colonia Miramonte #987, San Salvador', '+503 3333-4444');
   go
 
 	  insert into Cliente(Nombre, Apellido, DUI, Telefono, Dirección, Edad)
-values('Luis', 'Martínez', '1234567-8', '2222-1111', 'Col. Primavera #456, San Salvador', 28),
-      ('Ana', 'Gómez', '5678901-2', '7777-9999', 'Col. Flor Blanca #789, San Salvador', 35),
-      ('Roberto', 'Pérez', '9012345-6', '4444-7777', 'Col. Los Alamos #012, San Salvador', 42),
-	  ('Josue', 'Alvarado', '1232367-9', '2222-2222', 'Col. otoño #465, San Salvador', 53),
-  ('María', 'José', '5657894-4', '9999-9999', 'Col. Flor negra #798, San Salvador', 27),
-  ('Francisco', 'Pizarro', '1248759-8', '4444-4444', 'Col. Los Mataniños #021, San Salvador', 45),
-  ('María', 'Hernández', '3456789-0', '3333-6666', 'Col. San Benito #567, San Salvador', 24),
-  ('Carlos', 'López', '7890123-4', '8888-1111', 'Col. Escalón #789, San Salvador', 31),
-  ('Laura', 'Ramírez', '2345678-9', '5555-2222', 'Col. La Mascota #123, San Salvador', 29),
-  ('Pedro', 'García', '5614521-5', '9999-4444', 'Col. Miramonte #456, San Salvador', 37);
+values('Luis', 'Martínez', '1234567-8', '+503 2222-1111', 'Col. Primavera #456, San Salvador', 28),
+      ('Ana', 'Gómez', '5678901-2', '+503 7777-9999', 'Col. Flor Blanca #789, San Salvador', 35),
+      ('Roberto', 'Pérez', '9012345-6', '+503 4444-7777', 'Col. Los Alamos #012, San Salvador', 42),
+	  ('Josue', 'Alvarado', '1232367-9', '+503 2222-2222', 'Col. otoño #465, San Salvador', 53),
+  ('María', 'José', '5657894-4', '+503 9999-9999', 'Col. Flor negra #798, San Salvador', 27),
+  ('Francisco', 'Pizarro', '1248759-8', '+503 4444-4444', 'Col. Los Mataniños #021, San Salvador', 45),
+  ('María', 'Hernández', '3456789-0', '+503 3333-6666', 'Col. San Benito #567, San Salvador', 24),
+  ('Carlos', 'López', '7890123-4', '+503 8888-1111', 'Col. Escalón #789, San Salvador', 31),
+  ('Laura', 'Ramírez', '2345678-9', '+503 5555-2222', 'Col. La Mascota #123, San Salvador', 29),
+  ('Pedro', 'García', '5614521-5', '+503 9999-4444', 'Col. Miramonte #456, San Salvador', 37);
   go
   INSERT INTO Producto(Nombre, Descripcion, Stock, Id_Proveedor, PrecioUnitario)
 VALUES
@@ -275,3 +295,23 @@ SELECT P.Id_Pedido, C.Nombre AS Nombre_Cliente, E.Nombre AS Nombre_Empleado, P.F
 FROM Pedido P
 INNER JOIN Cliente C ON P.Id_Cliente = C.Id_Cliente
 INNER JOIN Empleado E ON P.Id_Empleado = E.Id_Empleado;
+
+
+
+select Stock from Producto
+where Id_Producto=11;
+
+update Producto
+set Stock=(((select Stock from Producto where Id_Producto=11)) + ((select cantidad from Detalle_Pedido where Id_Pedido=1)-490))
+where Id_Producto=11;
+
+
+update Producto
+set stock=500
+where Id_Producto=11;
+
+UPDATE Detalle_Pedido
+SET Id_Pedido = 1, Id_Producto = 11, cantidad = 499
+WHERE Id_Detalle = 22;
+
+select * from Detalle_Pedido where Id_Detalle=22;

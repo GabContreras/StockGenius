@@ -37,22 +37,23 @@ namespace Modelos
         }
         public bool InsertarDpedido()
         {
-            SqlConnection con = Conexion.Conectar();
-            string comando = "INSERT INTO Detalle_Pedido(Id_Pedido, Id_Producto, cantidad) VALUES (@Id_Pedido, @Id_Producto, @cantidad)";
-            SqlCommand cmd = new SqlCommand(comando, con);
+                SqlConnection con = Conexion.Conectar();
+                string comando = "INSERT INTO Detalle_Pedido(Id_Pedido, Id_Producto, cantidad) VALUES (@Id_Pedido, @Id_Producto, @cantidad)";
+                SqlCommand cmd = new SqlCommand(comando, con);
 
-            cmd.Parameters.AddWithValue("@Id_Pedido", id_pedido);
-            cmd.Parameters.AddWithValue("@Id_Producto", id_Producto);
-            cmd.Parameters.AddWithValue("@cantidad", cantidad);
+                cmd.Parameters.AddWithValue("@Id_Pedido", id_pedido);
+                cmd.Parameters.AddWithValue("@Id_Producto", id_Producto);
+                cmd.Parameters.AddWithValue("@cantidad", cantidad);
 
-            if (cmd.ExecuteNonQuery() > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+          
         }
         public bool EliminarDetallePedido(int Id)
         {
