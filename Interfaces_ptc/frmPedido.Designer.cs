@@ -142,6 +142,7 @@
             // cbEmpleado
             // 
             this.cbEmpleado.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbEmpleado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEmpleado.Font = new System.Drawing.Font("Cambria", 12F);
             this.cbEmpleado.ForeColor = System.Drawing.Color.Black;
             this.cbEmpleado.FormattingEnabled = true;
@@ -192,6 +193,7 @@
             // cbCliente
             // 
             this.cbCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCliente.Font = new System.Drawing.Font("Cambria", 12F);
             this.cbCliente.ForeColor = System.Drawing.Color.Black;
             this.cbCliente.FormattingEnabled = true;

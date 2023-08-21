@@ -79,21 +79,29 @@ namespace Interfaces_ptc
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            Producto p = new Producto();
-            p.Nombre = txtNombre.Text;
-            p.Descripcion = txtDescripcion.Text;
-            p.Stock = int.Parse(txtStock.Text);
-            p.Id_Proveedor = (int)cbProveedor.SelectedValue;
-            p.PrecioUnitario = double.Parse(txtPrecio.Text);
-            if (p.InsertarProducto() == true)
+            try
             {
-                MessageBox.Show("Producto agregado satisfactoriamente", "Éxito");
-                MostrarProductos();
+                Producto p = new Producto();
+                p.Nombre = txtNombre.Text;
+                p.Descripcion = txtDescripcion.Text;
+                p.Stock = int.Parse(txtStock.Text);
+                p.Id_Proveedor = (int)cbProveedor.SelectedValue;
+                p.PrecioUnitario = double.Parse(txtPrecio.Text);
+                if (p.InsertarProducto() == true)
+                {
+                    MessageBox.Show("Producto agregado satisfactoriamente", "Éxito");
+                    MostrarProductos();
+                }
+                else
+                {
+                    MessageBox.Show("Se produjo un error", "Advertencia");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Se produjo un error", "Advertencia");
+                MessageBox.Show(ex.Message);
             }
+            MostrarProductos();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -113,21 +121,28 @@ namespace Interfaces_ptc
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            Producto p = new Producto();
-            p.Nombre = txtNombre.Text;
-            p.Descripcion = txtDescripcion.Text;
-            p.Stock = int.Parse(txtStock.Text);
-            p.PrecioUnitario = double.Parse(txtPrecio.Text);
-            p.Id_Proveedor = (int)cbProveedor.SelectedValue;
-            p.Id_Producto= (int)dgvProductos.CurrentRow.Cells[0].Value;
-            if (p.ActualizarProducto() == true)
+            try
             {
-                MessageBox.Show("Producto actualizado satisfactoriamente", "Éxito");
-                MostrarProductos();
+                Producto p = new Producto();
+                p.Nombre = txtNombre.Text;
+                p.Descripcion = txtDescripcion.Text;
+                p.Stock = int.Parse(txtStock.Text);
+                p.PrecioUnitario = double.Parse(txtPrecio.Text);
+                p.Id_Proveedor = (int)cbProveedor.SelectedValue;
+                p.Id_Producto = (int)dgvProductos.CurrentRow.Cells[0].Value;
+                if (p.ActualizarProducto() == true)
+                {
+                    MessageBox.Show("Producto actualizado satisfactoriamente", "Éxito");
+                    MostrarProductos();
+                }
+                else
+                {
+                    MessageBox.Show("Se produjo un error", "Advertencia");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Se produjo un error", "Advertencia");
+                MessageBox.Show(ex.Message);
             }
             MostrarProductos();
         }
@@ -145,6 +160,16 @@ namespace Interfaces_ptc
             if (e.KeyChar == '.' && ((TextBox)sender).Text.IndexOf('.') > -1)
             {
                 MessageBox.Show("Solo se permite un punto decimal", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+            }
+        }
+
+        private void txtStock_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si el carácter es un número
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                MessageBox.Show("Solo números son permitidos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
             }
         }

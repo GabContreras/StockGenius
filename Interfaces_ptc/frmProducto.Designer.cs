@@ -115,6 +115,7 @@
             // cbProveedor
             // 
             this.cbProveedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbProveedor.Font = new System.Drawing.Font("Cambria", 12F);
             this.cbProveedor.ForeColor = System.Drawing.Color.Black;
             this.cbProveedor.FormattingEnabled = true;
@@ -164,6 +165,7 @@
             this.txtStock.Size = new System.Drawing.Size(305, 26);
             this.txtStock.TabIndex = 112;
             this.txtStock.TextChanged += new System.EventHandler(this.txtStock_TextChanged);
+            this.txtStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStock_KeyPress);
             // 
             // label2
             // 

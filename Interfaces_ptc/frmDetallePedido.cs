@@ -105,29 +105,36 @@ namespace Interfaces_ptc
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            DetallePedido p = new DetallePedido();
-            p.Id_pedido = int.Parse(cbPedido.Text);
-            p.Id_Producto = (int)cbProducto.SelectedValue;
-            p.Cantidad = int.Parse(txtCantidad.Text);
-
-            // Se obtiene la cantidad en stock actual
-            int stockActual = ObtenerStockProducto(p.Id_Producto);
-
-            if (stockActual >= p.Cantidad) // Se verifica si la cantidad excede el stock
+            try
             {
-                if (p.InsertarDpedido() == true)
+                DetallePedido p = new DetallePedido();
+                p.Id_pedido = int.Parse(cbPedido.Text);
+                p.Id_Producto = (int)cbProducto.SelectedValue;
+                p.Cantidad = int.Parse(txtCantidad.Text);
+
+                // Se obtiene la cantidad en stock actual
+                int stockActual = ObtenerStockProducto(p.Id_Producto);
+
+                if (stockActual >= p.Cantidad) // Se verifica si la cantidad excede el stock
                 {
-                    MessageBox.Show("Detalle agregado satisfactoriamente", "Éxito");
-                    MostrarDetallePedido();
+                    if (p.InsertarDpedido() == true)
+                    {
+                        MessageBox.Show("Detalle agregado satisfactoriamente", "Éxito");
+                        MostrarDetallePedido();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Se produjo un error", "Advertencia");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Se produjo un error", "Advertencia");
+                    MessageBox.Show("La cantidad solicitada excede el stock disponible", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("La cantidad solicitada excede el stock disponible", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(ex.Message);
             }
         }
         private int ObtenerStockProducto(int idProducto)
@@ -176,41 +183,47 @@ namespace Interfaces_ptc
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            Producto pp= new Producto();
-            pp.Stock= int.Parse(dgvDetallePedido.CurrentRow.Cells[4].Value.ToString());
-            pp.ActualizarStock();
-
-            DetallePedido p = new DetallePedido();
-            p.Id_pedido = int.Parse(cbPedido.Text);
-            p.Id_Producto = (int)cbProducto.SelectedValue;
-            p.Cantidad = int.Parse(txtCantidad.Text);
-            p.Id_Detalle = (int)dgvDetallePedido.CurrentRow.Cells[0].Value;
-
-            int stockDisponible = ObtenerStockProducto(p.Id_Producto);
-
-            // Verificar si la cantidad actualizada excede el stock disponible
-            if (p.Cantidad > stockDisponible)
+            try
             {
-                MessageBox.Show("La cantidad a actualizar excede el stock disponible", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
+                Producto pp = new Producto();
+                pp.Stock = int.Parse(dgvDetallePedido.CurrentRow.Cells[4].Value.ToString());
+                pp.ActualizarStock();
 
-            // Realizar la actualización en la base de datos
-            if (p.ActualizarDPedido())
+                DetallePedido p = new DetallePedido();
+                p.Id_pedido = int.Parse(cbPedido.Text);
+                p.Id_Producto = (int)cbProducto.SelectedValue;
+                p.Cantidad = int.Parse(txtCantidad.Text);
+                p.Id_Detalle = (int)dgvDetallePedido.CurrentRow.Cells[0].Value;
+
+                int stockDisponible = ObtenerStockProducto(p.Id_Producto);
+
+                // Verificar si la cantidad actualizada excede el stock disponible
+                if (p.Cantidad > stockDisponible)
+                {
+                    MessageBox.Show("La cantidad a actualizar excede el stock disponible", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+
+                // Realizar la actualización en la base de datos
+                if (p.ActualizarDPedido())
+                {
+                    // Actualizar el stock en la base de datos
+                    int cantidadAnterior = Convert.ToInt32(dgvDetallePedido.CurrentRow.Cells["cantidad"].Value);
+                    int cantidadDiferencia = cantidadAnterior - p.Cantidad;
+                    p.ActualizarStockProducto(p.Id_Producto, cantidadDiferencia);
+
+                    MessageBox.Show("Detalle actualizado satisfactoriamente", "Éxito");
+                    MostrarDetallePedido();
+                }
+                else
+                {
+                    MessageBox.Show("Se produjo un error al actualizar el detalle", "Advertencia");
+                }
+            }
+            catch (Exception ex)
             {
-                // Actualizar el stock en la base de datos
-                int cantidadAnterior = Convert.ToInt32(dgvDetallePedido.CurrentRow.Cells["cantidad"].Value);
-                int cantidadDiferencia = cantidadAnterior - p.Cantidad;
-                p.ActualizarStockProducto(p.Id_Producto, cantidadDiferencia);
-
-                MessageBox.Show("Detalle actualizado satisfactoriamente", "Éxito");
-                MostrarDetallePedido();
+                MessageBox.Show(ex.Message);
             }
-            else
-            {
-                MessageBox.Show("Se produjo un error al actualizar el detalle", "Advertencia");
-            }
-
             MostrarDetallePedido();
         }
     }

@@ -561,6 +561,7 @@
             // cbCargo
             // 
             this.cbCargo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbCargo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCargo.Font = new System.Drawing.Font("Cambria", 12F);
             this.cbCargo.ForeColor = System.Drawing.Color.Black;
             this.cbCargo.FormattingEnabled = true;

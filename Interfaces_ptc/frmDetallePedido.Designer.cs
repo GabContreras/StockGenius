@@ -163,6 +163,7 @@
             // cbPedido
             // 
             this.cbPedido.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbPedido.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPedido.Font = new System.Drawing.Font("Cambria", 12F);
             this.cbPedido.ForeColor = System.Drawing.Color.Black;
             this.cbPedido.FormattingEnabled = true;
@@ -201,6 +202,7 @@
             // cbProducto
             // 
             this.cbProducto.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbProducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbProducto.Font = new System.Drawing.Font("Cambria", 12F);
             this.cbProducto.ForeColor = System.Drawing.Color.Black;
             this.cbProducto.FormattingEnabled = true;
