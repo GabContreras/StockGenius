@@ -59,7 +59,6 @@
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnNewCat = new System.Windows.Forms.Button();
             this.cbCargo = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
@@ -532,7 +531,6 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.Controls.Add(this.btnNewCat, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.cbCargo, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.label7, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -542,21 +540,6 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(712, 38);
             this.tableLayoutPanel5.TabIndex = 9;
-            // 
-            // btnNewCat
-            // 
-            this.btnNewCat.BackColor = System.Drawing.Color.DarkGreen;
-            this.btnNewCat.FlatAppearance.BorderSize = 0;
-            this.btnNewCat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNewCat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewCat.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnNewCat.Location = new System.Drawing.Point(695, 3);
-            this.btnNewCat.Name = "btnNewCat";
-            this.btnNewCat.Size = new System.Drawing.Size(14, 32);
-            this.btnNewCat.TabIndex = 118;
-            this.btnNewCat.Text = "+";
-            this.btnNewCat.UseVisualStyleBackColor = false;
-            this.btnNewCat.Click += new System.EventHandler(this.btnNewCat_Click);
             // 
             // cbCargo
             // 
@@ -695,7 +678,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dgvEmpleados;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        private System.Windows.Forms.Button btnNewCat;
         private System.Windows.Forms.ComboBox cbCargo;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;

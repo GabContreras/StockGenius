@@ -83,8 +83,7 @@ namespace Interfaces_ptc
 
         private void btnNewCat_Click(object sender, EventArgs e)
         {
-            frmCargo cat = new frmCargo();
-            cat.ShowDialog();
+            
         }
 
         private void frmEmpleados_DoubleClick(object sender, EventArgs e)

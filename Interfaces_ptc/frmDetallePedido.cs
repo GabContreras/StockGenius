@@ -186,7 +186,7 @@ namespace Interfaces_ptc
             try
              {
                     Producto pp = new Producto();
-                    pp.Stock = int.Parse(dgvDetallePedido.CurrentRow.Cells[4].Value.ToString());
+                    pp.Stock = (int)dgvDetallePedido.CurrentRow.Cells["cantidad"].Value;
                     pp.ActualizarStock();
 
                     DetallePedido p = new DetallePedido();
