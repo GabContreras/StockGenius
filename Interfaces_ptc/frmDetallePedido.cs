@@ -1,5 +1,6 @@
 ﻿using Modelos;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,6 +22,23 @@ namespace Interfaces_ptc
 
         private void button2_Click(object sender, EventArgs e)
         {
+        }
+        public bool ActualizarStockProducto(int productoId, int cantidad, int stock)
+        {
+            SqlConnection con = Conexion.Conectar();
+            string comando = "UPDATE Producto SET Stock = @stock + @Cantidad WHERE Id_Producto = @Id_Producto";
+            SqlCommand cmd = new SqlCommand(comando, con);
+            cmd.Parameters.AddWithValue("@Cantidad", cantidad);
+            cmd.Parameters.AddWithValue("@Id_Producto", productoId);
+            cmd.Parameters.AddWithValue("@stock", stock);
+            if (cmd.ExecuteNonQuery() > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -165,11 +183,12 @@ namespace Interfaces_ptc
 
                 int detalleId = Convert.ToInt32(dgvDetallePedido.SelectedRows[0].Cells["Id_Detalle"].Value);
                 int productoId = Convert.ToInt32(dgvDetallePedido.SelectedRows[0].Cells["Id_Producto"].Value);
+                int sstock= Convert.ToInt32(dgvDetallePedido.SelectedRows[0].Cells["stock"].Value);
                 int cantidadEliminada = Convert.ToInt32(dgvDetallePedido.SelectedRows[0].Cells["cantidad"].Value);
 
                 if (p.EliminarDetallePedido(detalleId))
                 {
-                    p.ActualizarStockProducto(productoId, cantidadEliminada);
+                    ActualizarStockProducto(productoId, cantidadEliminada, sstock);
 
                     MessageBox.Show("Detalle eliminado satisfactoriamente", "Éxito");
                     MostrarDetallePedido();
@@ -183,56 +202,32 @@ namespace Interfaces_ptc
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            try
-             {
-                    Producto pp = new Producto();
-                    pp.Stock = (int)dgvDetallePedido.CurrentRow.Cells["cantidad"].Value;
-                    pp.ActualizarStock();
+            // Crear un objeto de Producto para actualizar el stock
+            Producto pp = new Producto();
+            int productoId= int.Parse(dgvDetallePedido.CurrentRow.Cells[2].Value.ToString());
+            int stock = int.Parse(dgvDetallePedido.CurrentRow.Cells[7].Value.ToString());
+            int cantidad= int.Parse(dgvDetallePedido.CurrentRow.Cells[4].Value.ToString()); 
 
-                    DetallePedido p = new DetallePedido();
-                    p.Id_pedido = int.Parse(cbPedido.Text);
-                    p.Id_Producto = (int)cbProducto.SelectedValue;
-                    p.Cantidad = int.Parse(txtCantidad.Text);
-                    p.Id_Detalle = (int)dgvDetallePedido.CurrentRow.Cells[0].Value;
+            // Crear un objeto de DetallePedido para actualizar el detalle
+            DetallePedido p = new DetallePedido();
+            p.Id_Detalle = int.Parse(dgvDetallePedido.CurrentRow.Cells[0].Value.ToString());
+            p.Id_pedido = int.Parse(cbPedido.Text);
+            p.Id_Producto = (int)cbProducto.SelectedValue;
+            p.Cantidad = int.Parse(dgvDetallePedido.CurrentRow.Cells[4].Value.ToString());
+                     
 
-                    int stockDisponible = ObtenerStockProducto(p.Id_Producto);
-                   // Realizar la actualización en la base de datos
-                    bool detalleActualizado = p.ActualizarDPedido();
-                    bool stockActualizado = false;
-
-                    if (detalleActualizado)
-                    {
-                        // Calcular la diferencia en el stock
-                        int cantidadAnterior = Convert.ToInt32(dgvDetallePedido.CurrentRow.Cells["cantidad"].Value);
-                        int cantidadDiferencia = cantidadAnterior - p.Cantidad;
-
-                        // Actualizar el stock en la base de datos
-                        stockActualizado = p.ActualizarStockProducto(p.Id_Producto, cantidadDiferencia);
-                    }
-
-                // Verificar si la cantidad actualizada excede el stock disponible
-                if (p.Cantidad > stockDisponible)
-                {
-                    MessageBox.Show("La cantidad a actualizar excede el stock disponible", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return;
-                }
-
-                if (detalleActualizado && stockActualizado)
-                 {
-                        MessageBox.Show("Detalle y stock actualizados satisfactoriamente", "Éxito");
-                        MostrarDetallePedido();
-                }
-                    else
-                    {
-                        MessageBox.Show("Se produjo un error al actualizar el detalle o el stock", "Advertencia");
-                    }
-            }
-                catch (Exception ex)
+            if (ActualizarStockProducto(productoId, cantidad, stock))
             {
-                    MessageBox.Show(ex.Message);
+                p.ActualizarDPedido();
+                
+                    MessageBox.Show("Detalle y stock actualizados satisfactoriamente", "Éxito");
+                    MostrarDetallePedido();
+                            
             }
-                MostrarDetallePedido();
-
+            else
+            {
+                MessageBox.Show("Se produjo un error al actualizar el stock", "Advertencia");
+            }
         }
     }
 }

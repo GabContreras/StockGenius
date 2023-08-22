@@ -26,8 +26,9 @@ namespace Modelos
         public static DataTable CargarDetallePedido()
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = "SELECT DP.Id_Detalle, DP.Id_Pedido, DP.Id_Producto, P.Nombre AS Nombre_Producto, DP.cantidad, P.PrecioUnitario,\r\n" +
-                "DP.cantidad * P.PrecioUnitario AS Total\r\nFROM Detalle_Pedido DP\r\nINNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto;";
+            string comando = "SELECT\r\n    DP.Id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Nombre_Producto,DP.cantidad,P.PrecioUnitario,\r\n  " +
+                "  DP.cantidad * P.PrecioUnitario AS Total,\r\n    P.Stock AS Stock\r\nFROM Detalle_Pedido DP\r\n" +
+                "INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto;";
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
 
             DataTable dt = new DataTable();
@@ -71,22 +72,7 @@ namespace Modelos
                 return false;
             }
         }
-        public bool ActualizarStockProducto(int productoId, int cantidad)
-        {
-            SqlConnection con = Conexion.Conectar();
-            string comando = "UPDATE Producto SET Stock = Stock + @Cantidad WHERE Id_Producto = @Id_Producto";
-            SqlCommand cmd = new SqlCommand(comando, con);
-            cmd.Parameters.AddWithValue("@Cantidad", cantidad);
-            cmd.Parameters.AddWithValue("@Id_Producto", productoId);
-            if (cmd.ExecuteNonQuery() > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+        
         public bool ActualizarDPedido()
         {
             SqlConnection con = Conexion.Conectar();

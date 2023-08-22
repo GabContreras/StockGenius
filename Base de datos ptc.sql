@@ -320,3 +320,16 @@ select * from Producto ;
 INSERT INTO Detalle_Pedido(Id_Pedido, Id_Producto, cantidad) VALUES (10,1, 3)
 
 select * from Detalle_Pedido;
+
+
+SELECT
+    DP.Id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Nombre_Producto,DP.cantidad,P.PrecioUnitario,
+    DP.cantidad * P.PrecioUnitario AS Total,
+    P.Stock AS Stock_Producto
+FROM Detalle_Pedido DP
+INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto;
+
+UPDATE Producto
+SET Stock = 499 + (SELECT Stock FROM Producto WHERE Id_Producto = 11)
+WHERE Id_Producto = 11;
+
