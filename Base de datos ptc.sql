@@ -307,11 +307,16 @@ where Id_Producto=11;
 
 
 update Producto
-set stock=500
+set stock=100
 where Id_Producto=11;
 
 UPDATE Detalle_Pedido
-SET Id_Pedido = 1, Id_Producto = 11, cantidad = 499
-WHERE Id_Detalle = 22;
+SET Id_Pedido = 1, Id_Producto = 11, cantidad = 99
+WHERE Id_Detalle = 11;
 
-select * from Detalle_Pedido where Id_Detalle=22;
+select * from Producto ;
+
+
+INSERT INTO Detalle_Pedido(Id_Pedido, Id_Producto, cantidad) VALUES (10,1, 3)
+
+select * from Detalle_Pedido;

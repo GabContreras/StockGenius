@@ -62,23 +62,37 @@ namespace Modelos
             SqlCommand cmd = new SqlCommand(comando, con);
             cmd.Parameters.AddWithValue("@Id_Detalle", Id);
 
-            return cmd.ExecuteNonQuery() > 0;
+            if (cmd.ExecuteNonQuery() > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
-        public void ActualizarStockProducto(int productoId, int cantidad)
+        public bool ActualizarStockProducto(int productoId, int cantidad)
         {
             SqlConnection con = Conexion.Conectar();
             string comando = "UPDATE Producto SET Stock = Stock + @Cantidad WHERE Id_Producto = @Id_Producto";
             SqlCommand cmd = new SqlCommand(comando, con);
             cmd.Parameters.AddWithValue("@Cantidad", cantidad);
             cmd.Parameters.AddWithValue("@Id_Producto", productoId);
-            cmd.ExecuteNonQuery();
+            if (cmd.ExecuteNonQuery() > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         public bool ActualizarDPedido()
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = "UPDATE Detalle_Pedido\r\n " +
-                             "SET Id_Pedido = @Id_Pedido, Id_Producto = @Id_Producto, cantidad = @cantidad\r\n " +
-                             "WHERE Id_Detalle = @id";
+            string comando = "UPDATE Detalle_Pedido\r\n" +
+                "SET Id_Pedido = @Id_Pedido, Id_Producto = @Id_Producto, cantidad = @cantidad\r\n" +
+                "WHERE Id_Detalle = @id;\r\n";
 
             SqlCommand cmd = new SqlCommand(comando, con);
 

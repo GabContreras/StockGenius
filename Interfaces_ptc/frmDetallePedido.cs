@@ -184,18 +184,31 @@ namespace Interfaces_ptc
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             try
-            {
-                Producto pp = new Producto();
-                pp.Stock = int.Parse(dgvDetallePedido.CurrentRow.Cells[4].Value.ToString());
-                pp.ActualizarStock();
+             {
+                    Producto pp = new Producto();
+                    pp.Stock = int.Parse(dgvDetallePedido.CurrentRow.Cells[4].Value.ToString());
+                    pp.ActualizarStock();
 
-                DetallePedido p = new DetallePedido();
-                p.Id_pedido = int.Parse(cbPedido.Text);
-                p.Id_Producto = (int)cbProducto.SelectedValue;
-                p.Cantidad = int.Parse(txtCantidad.Text);
-                p.Id_Detalle = (int)dgvDetallePedido.CurrentRow.Cells[0].Value;
+                    DetallePedido p = new DetallePedido();
+                    p.Id_pedido = int.Parse(cbPedido.Text);
+                    p.Id_Producto = (int)cbProducto.SelectedValue;
+                    p.Cantidad = int.Parse(txtCantidad.Text);
+                    p.Id_Detalle = (int)dgvDetallePedido.CurrentRow.Cells[0].Value;
 
-                int stockDisponible = ObtenerStockProducto(p.Id_Producto);
+                    int stockDisponible = ObtenerStockProducto(p.Id_Producto);
+                   // Realizar la actualización en la base de datos
+                    bool detalleActualizado = p.ActualizarDPedido();
+                    bool stockActualizado = false;
+
+                    if (detalleActualizado)
+                    {
+                        // Calcular la diferencia en el stock
+                        int cantidadAnterior = Convert.ToInt32(dgvDetallePedido.CurrentRow.Cells["cantidad"].Value);
+                        int cantidadDiferencia = cantidadAnterior - p.Cantidad;
+
+                        // Actualizar el stock en la base de datos
+                        stockActualizado = p.ActualizarStockProducto(p.Id_Producto, cantidadDiferencia);
+                    }
 
                 // Verificar si la cantidad actualizada excede el stock disponible
                 if (p.Cantidad > stockDisponible)
@@ -204,27 +217,22 @@ namespace Interfaces_ptc
                     return;
                 }
 
-                // Realizar la actualización en la base de datos
-                if (p.ActualizarDPedido())
-                {
-                    // Actualizar el stock en la base de datos
-                    int cantidadAnterior = Convert.ToInt32(dgvDetallePedido.CurrentRow.Cells["cantidad"].Value);
-                    int cantidadDiferencia = cantidadAnterior - p.Cantidad;
-                    p.ActualizarStockProducto(p.Id_Producto, cantidadDiferencia);
-
-                    MessageBox.Show("Detalle actualizado satisfactoriamente", "Éxito");
-                    MostrarDetallePedido();
+                if (detalleActualizado && stockActualizado)
+                 {
+                        MessageBox.Show("Detalle y stock actualizados satisfactoriamente", "Éxito");
+                        MostrarDetallePedido();
                 }
-                else
-                {
-                    MessageBox.Show("Se produjo un error al actualizar el detalle", "Advertencia");
-                }
+                    else
+                    {
+                        MessageBox.Show("Se produjo un error al actualizar el detalle o el stock", "Advertencia");
+                    }
             }
-            catch (Exception ex)
+                catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message);
             }
-            MostrarDetallePedido();
+                MostrarDetallePedido();
+
         }
     }
 }
