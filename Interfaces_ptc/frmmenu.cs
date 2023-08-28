@@ -20,16 +20,14 @@ namespace Interfaces_ptc
             InitializeComponent();
             OcultarSubMenu();
 
-            if (u.Id_Rol == 1)
-            {
-            }
-            else if (u.Id_Rol == 2)
+            
+            if (u.Id_Rol == 2)
             { 
                 
             }
             else if(u.Id_Rol == 3)
             {
-                btnAdministrarEmpleados.Visible = false;
+                btnEmpleado.Visible = false;
                 btnProveedores.Visible= false; 
                 btnProducto.Visible= false;
             }
@@ -40,12 +38,18 @@ namespace Interfaces_ptc
                 btnCliente.Visible= false;
                 btnVentas.Visible = false;
             }
-            else if(u.Id_Rol==5) 
+            else if(u.Id_Rol==5)
             {
+                btnCliente.Visible = false;
+                btnEmpleado.Visible = false;
+                btnVentas.Visible = false;
             }
-           
+
+
         }
-         private void OcultarSubMenu()
+           
+    
+        private void OcultarSubMenu()
          {                
             panelVentasubMenu.Visible = false;
          }

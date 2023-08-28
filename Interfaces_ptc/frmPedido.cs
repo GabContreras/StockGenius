@@ -99,55 +99,78 @@ namespace Interfaces_ptc
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            Pedido p = new Pedido();
-            p.Id_Cliente = (int)cbCliente.SelectedValue;
-            p.Id_Empleado = (int)cbEmpleado.SelectedValue;
-            p.Fecha_Pedido = dtpFecha.Value; 
-
-            if (p.InsertarPedido() == true)
+            try
             {
-                MessageBox.Show("Pedido agregado satisfactoriamente", "Éxito");
-                MostrarPedido();
-            }
-            else
-            {
-                MessageBox.Show("Se produjo un error al agregar el pedido", "Advertencia");
-            }
+                Pedido p = new Pedido();
+                p.Id_Cliente = (int)cbCliente.SelectedValue;
+                p.Id_Empleado = (int)cbEmpleado.SelectedValue;
+                p.Fecha_Pedido = dtpFecha.Value;
 
+                if (p.InsertarPedido() == true)
+                {
+                    MessageBox.Show("Pedido agregado satisfactoriamente", "Éxito");
+                    MostrarPedido();
+                }
+                else
+                {
+                    MessageBox.Show("Se produjo un error al agregar el pedido", "Advertencia");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            MostrarPedido();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            int id = int.Parse(dgvPedido.CurrentRow.Cells[0].Value.ToString());
-            Pedido p = new Pedido();
-            if (p.EliminarPedido(id) == true)
+            try
             {
-                MessageBox.Show("Pedido eliminado satisfactoriamente", "Éxito");
-                MostrarPedido();
+                int id = int.Parse(dgvPedido.CurrentRow.Cells[0].Value.ToString());
+                Pedido p = new Pedido();
+                if (p.EliminarPedido(id) == true)
+                {
+                    MessageBox.Show("Pedido eliminado satisfactoriamente", "Éxito");
+                    MostrarPedido();
+                }
+                else
+                {
+                    MessageBox.Show("Se produjo un error al eliminar el pedido", "Advertencia");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Se produjo un error al eliminar el pedido", "Advertencia");
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            Pedido p = new Pedido();
-            p.Id_Pedido = (int)dgvPedido.CurrentRow.Cells[0].Value;
-            p.Id_Cliente = (int)cbCliente.SelectedValue;
-            p.Id_Empleado = (int)cbEmpleado.SelectedValue;
-            p.Fecha_Pedido = dtpFecha.Value;
-            if (p.ActualizarPedido() == true)
+            try
             {
-                MessageBox.Show("Pedido actualizado satisfactoriamente", "Éxito");
+                Pedido p = new Pedido();
+                p.Id_Pedido = (int)dgvPedido.CurrentRow.Cells[0].Value;
+                p.Id_Cliente = (int)cbCliente.SelectedValue;
+                p.Id_Empleado = (int)cbEmpleado.SelectedValue;
+                p.Fecha_Pedido = dtpFecha.Value;
+                if (p.ActualizarPedido() == true)
+                {
+                    MessageBox.Show("Pedido actualizado satisfactoriamente", "Éxito");
+                    MostrarPedido();
+                }
+                else
+                {
+                    MessageBox.Show("Se produjo un error", "Advertencia");
+                }
                 MostrarPedido();
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Se produjo un error", "Advertencia");
+                MessageBox.Show(ex.Message);
             }
             MostrarPedido();
         }
+
     }
 }

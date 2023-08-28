@@ -31,11 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmmenu));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
-            this.btnAdministrarEmpleados = new System.Windows.Forms.Button();
+            this.btnEmpleado = new System.Windows.Forms.Button();
             this.panelVentasubMenu = new System.Windows.Forms.Panel();
             this.btnFactura = new System.Windows.Forms.Button();
             this.btnDetallePedido = new System.Windows.Forms.Button();
-            this.btnVentas = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelContenedor = new System.Windows.Forms.Panel();
@@ -46,6 +45,7 @@
             this.btnProducto = new System.Windows.Forms.Button();
             this.btnProveedores = new System.Windows.Forms.Button();
             this.btnAdministrarPedido = new System.Windows.Forms.Button();
+            this.btnVentas = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panelVentasubMenu.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -61,7 +61,7 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(0)))), ((int)(((byte)(90)))));
             this.panel1.Controls.Add(this.pictureBox4);
             this.panel1.Controls.Add(this.btnCerrarSesion);
-            this.panel1.Controls.Add(this.btnAdministrarEmpleados);
+            this.panel1.Controls.Add(this.btnEmpleado);
             this.panel1.Controls.Add(this.btnCliente);
             this.panel1.Controls.Add(this.btnProducto);
             this.panel1.Controls.Add(this.btnProveedores);
@@ -92,24 +92,24 @@
             this.btnCerrarSesion.UseVisualStyleBackColor = true;
             this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
             // 
-            // btnAdministrarEmpleados
+            // btnEmpleado
             // 
-            this.btnAdministrarEmpleados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(0)))), ((int)(((byte)(90)))));
-            this.btnAdministrarEmpleados.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAdministrarEmpleados.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAdministrarEmpleados.FlatAppearance.BorderSize = 0;
-            this.btnAdministrarEmpleados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdministrarEmpleados.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdministrarEmpleados.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAdministrarEmpleados.Location = new System.Drawing.Point(0, 381);
-            this.btnAdministrarEmpleados.Name = "btnAdministrarEmpleados";
-            this.btnAdministrarEmpleados.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnAdministrarEmpleados.Size = new System.Drawing.Size(250, 44);
-            this.btnAdministrarEmpleados.TabIndex = 5;
-            this.btnAdministrarEmpleados.Text = "Empleados";
-            this.btnAdministrarEmpleados.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdministrarEmpleados.UseVisualStyleBackColor = false;
-            this.btnAdministrarEmpleados.Click += new System.EventHandler(this.btnAdministrarEmpleados_Click);
+            this.btnEmpleado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(0)))), ((int)(((byte)(90)))));
+            this.btnEmpleado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnEmpleado.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnEmpleado.FlatAppearance.BorderSize = 0;
+            this.btnEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEmpleado.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmpleado.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnEmpleado.Location = new System.Drawing.Point(0, 381);
+            this.btnEmpleado.Name = "btnEmpleado";
+            this.btnEmpleado.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnEmpleado.Size = new System.Drawing.Size(250, 44);
+            this.btnEmpleado.TabIndex = 5;
+            this.btnEmpleado.Text = "Empleados";
+            this.btnEmpleado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEmpleado.UseVisualStyleBackColor = false;
+            this.btnEmpleado.Click += new System.EventHandler(this.btnAdministrarEmpleados_Click);
             // 
             // panelVentasubMenu
             // 
@@ -158,25 +158,6 @@
             this.btnDetallePedido.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDetallePedido.UseVisualStyleBackColor = true;
             this.btnDetallePedido.Click += new System.EventHandler(this.btnFactura_Click);
-            // 
-            // btnVentas
-            // 
-            this.btnVentas.BackgroundImage = global::Interfaces_ptc.Properties.Resources.Emprendedor1;
-            this.btnVentas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnVentas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnVentas.FlatAppearance.BorderSize = 0;
-            this.btnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVentas.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVentas.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnVentas.Location = new System.Drawing.Point(0, 81);
-            this.btnVentas.Name = "btnVentas";
-            this.btnVentas.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnVentas.Size = new System.Drawing.Size(250, 45);
-            this.btnVentas.TabIndex = 0;
-            this.btnVentas.Text = "Ventas";
-            this.btnVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVentas.UseVisualStyleBackColor = true;
-            this.btnVentas.Click += new System.EventHandler(this.btnPedidos_Click);
             // 
             // panel2
             // 
@@ -246,7 +227,6 @@
             // 
             // btnCliente
             // 
-            this.btnCliente.BackgroundImage = global::Interfaces_ptc.Properties.Resources.iconoCliente;
             this.btnCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnCliente.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCliente.FlatAppearance.BorderSize = 0;
@@ -265,7 +245,6 @@
             // 
             // btnProducto
             // 
-            this.btnProducto.BackgroundImage = global::Interfaces_ptc.Properties.Resources.iconoProductos;
             this.btnProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnProducto.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnProducto.FlatAppearance.BorderSize = 0;
@@ -284,7 +263,6 @@
             // 
             // btnProveedores
             // 
-            this.btnProveedores.BackgroundImage = global::Interfaces_ptc.Properties.Resources.iconoProveedores;
             this.btnProveedores.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnProveedores.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnProveedores.FlatAppearance.BorderSize = 0;
@@ -318,6 +296,24 @@
             this.btnAdministrarPedido.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAdministrarPedido.UseVisualStyleBackColor = true;
             this.btnAdministrarPedido.Click += new System.EventHandler(this.btnDetallePedido_Click);
+            // 
+            // btnVentas
+            // 
+            this.btnVentas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnVentas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnVentas.FlatAppearance.BorderSize = 0;
+            this.btnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVentas.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVentas.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnVentas.Location = new System.Drawing.Point(0, 81);
+            this.btnVentas.Name = "btnVentas";
+            this.btnVentas.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnVentas.Size = new System.Drawing.Size(250, 45);
+            this.btnVentas.TabIndex = 0;
+            this.btnVentas.Text = "Ventas";
+            this.btnVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVentas.UseVisualStyleBackColor = true;
+            this.btnVentas.Click += new System.EventHandler(this.btnPedidos_Click);
             // 
             // frmmenu
             // 
@@ -363,7 +359,7 @@
         private System.Windows.Forms.Panel panelContenedor;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pbLogo;
-        private System.Windows.Forms.Button btnAdministrarEmpleados;
+        private System.Windows.Forms.Button btnEmpleado;
         private System.Windows.Forms.Button btnCerrarSesion;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;

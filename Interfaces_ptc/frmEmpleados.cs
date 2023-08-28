@@ -19,11 +19,9 @@ namespace Interfaces_ptc
         {
             InitializeComponent();
 
-            if (u.Id_Rol == 4)
-            {
+
                 btnEliminar.Visible = false;
-               
-            }
+        
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
