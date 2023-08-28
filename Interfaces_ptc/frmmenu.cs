@@ -138,41 +138,22 @@ namespace Interfaces_ptc
            
 
         }
-        
+
 
         private void frmmenu_FormClosed(object sender, FormClosedEventArgs e)
         {
-            
+           
         }
-
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {            
             frmLogin f = new frmLogin();
                 f.Show();
                 this.Hide();
         }
-        private bool confirmExit = true; // Variable para controlar la confirmación
+       
         private void frmmenu_FormClosing(object sender, FormClosingEventArgs e)
-        {           
-               if (confirmExit)
-            {
-                DialogResult result = MessageBox.Show("¿Estás seguro que deseas salir?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (result == DialogResult.No)
-                {
-                    e.Cancel = true; // Cancela el cierre del formulario
-                }
-                else if(result == DialogResult.Yes)
-                {
-                    Application.Exit();
-                }
-                else
-                {
-                    confirmExit = false;
-                    // No llames a Application.Exit() aquí
-                }
-            }
-            // Si selecciona "Sí", el formulario se cerrará normalmente.
+        {            
+          Application.Exit();         
         }
     }
 }
