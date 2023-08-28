@@ -35,7 +35,17 @@ namespace Modelos
             return dt;
 
         }
+        public static DataTable CargarStock()
+        {
+            SqlConnection con = Conexion.Conectar();
+            string comando = "SELECT Producto.Id_Producto, Producto.Nombre AS Nombre_Producto, Producto.Stock, Producto.PrecioUnitario, Proveedor.Nombre AS Nombre_Proveedor\r\n" +
+                "FROM Producto\r\nINNER JOIN Proveedor ON Producto.Id_Proveedor = Proveedor.Id_Proveedor;\r\n\r\n";
+            SqlDataAdapter ad = new SqlDataAdapter(comando, con);
+            DataTable dt = new DataTable();
+            ad.Fill(dt);
+            return dt;
 
+        }
         public bool InsertarProducto()
         {
             SqlConnection con = Conexion.Conectar();
@@ -98,26 +108,6 @@ namespace Modelos
                 return false;
             }
         }
-
-        public bool ActualizarStock()
-        {
-            SqlConnection con = Conexion.Conectar();
-            string comando = "update Producto\r\nset stock=@stock\r\nwhere Id_Producto=@id;";
-            SqlCommand cmd = new SqlCommand(comando, con);
-
-            cmd.Parameters.AddWithValue("@stock", stock);
-            cmd.Parameters.AddWithValue("@id", id_Producto);
-
-
-            if (cmd.ExecuteNonQuery() > 0)
-            {
-                return true;
-            }
-
-            else
-            {
-                return false;
-            }
-        }
+        
     }
 }

@@ -327,7 +327,7 @@
             this.btnPedidos.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnPedidos.Size = new System.Drawing.Size(250, 45);
             this.btnPedidos.TabIndex = 0;
-            this.btnPedidos.Text = "Pedido";
+            this.btnPedidos.Text = "Ventas";
             this.btnPedidos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPedidos.UseVisualStyleBackColor = true;
             this.btnPedidos.Click += new System.EventHandler(this.btnPedidos_Click);

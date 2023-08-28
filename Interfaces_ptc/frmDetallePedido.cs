@@ -157,6 +157,7 @@ namespace Interfaces_ptc
         }
         private int ObtenerStockProducto(int idProducto)
         {
+
             // se agrega la consulta para sabe cuanto hay en stock
             int stock = 0;
             SqlConnection con = Conexion.Conectar();
@@ -177,55 +178,34 @@ namespace Interfaces_ptc
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            int id = int.Parse(dgvDetallePedido.CurrentRow.Cells[0].Value.ToString());
-            DetallePedido p = new DetallePedido();
-            if (p.EliminarDetallePedido(id) == true)
-            {
-                MessageBox.Show("Producto eliminado satisfactoriamente", "Éxito");
-                MostrarDetallePedido();
-            }
-            else
-            {
-                MessageBox.Show("Se produjo un error", "Advertencia");
-            }
-        }
-
-        private void btnActualizar_Click(object sender, EventArgs e)
-        {
             try
             {
-                // Crear un objeto de Producto para actualizar el stock
-                Producto pp = new Producto();
-                int productoId = int.Parse(dgvDetallePedido.CurrentRow.Cells[2].Value.ToString());
-                int stock = int.Parse(dgvDetallePedido.CurrentRow.Cells[7].Value.ToString());
-                int cantidad = int.Parse(dgvDetallePedido.CurrentRow.Cells[4].Value.ToString());
-
-                // Crear un objeto de DetallePedido para actualizar el detalle
+                int id = int.Parse(dgvDetallePedido.CurrentRow.Cells[0].Value.ToString());
                 DetallePedido p = new DetallePedido();
-                p.Id_Detalle = int.Parse(dgvDetallePedido.CurrentRow.Cells[0].Value.ToString());
-                p.Id_pedido = int.Parse(cbPedido.Text);
-                p.Id_Producto = (int)cbProducto.SelectedValue;
-                p.Cantidad = int.Parse(dgvDetallePedido.CurrentRow.Cells[4].Value.ToString());
-
-
-                if (ActualizarStockProducto(productoId, cantidad, stock) == true)
+                if (p.EliminarDetallePedido(id) == true)
                 {
-                    if (p.ActualizarDPedido() == true)
-                    {
-                        MessageBox.Show("Detalle y stock actualizados satisfactoriamente", "Éxito");
-                        MostrarDetallePedido();
-                    }
-
+                    MessageBox.Show("Producto eliminado satisfactoriamente", "Éxito");
+                    MostrarDetallePedido();
                 }
                 else
                 {
-                    MessageBox.Show("Se produjo un error al actualizar el stock", "Advertencia");
+                    MessageBox.Show("Se produjo un error", "Advertencia");
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+         }
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            frmStock s= new frmStock();
+            s.ShowDialog();
         }
     }
 }

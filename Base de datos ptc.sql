@@ -45,6 +45,8 @@ on update cascade,
 );
 go
 
+select * from detalle_pedido;
+
 create table proveedor(
 Id_Proveedor int PRIMARY KEY identity(1,1),
 Nombre varchar(50) not null,
@@ -66,7 +68,7 @@ go
 
 Create table Producto(
 Id_Producto int PRIMARY KEY identity(1,1),
-Nombre varchar(50) not null,
+Nombre varchar(50) not null unique,
 Descripcion varchar(150) not null,
 Stock int not null check (Stock>=0),
 Id_Proveedor int not null,
@@ -115,7 +117,7 @@ on update cascade,
 
 CREATE TRIGGER CalcularTotalDetallePedido
 ON Detalle_Pedido
-AFTER INSERT, UPDATE
+AFTER INSERT,
 AS
 BEGIN
     -- Actualizar el total en Detalle_Pedido usando el precio unitario de Producto
@@ -319,18 +321,16 @@ INNER JOIN Empleado E ON P.Id_Empleado = E.Id_Empleado;
 select Stock from Producto
 where Id_Producto=11;
 
-update Producto
-set Stock=(((select Stock from Producto where Id_Producto=11)) + ((select cantidad from Detalle_Pedido where Id_Pedido=1)-490))
-where Id_Producto=11;
 
+select * from Detalle_Pedido
 
 update Producto
-set stock=100
+set stock=999+1
 where Id_Producto=11;
 
 UPDATE Detalle_Pedido
-SET Id_Pedido = 1, Id_Producto = 11, cantidad = 99
-WHERE Id_Detalle = 11;
+SET Id_Pedido = 1, Id_Producto = 11, cantidad = 999
+WHERE Id_Detalle = 18;
 
 select * from Producto ;
 

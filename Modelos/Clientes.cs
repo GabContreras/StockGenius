@@ -42,7 +42,7 @@ namespace Modelos
         public bool insertarCiente()
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = "insert into Producto(Nombre, Apellido, DUI, Telefono, Dirección, Edad) values \r\n" +
+            string comando = "insert into Cliente(Nombre, Apellido, DUI, Telefono, Dirección, Edad) values \r\n" +
                 "(@nombre, @apellido, @dui, @telefono, @dirección, @edad)";
             SqlCommand cmd = new SqlCommand(comando, con);
 
@@ -52,6 +52,47 @@ namespace Modelos
             cmd.Parameters.AddWithValue("@telefono", telefono);
             cmd.Parameters.AddWithValue("@dirección", direccion);
             cmd.Parameters.AddWithValue("@edad", edad);
+
+            if (cmd.ExecuteNonQuery() > 0)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+        }
+        public bool EliminarCliente(int Id)
+        {
+            SqlConnection con = Conexion.Conectar();
+            string comando = "DELETE FROM Cliente WHERE Id_Cliente = @Id_Cliente";
+            SqlCommand cmd = new SqlCommand(comando, con);
+            cmd.Parameters.AddWithValue("@Id_Cliente", Id);
+
+            if (cmd.ExecuteNonQuery() > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool ActualizarCliente()
+        {
+            SqlConnection con = Conexion.Conectar();
+            string comando = "update cliente \r\n set nombre = @nombre,apellido=@apellido, dui=@dui, " +
+                "telefono= @telefono, dirección= @dirección, edad=@edad WHERE id_cliente = @id";
+            SqlCommand cmd = new SqlCommand(comando, con);
+
+            cmd.Parameters.AddWithValue("@nombre", nombre);
+            cmd.Parameters.AddWithValue("@apellido", apellido);
+            cmd.Parameters.AddWithValue("@dui", dui);
+            cmd.Parameters.AddWithValue("@telefono", telefono);
+            cmd.Parameters.AddWithValue("@dirección", direccion);
+            cmd.Parameters.AddWithValue("@edad", edad);
+            cmd.Parameters.AddWithValue("@id", id_Cliente);
 
             if (cmd.ExecuteNonQuery() > 0)
             {

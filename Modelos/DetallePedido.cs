@@ -27,7 +27,7 @@ namespace Modelos
         {
             SqlConnection con = Conexion.Conectar();
             string comando = "SELECT\r\n    DP.Id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Nombre_Producto,DP.cantidad,P.PrecioUnitario,\r\n  " +
-                "  DP.cantidad * P.PrecioUnitario AS Total,\r\n    P.Stock AS Stock\r\nFROM Detalle_Pedido DP\r\n" +
+                "  DP.cantidad * P.PrecioUnitario AS Total\r\nFROM Detalle_Pedido DP\r\n" +
                 "INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto;";
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
 
@@ -72,29 +72,6 @@ namespace Modelos
                 return false;
             }
         }
-        
-        public bool ActualizarDPedido()
-        {
-            SqlConnection con = Conexion.Conectar();
-            string comando = "UPDATE Detalle_Pedido\r\n" +
-                "SET Id_Pedido = @Id_Pedido, Id_Producto = @Id_Producto, cantidad = @cantidad\r\n" +
-                "WHERE Id_Detalle = @id;\r\n";
 
-            SqlCommand cmd = new SqlCommand(comando, con);
-
-            cmd.Parameters.AddWithValue("@Id_Pedido", id_pedido);
-            cmd.Parameters.AddWithValue("@Id_Producto", id_Producto);
-            cmd.Parameters.AddWithValue("@cantidad", cantidad);
-            cmd.Parameters.AddWithValue("@id", Id_Detalle);
-
-            if (cmd.ExecuteNonQuery() > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
     }
 }
