@@ -133,6 +133,24 @@ BEGIN
     INNER JOIN inserted AS I ON DP.Id_Detalle = I.Id_Detalle;
 END;
 
+CREATE TRIGGER ActualizarStockDespuesEliminarDetalle
+ON Detalle_Pedido
+AFTER DELETE
+AS
+BEGIN
+    -- Obtener el Id_Producto y la cantidad eliminada del detalle borrado
+    DECLARE @Id_Producto INT;
+    DECLARE @CantidadEliminada INT;
+
+    SELECT @Id_Producto = Id_Producto, @CantidadEliminada = cantidad
+    FROM deleted;
+
+    -- Actualizar el stock en la tabla Producto sumando la cantidad eliminada
+    UPDATE Producto
+    SET Stock = Stock + @CantidadEliminada
+    WHERE Id_Producto = @Id_Producto;
+END;
+
 create table Factura(
 Id_Factura int PRIMARY KEY identity(1,1),
 Id_Pedido int not null,
