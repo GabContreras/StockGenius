@@ -145,15 +145,15 @@ namespace Interfaces_ptc
            
         }
         private void btnCerrarSesion_Click(object sender, EventArgs e)
-        {            
+        {
             frmLogin f = new frmLogin();
-                f.Show();
-                this.Hide();
+            f.Show();
+            this.Hide();
         }
        
         private void frmmenu_FormClosing(object sender, FormClosingEventArgs e)
-        {            
-          Application.Exit();         
+        {
+            Application.Exit();
         }
     }
 }
