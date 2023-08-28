@@ -200,5 +200,14 @@
       <Name>Modelos</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Emprendedor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dab.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Emprendedor1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

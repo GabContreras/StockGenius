@@ -15,9 +15,15 @@ namespace Interfaces_ptc
 {
     public partial class frmEmpleados : Form
     {
-        public frmEmpleados()
+        public frmEmpleados(Usuario u)
         {
             InitializeComponent();
+
+            if (u.Id_Rol == 4)
+            {
+                btnEliminar.Visible = false;
+               
+            }
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -39,22 +45,22 @@ namespace Interfaces_ptc
         {
             this.Close();
         }
-        private void CargarCarg()
+        private void CargarRol()
         {
             //Manejo de excepciones 
             //El código que puede dar error
             try
             {
-                cbCargo.DataSource = null;
-                cbCargo.DataSource = Cargo.CargarCargos();
+                cbRol.DataSource = null;
+                cbRol.DataSource = Roles.CargarRoles();
 
                 //El valor que se muestra en el combobox
                 //Se coloca el nombre de la columna en la tabla
-                cbCargo.DisplayMember = "Nombre";
+                cbRol.DisplayMember = "Nombre";
 
                 //Valor que no se muestra (id)
                 //Se coloca el nombre de la columna en la tabla
-                cbCargo.ValueMember = "Id_Cargo";
+                cbRol.ValueMember = "Id_Rol";
             }
 
             //Bloque de código por si da error
@@ -65,7 +71,7 @@ namespace Interfaces_ptc
         }
         private void frmEmpleados_Load(object sender, EventArgs e)
         {
-            CargarCarg();
+            CargarRol();
             MostrarEmpleados();
         }
         private void MostrarEmpleados()
@@ -77,7 +83,7 @@ namespace Interfaces_ptc
 
         private void cbCargo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cbCargo.DataSource= dgvEmpleados.CurrentRow.Cells[1].Value;
+            cbRol.DataSource= dgvEmpleados.CurrentRow.Cells[1].Value;
 
         }
 
@@ -91,17 +97,18 @@ namespace Interfaces_ptc
            
 
         }
-
+        //Agregar doubleclick cuando esté corregido
         private void dgvEmpleados_DoubleClick(object sender, EventArgs e)
         {
-            txtNombreUsuario.Text = dgvEmpleados.CurrentRow.Cells[2].Value.ToString();
-            txtContraseña.Text = dgvEmpleados.CurrentRow.Cells[3].Value.ToString();
-            cbCargo.Text = dgvEmpleados.CurrentRow.Cells[9].Value.ToString();
-            txtNombre.Text = dgvEmpleados.CurrentRow.Cells[4].Value.ToString();
-            txtApellido.Text = dgvEmpleados.CurrentRow.Cells[5].Value.ToString();
-            txtTelefono.Text = dgvEmpleados.CurrentRow.Cells[6].Value.ToString();
-            txtDui.Text = dgvEmpleados.CurrentRow.Cells[7].Value.ToString();
-            txtCorreo.Text = dgvEmpleados.CurrentRow.Cells[8].Value.ToString();
+            
+            //txtNombreUsuario.Text = dgvEmpleados.CurrentRow.Cells[7].Value.ToString();
+            ////txtContraseña.Text = dgvEmpleados.CurrentRow.Cells[3].Value.ToString();
+            //cbRol.Text = dgvEmpleados.CurrentRow.Cells[9].Value.ToString();
+            //txtNombre.Text = dgvEmpleados.CurrentRow.Cells[4].Value.ToString();
+            //txtApellido.Text = dgvEmpleados.CurrentRow.Cells[5].Value.ToString();
+            //txtTelefono.Text = dgvEmpleados.CurrentRow.Cells[6].Value.ToString();
+            //txtDui.Text = dgvEmpleados.CurrentRow.Cells[7].Value.ToString();
+            //txtCorreo.Text = dgvEmpleados.CurrentRow.Cells[8].Value.ToString();
 
         }
 
@@ -115,7 +122,8 @@ namespace Interfaces_ptc
             p.Telefono = txtTelefono.Text;
             p.Dui = txtDui.Text;
             p.Correo = txtCorreo.Text;
-            p.Id_cargo = (int)cbCargo.SelectedValue;
+            p.id_rol = (int)cbRol.SelectedValue;
+            //Agregar para insertar Cargo
             p.Id_Usuario = int.Parse(txtNombreUsuario.Text);
 
             if (p.InsertarEmpleado() == true)

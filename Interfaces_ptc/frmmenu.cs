@@ -8,22 +8,47 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
+using Modelos;
+using System.Diagnostics.Contracts;
 
 namespace Interfaces_ptc
 {
     public partial class frmmenu : Form
     {
-        public frmmenu()
+        public frmmenu(Usuario u)
         {
             InitializeComponent();
             OcultarSubMenu();
+
+            if (u.Id_Rol == 1)
+            {
+            }
+            else if (u.Id_Rol == 2)
+            { 
+                
+            }
+            else if(u.Id_Rol == 3)
+            {
+                btnAdministrarEmpleados.Visible = false;
+                btnProveedores.Visible= false; 
+                btnProducto.Visible= false;
+            }
+            else if(u.Id_Rol==4)
+            {
+                btnProveedores.Visible = false;
+                btnProducto.Visible = false;
+                btnCliente.Visible= false;
+                btnVentas.Visible = false;
+            }
+            else if(u.Id_Rol==5) 
+            {
+            }
+           
         }
          private void OcultarSubMenu()
-        {
-                
-                panelPedidosubMenu.Visible = false;
-
-        }
+         {                
+            panelVentasubMenu.Visible = false;
+         }
         private void mostrarSubMenu(Panel subMenu)
         {
             if (subMenu.Visible == false)
@@ -37,7 +62,7 @@ namespace Interfaces_ptc
 
         private void btnPedidos_Click(object sender, EventArgs e)
         {
-            mostrarSubMenu(panelPedidosubMenu);
+            mostrarSubMenu(panelVentasubMenu);
         }
         #region SubMenuPedidos
         private void btnDetallePedido_Click(object sender, EventArgs e)
@@ -62,7 +87,8 @@ namespace Interfaces_ptc
         #region SubmenuEmpleados
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
-            openChildFormInPanel(new frmEmpleados());
+            Usuario u = new Usuario();
+            openChildFormInPanel(new frmEmpleados(u));
             //Agregar código para abrir los formularios deseados
             OcultarSubMenu();
         }
@@ -128,7 +154,8 @@ namespace Interfaces_ptc
 
         private void btnAdministrarEmpleados_Click(object sender, EventArgs e)
         {
-            openChildFormInPanel(new frmEmpleados());
+            Usuario u = new Usuario();
+            openChildFormInPanel(new frmEmpleados(u));
             OcultarSubMenu();
         }
 

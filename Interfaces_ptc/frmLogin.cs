@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modelos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -83,15 +84,35 @@ namespace Interfaces_ptc
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            frmmenu menú = new frmmenu();
-            menú.Show();
-           
-            menú.FormClosed += delegate
+            Usuario u = new Usuario();
+            u.NombreUsuario= txtUser.Text;
+            u.Contraseña= txtPassword.Text;
+            try
             {
-                this.Show();
-            };
+                u = u.IniciarSesion();
 
-            this.Hide();
+                if(u==null)
+                {
+                    MessageBox.Show("Credenciales inválidas");
+                }
+                else 
+                {
+                    frmmenu menú = new frmmenu(u);
+                    menú.Show();
+
+                    menú.FormClosed += delegate
+                    {
+                        this.Show();
+                    };
+
+                    this.Hide();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         private bool controlTimer = false;
@@ -169,6 +190,16 @@ namespace Interfaces_ptc
             {
                 txtPassword.UseSystemPasswordChar = true;
             }
+        }
+
+        private void btnsalir2_Click(object sender, EventArgs e)
+        {
+            this.Close();   
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

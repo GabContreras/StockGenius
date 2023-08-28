@@ -10,8 +10,8 @@ go
 use BaseDeDatosPtc
 go
 
-create table Cargo(
-Id_Cargo int PRIMARY KEY identity(1,1) ,
+create table Rol(
+id_Rol int PRIMARY KEY identity(1,1),
 Nombre Varchar(50) not null unique
 );
 go
@@ -19,7 +19,13 @@ go
 Create table Usuario(
 Id_Usuario int PRIMARY KEY identity(1,1),
 NombreUsuario varchar(30) unique not null, 
-contraseña varchar(100) not null
+contraseña varchar(100) not null,
+id_Rol int not null
+
+constraint FK_Rol
+FOREIGN KEY (id_Rol) references Rol(id_Rol)
+on delete cascade
+on update cascade
 );
 go
 
@@ -30,18 +36,13 @@ Apellido varchar(50) not null,
 Teléfono varchar(50) unique not null,
 DUI varchar (9) unique not null,
 Correo varchar(50)unique not null,
-id_Cargo int not null,
+Cargo varchar (50) not null,
 id_Usuario int not null,
 
-constraint FK_Cargo
-FOREIGN KEY (id_Cargo) references Cargo(id_Cargo)
-on delete cascade
-on update cascade,
 constraint FK_Usuario
 FOREIGN KEY(id_Usuario) references Usuario(id_Usuario)
 on delete cascade
-on update cascade,
-
+on update cascade
 );
 go
 
@@ -127,7 +128,7 @@ on update cascade
 go
 
 
-insert into Cargo(Nombre)
+insert into Rol(Nombre)
 values ('Administrador'),
 ('Gerente General'),
 ('Vendedor'),
@@ -135,181 +136,30 @@ values ('Administrador'),
 ('Gerente de compras');
 go
 
-insert into Usuario(NombreUsuario, contraseña)
-values ('Juanito', 'qwerty123'), 
-('Laura', 'pass1234'), 
-('Admin', 'adminpass'), 
-('Carlos45', 'abcde6789'),
-('Pepe23', 'Elpepe234'),
-('Maria82', 'maria123'), 
-('Pedro_12', 'p@ssw0rd'),
-('AnaBanana', 'banana321'),
-('JuanSoto', 'juansoto#'), 
-('ElenaG', 'elenita456');
+insert into Usuario(NombreUsuario, contraseña,id_Rol)
+values ('Admin1', 'contraseña1',1), 
+('GerenteG1', 'contraseña2',2), 
+('Vendedor1', 'contraseña3',3), 
+('Técnico1', 'contraseña4',4),
+('GerenteC1', 'contraseña5',5);
 go
 
-select Id_Cliente ,concat (Nombre,' ', Apellido, '', DUI ) as 'Cliente' from cliente;
+select * from usuario 
 
-insert into Empleado(Nombre, Apellido, Teléfono, DUI, Correo, id_Cargo, id_Usuario)
-values ('Pedro', 'López', '+503 7854-9654', '0809234-0', 'pedro@example.com', 2, 3),
-('Ana', 'García', '+503 6543-9876', '1234567-8', 'ana@example.com', 1, 6),
-  ('Carlos', 'Ramírez', '+503 7890-4321', '9876543-2', 'carlos@example.com', 3, 2),
-  ('Sofia', 'Morales', '+503 6754-3241', '5678901-2', 'sofia@example.com', 5, 8),
-  ('Luis', 'González', '+503 4532-9876', '4567890-1', 'luis@example.com', 2, 3),
-  ('María', 'Hernández', '+503 3254-6754', '0987654-3', 'maria@example.com', 4, 1),
-  ('Andrés', 'López', '+503 9856-3214', '8765432-1', 'andres@example.com', 3, 4),
-  ('Isabel', 'Martínez', '+503 7412-3654', '5678910-2', 'isabel@example.com', 2, 9),
-  ('Eduardo', 'Fernández', '+503 6302-9867', '3456789-0', 'eduardo@example.com', 6, 5),
-  ('Paola', 'Rojas', '+503 8475-1236', '9012345-6', 'paola@example.com', 7, 7);
-  go
-
-insert into Proveedor(Nombre, Dirección, Telefono)
-values('ElectroPro', 'Av. Tecnológica #456, San Salvador', '+503 2222-3333'),
-      ('TecnoParts', 'Colonia Centro #789, Santa Tecla', '+503 7777-8888'),
-      ('SuperTech', 'Colonia Moderna #123, San Salvador', '+503 4444-5555'),
-	   ('ElectroPro', 'Av. Tecnológica #456, San Salvador', '+503 2222-3353'),
-  ('TechnoPepe', 'Colonia norte #798, Santa Tecla', '+503 7777-8889'),
-  ('SuperPepe', 'Colonia antigua #132, San Salvador', '+503 4444-5535'),
-  ('MegaElectronics', 'Residencial Los Pinos #789, San Salvador', '+503 6666-7777'),
-  ('TechZone', 'Colonia Escalón #567, San Salvador', '+503 9999-0000'),
-  ('GadgetLand', 'Colonia Flor Blanca #432, San Salvador', '+503 1111-2222'),
-  ('DigitalStore', 'Colonia Miramonte #987, San Salvador', '+503 3333-4444');
-  go
-
-	  insert into Cliente(Nombre, Apellido, DUI, Telefono, Dirección, Edad)
-values('Luis', 'Martínez', '1234567-8', '+503 2222-1111', 'Col. Primavera #456, San Salvador', 28),
-      ('Ana', 'Gómez', '5678901-2', '+503 7777-9999', 'Col. Flor Blanca #789, San Salvador', 35),
-      ('Roberto', 'Pérez', '9012345-6', '+503 4444-7777', 'Col. Los Alamos #012, San Salvador', 42),
-	  ('Josue', 'Alvarado', '1232367-9', '+503 2222-2222', 'Col. otoño #465, San Salvador', 53),
-  ('María', 'José', '5657894-4', '+503 9999-9999', 'Col. Flor negra #798, San Salvador', 27),
-  ('Francisco', 'Pizarro', '1248759-8', '+503 4444-4444', 'Col. Los Mataniños #021, San Salvador', 45),
-  ('María', 'Hernández', '3456789-0', '+503 3333-6666', 'Col. San Benito #567, San Salvador', 24),
-  ('Carlos', 'López', '7890123-4', '+503 8888-1111', 'Col. Escalón #789, San Salvador', 31),
-  ('Laura', 'Ramírez', '2345678-9', '+503 5555-2222', 'Col. La Mascota #123, San Salvador', 29),
-  ('Pedro', 'García', '5614521-5', '+503 9999-4444', 'Col. Miramonte #456, San Salvador', 37);
-  go
-
-  INSERT INTO Producto(Nombre, Descripcion, Stock, Id_Proveedor, PrecioUnitario)
-VALUES
-('Teclado Genius', 'Teclado multimedia con cable', 15, 3, 25.00),
-('Monitor LED 24"', 'Monitor de alta resolución para PC', 8, 3, 200.00),
-('Disco Duro 1TB', 'Unidad de almacenamiento SATA3', 30, 3, 80.00),
-('Mouse inalámbrico', 'Mouse ergonómico de 6 botones', 20, 1, 15.00),
-('Auriculares Bluetooth', 'Auriculares inalámbricos con cancelación de ruido', 12, 2, 50.00),
-('Impresora láser', 'Impresora monocromática de alta velocidad', 5, 4, 150.00),
-('Tablet Android', 'Tablet de 10" con sistema operativo Android', 25, 5, 120.00);
-go
-
-
-
-	  insert into Pedido(Id_Cliente, Id_Empleado, Fecha_Pedido)
-values(2, 4, '2023/11/15'),
-      (3, 3, '2023/10/20'),
-	    (2, 4, '2023/11/15'),
-  (3, 3, '2023/10/20'),
-  (1, 5, '2023/09/05'),
-  (4, 2, '2023/12/02'),
-  (2, 1, '2023/08/10'),
-  (3, 6, '2023/07/25'),
-  (1, 4, '2023/06/12'),
-  (5, 3, '2023/05/18');
-  go
-
-	  insert into Detalle_Pedido(Id_Pedido, Id_Producto, cantidad, Total)
-values(2, 3, 2, 150.00),
-      (1, 1, 3, 75.50),
-	    (2, 3, 2, 150.00),
-  (1, 1, 3, 75.50),
-  (3, 2, 1, 80.00),
-  (4, 4, 5, 300.00),
-  (1, 5, 2, 120.00),
-  (2, 6, 4, 200.00),
-  (5, 7, 3, 180.00),
-  (3, 1, 2, 100.00);
-  go
-
-	  insert into Factura(Id_Pedido, TotalFinal)
-values(2, 450.00),
-      (1, 250.00),
-	  (2, 450.00),
-  (1, 250.00),
-  (3, 80.00),
-  (4, 300.00),
-  (1, 120.00),
-  (2, 200.00),
-  (5, 180.00),
-  (3, 100.00);
+insert into Empleado(Nombre, Apellido, Teléfono, DUI, Correo, Cargo, id_Usuario)
+values ('Pedro', 'López', '+503 7854-9654', '0809234-0', 'pedro@example.com', 'Jefe', 1),
+('Ana', 'García', '+503 6543-9876', '1234567-8', 'ana@example.com', 'Gerente General', 2),
+  ('Carlos', 'Ramírez', '+503 7890-4321', '9876543-2', 'carlos@example.com', 'Vendedor', 3),
+  ('Sofia', 'Morales', '+503 6754-3241', '5678901-2', 'sofia@example.com', 'Técnico de selección', 4),
+  ('Luis', 'González', '+503 4532-9876', '4567890-1', 'luis@example.com','Gerente de compras', 5) ;
   go
 
 
-  SELECT Nombre, apellido
-FROM empleado
 
-SELECT Producto.Id_Producto, Producto.Nombre AS Nombre_Producto, Producto.Descripcion, Producto.Stock, Proveedor.Nombre AS Nombre_Proveedor
-FROM Producto
-INNER JOIN Proveedor ON Producto.Id_Proveedor = Proveedor.Id_Proveedor;
-
-
-SELECT U.NombreUsuario, U.contraseña, E.Nombre AS Nombre_Empleado, E.Apellido AS Apellido_Empleado, E.Teléfono AS Teléfono_Empleado, E.DUI AS DUI_Empleado, E.Correo AS Correo_Empleado, C.Nombre AS Nombre_Cargo
-FROM Usuario U
-INNER JOIN Empleado E ON U.id_Usuario = E.id_Usuario
-INNER JOIN Cargo C ON E.id_Cargo = C.Id_Cargo;
-
-
-SELECT U.id_Usuario, E.Id_Empleado, U.NombreUsuario, U.contraseña,E.Nombre AS Nombre, E.Apellido AS Apellido, E.Teléfono AS Teléfono, E.DUI AS DUI, E.Correo AS Correo, C.Nombre AS Cargo
-FROM Usuario U
-INNER JOIN Empleado E ON U.id_Usuario = E.id_Usuario
-INNER JOIN Cargo C ON E.id_Cargo = C.Id_Cargo;
-
-SELECT DP.Id_Detalle, DP.Id_Pedido, DP.Id_Producto, P.Nombre AS Nombre_Producto, DP.cantidad, P.PrecioUnitario,
-       DP.cantidad * P.PrecioUnitario AS Total
-FROM Detalle_Pedido DP
-INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto;
-
-
-SELECT Producto.Id_Producto, Producto.Nombre AS Nombre_Producto, Producto.Descripcion, Producto.Stock, Producto.PrecioUnitario, Proveedor.Nombre AS Nombre_Proveedor
-FROM Producto
-INNER JOIN Proveedor ON Producto.Id_Proveedor = Proveedor.Id_Proveedor;
-
-SELECT P.Id_Pedido, C.Nombre AS Nombre_Cliente, E.Nombre AS Nombre_Empleado, P.Fecha_Pedido
-FROM Pedido P
-INNER JOIN Cliente C ON P.Id_Cliente = C.Id_Cliente
-INNER JOIN Empleado E ON P.Id_Empleado = E.Id_Empleado;
-
-
-
-select Stock from Producto
-where Id_Producto=11;
-
-
-select * from Detalle_Pedido
-
-update Producto
-set stock=999+1
-where Id_Producto=11;
-
-UPDATE Detalle_Pedido
-SET Id_Pedido = 1, Id_Producto = 11, cantidad = 999
-WHERE Id_Detalle = 18;
-
-select * from Producto ;
-
-
-INSERT INTO Detalle_Pedido(Id_Pedido, Id_Producto, cantidad) VALUES (10,1, 3)
-
-select * from Detalle_Pedido;
-
-
-SELECT
-    DP.Id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Nombre_Producto,DP.cantidad,P.PrecioUnitario,
-    DP.cantidad * P.PrecioUnitario AS Total,
-    P.Stock AS Stock_Producto
-FROM Detalle_Pedido DP
-INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto;
-
-UPDATE Producto
-SET Stock = 499 + (SELECT Stock FROM Producto WHERE Id_Producto = 11)
-WHERE Id_Producto = 11;
+  SELECT E.Id_Empleado, E.Nombre AS Nombre, E.Apellido AS Apellido, E.Teléfono AS Telefono, E.DUI AS Dui, E.Correo AS Correo,
+       E.Cargo AS Cargo, U.NombreUsuario AS Nombre_Usuario, U.contraseña AS Contraseña
+FROM Empleado E
+INNER JOIN Usuario U ON E.id_Usuario = U.id_Usuario
 
 
 
@@ -351,6 +201,3 @@ BEGIN
     WHERE Id_Producto = @Id_Producto;
 END;
 
-select * from Detalle_Pedido
-
-select * from Cliente

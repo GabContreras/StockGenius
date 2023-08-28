@@ -59,7 +59,7 @@
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.cbCargo = new System.Windows.Forms.ComboBox();
+            this.cbRol = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
@@ -526,7 +526,7 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.Controls.Add(this.cbCargo, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.cbRol, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.label7, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 107);
@@ -536,17 +536,17 @@
             this.tableLayoutPanel5.Size = new System.Drawing.Size(712, 38);
             this.tableLayoutPanel5.TabIndex = 9;
             // 
-            // cbCargo
+            // cbRol
             // 
-            this.cbCargo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbCargo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCargo.Font = new System.Drawing.Font("Cambria", 12F);
-            this.cbCargo.ForeColor = System.Drawing.Color.Black;
-            this.cbCargo.FormattingEnabled = true;
-            this.cbCargo.Location = new System.Drawing.Point(349, 3);
-            this.cbCargo.Name = "cbCargo";
-            this.cbCargo.Size = new System.Drawing.Size(340, 27);
-            this.cbCargo.TabIndex = 117;
+            this.cbRol.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbRol.Font = new System.Drawing.Font("Cambria", 12F);
+            this.cbRol.ForeColor = System.Drawing.Color.Black;
+            this.cbRol.FormattingEnabled = true;
+            this.cbRol.Location = new System.Drawing.Point(349, 3);
+            this.cbRol.Name = "cbRol";
+            this.cbRol.Size = new System.Drawing.Size(340, 27);
+            this.cbRol.TabIndex = 117;
             // 
             // label7
             // 
@@ -672,7 +672,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dgvEmpleados;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        private System.Windows.Forms.ComboBox cbCargo;
+        private System.Windows.Forms.ComboBox cbRol;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
         private System.Windows.Forms.Label label5;

@@ -61,6 +61,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnSalir = new System.Windows.Forms.Button();
             this.panelPrincipal.SuspendLayout();
             this.panelContenedor.SuspendLayout();
             this.panelInicio.SuspendLayout();
@@ -170,9 +171,9 @@
             this.panelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(0)))), ((int)(((byte)(90)))));
             this.panelContenedor.Controls.Add(this.panelInicio);
             this.panelContenedor.Controls.Add(this.panelRegistro);
-            this.panelContenedor.Location = new System.Drawing.Point(0, 10);
+            this.panelContenedor.Location = new System.Drawing.Point(0, 1);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(400, 446);
+            this.panelContenedor.Size = new System.Drawing.Size(400, 455);
             this.panelContenedor.TabIndex = 2;
             // 
             // panelInicio
@@ -186,9 +187,9 @@
             this.panelInicio.Controls.Add(this.label11);
             this.panelInicio.Controls.Add(this.label14);
             this.panelInicio.Controls.Add(this.pictureBox2);
-            this.panelInicio.Location = new System.Drawing.Point(3, 3);
+            this.panelInicio.Location = new System.Drawing.Point(3, 1);
             this.panelInicio.Name = "panelInicio";
-            this.panelInicio.Size = new System.Drawing.Size(404, 420);
+            this.panelInicio.Size = new System.Drawing.Size(404, 422);
             this.panelInicio.TabIndex = 6;
             this.panelInicio.Paint += new System.Windows.Forms.PaintEventHandler(this.panelInicio_Paint);
             // 
@@ -303,9 +304,9 @@
             this.panelRegistro.Controls.Add(this.label5);
             this.panelRegistro.Controls.Add(this.pictureBox1);
             this.panelRegistro.ForeColor = System.Drawing.Color.White;
-            this.panelRegistro.Location = new System.Drawing.Point(3, 3);
+            this.panelRegistro.Location = new System.Drawing.Point(3, 0);
             this.panelRegistro.Name = "panelRegistro";
-            this.panelRegistro.Size = new System.Drawing.Size(404, 420);
+            this.panelRegistro.Size = new System.Drawing.Size(404, 423);
             this.panelRegistro.TabIndex = 0;
             this.panelRegistro.Paint += new System.Windows.Forms.PaintEventHandler(this.panelRegistro_Paint);
             // 
@@ -455,6 +456,23 @@
             this.timer1.Interval = 1;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // btnSalir
+            // 
+            this.btnSalir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(0)))), ((int)(((byte)(90)))));
+            this.btnSalir.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(0)))), ((int)(((byte)(90)))));
+            this.btnSalir.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ScrollBar;
+            this.btnSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSalir.Location = new System.Drawing.Point(703, 3);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(82, 33);
+            this.btnSalir.TabIndex = 7;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -463,6 +481,7 @@
             this.ClientSize = new System.Drawing.Size(792, 451);
             this.Controls.Add(this.panelContenedor);
             this.Controls.Add(this.panelPrincipal);
+            this.Controls.Add(this.btnSalir);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -512,6 +531,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.CheckBox cbMostrarContraReg;
         private System.Windows.Forms.CheckBox cbMostraContraInicio;
+        private System.Windows.Forms.Button btnSalir;
     }
 }
 
