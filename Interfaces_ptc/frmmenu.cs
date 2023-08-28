@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace Interfaces_ptc
 {
@@ -19,7 +20,7 @@ namespace Interfaces_ptc
         }
          private void OcultarSubMenu()
         {
-                panelEmpleadosSubMenu.Visible = false;
+                
                 panelPedidosubMenu.Visible = false;
 
         }
@@ -55,8 +56,7 @@ namespace Interfaces_ptc
 #endregion
         private void btnEmpleado_Click(object sender, EventArgs e)
         {
-            //Agregar código para abrir los formularios deseados
-            mostrarSubMenu(panelEmpleadosSubMenu);
+            
 
         }
         #region SubmenuEmpleados
@@ -114,7 +114,6 @@ namespace Interfaces_ptc
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            Environment.Exit(0);
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -125,6 +124,55 @@ namespace Interfaces_ptc
         private void pictureBox3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAdministrarEmpleados_Click(object sender, EventArgs e)
+        {
+            openChildFormInPanel(new frmEmpleados());
+            OcultarSubMenu();
+        }
+
+        private void btnSalir_Click_1(object sender, EventArgs e)
+        {         
+           
+           
+
+        }
+        
+
+        private void frmmenu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            
+        }
+
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {            
+            frmLogin f = new frmLogin();
+                f.Show();
+                this.Hide();
+        }
+        private bool confirmExit = true; // Variable para controlar la confirmación
+        private void frmmenu_FormClosing(object sender, FormClosingEventArgs e)
+        {           
+               if (confirmExit)
+            {
+                DialogResult result = MessageBox.Show("¿Estás seguro que deseas salir?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.No)
+                {
+                    e.Cancel = true; // Cancela el cierre del formulario
+                }
+                else if(result == DialogResult.Yes)
+                {
+                    Application.Exit();
+                }
+                else
+                {
+                    confirmExit = false;
+                    // No llames a Application.Exit() aquí
+                }
+            }
+            // Si selecciona "Sí", el formulario se cerrará normalmente.
         }
     }
 }

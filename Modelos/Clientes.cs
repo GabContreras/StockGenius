@@ -38,6 +38,17 @@ namespace Modelos
             return dt;
 
         }
+        public static DataTable CargarClientes2()
+        {
+            SqlConnection con = Conexion.Conectar();
+            string comando = "select Id_Cliente ,concat (Nombre,' ', Apellido, ', ', DUI ) as 'Cliente' from cliente;";
+            SqlDataAdapter ad = new SqlDataAdapter(comando, con);
+
+            DataTable dt = new DataTable();
+            ad.Fill(dt);
+            return dt;
+
+        }
 
         public bool insertarCiente()
         {

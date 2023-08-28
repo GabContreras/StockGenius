@@ -103,11 +103,12 @@
             // 
             // dtpFecha
             // 
+            this.dtpFecha.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtpFecha.CalendarMonthBackground = System.Drawing.Color.White;
             this.dtpFecha.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(124)))));
             this.dtpFecha.CalendarTrailingForeColor = System.Drawing.Color.Gray;
             this.dtpFecha.Font = new System.Drawing.Font("Cambria", 12F);
-            this.dtpFecha.Location = new System.Drawing.Point(314, 3);
+            this.dtpFecha.Location = new System.Drawing.Point(314, 4);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(305, 26);
             this.dtpFecha.TabIndex = 5;

@@ -512,7 +512,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(124)))));
             this.ClientSize = new System.Drawing.Size(618, 522);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.MaximumSize = new System.Drawing.Size(734, 661);
             this.Name = "frmCliente";
             this.Text = "Cliente";
             this.Load += new System.EventHandler(this.frmCliente_Load);

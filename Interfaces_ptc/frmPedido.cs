@@ -53,11 +53,13 @@ namespace Interfaces_ptc
             try
             {
                 cbCliente.DataSource = null;
-                cbCliente.DataSource = Clientes.CargarClientes();
+                cbCliente.DataSource = Clientes.CargarClientes2();
 
                 //El valor que se muestra en el combobox
                 //Se coloca el nombre de la columna en la tabla
-                cbCliente.DisplayMember = "Nombre";
+                cbCliente.DisplayMember = "Cliente";
+              
+                
 
                 //Valor que no se muestra (id)
                 //Se coloca el nombre de la columna en la tabla

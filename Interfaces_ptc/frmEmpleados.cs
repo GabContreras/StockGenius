@@ -128,5 +128,9 @@ namespace Interfaces_ptc
                 MessageBox.Show("Se produjo un error", "Advertencia");
             }
         }
+
+        private void frmEmpleados_FormClosed(object sender, FormClosedEventArgs e)
+        {
+        }
     }
 }

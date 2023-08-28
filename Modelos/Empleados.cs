@@ -41,6 +41,17 @@ namespace Modelos
             return dt;
 
         }
+        public static DataTable CargarEmpleados2()
+        {
+            SqlConnection con = Conexion.Conectar();
+            string comando = "SELECT Id_Empleado ,concat (Nombre,' ', Apellido, ', ', DUI ) as 'Empleado' from Empleado;\r\n";
+            SqlDataAdapter ad = new SqlDataAdapter(comando, con);
+
+            DataTable dt = new DataTable();
+            ad.Fill(dt);
+            return dt;
+
+        }
 
 
         public bool InsertarEmpleado()

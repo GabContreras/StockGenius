@@ -45,8 +45,6 @@ on update cascade,
 );
 go
 
-select * from detalle_pedido;
-
 create table proveedor(
 Id_Proveedor int PRIMARY KEY identity(1,1),
 Nombre varchar(50) not null,
@@ -115,43 +113,6 @@ on delete cascade
 on update cascade,
 );
 
-CREATE TRIGGER CalcularTotalDetallePedido
-ON Detalle_Pedido
-AFTER INSERT,
-AS
-BEGIN
-    -- Actualizar el total en Detalle_Pedido usando el precio unitario de Producto
-    UPDATE DP
-    SET Total = P.PrecioUnitario * DP.Cantidad
-    FROM Detalle_Pedido AS DP
-    INNER JOIN inserted AS I ON DP.Id_Detalle = I.Id_Detalle
-    INNER JOIN Producto AS P ON DP.Id_Producto = P.Id_Producto;
-
-    -- Actualizar la cantidad en stock de Producto
-    UPDATE P
-    SET Stock = Stock - DP.Cantidad
-    FROM Producto AS P
-    INNER JOIN Detalle_Pedido AS DP ON P.Id_Producto = DP.Id_Producto
-    INNER JOIN inserted AS I ON DP.Id_Detalle = I.Id_Detalle;
-END;
-
-CREATE TRIGGER ActualizarStockDespuesEliminarDetalle
-ON Detalle_Pedido
-AFTER DELETE
-AS
-BEGIN
-    -- Obtener el Id_Producto y la cantidad eliminada del detalle borrado
-    DECLARE @Id_Producto INT;
-    DECLARE @CantidadEliminada INT;
-
-    SELECT @Id_Producto = Id_Producto, @CantidadEliminada = cantidad
-    FROM deleted;
-
-    -- Actualizar el stock en la tabla Producto sumando la cantidad eliminada
-    UPDATE Producto
-    SET Stock = Stock + @CantidadEliminada
-    WHERE Id_Producto = @Id_Producto;
-END;
 
 create table Factura(
 Id_Factura int PRIMARY KEY identity(1,1),
@@ -167,15 +128,11 @@ go
 
 
 insert into Cargo(Nombre)
-values ('Gerente'),
-('Supervisor'),
-('Operario'), 
-('Asistente'),
-('Técnico'), 
-('Contador'), 
-('Analista'),
-('Vendedor'), 
-('Recepcionista');
+values ('Administrador'),
+('Gerente General'),
+('Vendedor'),
+('Técnico de selección'),
+('Gerente de compras');
 go
 
 insert into Usuario(NombreUsuario, contraseña)
@@ -190,6 +147,8 @@ values ('Juanito', 'qwerty123'),
 ('JuanSoto', 'juansoto#'), 
 ('ElenaG', 'elenita456');
 go
+
+select Id_Cliente ,concat (Nombre,' ', Apellido, '', DUI ) as 'Cliente' from cliente;
 
 insert into Empleado(Nombre, Apellido, Teléfono, DUI, Correo, id_Cargo, id_Usuario)
 values ('Pedro', 'López', '+503 7854-9654', '0809234-0', 'pedro@example.com', 2, 3),
@@ -229,11 +188,9 @@ values('Luis', 'Martínez', '1234567-8', '+503 2222-1111', 'Col. Primavera #456, 
   ('Laura', 'Ramírez', '2345678-9', '+503 5555-2222', 'Col. La Mascota #123, San Salvador', 29),
   ('Pedro', 'García', '5614521-5', '+503 9999-4444', 'Col. Miramonte #456, San Salvador', 37);
   go
+
   INSERT INTO Producto(Nombre, Descripcion, Stock, Id_Proveedor, PrecioUnitario)
 VALUES
-('Teclado Genius', 'Teclado multimedia con cable', 15, 3, 25.00),
-('Monitor LED 24"', 'Monitor de alta resolución para PC', 8, 3, 200.00),
-('Disco Duro 1TB', 'Unidad de almacenamiento SATA3', 30, 3, 80.00),
 ('Teclado Genius', 'Teclado multimedia con cable', 15, 3, 25.00),
 ('Monitor LED 24"', 'Monitor de alta resolución para PC', 8, 3, 200.00),
 ('Disco Duro 1TB', 'Unidad de almacenamiento SATA3', 30, 3, 80.00),
@@ -241,6 +198,9 @@ VALUES
 ('Auriculares Bluetooth', 'Auriculares inalámbricos con cancelación de ruido', 12, 2, 50.00),
 ('Impresora láser', 'Impresora monocromática de alta velocidad', 5, 4, 150.00),
 ('Tablet Android', 'Tablet de 10" con sistema operativo Android', 25, 5, 120.00);
+go
+
+
 
 	  insert into Pedido(Id_Cliente, Id_Empleado, Fecha_Pedido)
 values(2, 4, '2023/11/15'),
@@ -351,3 +311,46 @@ UPDATE Producto
 SET Stock = 499 + (SELECT Stock FROM Producto WHERE Id_Producto = 11)
 WHERE Id_Producto = 11;
 
+
+
+CREATE TRIGGER CalcularTotalDetallePedido
+ON Detalle_Pedido
+AFTER INSERT
+AS
+BEGIN
+    -- Actualizar el total en Detalle_Pedido usando el precio unitario de Producto
+    UPDATE DP
+    SET Total = P.PrecioUnitario * DP.Cantidad
+    FROM Detalle_Pedido AS DP
+    INNER JOIN inserted AS I ON DP.Id_Detalle = I.Id_Detalle
+    INNER JOIN Producto AS P ON DP.Id_Producto = P.Id_Producto;
+
+    -- Actualizar la cantidad en stock de Producto
+    UPDATE P
+    SET Stock = Stock - DP.Cantidad
+    FROM Producto AS P
+    INNER JOIN Detalle_Pedido AS DP ON P.Id_Producto = DP.Id_Producto
+    INNER JOIN inserted AS I ON DP.Id_Detalle = I.Id_Detalle;
+END;
+
+CREATE TRIGGER ActualizarStockDespuesEliminarDetalle
+ON Detalle_Pedido
+AFTER DELETE
+AS
+BEGIN
+    -- Obtener el Id_Producto y la cantidad eliminada del detalle borrado
+    DECLARE @Id_Producto INT;
+    DECLARE @CantidadEliminada INT;
+
+    SELECT @Id_Producto = Id_Producto, @CantidadEliminada = cantidad
+    FROM deleted;
+
+    -- Actualizar el stock en la tabla Producto sumando la cantidad eliminada
+    UPDATE Producto
+    SET Stock = Stock + @CantidadEliminada
+    WHERE Id_Producto = @Id_Producto;
+END;
+
+select * from Detalle_Pedido
+
+select * from Cliente
