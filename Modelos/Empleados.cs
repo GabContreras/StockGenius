@@ -64,8 +64,7 @@ namespace Modelos
                 "(@nombre, @apellido, @teléfono, @dui, @correo, @cargo, @id_Usuario)";
 
             SqlCommand cmd = new SqlCommand(comando, con);
-
-            
+  
             cmd.Parameters.AddWithValue("@nombre", Nombre_Empleado);
             cmd.Parameters.AddWithValue("@apellido", apellido);
             cmd.Parameters.AddWithValue("@teléfono", telefono);
@@ -73,8 +72,6 @@ namespace Modelos
             cmd.Parameters.AddWithValue("@correo", correo);
             cmd.Parameters.AddWithValue("@cargo", cargo);
             cmd.Parameters.AddWithValue("@id_Usuario", id_Usuario);
-
-
 
             if (cmd.ExecuteNonQuery() > 0)
             {

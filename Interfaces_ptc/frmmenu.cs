@@ -15,18 +15,15 @@ namespace Interfaces_ptc
 {
     public partial class frmmenu : Form
     {
+        Usuario v;
         public frmmenu(Usuario u)
         {
             InitializeComponent();
             OcultarSubMenu();
 
-            
-            if (u.Id_Rol == 2)
-            { 
-                
-            }
-            else if(u.Id_Rol == 3)
-            {
+            v = u;             
+             if(u.Id_Rol == 3)
+              {
                 btnEmpleado.Visible = false;
                 btnProveedores.Visible= false; 
                 btnProducto.Visible= false;
@@ -158,8 +155,8 @@ namespace Interfaces_ptc
 
         private void btnAdministrarEmpleados_Click(object sender, EventArgs e)
         {
-            Usuario u = new Usuario();
-            openChildFormInPanel(new frmEmpleados(u));
+            
+            openChildFormInPanel(new frmEmpleados(v));
             OcultarSubMenu();
         }
 

@@ -34,38 +34,56 @@ namespace Modelos
                 Usuario u = new Usuario();
                 u.id_usuario = (int)rd[0]; //Lector en posición 0
                 u.nombreUsuario = (string)rd[1];
-                u.Id_Rol= (int)rd[3];  
-                
-                return u;   
+                u.Id_Rol = (int)rd[3];
+
+                return u;
             }
             else
             {
                 return null;
             }
-
         }
+        public static int ConseguirIdUsuario(string nombreUsuario)
+        {           
+                SqlConnection con = Conexion.Conectar();
+                string comando = "select * from usuario where NombreUsuario= @nombre;\r\n";
+                SqlCommand cmd = new SqlCommand(comando, con);
+                cmd.Parameters.AddWithValue("@nombre", nombreUsuario);
+                SqlDataReader rd = cmd.ExecuteReader();
 
-        public bool InsertarUsuario()
-        {
-            SqlConnection con = Conexion.Conectar();
-            string comando = "insert into Usuario(NombreUsuario, contraseña,id_Rol) values\r\n" +
-                "(@nombre, @contraseña, @rol)";
-            SqlCommand cmd = new SqlCommand(comando, con);
-
-            cmd.Parameters.AddWithValue("@nombre", nombreUsuario);
-            cmd.Parameters.AddWithValue("@contraseña", contraseña);
-            cmd.Parameters.AddWithValue("@rol", id_Rol);
-           
-
-            if (cmd.ExecuteNonQuery() > 0)
-            {
-                return true;
-            }
-
-            else
-            {
-                return false;
-            }
+                if (rd.Read())
+                {
+                    
+                    return (int)rd[0]; //Lector en posición 0
+                    
+                }
+                else
+                {
+                    return 0;
+                }
+            
         }
+            public bool InsertarUsuario()
+            {
+                SqlConnection con = Conexion.Conectar();
+                string comando = "insert into Usuario(NombreUsuario, contraseña,id_Rol) values\r\n" +
+                    "(@nombre, @contraseña, @rol)";
+                SqlCommand cmd = new SqlCommand(comando, con);
+
+                cmd.Parameters.AddWithValue("@nombre", nombreUsuario);
+                cmd.Parameters.AddWithValue("@contraseña", contraseña);
+                cmd.Parameters.AddWithValue("@rol", id_Rol);
+
+
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    return true;
+                }
+
+                else
+                {
+                    return false;
+                }
+            }
     }
 }

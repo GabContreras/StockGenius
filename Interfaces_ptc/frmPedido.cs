@@ -29,48 +29,29 @@ namespace Interfaces_ptc
 
         private void frmPedido_Load(object sender, EventArgs e)
         {
-            CargarClien();
             CargarEmple();
             MostrarPedido();
+            MostrarClientes();
         }
         private void MostrarPedido()
         {
             dgvPedido.DataSource = null;
             dgvPedido.DataSource = Pedido.CargarPedido();
+        }
+        private void MostrarClientes()
+        {
+            dgvCliente.DataSource = null;
+            dgvCliente.DataSource= Clientes.CargarClientes();
+            dgvCliente.Columns[0].Visible = false;
+            dgvCliente.Columns[4].Visible = false;
+            dgvCliente.Columns[5].Visible = false;
+            dgvCliente.Columns[6].Visible = false;
 
         }
-
         private void dgvPedido_DoubleClick(object sender, EventArgs e)
         {
-            cbCliente.Text = dgvPedido.CurrentRow.Cells[1].Value.ToString();
             cbEmpleado.Text = dgvPedido.CurrentRow.Cells[2].Value.ToString();
             dtpFecha.Text = dgvPedido.CurrentRow.Cells[3].Value.ToString();
-        }
-        private void CargarClien()
-        {
-            //Manejo de excepciones 
-            //El código que puede dar error
-            try
-            {
-                cbCliente.DataSource = null;
-                cbCliente.DataSource = Clientes.CargarClientes2();
-
-                //El valor que se muestra en el combobox
-                //Se coloca el nombre de la columna en la tabla
-                cbCliente.DisplayMember = "Cliente";
-              
-                
-
-                //Valor que no se muestra (id)
-                //Se coloca el nombre de la columna en la tabla
-                cbCliente.ValueMember = "Id_Cliente";
-            }
-
-            //Bloque de código por si da error
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
         private void CargarEmple()
         {
@@ -83,7 +64,7 @@ namespace Interfaces_ptc
 
                 //El valor que se muestra en el combobox
                 //Se coloca el nombre de la columna en la tabla
-                cbEmpleado.DisplayMember = "Nombre";
+                cbEmpleado.DisplayMember = "Empleado";
 
                 //Valor que no se muestra (id)
                 //Se coloca el nombre de la columna en la tabla
@@ -102,7 +83,7 @@ namespace Interfaces_ptc
             try
             {
                 Pedido p = new Pedido();
-                p.Id_Cliente = (int)cbCliente.SelectedValue;
+                p.Id_Cliente = (int)dgvCliente.CurrentRow.Cells[0].Value;
                 p.Id_Empleado = (int)cbEmpleado.SelectedValue;
                 p.Fecha_Pedido = dtpFecha.Value;
 
@@ -151,7 +132,7 @@ namespace Interfaces_ptc
             {
                 Pedido p = new Pedido();
                 p.Id_Pedido = (int)dgvPedido.CurrentRow.Cells[0].Value;
-                p.Id_Cliente = (int)cbCliente.SelectedValue;
+                p.Id_Cliente = (int)dgvCliente.CurrentRow.Cells[0].Value;
                 p.Id_Empleado = (int)cbEmpleado.SelectedValue;
                 p.Fecha_Pedido = dtpFecha.Value;
                 if (p.ActualizarPedido() == true)

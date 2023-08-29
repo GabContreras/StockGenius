@@ -19,9 +19,27 @@ namespace Interfaces_ptc
         {
             InitializeComponent();
 
+            MessageBox.Show(u.Id_Rol.ToString());
+           if (u.Id_Rol== 2)
+           {
+                btnEliminar.Visible = false;
+                btnActualizar.Visible = false;
+                btnAgregar.Visible = false;
+           }
+           if (u.Id_Rol == 3)
+           {
+              
+           }
+           else if (u.Id_Rol == 4)
+           {
+                
+           }
+           else if (u.Id_Rol == 5)
+           {
+               
+           }
+            
 
-                //btnEliminar.Visible = false;
-        
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -114,33 +132,40 @@ namespace Interfaces_ptc
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             Usuario U = new Usuario();
-            U.NombreUsuario= txtNombreUsuario.Text; 
+            U.NombreUsuario = txtNombreUsuario.Text;
             U.Contraseña = txtContraseña.Text;
             U.Id_Rol = (int)cbRol.SelectedValue;
-              
-            Empleados E = new Empleados();
-            E.Nombre_Empleado = txtNombre.Text;
-            E.Apellido = txtApellido.Text;
-            E.Telefono = txtTelefono.Text;
-            E.Dui = txtDui.Text;
-            E.Correo = txtCorreo.Text;
-            E.Cargo = txtCargo.Text;
            
-                if (U.InsertarUsuario() == true)
+
+            if (U.InsertarUsuario() == true)
+            {
+                Empleados E = new Empleados();
+                E.Nombre_Empleado = txtNombre.Text;
+                E.Apellido = txtApellido.Text;
+                E.Telefono = txtTelefono.Text;
+                E.Dui = txtDui.Text;
+                E.Correo = txtCorreo.Text;
+                E.Cargo = txtCargo.Text;
+                E.Id_Usuario = Usuario.ConseguirIdUsuario(txtNombreUsuario.Text);
+
+                if (E.InsertarEmpleado() == true)
                 {
-                    if (E.InsertarEmpleado() == true)
-                    {
-                        MessageBox.Show("Producto agregado satisfactoriamente", "Éxito");
-                        MostrarEmpleados();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Se produjo un error", "Advertencia");
-                    }
+                    MessageBox.Show("Empleado agregado satisfactoriamente", "Éxito");
+                    MostrarEmpleados();
                 }
-           
+                else
+                {
+                    MessageBox.Show("Se produjo un error al insertar el empleado", "Advertencia");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Se produjo un error al insertar el usuario", "Advertencia");
+            }
+
             MostrarEmpleados();
-        }
+        
+    }
 
         private void frmEmpleados_FormClosed(object sender, FormClosedEventArgs e)
         {
