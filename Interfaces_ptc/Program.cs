@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modelos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,14 @@ namespace Interfaces_ptc
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin());
+            if (Usuario.VerificarUsuarios() == true)
+            {
+                Application.Run(new frmLogin());
+            }
+            else
+            {
+                Application.Run(new frmPrimerUso());
+            }
         }
     }
 }

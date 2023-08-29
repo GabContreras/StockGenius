@@ -38,7 +38,7 @@ namespace Interfaces_ptc
         {
             dgvDetallePedido.DataSource = null;
             dgvDetallePedido.DataSource = DetallePedido.CargarDetallePedido();
-
+            dgvDetallePedido.Columns[0].Visible = false;
         }
 
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)

@@ -32,7 +32,7 @@ namespace Interfaces_ptc
         {
             dgvProveedores.DataSource = null;
             dgvProveedores.DataSource = Proveedores.CargarProveedores();
-
+            dgvProveedores.Columns[0].Visible = false;
         }
 
         private void frmProveedores_Load(object sender, EventArgs e)

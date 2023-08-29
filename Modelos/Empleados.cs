@@ -129,7 +129,19 @@ namespace Modelos
                 return false;
             }
         }
-
+        public static DataTable Buscar(string termino)
+        {
+            SqlConnection con = Conexion.Conectar();
+            string comando = $"SELECT  E.Id_Empleado, U.id_Rol,R.Nombre as Rol, U.NombreUsuario AS Usuario, U.contraseña AS Contraseña,E.Cargo AS Cargo, E.Nombre AS Nombre, E.Apellido AS Apellido," +
+               $"E.Teléfono AS Telefono, E.DUI AS Dui, E.Correo AS Correo \r\n" +
+               $"FROM Empleado E \r\n INNER JOIN Usuario U ON E.id_Usuario = U.id_Usuario\r\n " +
+               $"INNER JOIN Rol R on U.id_Rol= R.id_Rol\r\n\t\t\t\twhere E.nombre like '%{termino}%'";
+            SqlDataAdapter ad = new SqlDataAdapter(comando, con);
+            DataTable dt = new DataTable();
+            ad.Fill(dt);
+            return dt;
+           
+        }
 
     }
 }

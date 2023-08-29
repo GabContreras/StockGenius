@@ -19,7 +19,7 @@ namespace Interfaces_ptc
         {
             InitializeComponent();
 
-            MessageBox.Show(u.Id_Rol.ToString());
+          
            if (u.Id_Rol== 2)
            {
                 btnEliminar.Visible = false;
@@ -95,11 +95,15 @@ namespace Interfaces_ptc
             dgvEmpleados.DataSource = null;
             dgvEmpleados.DataSource = Empleados.CargarEmpleados();
 
+            dgvEmpleados.Columns[0].Visible = false;
+            dgvEmpleados.Columns[1].Visible = false;
+            dgvEmpleados.Columns[4].Visible = false;
+
+
         }
 
         private void cbCargo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cbRol.DataSource= dgvEmpleados.CurrentRow.Cells[1].Value;
 
         }
 
@@ -246,6 +250,24 @@ namespace Interfaces_ptc
                 MessageBox.Show(ex.Message);
             }
             MostrarEmpleados();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dgvEmpleados.DataSource = null;
+                dgvEmpleados.DataSource = Empleados.Buscar(txtBuscar.Text);
+
+                dgvEmpleados.Columns[0].Visible = false;
+                dgvEmpleados.Columns[1].Visible = false;
+                dgvEmpleados.Columns[4].Visible = false;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

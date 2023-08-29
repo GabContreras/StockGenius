@@ -142,5 +142,23 @@ namespace Modelos
                 return false;
             }
         }
+
+        public static bool VerificarUsuarios()
+        {
+            SqlConnection con = Conexion.Conectar();
+            string comando = "Select * From Usuario";
+            SqlCommand cmd = new SqlCommand(comando, con);
+
+            SqlDataReader rdr = cmd.ExecuteReader();
+
+            if (rdr.Read())
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
