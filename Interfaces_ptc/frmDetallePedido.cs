@@ -23,25 +23,7 @@ namespace Interfaces_ptc
         private void button2_Click(object sender, EventArgs e)
         {
         }
-        public bool ActualizarStockProducto(int productoId, int cantidad, int stock)
-        {
-            SqlConnection con = Conexion.Conectar();
-            string comando = "UPDATE Producto SET Stock = @stock + @Cantidad WHERE Id_Producto = @Id_Producto";
-            SqlCommand cmd = new SqlCommand(comando, con);
-            cmd.Parameters.AddWithValue("@Cantidad", cantidad);
-            cmd.Parameters.AddWithValue("@Id_Producto", productoId);
-            cmd.Parameters.AddWithValue("@stock", stock);
-            if (cmd.ExecuteNonQuery() > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        private void btnSalir_Click(object sender, EventArgs e)
+           private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
         }

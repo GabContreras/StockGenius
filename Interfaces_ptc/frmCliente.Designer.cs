@@ -153,9 +153,11 @@
             this.txtNombre.Font = new System.Drawing.Font("Cambria", 12F);
             this.txtNombre.ForeColor = System.Drawing.Color.Black;
             this.txtNombre.Location = new System.Drawing.Point(309, 3);
+            this.txtNombre.MaxLength = 50;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(300, 26);
             this.txtNombre.TabIndex = 112;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // tableLayoutPanel6
             // 
@@ -192,9 +194,11 @@
             this.txtApellido.Font = new System.Drawing.Font("Cambria", 12F);
             this.txtApellido.ForeColor = System.Drawing.Color.Black;
             this.txtApellido.Location = new System.Drawing.Point(309, 3);
+            this.txtApellido.MaxLength = 50;
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(300, 26);
             this.txtApellido.TabIndex = 111;
+            this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido_KeyPress);
             // 
             // tableLayoutPanel5
             // 
@@ -231,9 +235,12 @@
             this.txtDui.Font = new System.Drawing.Font("Cambria", 12F);
             this.txtDui.ForeColor = System.Drawing.Color.Black;
             this.txtDui.Location = new System.Drawing.Point(309, 3);
+            this.txtDui.MaxLength = 9;
             this.txtDui.Name = "txtDui";
             this.txtDui.Size = new System.Drawing.Size(300, 26);
             this.txtDui.TabIndex = 110;
+            this.txtDui.TextChanged += new System.EventHandler(this.txtDui_TextChanged);
+            this.txtDui.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDui_KeyPress);
             // 
             // tableLayoutPanel4
             // 
@@ -271,9 +278,11 @@
             this.txtTelefono.Font = new System.Drawing.Font("Cambria", 12F);
             this.txtTelefono.ForeColor = System.Drawing.Color.Black;
             this.txtTelefono.Location = new System.Drawing.Point(309, 3);
+            this.txtTelefono.MaxLength = 50;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(300, 26);
             this.txtTelefono.TabIndex = 109;
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // tableLayoutPanel3
             // 
@@ -310,6 +319,7 @@
             this.txtDirección.Font = new System.Drawing.Font("Cambria", 12F);
             this.txtDirección.ForeColor = System.Drawing.Color.Black;
             this.txtDirección.Location = new System.Drawing.Point(309, 3);
+            this.txtDirección.MaxLength = 150;
             this.txtDirección.Name = "txtDirección";
             this.txtDirección.Size = new System.Drawing.Size(300, 26);
             this.txtDirección.TabIndex = 108;

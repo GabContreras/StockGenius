@@ -54,7 +54,7 @@ namespace Interfaces_ptc
 
                 //El valor que se muestra en el combobox
                 //Se coloca el nombre de la columna en la tabla
-                cbRol.DisplayMember = "Nombre";
+                cbRol.DisplayMember = "Rol";
 
                 //Valor que no se muestra (id)
                 //Se coloca el nombre de la columna en la tabla

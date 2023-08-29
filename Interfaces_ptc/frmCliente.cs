@@ -102,9 +102,14 @@ namespace Interfaces_ptc
                 MessageBox.Show(ex.Message);
             }
             MostrarClientes();
+
+                
+          
+
+
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+    private void btnEliminar_Click(object sender, EventArgs e)
         {
             try
             {
@@ -154,6 +159,51 @@ namespace Interfaces_ptc
                 MessageBox.Show(ex.Message);
             }
             MostrarClientes();
+        }
+
+        private void txtDui_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDui_KeyPress(object sender, KeyPressEventArgs e)
+        {            
+                // Permite números (0-9) y el guión (-)
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '-')
+                {
+                  MessageBox.Show("Solo números y guión son permitidos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                   e.Handled = true; // Suprime el carácter
+                }
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permite números (0-9), el símbolo "+", el símbolo "-", y espacios en blanco
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '+' && e.KeyChar != '-' && e.KeyChar != ' ')
+            {
+                MessageBox.Show("Solo números - y + son permitidos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true; // Suprime el carácter
+            }
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permite solo letras y espacios en blanco
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && e.KeyChar != ' ')
+            {
+                MessageBox.Show("Solo letras son permitidas", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true; // Suprime el carácter
+            }
+        }
+
+        private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permite solo letras y espacios en blanco
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && e.KeyChar != ' ')
+            {
+                MessageBox.Show("Solo letras son permitidas", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true; // Suprime el carácter
+            }
         }
     }
 }

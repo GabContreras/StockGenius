@@ -20,7 +20,8 @@ namespace Modelos
         public static DataTable CargarRoles()
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = "select * from Usuario;";
+            string comando = "SELECT U.Id_Usuario, U.NombreUsuario as Usuario, U.contraseña, u.id_Rol, R.Nombre AS Rol\r\n" +
+                "FROM Usuario U\r\nINNER JOIN Rol R ON U.id_Rol = R.id_Rol;";
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
 
             DataTable dt = new DataTable();
