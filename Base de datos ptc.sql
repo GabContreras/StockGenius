@@ -102,7 +102,7 @@ CREATE TABLE Detalle_Pedido (
     Id_Pedido INT NOT NULL,
     Id_Producto INT NOT NULL,
     Cantidad INT NOT NULL CHECK(Cantidad > 0),
-    Total DECIMAL(10, 2) -- Elimina el check y la asignación de Total aquí
+    Total DECIMAL(10, 2) 
 
 constraint FK_Pedido
 FOREIGN KEY (Id_Pedido) references Pedido(Id_Pedido)
@@ -114,6 +114,8 @@ on delete cascade
 on update cascade,
 );
 
+select sum(Cantidad) as total from Detalle_Pedido 
+where Id_Pedido = 1
 
 create table Factura(
 Id_Factura int PRIMARY KEY identity(1,1),
@@ -127,6 +129,7 @@ on update cascade
 );
 go
 
+select* from Empleado
 
 insert into Rol(Nombre)
 values ('Administrador'),
@@ -144,16 +147,20 @@ values ('Admin1', 'contraseña1',1),
 ('GerenteC1', 'contraseña5',5);
 go
 
-select * from usuario 
+select * from Usuario 
+
+delete from usuario where Id_Usuario= 9
 
 insert into Empleado(Nombre, Apellido, Teléfono, DUI, Correo, Cargo, id_Usuario)
-values ('Pedro', 'López', '+503 7854-9654', '0809234-0', 'pedro@example.com', 'Jefe', 1),
+values ('Pedro', 'López', '+503 7854-9655', '0809234-1', 'Elpepe@example.c om', 'Jefe', 1),
 ('Ana', 'García', '+503 6543-9876', '1234567-8', 'ana@example.com', 'Gerente General', 2),
   ('Carlos', 'Ramírez', '+503 7890-4321', '9876543-2', 'carlos@example.com', 'Vendedor', 3),
   ('Sofia', 'Morales', '+503 6754-3241', '5678901-2', 'sofia@example.com', 'Técnico de selección', 4),
   ('Luis', 'González', '+503 4532-9876', '4567890-1', 'luis@example.com','Gerente de compras', 5) ;
   go
 
+
+  sELECT Id_Empleado ,concat (Nombre,' ', Apellido, ', ', DUI ) as 'Empleado' from Empleado
 
 
   SELECT E.Id_Empleado, E.Nombre AS Nombre, E.Apellido AS Apellido, E.Teléfono AS Telefono, E.DUI AS Dui, E.Correo AS Correo,
@@ -162,6 +169,9 @@ FROM Empleado E
 INNER JOIN Usuario U ON E.id_Usuario = U.id_Usuario
 
 
+SELECT PrecioUnitario FROM Producto WHERE Id_Producto =1
+
+select * from Detalle_Pedido
 
 CREATE TRIGGER CalcularTotalDetallePedido
 ON Detalle_Pedido
@@ -200,4 +210,3 @@ BEGIN
     SET Stock = Stock + @CantidadEliminada
     WHERE Id_Producto = @Id_Producto;
 END;
-

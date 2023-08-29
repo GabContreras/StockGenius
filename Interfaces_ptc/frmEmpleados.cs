@@ -113,7 +113,6 @@ namespace Interfaces_ptc
            
 
         }
-        //Agregar doubleclick cuando esté corregido
         private void dgvEmpleados_DoubleClick(object sender, EventArgs e)
         {
 
@@ -131,11 +130,12 @@ namespace Interfaces_ptc
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            Usuario U = new Usuario();
-            U.NombreUsuario = txtNombreUsuario.Text;
-            U.Contraseña = txtContraseña.Text;
-            U.Id_Rol = (int)cbRol.SelectedValue;
-           
+            try
+            {
+             Usuario U = new Usuario();
+             U.NombreUsuario = txtNombreUsuario.Text;
+             U.Contraseña = txtContraseña.Text;
+             U.Id_Rol = (int)cbRol.SelectedValue;
 
             if (U.InsertarUsuario() == true)
             {
@@ -158,17 +158,94 @@ namespace Interfaces_ptc
                     MessageBox.Show("Se produjo un error al insertar el empleado", "Advertencia");
                 }
             }
-            else
-            {
+              else
+              {
                 MessageBox.Show("Se produjo un error al insertar el usuario", "Advertencia");
+              }
+                MostrarEmpleados();
             }
-
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             MostrarEmpleados();
-        
-    }
+        }
 
         private void frmEmpleados_FormClosed(object sender, FormClosedEventArgs e)
         {
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int idU = Usuario.ConseguirIdUsuario(txtNombreUsuario.Text);
+                Usuario U = new Usuario();
+                if (U.EliminarUsuario(idU) == true)
+                {
+                    int id = int.Parse(dgvEmpleados.CurrentRow.Cells[0].Value.ToString());
+                    Empleados E = new Empleados();
+                    if (E.EliminarEmpleado(id) == true)
+                    {
+                        MessageBox.Show("Empleado eliminado satisfactoriamente", "Éxito");
+                        MostrarEmpleados();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Se produjo un error al eliminar el empleado", "Advertencia");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            MostrarEmpleados();
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Usuario U = new Usuario();
+                U.NombreUsuario = txtNombreUsuario.Text;
+                U.Contraseña = txtContraseña.Text;
+                U.Id_Rol = (int)cbRol.SelectedValue;
+                U.Id_usuario = Usuario.ConseguirIdUsuario(txtNombreUsuario.Text);
+                if (U.ActualizarUsuario() == true)
+                {
+                    Empleados E = new Empleados();
+                    E.Id_empleado = (int)dgvEmpleados.CurrentRow.Cells[0].Value;
+                    E.Nombre_Empleado = txtNombre.Text;
+                    E.Apellido = txtApellido.Text;
+                    E.Telefono = txtTelefono.Text;
+                    E.Dui = txtDui.Text;
+                    E.Correo = txtCorreo.Text;
+                    E.Cargo = txtCargo.Text;
+                    E.Id_Usuario = Usuario.ConseguirIdUsuario(txtNombreUsuario.Text);
+
+                    if (E.ActualizarEmpleado() == true)
+                    {
+                        MessageBox.Show("Empleado actualizado satisfactoriamente", "Éxito");
+                        MostrarEmpleados();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Se produjo un error fatal", "Advertencia");
+                    }
+                    MostrarEmpleados();
+                }
+                else
+                {
+                    MessageBox.Show("Se produjo un error", "Advertencia");
+                }
+                MostrarEmpleados();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            MostrarEmpleados();
         }
     }
 }

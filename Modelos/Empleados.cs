@@ -11,7 +11,7 @@ namespace Modelos
 {
     public class Empleados:Roles
     {
-        private int id;
+        private int id_empleado;
         private string nombre_Empleado;
         private string apellido;
         private string telefono;
@@ -20,7 +20,7 @@ namespace Modelos
         private string cargo;
         private int id_Usuario;
 
-        public int Id { get => id; set => id = value; }
+      
 
         public string Apellido { get => apellido; set => apellido = value; }
         public string Telefono { get => telefono; set => telefono = value; }
@@ -29,6 +29,7 @@ namespace Modelos
         public int Id_Usuario { get => id_Usuario; set => id_Usuario = value; }
         public string Cargo { get => cargo; set => cargo = value; }
         public string Nombre_Empleado { get => nombre_Empleado; set => nombre_Empleado = value; }
+        public int Id_empleado { get => id_empleado; set => id_empleado = value; }
 
         public static DataTable CargarEmpleados()
         {
@@ -84,13 +85,28 @@ namespace Modelos
             }
         }
 
-        public bool RegistrarEmpleado()
+        public bool EliminarEmpleado(int id)
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = "insert into Empleado(Nombre, Apellido, Teléfono, DUI, Correo, Cargo, id_Usuario)\r\n" +
-                " values \r\n" +
-                "(@nombre, @apellido, @teléfono, @dui, @correo, @cargo, @id_Usuario)";
-
+            string comando = "DELETE FROM Empleado WHERE Id_Empleado = @Id_Empleado";
+            SqlCommand cmd = new SqlCommand(comando, con);
+            cmd.Parameters.AddWithValue("@Id_Empleado", id);
+            if (cmd.ExecuteNonQuery() > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool ActualizarEmpleado()
+        {
+            SqlConnection con = Conexion.Conectar();
+            string comando = "update empleado" +
+                " \r\n set Nombre=@nombre, Apellido=@apellido, Teléfono=@teléfono, DUI=@dui, Correo=@correo, " +
+                "Cargo=@cargo, id_Usuario=@id_Usuario" +
+                "  WHERE Id_Empleado = @id";
             SqlCommand cmd = new SqlCommand(comando, con);
 
             cmd.Parameters.AddWithValue("@nombre", Nombre_Empleado);
@@ -100,6 +116,8 @@ namespace Modelos
             cmd.Parameters.AddWithValue("@correo", correo);
             cmd.Parameters.AddWithValue("@cargo", cargo);
             cmd.Parameters.AddWithValue("@id_Usuario", id_Usuario);
+            cmd.Parameters.AddWithValue("@id", id_empleado);
+
 
             if (cmd.ExecuteNonQuery() > 0)
             {
@@ -111,5 +129,7 @@ namespace Modelos
                 return false;
             }
         }
+
+
     }
 }
