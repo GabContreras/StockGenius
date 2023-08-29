@@ -20,7 +20,7 @@ namespace Interfaces_ptc
             InitializeComponent();
 
 
-                btnEliminar.Visible = false;
+                //btnEliminar.Visible = false;
         
         }
 
@@ -98,41 +98,48 @@ namespace Interfaces_ptc
         //Agregar doubleclick cuando esté corregido
         private void dgvEmpleados_DoubleClick(object sender, EventArgs e)
         {
-            
-            //txtNombreUsuario.Text = dgvEmpleados.CurrentRow.Cells[7].Value.ToString();
-            ////txtContraseña.Text = dgvEmpleados.CurrentRow.Cells[3].Value.ToString();
-            //cbRol.Text = dgvEmpleados.CurrentRow.Cells[9].Value.ToString();
-            //txtNombre.Text = dgvEmpleados.CurrentRow.Cells[4].Value.ToString();
-            //txtApellido.Text = dgvEmpleados.CurrentRow.Cells[5].Value.ToString();
-            //txtTelefono.Text = dgvEmpleados.CurrentRow.Cells[6].Value.ToString();
-            //txtDui.Text = dgvEmpleados.CurrentRow.Cells[7].Value.ToString();
-            //txtCorreo.Text = dgvEmpleados.CurrentRow.Cells[8].Value.ToString();
+
+            txtNombreUsuario.Text = dgvEmpleados.CurrentRow.Cells[3].Value.ToString();
+            txtContraseña.Text = dgvEmpleados.CurrentRow.Cells[4].Value.ToString();
+            cbRol.Text = dgvEmpleados.CurrentRow.Cells[2].Value.ToString();
+            txtCargo.Text= dgvEmpleados.CurrentRow.Cells[5].Value.ToString();
+            txtNombre.Text = dgvEmpleados.CurrentRow.Cells[6].Value.ToString();
+            txtApellido.Text = dgvEmpleados.CurrentRow.Cells[7].Value.ToString();
+            txtTelefono.Text = dgvEmpleados.CurrentRow.Cells[8].Value.ToString();
+            txtDui.Text = dgvEmpleados.CurrentRow.Cells[9].Value.ToString();
+            txtCorreo.Text = dgvEmpleados.CurrentRow.Cells[10].Value.ToString();
 
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            //@nombre, @apellido, @teléfono, @dui, @correo, @id_Cargo, @id_Usuario
-
-            Empleados p = new Empleados();
-            p.Nombre = txtNombre.Text;
-            p.Apellido = txtApellido.Text;
-            p.Telefono = txtTelefono.Text;
-            p.Dui = txtDui.Text;
-            p.Correo = txtCorreo.Text;
-            p.id_rol = (int)cbRol.SelectedValue;
-            //Agregar para insertar Cargo
-            p.Id_Usuario = int.Parse(txtNombreUsuario.Text);
-
-            if (p.InsertarEmpleado() == true)
-            {
-                MessageBox.Show("Producto agregado satisfactoriamente", "Éxito");
-                MostrarEmpleados();
-            }
-            else
-            {
-                MessageBox.Show("Se produjo un error", "Advertencia");
-            }
+            Usuario U = new Usuario();
+            U.NombreUsuario= txtNombreUsuario.Text; 
+            U.Contraseña = txtContraseña.Text;
+            U.Id_Rol = (int)cbRol.SelectedValue;
+              
+            Empleados E = new Empleados();
+            E.Nombre_Empleado = txtNombre.Text;
+            E.Apellido = txtApellido.Text;
+            E.Telefono = txtTelefono.Text;
+            E.Dui = txtDui.Text;
+            E.Correo = txtCorreo.Text;
+            E.Cargo = txtCargo.Text;
+           
+                if (U.InsertarUsuario() == true)
+                {
+                    if (E.InsertarEmpleado() == true)
+                    {
+                        MessageBox.Show("Producto agregado satisfactoriamente", "Éxito");
+                        MostrarEmpleados();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Se produjo un error", "Advertencia");
+                    }
+                }
+           
+            MostrarEmpleados();
         }
 
         private void frmEmpleados_FormClosed(object sender, FormClosedEventArgs e)

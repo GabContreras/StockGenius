@@ -44,5 +44,28 @@ namespace Modelos
             }
 
         }
+
+        public bool InsertarUsuario()
+        {
+            SqlConnection con = Conexion.Conectar();
+            string comando = "insert into Usuario(NombreUsuario, contraseña,id_Rol) values\r\n" +
+                "(@nombre, @contraseña, @rol)";
+            SqlCommand cmd = new SqlCommand(comando, con);
+
+            cmd.Parameters.AddWithValue("@nombre", nombreUsuario);
+            cmd.Parameters.AddWithValue("@contraseña", contraseña);
+            cmd.Parameters.AddWithValue("@rol", id_Rol);
+           
+
+            if (cmd.ExecuteNonQuery() > 0)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+        }
     }
 }
