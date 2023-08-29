@@ -83,5 +83,33 @@ namespace Modelos
                 return false;
             }
         }
+
+        public bool RegistrarEmpleado()
+        {
+            SqlConnection con = Conexion.Conectar();
+            string comando = "insert into Empleado(Nombre, Apellido, Teléfono, DUI, Correo, Cargo, id_Usuario)\r\n" +
+                " values \r\n" +
+                "(@nombre, @apellido, @teléfono, @dui, @correo, @cargo, @id_Usuario)";
+
+            SqlCommand cmd = new SqlCommand(comando, con);
+
+            cmd.Parameters.AddWithValue("@nombre", Nombre_Empleado);
+            cmd.Parameters.AddWithValue("@apellido", apellido);
+            cmd.Parameters.AddWithValue("@teléfono", telefono);
+            cmd.Parameters.AddWithValue("@dui", dui);
+            cmd.Parameters.AddWithValue("@correo", correo);
+            cmd.Parameters.AddWithValue("@cargo", cargo);
+            cmd.Parameters.AddWithValue("@id_Usuario", id_Usuario);
+
+            if (cmd.ExecuteNonQuery() > 0)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+        }
     }
 }
