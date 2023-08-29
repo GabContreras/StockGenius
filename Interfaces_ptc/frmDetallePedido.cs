@@ -111,7 +111,7 @@ namespace Interfaces_ptc
                 p.Id_pedido = int.Parse(cbPedido.Text);
                 p.Id_Producto = (int)cbProducto.SelectedValue;
                 p.Cantidad = int.Parse(txtCantidad.Text);
-
+                p.Total = ((int.Parse(txtCantidad.Text))* ObtenerPrecioProducto(p.Id_Producto));
                 // Se obtiene la cantidad en stock actual
                 int stockActual = ObtenerStockProducto(p.Id_Producto);
 
@@ -156,6 +156,27 @@ namespace Interfaces_ptc
             }
 
             return stock;
+        }
+
+        private int ObtenerPrecioProducto(int idProducto)
+        {
+
+            // se agrega la consulta para sabe cuanto hay en stock
+            int PrecioUnitario = 0;
+            SqlConnection con = Conexion.Conectar();
+            string query = "SELECT PrecioUnitario FROM Producto WHERE Id_Producto = @Id_Producto";
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@Id_Producto", idProducto);
+
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    PrecioUnitario = Convert.ToInt32(reader["PrecioUnitario"]);
+                }
+            }
+
+            return PrecioUnitario;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

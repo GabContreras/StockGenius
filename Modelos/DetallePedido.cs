@@ -26,7 +26,7 @@ namespace Modelos
         public static DataTable CargarDetallePedido()
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = "SELECT\r\n    DP.Id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Nombre_Producto,DP.cantidad,P.PrecioUnitario,\r\n  " +
+            string comando = "SELECT DP.Id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Nombre_Producto,DP.cantidad,P.PrecioUnitario,\r\n  " +
                 "  DP.cantidad * P.PrecioUnitario AS Total\r\nFROM Detalle_Pedido DP\r\n" +
                 "INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto;";
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
@@ -39,13 +39,13 @@ namespace Modelos
         public bool InsertarDpedido()
         {
                 SqlConnection con = Conexion.Conectar();
-                string comando = "INSERT INTO Detalle_Pedido(Id_Pedido, Id_Producto, cantidad) VALUES (@Id_Pedido, @Id_Producto, @cantidad)";
+                string comando = "INSERT INTO Detalle_Pedido(Id_Pedido, Id_Producto, cantidad,total) VALUES (@Id_Pedido, @Id_Producto, @cantidad, @total)";
                 SqlCommand cmd = new SqlCommand(comando, con);
 
                 cmd.Parameters.AddWithValue("@Id_Pedido", id_pedido);
                 cmd.Parameters.AddWithValue("@Id_Producto", id_Producto);
                 cmd.Parameters.AddWithValue("@cantidad", cantidad);
-
+                cmd.Parameters.AddWithValue("@total", total);
                 if (cmd.ExecuteNonQuery() > 0)
                 {
                     return true;

@@ -101,9 +101,7 @@ namespace Interfaces_ptc
         #endregion
         private void btnFactura_Click_1(object sender, EventArgs e)
         {
-            openChildFormInPanel(new frmFactura());
-            //Agregar código para abrir los formularios deseados
-            OcultarSubMenu();
+         
         }
         private Form activeForm = null;
         private void openChildFormInPanel(Form childForm)
