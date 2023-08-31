@@ -61,7 +61,7 @@ Apellido varchar(50) not null,
 DUI varchar (9) unique not null,
 Telefono varchar(50) unique not null,
 Dirección varchar(150) not null,
-Edad int check (edad>21)
+Edad int check (edad>=21)
 );
 go
 
@@ -114,8 +114,6 @@ on delete cascade
 on update cascade,
 );
 
-select sum(Cantidad) as total from Detalle_Pedido 
-where Id_Pedido = 1
 
 create table Factura(
 Id_Factura int PRIMARY KEY identity(1,1),
@@ -128,9 +126,6 @@ on delete cascade
 on update cascade
 );
 go
-
-select* from Empleado
-
 insert into Rol(Nombre)
 values ('Administrador'),
 ('Gerente General'),
@@ -138,6 +133,9 @@ values ('Administrador'),
 ('Técnico de selección'),
 ('Gerente de compras');
 go
+
+select* from Empleado
+select * from usuario
 
 insert into Usuario(NombreUsuario, contraseña,id_Rol)
 values ('Admin1', 'contraseña1',1), 
@@ -147,9 +145,19 @@ values ('Admin1', 'contraseña1',1),
 ('GerenteC1', 'contraseña5',5);
 go
 
-select * from Usuario 
+SELECT  E.Id_Empleado, U.id_Rol,U.id_usuario,R.Nombre as Rol,E.Nombre AS Nombre,
+ E.Apellido AS Apellido, E.Teléfono AS Telefono, E.DUI AS Dui, E.Correo AS Correo, U.NombreUsuario AS Usuario, U.contraseña AS Contraseña,E.Cargo AS Cargo
+                FROM Empleado E 
+				INNER JOIN Usuario U ON E.id_Usuario = U.id_Usuario
+				INNER JOIN Rol R on U.id_Rol= R.id_Rol
 
-delete from usuario where Id_Usuario= 9
+select * from usuario 
+select * from empleado 
+
+delete from usuario where Id_Usuario= 8
+
+select sum(total) as total from Detalle_Pedido 
+where Id_Pedido = 1
 
 insert into Empleado(Nombre, Apellido, Teléfono, DUI, Correo, Cargo, id_Usuario)
 values ('Pedro', 'López', '+503 7854-9655', '0809234-1', 'Elpepe@example.c om', 'Jefe', 1),

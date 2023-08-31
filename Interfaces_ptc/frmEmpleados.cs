@@ -72,11 +72,11 @@ namespace Interfaces_ptc
 
                 //El valor que se muestra en el combobox
                 //Se coloca el nombre de la columna en la tabla
-                cbRol.DisplayMember = "Rol";
+                cbRol.DisplayMember = "nombre";
 
                 //Valor que no se muestra (id)
                 //Se coloca el nombre de la columna en la tabla
-                cbRol.ValueMember = "Id_Rol";
+                cbRol.ValueMember = "id";
             }
 
             //Bloque de código por si da error
@@ -95,9 +95,9 @@ namespace Interfaces_ptc
             dgvEmpleados.DataSource = null;
             dgvEmpleados.DataSource = Empleados.CargarEmpleados();
 
-            dgvEmpleados.Columns[0].Visible = false;
-            dgvEmpleados.Columns[1].Visible = false;
-            dgvEmpleados.Columns[4].Visible = false;
+            //dgvEmpleados.Columns[0].Visible = false;
+            //dgvEmpleados.Columns[1].Visible = false;
+            //dgvEmpleados.Columns[4].Visible = false;
 
 
         }
@@ -119,26 +119,35 @@ namespace Interfaces_ptc
         }
         private void dgvEmpleados_DoubleClick(object sender, EventArgs e)
         {
+            try
+            {
+                Encrypt encr = new Encrypt();
 
-            txtNombreUsuario.Text = dgvEmpleados.CurrentRow.Cells[3].Value.ToString();
-            txtContraseña.Text = dgvEmpleados.CurrentRow.Cells[4].Value.ToString();
-            cbRol.Text = dgvEmpleados.CurrentRow.Cells[2].Value.ToString();
-            txtCargo.Text= dgvEmpleados.CurrentRow.Cells[5].Value.ToString();
-            txtNombre.Text = dgvEmpleados.CurrentRow.Cells[6].Value.ToString();
-            txtApellido.Text = dgvEmpleados.CurrentRow.Cells[7].Value.ToString();
-            txtTelefono.Text = dgvEmpleados.CurrentRow.Cells[8].Value.ToString();
-            txtDui.Text = dgvEmpleados.CurrentRow.Cells[9].Value.ToString();
-            txtCorreo.Text = dgvEmpleados.CurrentRow.Cells[10].Value.ToString();
-
+                txtNombreUsuario.Text = dgvEmpleados.CurrentRow.Cells[3].Value.ToString();
+                txtContraseña.Text = encr.desencriptar(dgvEmpleados.CurrentRow.Cells[4].Value.ToString());
+                cbRol.Text = dgvEmpleados.CurrentRow.Cells[2].Value.ToString();
+                txtCargo.Text = dgvEmpleados.CurrentRow.Cells[5].Value.ToString();
+                txtNombre.Text = dgvEmpleados.CurrentRow.Cells[6].Value.ToString();
+                txtApellido.Text = dgvEmpleados.CurrentRow.Cells[7].Value.ToString();
+                txtTelefono.Text = dgvEmpleados.CurrentRow.Cells[8].Value.ToString();
+                txtDui.Text = dgvEmpleados.CurrentRow.Cells[9].Value.ToString();
+                txtCorreo.Text = dgvEmpleados.CurrentRow.Cells[10].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             try
             {
+             Encrypt encr = new Encrypt();
+
              Usuario U = new Usuario();
              U.NombreUsuario = txtNombreUsuario.Text;
-             U.Contraseña = txtContraseña.Text;
+             U.Contraseña = encr.Encriptar(txtContraseña.Text);
              U.Id_Rol = (int)cbRol.SelectedValue;
 
             if (U.InsertarUsuario() == true)
@@ -183,13 +192,14 @@ namespace Interfaces_ptc
         {
             try
             {
-                int idU = Usuario.ConseguirIdUsuario(txtNombreUsuario.Text);
-                Usuario U = new Usuario();
-                if (U.EliminarUsuario(idU) == true)
+                int id = int.Parse(dgvEmpleados.CurrentRow.Cells[0].Value.ToString());
+                Empleados E = new Empleados();
+                if (E.EliminarEmpleado(id) == true)
                 {
-                    int id = int.Parse(dgvEmpleados.CurrentRow.Cells[0].Value.ToString());
-                    Empleados E = new Empleados();
-                    if (E.EliminarEmpleado(id) == true)
+                    
+                    int idU = Usuario.ConseguirIdUsuario(txtNombreUsuario.Text);
+                    Usuario U = new Usuario();
+                    if (U.EliminarUsuario(idU) == true)
                     {
                         MessageBox.Show("Empleado eliminado satisfactoriamente", "Éxito");
                         MostrarEmpleados();

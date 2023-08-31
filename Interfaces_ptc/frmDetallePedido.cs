@@ -107,29 +107,37 @@ namespace Interfaces_ptc
         {
             try
             {
-                DetallePedido p = new DetallePedido();
-                p.Id_pedido = int.Parse(cbPedido.Text);
-                p.Id_Producto = (int)cbProducto.SelectedValue;
-                p.Cantidad = int.Parse(txtCantidad.Text);
-                p.Total = ((int.Parse(txtCantidad.Text))* ObtenerPrecioProducto(p.Id_Producto));
-                // Se obtiene la cantidad en stock actual
-                int stockActual = ObtenerStockProducto(p.Id_Producto);
-
-                if (stockActual >= p.Cantidad) // Se verifica si la cantidad excede el stock
+                if (txtCantidad.Text == "" )
                 {
-                    if (p.InsertarDpedido() == true)
-                    {
-                        MessageBox.Show("Detalle agregado satisfactoriamente", "Éxito");
-                        MostrarDetallePedido();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Se produjo un error", "Advertencia");
-                    }
+                    MessageBox.Show("No dejar campos vacios",
+                   "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("La cantidad solicitada excede el stock disponible", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    DetallePedido p = new DetallePedido();
+                    p.Id_pedido = int.Parse(cbPedido.Text);
+                    p.Id_Producto = (int)cbProducto.SelectedValue;
+                    p.Cantidad = int.Parse(txtCantidad.Text);
+                    p.Total = ((int.Parse(txtCantidad.Text)) * ObtenerPrecioProducto(p.Id_Producto));
+                    // Se obtiene la cantidad en stock actual
+                    int stockActual = ObtenerStockProducto(p.Id_Producto);
+
+                    if (stockActual >= p.Cantidad) // Se verifica si la cantidad excede el stock
+                    {
+                        if (p.InsertarDpedido() == true)
+                        {
+                            MessageBox.Show("Detalle agregado satisfactoriamente", "Éxito");
+                            MostrarDetallePedido();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Se produjo un error", "Advertencia");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("La cantidad solicitada excede el stock disponible", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
                 }
             }
             catch (Exception ex)

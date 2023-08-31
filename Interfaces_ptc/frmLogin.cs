@@ -57,9 +57,11 @@ namespace Interfaces_ptc
 
         private void button2_Click_1(object sender, EventArgs e)
         {
+            Encrypt encr = new Encrypt();
+
             Usuario u = new Usuario();
             u.NombreUsuario= txtUser.Text;
-            u.Contraseña= txtPassword.Text;
+            u.Contraseña= encr.Encriptar(txtPassword.Text);
             try
             {
                 u = u.IniciarSesion();
@@ -100,15 +102,22 @@ namespace Interfaces_ptc
 
         private void btnRegistro_Click(object sender, EventArgs e)
         {
-            frmRegistrar registrar = new frmRegistrar();
-            registrar.Show();
-
-            registrar.FormClosed += delegate
+            try
             {
-                this.Show();
-            };
+                frmRegistrar registrar = new frmRegistrar();
+                registrar.Show();
 
-            this.Hide();
+                registrar.FormClosed += delegate
+                {
+                    this.Show();
+                };
+
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnAcceder_Click(object sender, EventArgs e)

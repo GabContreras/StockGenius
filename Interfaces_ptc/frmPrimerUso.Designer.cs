@@ -44,7 +44,7 @@
             // cbMostrar
             // 
             this.cbMostrar.AutoSize = true;
-            this.cbMostrar.Location = new System.Drawing.Point(423, 370);
+            this.cbMostrar.Location = new System.Drawing.Point(468, 332);
             this.cbMostrar.Name = "cbMostrar";
             this.cbMostrar.Size = new System.Drawing.Size(15, 14);
             this.cbMostrar.TabIndex = 131;
@@ -59,7 +59,7 @@
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSalir.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.Color.White;
-            this.btnSalir.Location = new System.Drawing.Point(453, 55);
+            this.btnSalir.Location = new System.Drawing.Point(498, 17);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(109, 31);
             this.btnSalir.TabIndex = 130;
@@ -70,7 +70,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(174, 50);
+            this.pictureBox2.Location = new System.Drawing.Point(219, 12);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(171, 181);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -83,7 +83,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Cambria", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(66, 361);
+            this.label2.Location = new System.Drawing.Point(111, 323);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(120, 25);
             this.label2.TabIndex = 128;
@@ -95,7 +95,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Cambria", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(66, 296);
+            this.label1.Location = new System.Drawing.Point(111, 258);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(86, 25);
             this.label1.TabIndex = 127;
@@ -109,7 +109,7 @@
             this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRegistrar.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrar.ForeColor = System.Drawing.Color.White;
-            this.btnRegistrar.Location = new System.Drawing.Point(205, 442);
+            this.btnRegistrar.Location = new System.Drawing.Point(250, 404);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(109, 31);
             this.btnRegistrar.TabIndex = 126;
@@ -123,7 +123,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Cambria", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(135, 234);
+            this.label9.Location = new System.Drawing.Point(180, 196);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(254, 25);
             this.label9.TabIndex = 125;
@@ -135,7 +135,7 @@
             this.txtContraseña.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtContraseña.Font = new System.Drawing.Font("Cambria", 12F);
             this.txtContraseña.ForeColor = System.Drawing.Color.Black;
-            this.txtContraseña.Location = new System.Drawing.Point(213, 364);
+            this.txtContraseña.Location = new System.Drawing.Point(258, 326);
             this.txtContraseña.MaxLength = 30;
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Size = new System.Drawing.Size(225, 26);
@@ -149,7 +149,7 @@
             this.txtNombreUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNombreUsuario.Font = new System.Drawing.Font("Cambria", 12F);
             this.txtNombreUsuario.ForeColor = System.Drawing.Color.Black;
-            this.txtNombreUsuario.Location = new System.Drawing.Point(213, 299);
+            this.txtNombreUsuario.Location = new System.Drawing.Point(258, 261);
             this.txtNombreUsuario.MaxLength = 30;
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.Size = new System.Drawing.Size(225, 26);

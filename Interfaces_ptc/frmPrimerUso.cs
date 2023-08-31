@@ -30,10 +30,13 @@ namespace Interfaces_ptc
                 }
                 else
                 {
+                    Encrypt encr = new Encrypt();
+
                     Usuario us = new Usuario();
                     us.NombreUsuario = txtNombreUsuario.Text;
-                    us.Contraseña = txtContraseña.Text;
+                    us.Contraseña = encr.Encriptar(txtContraseña.Text);
                     us.Id_Rol = 1;
+
                     us.InsertarUsuario();
 
                     MessageBox.Show("Se ha creado el usuario correctamente." +

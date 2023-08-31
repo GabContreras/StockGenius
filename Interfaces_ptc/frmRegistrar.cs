@@ -33,9 +33,11 @@ namespace Interfaces_ptc
         {
             try
             {
+                Encrypt encr = new Encrypt();
+
                 Usuario U = new Usuario();
                 U.NombreUsuario = txtNombreUsuario.Text;
-                U.Contraseña = txtContraseña.Text;
+                U.Contraseña = encr.Encriptar(txtContraseña.Text);
                 U.Id_Rol = 2;
             
                 if (U.InsertarUsuario() == true)

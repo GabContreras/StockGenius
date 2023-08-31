@@ -34,16 +34,18 @@ namespace Modelos
         }
         public bool InsertarProovedores()
         {
-            SqlConnection con = Conexion.Conectar();
-            string comando = "Insert into proveedor(nombre,dirección,telefono)" + "values(@nombre,@dirección,@telefono);";
-            SqlCommand cmd = new SqlCommand(comando, con);
-            cmd.Parameters.AddWithValue("@nombre", nombre);
-            cmd.Parameters.AddWithValue("@dirección", direccion);
-            cmd.Parameters.AddWithValue("@telefono", telefono);
-            if (cmd.ExecuteNonQuery() > 0)
-                return true;
-            else
-                return false;
+           
+                SqlConnection con = Conexion.Conectar();
+                string comando = "Insert into proveedor(nombre,dirección,telefono)" + "values(@nombre,@dirección,@telefono);";
+                SqlCommand cmd = new SqlCommand(comando, con);
+                cmd.Parameters.AddWithValue("@nombre", nombre);
+                cmd.Parameters.AddWithValue("@dirección", direccion);
+                cmd.Parameters.AddWithValue("@telefono", telefono);
+                if (cmd.ExecuteNonQuery() > 0)
+                    return true;
+                else
+                    return false;
+            
         }
         public bool EliminarProveedores(int id)
         {
