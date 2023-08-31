@@ -95,10 +95,10 @@ namespace Interfaces_ptc
             dgvEmpleados.DataSource = null;
             dgvEmpleados.DataSource = Empleados.CargarEmpleados();
 
-            //dgvEmpleados.Columns[0].Visible = false;
-            //dgvEmpleados.Columns[1].Visible = false;
-            //dgvEmpleados.Columns[4].Visible = false;
-
+            dgvEmpleados.Columns[0].Visible = false;
+            dgvEmpleados.Columns[1].Visible = false;
+            dgvEmpleados.Columns[2].Visible = false;
+            dgvEmpleados.Columns[10].Visible = false;
 
         }
 
@@ -123,15 +123,15 @@ namespace Interfaces_ptc
             {
                 Encrypt encr = new Encrypt();
 
-                txtNombreUsuario.Text = dgvEmpleados.CurrentRow.Cells[3].Value.ToString();
-                txtContraseña.Text = encr.desencriptar(dgvEmpleados.CurrentRow.Cells[4].Value.ToString());
-                cbRol.Text = dgvEmpleados.CurrentRow.Cells[2].Value.ToString();
-                txtCargo.Text = dgvEmpleados.CurrentRow.Cells[5].Value.ToString();
-                txtNombre.Text = dgvEmpleados.CurrentRow.Cells[6].Value.ToString();
-                txtApellido.Text = dgvEmpleados.CurrentRow.Cells[7].Value.ToString();
-                txtTelefono.Text = dgvEmpleados.CurrentRow.Cells[8].Value.ToString();
-                txtDui.Text = dgvEmpleados.CurrentRow.Cells[9].Value.ToString();
-                txtCorreo.Text = dgvEmpleados.CurrentRow.Cells[10].Value.ToString();
+                txtNombreUsuario.Text = dgvEmpleados.CurrentRow.Cells[9].Value.ToString();
+                txtContraseña.Text = encr.desencriptar(dgvEmpleados.CurrentRow.Cells[10].Value.ToString());
+                cbRol.Text = dgvEmpleados.CurrentRow.Cells[3].Value.ToString();
+                txtCargo.Text = dgvEmpleados.CurrentRow.Cells[11].Value.ToString();
+                txtNombre.Text = dgvEmpleados.CurrentRow.Cells[4].Value.ToString();
+                txtApellido.Text = dgvEmpleados.CurrentRow.Cells[5].Value.ToString();
+                txtTelefono.Text = dgvEmpleados.CurrentRow.Cells[6].Value.ToString();
+                txtDui.Text = dgvEmpleados.CurrentRow.Cells[7].Value.ToString();
+                txtCorreo.Text = dgvEmpleados.CurrentRow.Cells[8].Value.ToString();
             }
             catch (Exception ex)
             {
@@ -194,10 +194,11 @@ namespace Interfaces_ptc
             {
                 int id = int.Parse(dgvEmpleados.CurrentRow.Cells[0].Value.ToString());
                 Empleados E = new Empleados();
+                
                 if (E.EliminarEmpleado(id) == true)
                 {
                     
-                    int idU = Usuario.ConseguirIdUsuario(txtNombreUsuario.Text);
+                    int idU = int.Parse(dgvEmpleados.CurrentRow.Cells[2].Value.ToString());
                     Usuario U = new Usuario();
                     if (U.EliminarUsuario(idU) == true)
                     {
@@ -221,11 +222,13 @@ namespace Interfaces_ptc
         {
             try
             {
+                Encrypt encr = new Encrypt();
+
                 Usuario U = new Usuario();
                 U.NombreUsuario = txtNombreUsuario.Text;
-                U.Contraseña = txtContraseña.Text;
+                U.Contraseña = encr.Encriptar(txtContraseña.Text);
                 U.Id_Rol = (int)cbRol.SelectedValue;
-                U.Id_usuario = Usuario.ConseguirIdUsuario(txtNombreUsuario.Text);
+                U.Id_usuario = (int)dgvEmpleados.CurrentRow.Cells[2].Value;
                 if (U.ActualizarUsuario() == true)
                 {
                     Empleados E = new Empleados();

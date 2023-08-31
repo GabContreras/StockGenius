@@ -150,7 +150,7 @@ SELECT  E.Id_Empleado, U.id_Rol,U.id_usuario,R.Nombre as Rol,E.Nombre AS Nombre,
                 FROM Empleado E 
 				INNER JOIN Usuario U ON E.id_Usuario = U.id_Usuario
 				INNER JOIN Rol R on U.id_Rol= R.id_Rol
-
+				delete from usuario where id_usuario=2
 select * from usuario 
 select * from empleado 
 

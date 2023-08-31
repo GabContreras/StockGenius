@@ -82,10 +82,27 @@ namespace Interfaces_ptc
         {
             try
             {
+                DateTime fechaActual = DateTime.Now;
+                DateTime fechaPedido = dtpFecha.Value;
+
+                // Validación: No permitir fechas futuras
+                if (fechaPedido > fechaActual)
+                {
+                    MessageBox.Show("No se pueden hacer pedidos en fechas futuras", "Advertencia");
+                    return; // Salir del método sin agregar el pedido
+                }
+
+                // Validación: No permitir fechas muy pasadas (más de 30 días atrás)
+                if (fechaPedido < fechaActual.AddDays(-30))
+                {
+                    MessageBox.Show("La fecha de pedido es demasiado antigua", "Advertencia");
+                    return; // Salir del método sin agregar el pedido
+                }
+
                 Pedido p = new Pedido();
                 p.Id_Cliente = (int)dgvCliente.CurrentRow.Cells[0].Value;
                 p.Id_Empleado = (int)cbEmpleado.SelectedValue;
-                p.Fecha_Pedido = dtpFecha.Value;
+                p.Fecha_Pedido = fechaPedido;
 
                 if (p.InsertarPedido() == true)
                 {

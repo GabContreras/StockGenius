@@ -27,8 +27,8 @@ namespace Modelos
         public static DataTable CargarProducto()
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = "SELECT Producto.Id_Producto, Producto.Nombre AS Nombre_Producto, Producto.Descripcion, Producto.Stock, Producto.PrecioUnitario, Proveedor.Nombre AS Nombre_Proveedor\r\n" +
-                "FROM Producto\r\nINNER JOIN Proveedor ON Producto.Id_Proveedor = Proveedor.Id_Proveedor;\r\n\r\n";
+            string comando = "SELECT P.Id_Producto, P.Nombre , P.Descripcion, P.Stock, P.PrecioUnitario as Precio, Pr.Nombre AS Proveedor\r\n" +
+                "FROM Producto P\r\nINNER JOIN Proveedor Pr ON P.Id_Proveedor = Pr.Id_Proveedor;\r\n\r\n";
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
             DataTable dt = new DataTable();
             ad.Fill(dt);

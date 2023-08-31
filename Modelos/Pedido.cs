@@ -24,7 +24,7 @@ namespace Modelos
         public static DataTable CargarPedido()
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = "SELECT P.Id_Pedido, C.Nombre AS Nombre_Cliente, E.Nombre AS Nombre_Empleado, P.Fecha_Pedido\r\nFROM Pedido P\r\n" +
+            string comando = "SELECT P.Id_Pedido, C.Nombre AS Cliente, E.Nombre AS Empleado, P.Fecha_Pedido as Fecha\r\nFROM Pedido P\r\n" +
                 "INNER JOIN Cliente C ON P.Id_Cliente = C.Id_Cliente\r\nINNER JOIN Empleado E ON P.Id_Empleado = E.Id_Empleado;";
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
 
