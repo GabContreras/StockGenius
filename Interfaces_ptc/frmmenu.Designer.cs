@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmmenu));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.btnEmpleado = new System.Windows.Forms.Button();
             this.btnCliente = new System.Windows.Forms.Button();
@@ -45,8 +44,8 @@
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.btnMiPerfil = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panelVentasubMenu.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelContenedor.SuspendLayout();
@@ -58,7 +57,7 @@
             // 
             this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(0)))), ((int)(((byte)(90)))));
-            this.panel1.Controls.Add(this.pictureBox4);
+            this.panel1.Controls.Add(this.btnMiPerfil);
             this.panel1.Controls.Add(this.btnCerrarSesion);
             this.panel1.Controls.Add(this.btnEmpleado);
             this.panel1.Controls.Add(this.btnCliente);
@@ -72,17 +71,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(250, 687);
             this.panel1.TabIndex = 0;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox4.Image = global::Interfaces_ptc.Properties.Resources.dab;
-            this.pictureBox4.Location = new System.Drawing.Point(0, 385);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(250, 257);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 19;
-            this.pictureBox4.TabStop = false;
             // 
             // btnCerrarSesion
             // 
@@ -271,7 +259,7 @@
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(250, 0);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(750, 687);
+            this.panelContenedor.Size = new System.Drawing.Size(934, 687);
             this.panelContenedor.TabIndex = 4;
             // 
             // pbLogo
@@ -280,7 +268,7 @@
             this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
             this.pbLogo.Location = new System.Drawing.Point(0, 0);
             this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(750, 687);
+            this.pbLogo.Size = new System.Drawing.Size(934, 687);
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLogo.TabIndex = 0;
             this.pbLogo.TabStop = false;
@@ -295,11 +283,29 @@
             this.pictureBox5.TabIndex = 11;
             this.pictureBox5.TabStop = false;
             // 
+            // btnMiPerfil
+            // 
+            this.btnMiPerfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(0)))), ((int)(((byte)(90)))));
+            this.btnMiPerfil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnMiPerfil.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMiPerfil.FlatAppearance.BorderSize = 0;
+            this.btnMiPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMiPerfil.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMiPerfil.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnMiPerfil.Location = new System.Drawing.Point(0, 385);
+            this.btnMiPerfil.Name = "btnMiPerfil";
+            this.btnMiPerfil.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnMiPerfil.Size = new System.Drawing.Size(250, 44);
+            this.btnMiPerfil.TabIndex = 19;
+            this.btnMiPerfil.Text = "Mi perfil";
+            this.btnMiPerfil.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMiPerfil.UseVisualStyleBackColor = false;
+            // 
             // frmmenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1000, 687);
+            this.ClientSize = new System.Drawing.Size(1184, 687);
             this.Controls.Add(this.panelContenedor);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -307,14 +313,13 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1200, 726);
-            this.MinimumSize = new System.Drawing.Size(1000, 726);
+            this.MinimumSize = new System.Drawing.Size(1200, 726);
             this.Name = "frmmenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "menu";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmmenu_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmmenu_FormClosed);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panelVentasubMenu.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -342,6 +347,6 @@
         private System.Windows.Forms.Button btnCerrarSesion;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Button btnMiPerfil;
     }
 }

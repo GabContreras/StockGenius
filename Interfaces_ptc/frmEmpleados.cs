@@ -124,7 +124,6 @@ namespace Interfaces_ptc
                 Encrypt encr = new Encrypt();
 
                 txtNombreUsuario.Text = dgvEmpleados.CurrentRow.Cells[9].Value.ToString();
-                txtContraseña.Text = encr.desencriptar(dgvEmpleados.CurrentRow.Cells[10].Value.ToString());
                 cbRol.Text = dgvEmpleados.CurrentRow.Cells[3].Value.ToString();
                 txtCargo.Text = dgvEmpleados.CurrentRow.Cells[11].Value.ToString();
                 txtNombre.Text = dgvEmpleados.CurrentRow.Cells[4].Value.ToString();
@@ -138,44 +137,65 @@ namespace Interfaces_ptc
                 MessageBox.Show(ex.Message);
             }
         }
-
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private void LimpiarCampos()
         {
+            txtNombreUsuario.Text = "";
+            txtContraseña.Text = "";
+            txtCargo.Text = "";
+            txtNombre.Text = "";
+            txtApellido.Text = "";
+            txtTelefono.Text = "";
+            txtDui.Text = "";
+            txtCorreo.Text = "";
+        }
+
+            private void btnAgregar_Click(object sender, EventArgs e)
+            {
             try
             {
-             Encrypt encr = new Encrypt();
-
-             Usuario U = new Usuario();
-             U.NombreUsuario = txtNombreUsuario.Text;
-             U.Contraseña = encr.Encriptar(txtContraseña.Text);
-             U.Id_Rol = (int)cbRol.SelectedValue;
-
-            if (U.InsertarUsuario() == true)
-            {
-                Empleados E = new Empleados();
-                E.Nombre_Empleado = txtNombre.Text;
-                E.Apellido = txtApellido.Text;
-                E.Telefono = txtTelefono.Text;
-                E.Dui = txtDui.Text;
-                E.Correo = txtCorreo.Text;
-                E.Cargo = txtCargo.Text;
-                E.Id_Usuario = Usuario.ConseguirIdUsuario(txtNombreUsuario.Text);
-
-                if (E.InsertarEmpleado() == true)
+                if (txtNombreUsuario.Text == "" || txtContraseña.Text == "" || txtCargo.Text == "" || txtNombre.Text == "" || txtApellido.Text == ""
+                    || txtTelefono.Text == "" || txtDui.Text == "" || txtCorreo.Text == "")
                 {
-                    MessageBox.Show("Empleado agregado satisfactoriamente", "Éxito");
-                    MostrarEmpleados();
+                    MessageBox.Show("No dejar campos vacíos",
+                        "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Se produjo un error al insertar el empleado", "Advertencia");
+                    Encrypt encr = new Encrypt();
+
+                    Usuario U = new Usuario();
+                    U.NombreUsuario = txtNombreUsuario.Text;
+                    U.Contraseña = encr.Encriptar(txtContraseña.Text);
+                    U.Id_Rol = (int)cbRol.SelectedValue;
+
+                    if (U.InsertarUsuario() == true)
+                    {
+                        Empleados E = new Empleados();
+                        E.Nombre_Empleado = txtNombre.Text;
+                        E.Apellido = txtApellido.Text;
+                        E.Telefono = txtTelefono.Text;
+                        E.Dui = txtDui.Text;
+                        E.Correo = txtCorreo.Text;
+                        E.Cargo = txtCargo.Text;
+                        E.Id_Usuario = Usuario.ConseguirIdUsuario(txtNombreUsuario.Text);
+
+                        if (E.InsertarEmpleado() == true)
+                        {
+                            MessageBox.Show("Empleado agregado satisfactoriamente", "Éxito");
+                            MostrarEmpleados();
+                            LimpiarCampos();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Se produjo un error al insertar el empleado", "Advertencia");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Se produjo un error al insertar el usuario", "Advertencia");
+                    }
+                    MostrarEmpleados();
                 }
-            }
-              else
-              {
-                MessageBox.Show("Se produjo un error al insertar el usuario", "Advertencia");
-              }
-                MostrarEmpleados();
             }
             catch (Exception ex)
             {
@@ -204,6 +224,7 @@ namespace Interfaces_ptc
                     {
                         MessageBox.Show("Empleado eliminado satisfactoriamente", "Éxito");
                         MostrarEmpleados();
+                        LimpiarCampos();
                     }
                     else
                     {
@@ -222,41 +243,51 @@ namespace Interfaces_ptc
         {
             try
             {
-                Encrypt encr = new Encrypt();
-
-                Usuario U = new Usuario();
-                U.NombreUsuario = txtNombreUsuario.Text;
-                U.Contraseña = encr.Encriptar(txtContraseña.Text);
-                U.Id_Rol = (int)cbRol.SelectedValue;
-                U.Id_usuario = (int)dgvEmpleados.CurrentRow.Cells[2].Value;
-                if (U.ActualizarUsuario() == true)
+                if (txtNombreUsuario.Text == "" ||  txtCargo.Text == "" || txtNombre.Text == "" || txtApellido.Text == ""
+                    || txtTelefono.Text == "" || txtDui.Text == "" || txtCorreo.Text == "")
                 {
-                    Empleados E = new Empleados();
-                    E.Id_empleado = (int)dgvEmpleados.CurrentRow.Cells[0].Value;
-                    E.Nombre_Empleado = txtNombre.Text;
-                    E.Apellido = txtApellido.Text;
-                    E.Telefono = txtTelefono.Text;
-                    E.Dui = txtDui.Text;
-                    E.Correo = txtCorreo.Text;
-                    E.Cargo = txtCargo.Text;
-                    E.Id_Usuario = Usuario.ConseguirIdUsuario(txtNombreUsuario.Text);
+                    MessageBox.Show("No dejar campos vacíos",
+                        "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    Encrypt encr = new Encrypt();
 
-                    if (E.ActualizarEmpleado() == true)
+                    Usuario U = new Usuario();
+                    U.NombreUsuario = txtNombreUsuario.Text;
+                    U.Contraseña = encr.Encriptar(txtContraseña.Text);
+                    U.Id_Rol = (int)cbRol.SelectedValue;
+                    U.Id_usuario = (int)dgvEmpleados.CurrentRow.Cells[2].Value;
+                    if (U.ActualizarUsuario() == true)
                     {
-                        MessageBox.Show("Empleado actualizado satisfactoriamente", "Éxito");
+                        Empleados E = new Empleados();
+                        E.Id_empleado = (int)dgvEmpleados.CurrentRow.Cells[0].Value;
+                        E.Nombre_Empleado = txtNombre.Text;
+                        E.Apellido = txtApellido.Text;
+                        E.Telefono = txtTelefono.Text;
+                        E.Dui = txtDui.Text;
+                        E.Correo = txtCorreo.Text;
+                        E.Cargo = txtCargo.Text;
+                        E.Id_Usuario = Usuario.ConseguirIdUsuario(txtNombreUsuario.Text);
+
+                        if (E.ActualizarEmpleado() == true)
+                        {
+                            MessageBox.Show("Empleado actualizado satisfactoriamente", "Éxito");
+                            MostrarEmpleados();
+                            LimpiarCampos();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Se produjo un error fatal", "Advertencia");
+                        }
                         MostrarEmpleados();
                     }
                     else
                     {
-                        MessageBox.Show("Se produjo un error fatal", "Advertencia");
+                        MessageBox.Show("Se produjo un error", "Advertencia");
                     }
                     MostrarEmpleados();
                 }
-                else
-                {
-                    MessageBox.Show("Se produjo un error", "Advertencia");
-                }
-                MostrarEmpleados();
             }
             catch (Exception ex)
             {

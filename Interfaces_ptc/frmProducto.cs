@@ -76,25 +76,40 @@ namespace Interfaces_ptc
             txtPrecio.Text = dgvProductos.CurrentRow.Cells[4].Value.ToString();
 
         }
-
+        private void LimpiarCampos()
+        {
+            txtNombre.Text = "";
+            txtDescripcion.Text = "";
+            txtStock.Text = "";
+            txtPrecio.Text = "";
+        }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             try
             {
-                Producto p = new Producto();
-                p.Nombre = txtNombre.Text;
-                p.Descripcion = txtDescripcion.Text;
-                p.Stock = int.Parse(txtStock.Text);
-                p.Id_Proveedor = (int)cbProveedor.SelectedValue;
-                p.PrecioUnitario = double.Parse(txtPrecio.Text);
-                if (p.InsertarProducto() == true)
+                if (txtNombre.Text == "" || txtDescripcion.Text == "" || txtStock.Text == "" || txtPrecio.Text == "")
                 {
-                    MessageBox.Show("Producto agregado satisfactoriamente", "Éxito");
-                    MostrarProductos();
+                        MessageBox.Show("No dejar campos vacíos",
+                            "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Se produjo un error", "Advertencia");
+                    Producto p = new Producto();
+                    p.Nombre = txtNombre.Text;
+                    p.Descripcion = txtDescripcion.Text;
+                    p.Stock = int.Parse(txtStock.Text);
+                    p.Id_Proveedor = (int)cbProveedor.SelectedValue;
+                    p.PrecioUnitario = double.Parse(txtPrecio.Text);
+                    if (p.InsertarProducto() == true)
+                    {
+                        MessageBox.Show("Producto agregado satisfactoriamente", "Éxito");
+                        MostrarProductos();
+                        LimpiarCampos();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Se produjo un error", "Advertencia");
+                    }
                 }
             }
             catch (Exception ex)
@@ -112,6 +127,7 @@ namespace Interfaces_ptc
             {
                 MessageBox.Show("Producto eliminado satisfactoriamente", "Éxito");
                 MostrarProductos();
+                LimpiarCampos();
             }
             else
             {
@@ -123,21 +139,30 @@ namespace Interfaces_ptc
         {
             try
             {
-                Producto p = new Producto();
-                p.Nombre = txtNombre.Text;
-                p.Descripcion = txtDescripcion.Text;
-                p.Stock = int.Parse(txtStock.Text);
-                p.PrecioUnitario = double.Parse(txtPrecio.Text);
-                p.Id_Proveedor = (int)cbProveedor.SelectedValue;
-                p.Id_Producto = (int)dgvProductos.CurrentRow.Cells[0].Value;
-                if (p.ActualizarProducto() == true)
+                if (txtNombre.Text == "" || txtDescripcion.Text == "" || txtStock.Text == "" || txtPrecio.Text == "")
                 {
-                    MessageBox.Show("Producto actualizado satisfactoriamente", "Éxito");
-                    MostrarProductos();
+                    MessageBox.Show("No dejar campos vacíos",
+                        "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Se produjo un error", "Advertencia");
+                    Producto p = new Producto();
+                    p.Nombre = txtNombre.Text;
+                    p.Descripcion = txtDescripcion.Text;
+                    p.Stock = int.Parse(txtStock.Text);
+                    p.PrecioUnitario = double.Parse(txtPrecio.Text);
+                    p.Id_Proveedor = (int)cbProveedor.SelectedValue;
+                    p.Id_Producto = (int)dgvProductos.CurrentRow.Cells[0].Value;
+                    if (p.ActualizarProducto() == true)
+                    {
+                        MessageBox.Show("Producto actualizado satisfactoriamente", "Éxito");
+                        MostrarProductos();
+                        LimpiarCampos();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Se produjo un error", "Advertencia");
+                    }
                 }
             }
             catch (Exception ex)

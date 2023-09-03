@@ -42,53 +42,86 @@ namespace Interfaces_ptc
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            Proveedores p = new Proveedores();
-            p.Nombre = txtNombre.Text;
-            p.Direccion = txtDireccion.Text;
-            p.Telefono = txtTelefono.Text;
-           
-            if (p.InsertarProovedores()==true)
+            try
             {
-                MessageBox.Show("Proovedor agregado satisfactoriamente", "Éxito");
-                MostrarProveedores();
+                if (txtNombre.Text == "" || txtDireccion.Text == "" || txtTelefono.Text == "")
+                {
+                    MessageBox.Show("No dejar campos vacios",
+                   "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    Proveedores p = new Proveedores();
+                    p.Nombre = txtNombre.Text;
+                    p.Direccion = txtDireccion.Text;
+                    p.Telefono = txtTelefono.Text;
+
+                    if (p.InsertarProovedores() == true)
+                    {
+                        MessageBox.Show("Proovedor agregado satisfactoriamente", "Éxito");
+                        MostrarProveedores();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Se produjo un error", "Advertencia");
+                    }
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Se produjo un error", "Advertencia");
+                MessageBox.Show(ex.Message);
             }
+            MostrarProveedores();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            int id = int.Parse(dgvProveedores.CurrentRow.Cells[0].Value.ToString());
-            Proveedores p = new Proveedores();
-            if (p.EliminarProveedores(id) == true)
+            try
             {
-                MessageBox.Show("Proveedor eliminado satisfactoriamente", "Éxito");
-                MostrarProveedores();
+                int id = int.Parse(dgvProveedores.CurrentRow.Cells[0].Value.ToString());
+                Proveedores p = new Proveedores();
+                if (p.EliminarProveedores(id) == true)
+                {
+                    MessageBox.Show("Proveedor eliminado satisfactoriamente", "Éxito");
+                    MostrarProveedores();
+                }
+                else
+                {
+                    MessageBox.Show("Se produjo un error", "Advertencia");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Se produjo un error", "Advertencia");
+                MessageBox.Show(ex.Message);
             }
+            MostrarProveedores();
 
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            Proveedores p= new Proveedores();
-            p.Nombre = txtNombre.Text;
-            p.Direccion = txtDireccion.Text;
-            p.Telefono = txtTelefono.Text;
-            p.Id_Proveedor = (int)dgvProveedores.CurrentRow.Cells[0].Value;
-            if (p.ActualizarProveedores() == true)
+            try
             {
-                MessageBox.Show("Proveedor actualizado satisfactoriamente", "Éxito");
+
+                Proveedores p = new Proveedores();
+                p.Nombre = txtNombre.Text;
+                p.Direccion = txtDireccion.Text;
+                p.Telefono = txtTelefono.Text;
+                p.Id_Proveedor = (int)dgvProveedores.CurrentRow.Cells[0].Value;
+                if (p.ActualizarProveedores() == true)
+                {
+                    MessageBox.Show("Proveedor actualizado satisfactoriamente", "Éxito");
+                    MostrarProveedores();
+                }
+                else
+                {
+                    MessageBox.Show("Se produjo un error", "Advertencia");
+                }
                 MostrarProveedores();
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Se produjo un error", "Advertencia");
+                MessageBox.Show(ex.Message);
             }
             MostrarProveedores();
         }

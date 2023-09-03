@@ -41,7 +41,7 @@ namespace Interfaces_ptc
         private void MostrarClientes()
         {
             dgvCliente.DataSource = null;
-            dgvCliente.DataSource= Clientes.CargarClientes();
+            dgvCliente.DataSource = Clientes.CargarClientes();
             dgvCliente.Columns[0].Visible = false;
             dgvCliente.Columns[4].Visible = false;
             dgvCliente.Columns[5].Visible = false;
@@ -113,13 +113,14 @@ namespace Interfaces_ptc
                 {
                     MessageBox.Show("Se produjo un error al agregar el pedido", "Advertencia");
                 }
+                MostrarPedido();
             }
+
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            MostrarPedido();
-        }
+        } 
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {

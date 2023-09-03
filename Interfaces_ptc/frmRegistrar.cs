@@ -33,32 +33,41 @@ namespace Interfaces_ptc
         {
             try
             {
-                Encrypt encr = new Encrypt();
-
-                Usuario U = new Usuario();
-                U.NombreUsuario = txtNombreUsuario.Text;
-                U.Contraseña = encr.Encriptar(txtContraseña.Text);
-                U.Id_Rol = 2;
-            
-                if (U.InsertarUsuario() == true)
+                if (txtNombreUsuario.Text == "" || txtContraseña.Text == "" || txtCargo.Text=="" || txtNombre.Text==""
+                    || txtApellido.Text==""|| txtTelefono.Text==""||txtDui.Text==""||txtCorreo.Text=="")
                 {
-                    Empleados E = new Empleados();
-                    E.Nombre_Empleado = txtNombre.Text;
-                    E.Apellido = txtApellido.Text;
-                    E.Telefono = txtTelefono.Text;
-                    E.Dui = txtDui.Text;
-                    E.Correo = txtCorreo.Text;
-                    E.Cargo = txtCargo.Text;
-                    E.Id_Usuario = Usuario.ConseguirIdUsuario(txtNombreUsuario.Text);
+                    MessageBox.Show("No dejar campos vacios",
+                   "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    Encrypt encr = new Encrypt();
 
-                    if (E.InsertarEmpleado() == true)
-                    {
-                        MessageBox.Show("Usuario registrado satisfactoriamente, puede iniciar sesión", "Éxito");
+                    Usuario U = new Usuario();
+                    U.NombreUsuario = txtNombreUsuario.Text;
+                    U.Contraseña = encr.Encriptar(txtContraseña.Text);
+                    U.Id_Rol = 2;
 
-                    }
-                    else
+                    if (U.InsertarUsuario() == true)
                     {
-                        MessageBox.Show("Se produjo un error al registrar el usuario", "Advertencia");
+                        Empleados E = new Empleados();
+                        E.Nombre_Empleado = txtNombre.Text;
+                        E.Apellido = txtApellido.Text;
+                        E.Telefono = txtTelefono.Text;
+                        E.Dui = txtDui.Text;
+                        E.Correo = txtCorreo.Text;
+                        E.Cargo = txtCargo.Text;
+                        E.Id_Usuario = Usuario.ConseguirIdUsuario(txtNombreUsuario.Text);
+
+                        if (E.InsertarEmpleado() == true)
+                        {
+                            MessageBox.Show("Usuario registrado satisfactoriamente, puede iniciar sesión", "Éxito");
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Se produjo un error al registrar el usuario", "Advertencia");
+                        }
                     }
                 }
             }

@@ -76,25 +76,44 @@ namespace Interfaces_ptc
             numEdad.Text = dgvClientes.CurrentRow.Cells[6].Value.ToString();
         }
 
+        private void LimpiarCampos()
+        {
+            txtNombre.Text = "";
+            txtApellido.Text = "";
+            txtDui.Text = "";
+            txtTelefono.Text = "";
+            txtDirección.Text = "";
+        }
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             try
             {
-                Clientes p = new Clientes();
-                p.Nombre = txtNombre.Text;
-                p.Apellido = txtApellido.Text;
-                p.Dui = txtDui.Text;
-                p.Telefono = txtTelefono.Text;
-                p.Direccion = txtDirección.Text;
-                p.Edad= int.Parse(numEdad.Text);
-                if (p.insertarCiente() == true)
+                if (txtNombre.Text == "" || txtApellido.Text == "" || txtDui.Text == "" || 
+                    txtTelefono.Text == ""|| txtDirección.Text=="")
                 {
-                    MessageBox.Show("Cliente agregado satisfactoriamente", "Éxito");
-                    MostrarClientes();
+                    MessageBox.Show("No dejar campos vacíos",
+                        "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Se produjo un error", "Advertencia");
+                    Clientes p = new Clientes();
+                    p.Nombre = txtNombre.Text;
+                    p.Apellido = txtApellido.Text;
+                    p.Dui = txtDui.Text;
+                    p.Telefono = txtTelefono.Text;
+                    p.Direccion = txtDirección.Text;
+                    p.Edad = int.Parse(numEdad.Text);
+                    if (p.insertarCiente() == true)
+                    {
+                        MessageBox.Show("Cliente agregado satisfactoriamente", "Éxito");
+                        MostrarClientes();
+                        LimpiarCampos();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Se produjo un error", "Advertencia");
+                    }
                 }
             }
             catch (Exception ex)
@@ -102,11 +121,6 @@ namespace Interfaces_ptc
                 MessageBox.Show(ex.Message);
             }
             MostrarClientes();
-
-                
-          
-
-
         }
 
     private void btnEliminar_Click(object sender, EventArgs e)
@@ -119,6 +133,7 @@ namespace Interfaces_ptc
                 {
                     MessageBox.Show("Cliente eliminado satisfactoriamente", "Éxito");
                     MostrarClientes();
+                    LimpiarCampos();
                 }
                 else
                 {
@@ -136,6 +151,13 @@ namespace Interfaces_ptc
         {
             try
             {
+                if (txtNombre.Text == "" || txtApellido.Text == "" || txtDui.Text == "" ||
+                  txtTelefono.Text == "" || txtDirección.Text == "")
+                {
+                    MessageBox.Show("No dejar campos vacíos",
+                        "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else { 
                 Clientes p = new Clientes();
                 p.Nombre = txtNombre.Text;
                 p.Apellido = txtApellido.Text;
@@ -148,11 +170,13 @@ namespace Interfaces_ptc
                 {
                     MessageBox.Show("Cliente actualizado satisfactoriamente", "Éxito");
                     MostrarClientes();
+                    LimpiarCampos();
                 }
                 else
                 {
                     MessageBox.Show("Se produjo un error", "Advertencia");
                 }
+            }
             }
             catch (Exception ex)
             {

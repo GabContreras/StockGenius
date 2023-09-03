@@ -46,6 +46,48 @@ namespace Modelos
             return dt;
 
         }
+        public int ObtenerStockProducto(int idProducto)
+        {
+
+            // se agrega la consulta para sabe cuanto hay en stock
+            int stock = 0;
+            SqlConnection con = Conexion.Conectar();
+            string query = "SELECT Stock FROM Producto WHERE Id_Producto = @Id_Producto";
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@Id_Producto", idProducto);
+
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    stock = Convert.ToInt32(reader["Stock"]);
+                }
+            }
+
+            return stock;
+        }
+
+        public int ObtenerPrecioProducto(int idProducto)
+        {
+
+            // se agrega la consulta para sabe cuanto hay en stock
+            int PrecioUnitario = 0;
+            SqlConnection con = Conexion.Conectar();
+            string query = "SELECT PrecioUnitario FROM Producto WHERE Id_Producto = @Id_Producto";
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@Id_Producto", idProducto);
+
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    PrecioUnitario = Convert.ToInt32(reader["PrecioUnitario"]);
+                }
+            }
+
+            return PrecioUnitario;
+        }
+
         public bool InsertarProducto()
         {
             SqlConnection con = Conexion.Conectar();

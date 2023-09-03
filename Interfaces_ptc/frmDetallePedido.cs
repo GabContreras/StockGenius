@@ -102,7 +102,10 @@ namespace Interfaces_ptc
             txtCantidad.Text = dgvDetallePedido.CurrentRow.Cells[4].Value.ToString();
             
         }
-
+        private void LimpiarCampo()
+        {
+            txtCantidad.Text = "";
+        }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             try
@@ -115,12 +118,14 @@ namespace Interfaces_ptc
                 else
                 {
                     DetallePedido p = new DetallePedido();
+                    Producto pp = new Producto();
+                    
                     p.Id_pedido = int.Parse(cbPedido.Text);
                     p.Id_Producto = (int)cbProducto.SelectedValue;
                     p.Cantidad = int.Parse(txtCantidad.Text);
-                    p.Total = ((int.Parse(txtCantidad.Text)) * ObtenerPrecioProducto(p.Id_Producto));
+                    p.Total = ((int.Parse(txtCantidad.Text)) * pp.ObtenerPrecioProducto(p.Id_Producto));
                     // Se obtiene la cantidad en stock actual
-                    int stockActual = ObtenerStockProducto(p.Id_Producto);
+                    int stockActual = pp.ObtenerStockProducto(p.Id_Producto);
 
                     if (stockActual >= p.Cantidad) // Se verifica si la cantidad excede el stock
                     {
@@ -128,6 +133,7 @@ namespace Interfaces_ptc
                         {
                             MessageBox.Show("Detalle agregado satisfactoriamente", "Éxito");
                             MostrarDetallePedido();
+                            LimpiarCampo();
                         }
                         else
                         {
@@ -145,48 +151,7 @@ namespace Interfaces_ptc
                 MessageBox.Show(ex.Message);
             }
         }
-        private int ObtenerStockProducto(int idProducto)
-        {
-
-            // se agrega la consulta para sabe cuanto hay en stock
-            int stock = 0;
-            SqlConnection con = Conexion.Conectar();
-            string query = "SELECT Stock FROM Producto WHERE Id_Producto = @Id_Producto";
-            SqlCommand cmd = new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@Id_Producto", idProducto);
-
-            using (SqlDataReader reader = cmd.ExecuteReader())
-            {
-                if (reader.Read())
-                {
-                    stock = Convert.ToInt32(reader["Stock"]);
-                }
-            }
-
-            return stock;
-        }
-
-        private int ObtenerPrecioProducto(int idProducto)
-        {
-
-            // se agrega la consulta para sabe cuanto hay en stock
-            int PrecioUnitario = 0;
-            SqlConnection con = Conexion.Conectar();
-            string query = "SELECT PrecioUnitario FROM Producto WHERE Id_Producto = @Id_Producto";
-            SqlCommand cmd = new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@Id_Producto", idProducto);
-
-            using (SqlDataReader reader = cmd.ExecuteReader())
-            {
-                if (reader.Read())
-                {
-                    PrecioUnitario = Convert.ToInt32(reader["PrecioUnitario"]);
-                }
-            }
-
-            return PrecioUnitario;
-        }
-
+       
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             try
@@ -197,6 +162,7 @@ namespace Interfaces_ptc
                 {
                     MessageBox.Show("Producto eliminado satisfactoriamente", "Éxito");
                     MostrarDetallePedido();
+                    LimpiarCampo();
                 }
                 else
                 {
