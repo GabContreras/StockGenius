@@ -33,7 +33,7 @@ create table Empleado(
 Id_Empleado int PRIMARY KEY identity(1,1),
 Nombre varchar(50) not null,
 Apellido varchar(50) not null,
-Teléfono varchar(50) unique not null,
+Teléfono varchar(50) not null,
 DUI varchar (9) unique not null,
 Correo varchar(50)unique not null,
 Cargo varchar (50) not null,
@@ -45,6 +45,10 @@ on delete cascade
 on update cascade
 );
 go
+
+update Usuario
+set NombreUsuario= 'Admin3', id_Rol=1 WHERE id_Usuario = 2
+select * from usuario 
 
 create table proveedor(
 Id_Proveedor int PRIMARY KEY identity(1,1),
@@ -58,10 +62,23 @@ Create table Cliente(
 Id_Cliente int PRIMARY KEY identity(1,1),
 Nombre varchar(50) not null,
 Apellido varchar(50) not null,
-DUI varchar (9) unique not null,
-Telefono varchar(50) unique not null,
+DUI varchar (12) unique not null,
+Telefono varchar(50) not null,
 Dirección varchar(150) not null,
-Edad int check (edad>=21)
+Edad int check (edad>=18)
+);
+go
+
+create table clienteJuridico(
+id_ClienteJuridico int primary key identity(1,1),
+Empresa varchar(50) unique not null,
+NIT varchar(16) unique not null,
+NRC varchar(8) unique not null, --Numero de registro de contribuyente 569-0 tiene que tener un guion
+Giro varchar(100) not null, --A qué se dedica
+Categoria varchar(20), --Pequeño, Mediano, Grande)
+Dirección varchar(100),
+teléfono varchar(9) 
+
 );
 go
 
@@ -85,15 +102,17 @@ Id_Pedido int PRIMARY KEY identity(1,1),
 Id_Cliente int not null,
 Id_Empleado int not null,
 Fecha_Pedido Date not null,
+Estado varchar(30) check(Estado='En proceso'),
 
 constraint FK_Cliente 
 FOREIGN KEY (Id_Cliente) references Cliente(Id_Cliente)
-on delete cascade 
-on update cascade,
+ON DELETE NO ACTION -- Si el cliente se borra, la venta se mantiene almacenada en la tabla
+ON UPDATE CASCADE, --Si el ID de Cliente se actualiza, también se cambia en la tabla de ventas
+
 constraint FK_Empleado
 FOREIGN KEY (Id_Empleado) references Empleado(Id_Empleado)
-on delete cascade 
-on update cascade
+ON DELETE NO ACTION -- Si el cliente se borra, la venta se mantiene almacenada en la tabla
+ON UPDATE CASCADE --Si el ID de Cliente se actualiza, también se cambia en la tabla de ventas
 );
 go
 
@@ -102,7 +121,7 @@ CREATE TABLE Detalle_Pedido (
     Id_Pedido INT NOT NULL,
     Id_Producto INT NOT NULL,
     Cantidad INT NOT NULL CHECK(Cantidad > 0),
-    Total DECIMAL(10, 2) 
+    Total DECIMAL(10, 2),
 
 constraint FK_Pedido
 FOREIGN KEY (Id_Pedido) references Pedido(Id_Pedido)
@@ -133,6 +152,20 @@ values ('Administrador'),
 ('Técnico de selección'),
 ('Gerente de compras');
 go
+
+--compra al proveedor (comprador (agregar y actualizar nada más en productos y proovedor) 
+--recepcion de mercaderia (gerente de compras(tiene acceso a todo lo de proovedor y producto)
+--almacenaje de mercaderia (Encargado de bodega(acceso a productos pero solo para actualizar adicional o sea no le puede quitar al stockupdate Producto  set  Stock= 123 + 12
+--WHERE Id_Producto = 1 )
+
+select * from producto
+
+update Producto  set  Stock= 123 + 12
+WHERE Id_Producto = 1
+
+--venta (vendedor(Acceso a ventas y clientes pero solo agregar y actualizar)
+--
+
 
 select* from Empleado
 select * from usuario
