@@ -31,5 +31,6 @@ namespace Modelos
             // Se devuelve la representación hexadecimal del hash como una cadena de caracteres
             return sb.ToString();
         }
+
     }
 }

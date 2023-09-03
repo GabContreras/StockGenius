@@ -219,6 +219,7 @@ BEGIN
     WHERE Id_Producto = @Id_Producto;
 END;
 
+
 SELECT  E.Id_Empleado, U.id_Rol,R.Nombre as Rol, U.NombreUsuario AS Usuario, U.contraseña AS Contraseña,E.Cargo AS Cargo, E.Nombre AS Nombre, E.Apellido AS Apellido,
                  E.Teléfono AS Telefono, E.DUI AS Dui, E.Correo AS Correo 
                 FROM Empleado E

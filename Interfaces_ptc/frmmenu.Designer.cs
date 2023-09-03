@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmmenu));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnMiPerfil = new System.Windows.Forms.Button();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.btnEmpleado = new System.Windows.Forms.Button();
             this.btnCliente = new System.Windows.Forms.Button();
@@ -44,7 +45,7 @@
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.btnMiPerfil = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panelVentasubMenu.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -57,6 +58,7 @@
             // 
             this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(0)))), ((int)(((byte)(90)))));
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btnMiPerfil);
             this.panel1.Controls.Add(this.btnCerrarSesion);
             this.panel1.Controls.Add(this.btnEmpleado);
@@ -71,6 +73,24 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(250, 687);
             this.panel1.TabIndex = 0;
+            // 
+            // btnMiPerfil
+            // 
+            this.btnMiPerfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(0)))), ((int)(((byte)(90)))));
+            this.btnMiPerfil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnMiPerfil.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMiPerfil.FlatAppearance.BorderSize = 0;
+            this.btnMiPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMiPerfil.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMiPerfil.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnMiPerfil.Location = new System.Drawing.Point(0, 385);
+            this.btnMiPerfil.Name = "btnMiPerfil";
+            this.btnMiPerfil.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnMiPerfil.Size = new System.Drawing.Size(250, 44);
+            this.btnMiPerfil.TabIndex = 19;
+            this.btnMiPerfil.Text = "Mi perfil";
+            this.btnMiPerfil.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMiPerfil.UseVisualStyleBackColor = false;
             // 
             // btnCerrarSesion
             // 
@@ -283,23 +303,23 @@
             this.pictureBox5.TabIndex = 11;
             this.pictureBox5.TabStop = false;
             // 
-            // btnMiPerfil
+            // button1
             // 
-            this.btnMiPerfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(0)))), ((int)(((byte)(90)))));
-            this.btnMiPerfil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnMiPerfil.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMiPerfil.FlatAppearance.BorderSize = 0;
-            this.btnMiPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMiPerfil.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMiPerfil.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnMiPerfil.Location = new System.Drawing.Point(0, 385);
-            this.btnMiPerfil.Name = "btnMiPerfil";
-            this.btnMiPerfil.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnMiPerfil.Size = new System.Drawing.Size(250, 44);
-            this.btnMiPerfil.TabIndex = 19;
-            this.btnMiPerfil.Text = "Mi perfil";
-            this.btnMiPerfil.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMiPerfil.UseVisualStyleBackColor = false;
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(0)))), ((int)(((byte)(90)))));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.Location = new System.Drawing.Point(0, 429);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(250, 44);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "Mi perfil";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // frmmenu
             // 
@@ -348,5 +368,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnMiPerfil;
+        private System.Windows.Forms.Button button1;
     }
 }
