@@ -207,7 +207,13 @@ SELECT P.Id_Pedido, C.Nombre AS Cliente, E.Nombre AS Empleado, P.Fecha_Pedido as
 
 
 
+				SELECT E.Id_Empleado,E.Nombre, E.Correo, U.NombreUsuario, e.id_Usuario
+				FROM Empleado E 
+				inner join Usuario U on E.id_Usuario= U.Id_Usuario
+				where e.id_Usuario= 2;
 
+
+				select * from Empleado
 
 
 select c.Id_Cliente, c.Nombre as NombreCliente,c.DUI ,c.Nit as NIT,c.NRC
