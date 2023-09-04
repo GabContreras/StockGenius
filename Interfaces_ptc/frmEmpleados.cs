@@ -364,8 +364,7 @@ namespace Interfaces_ptc
 
         private void probando(object sender, EventArgs e)
         {
-            try
-            {
+           
 
                 txtNombreUsuario.Text = dgvEmpleados.CurrentRow.Cells[9].Value.ToString();
                 cbRol.Text = dgvEmpleados.CurrentRow.Cells[3].Value.ToString();
@@ -377,11 +376,8 @@ namespace Interfaces_ptc
                 txtTelefono.Text = dgvEmpleados.CurrentRow.Cells[6].Value.ToString();
                 txtDui.Text = dgvEmpleados.CurrentRow.Cells[7].Value.ToString();
                 txtCorreo.Text = dgvEmpleados.CurrentRow.Cells[8].Value.ToString();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
+        
     }
 }
+

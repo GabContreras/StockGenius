@@ -45,7 +45,6 @@
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.btnPerfil = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panelVentasubMenu.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -58,7 +57,6 @@
             // 
             this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(0)))), ((int)(((byte)(90)))));
-            this.panel1.Controls.Add(this.btnPerfil);
             this.panel1.Controls.Add(this.btnEmpleado);
             this.panel1.Controls.Add(this.btnCerrarSesion);
             this.panel1.Controls.Add(this.btnClienteJuridico);
@@ -312,27 +310,6 @@
             this.pictureBox5.TabIndex = 11;
             this.pictureBox5.TabStop = false;
             // 
-            // btnPerfil
-            // 
-            this.btnPerfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(0)))), ((int)(((byte)(90)))));
-            this.btnPerfil.BackgroundImage = global::Interfaces_ptc.Properties.Resources.Empleado;
-            this.btnPerfil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPerfil.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnPerfil.FlatAppearance.BorderSize = 0;
-            this.btnPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPerfil.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPerfil.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnPerfil.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnPerfil.Location = new System.Drawing.Point(0, 429);
-            this.btnPerfil.Name = "btnPerfil";
-            this.btnPerfil.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnPerfil.Size = new System.Drawing.Size(250, 44);
-            this.btnPerfil.TabIndex = 20;
-            this.btnPerfil.Text = "Mi perfil";
-            this.btnPerfil.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPerfil.UseVisualStyleBackColor = false;
-            this.btnPerfil.Click += new System.EventHandler(this.btnPerfil_Click);
-            // 
             // frmmenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -380,6 +357,5 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnEmpleado;
-        private System.Windows.Forms.Button btnPerfil;
     }
 }

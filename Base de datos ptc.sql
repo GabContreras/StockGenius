@@ -109,6 +109,7 @@ CREATE TABLE Pedido(
 );
 
 
+select * from pedido
 
 CREATE TABLE Detalle_Pedido (
     Id_Detalle INT PRIMARY KEY IDENTITY(1, 1),
@@ -197,7 +198,7 @@ BEGIN
 END;
 
 
-
+select * from Usuario
 
 SELECT P.Id_Pedido, C.Nombre AS Cliente, E.Nombre AS Empleado, P.Fecha_Pedido as Fecha, p.Estado, p.Tipo_Cliente as "Tipo De Cliente"
                 FROM Pedido P
@@ -290,6 +291,12 @@ where Id_Pedido = 1
        E.Cargo AS Cargo, U.NombreUsuario AS Nombre_Usuario, U.contraseña AS Contraseña
 FROM Empleado E
 INNER JOIN Usuario U ON E.id_Usuario = U.id_Usuario
+
+SELECT  E.Id_Empleado, U.id_Rol,U.id_usuario,R.Nombre as Rol,E.Nombre AS Nombre,
+                E.Apellido AS Apellido, E.Teléfono AS Telefono, E.DUI AS Dui, E.Correo AS Correo, U.NombreUsuario AS Usuario, U.contraseña AS Contraseña,E.Cargo AS Cargo 
+                FROM Empleado E 
+                INNER JOIN Usuario U ON E.id_Usuario = U.id_Usuario
+                INNER JOIN Rol R on U.id_Rol= R.id_Rol
 
 
 SELECT PrecioUnitario FROM Producto WHERE Id_Producto =1
