@@ -55,9 +55,9 @@ namespace Interfaces_ptc
            
     
         private void OcultarSubMenu()
-         {                
+        {                
             panelVentasubMenu.Visible = false;
-         }
+        }
         private void mostrarSubMenu(Panel subMenu)
         {
             if (subMenu.Visible == false)
@@ -193,6 +193,12 @@ namespace Interfaces_ptc
         {
             openChildFormInPanel(new frmEmpleados(v));
             OcultarSubMenu();
+        }
+
+        private void btnPerfil_Click(object sender, EventArgs e)
+        {
+            frmCuenta c = new frmCuenta(v);
+            c.ShowDialog();
         }
     }
 }

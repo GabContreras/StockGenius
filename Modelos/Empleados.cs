@@ -9,7 +9,7 @@ using System.Collections;
 
 namespace Modelos
 {
-    public class Empleados:Roles
+    public class Empleados : Roles
     {
         private int id_empleado;
         private string nombre_Empleado;
@@ -20,7 +20,7 @@ namespace Modelos
         private string cargo;
         private int id_Usuario;
 
-      
+
 
         public string Apellido { get => apellido; set => apellido = value; }
         public string Telefono { get => telefono; set => telefono = value; }
@@ -67,7 +67,7 @@ namespace Modelos
                 "(@nombre, @apellido, @teléfono, @dui, @correo, @cargo, @id_Usuario)";
 
             SqlCommand cmd = new SqlCommand(comando, con);
-  
+
             cmd.Parameters.AddWithValue("@nombre", Nombre_Empleado);
             cmd.Parameters.AddWithValue("@apellido", apellido);
             cmd.Parameters.AddWithValue("@teléfono", telefono);
@@ -142,8 +142,43 @@ namespace Modelos
             DataTable dt = new DataTable();
             ad.Fill(dt);
             return dt;
-           
-        }
 
+        }
+        public Empleados ObtenerInfo()
+        {
+            SqlConnection con = Conexion.Conectar();
+            string comando = "SELECT E.Id_Empleado,E.Nombre, E.Correo, U.NombreUsuario, e.id_Usuario\r\n" +
+                "FROM Empleado E \r\n" +
+                "inner join Usuario U on E.id_Usuario= U.Id_Usuario\r\n" +
+                "where e.id_Usuario= @id;";
+            SqlCommand cmd = new SqlCommand(comando, con);
+
+            //Enviamos el valor del nombre de usuario para que pueda usarse en el WHERE
+            cmd.Parameters.AddWithValue("@id", Id_Usuario);
+
+            //Ejecutamos el lector
+            SqlDataReader rd = cmd.ExecuteReader();
+
+            if (rd.Read())
+            {
+                //Si se obtuvo una coincidencia, creamos un Empleado y le asignamos valores a sus atributos. Los valores se asignan a partir del Lector y la información que recogió
+                Empleados emp = new Empleados();
+                Usuario u = new Usuario();
+                emp.Id_empleado = (int)rd[0];
+                emp.Nombre = (string)rd[1];
+                emp.Correo = (string)rd[2];
+                u.NombreUsuario = (string)rd[3];
+                emp.id_Usuario = (int)rd[4];
+
+                //Retornamos el Empleado con sus valores ya asignados
+                return emp;
+            }
+            else
+            {
+                //Si no hubo coincidencia, retornamos Null
+                return null;
+            }
+
+        }
     }
 }

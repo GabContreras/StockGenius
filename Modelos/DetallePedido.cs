@@ -23,18 +23,27 @@ namespace Modelos
         public int Cantidad { get => cantidad; set => cantidad = value; }
         public double Total { get => total; set => total = value; }
 
-        public static DataTable CargarDetallePedido()
+            //Este método no es estático porque lleva un WHERE, y ahí se colocarán valores que pueden variar (parámetros)
+        public DataTable CargarDetallePedido()
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = "SELECT DP.Id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Producto,DP.cantidad,P.PrecioUnitario as Precio,\r\n  " +
-                "  DP.cantidad * P.PrecioUnitario AS Total\r\nFROM Detalle_Pedido DP\r\n" +
-                "INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto;";
-            SqlDataAdapter ad = new SqlDataAdapter(comando, con);
+            string comando = "SELECT DP.Id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Producto,DP.cantidad,P.PrecioUnitario as Precio,\r\n" +
+                "DP.cantidad * P.PrecioUnitario AS Total\r\n" +
+                "FROM Detalle_Pedido DP\r\n" +
+                "INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto\r\n" +
+                "where dp.Id_Pedido= @id;";
+            SqlCommand cmd = new SqlCommand(comando, con);
+
+            cmd.Parameters.AddWithValue("@id", id_pedido);
+
+            //El comando se agrega al SqlDataAdapter
+            SqlDataAdapter ad = new SqlDataAdapter(cmd);
 
             DataTable dt = new DataTable();
-            ad.Fill(dt);
-            return dt;
 
+            ad.Fill(dt);
+
+            return dt;
         }
         public bool InsertarDpedido()
         {

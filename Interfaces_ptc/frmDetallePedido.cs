@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -32,15 +33,23 @@ namespace Interfaces_ptc
         {
             CargarPed();
             cargarProd();
-            MostrarDetallePedido();
-            Actualizar();
 
+            Actualizar();
+            cbPedido.SelectedIndex = -1;
+            cbProducto.SelectedIndex = -1;
         }
         private void MostrarDetallePedido()
         {
+            //Se carga el DGV en base al ID de venta seleccionado
             dgvDetallePedido.DataSource = null;
-            dgvDetallePedido.DataSource = DetallePedido.CargarDetallePedido();
+
+            DetallePedido dp = new DetallePedido();
+            dp.Id_pedido = int.Parse(cbPedido.Text);
+
+            dgvDetallePedido.DataSource = dp.CargarDetallePedido();
             dgvDetallePedido.Columns[0].Visible = false;
+
+    
         }
 
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
@@ -202,6 +211,18 @@ namespace Interfaces_ptc
         {
             Actualizar();
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (cbPedido.SelectedIndex < 0)
+            {
+                MessageBox.Show("Escoja un número de venta primero");
+            }
+            else
+            {
+                MostrarDetallePedido();
+            }
         }
     }
 }

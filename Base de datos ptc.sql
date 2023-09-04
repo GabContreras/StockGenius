@@ -102,6 +102,10 @@ CREATE TABLE Pedido(
     FOREIGN KEY (Id_Cliente) REFERENCES Cliente(Id_Cliente)
         ON DELETE NO ACTION
         ON UPDATE CASCADE,
+ CONSTRAINT Fk_Empleado
+    FOREIGN KEY (Id_Empleado) REFERENCES Empleado(Id_Empleado)
+        ON DELETE NO ACTION
+        ON UPDATE CASCADE
 );
 
 
@@ -322,3 +326,9 @@ SELECT DP.Id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Producto,DP.cantida
                  FROM Empleado E 
                 INNER JOIN Usuario U ON E.id_Usuario = U.id_Usuario
                 INNER JOIN Rol R on U.id_Rol= R.id_Rol
+
+				SELECT DP.Id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Producto,DP.cantidad,P.PrecioUnitario as Precio,
+                DP.cantidad * P.PrecioUnitario AS Total
+				FROM Detalle_Pedido DP
+                INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto
+				where dp.Id_Pedido= 2;

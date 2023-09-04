@@ -25,21 +25,7 @@ namespace Interfaces_ptc
                 btnEliminar.Visible = false;
                 btnActualizar.Visible = false;
                 btnAgregar.Visible = false;
-           }
-           if (u.Id_Rol == 3)
-           {
-              
-           }
-           else if (u.Id_Rol == 4)
-           {
-                
-           }
-           else if (u.Id_Rol == 5)
-           {
-               
-           }
-            
-
+           }                 
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

@@ -45,6 +45,7 @@
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.btnPerfil = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panelVentasubMenu.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -57,6 +58,7 @@
             // 
             this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(0)))), ((int)(((byte)(90)))));
+            this.panel1.Controls.Add(this.btnPerfil);
             this.panel1.Controls.Add(this.btnEmpleado);
             this.panel1.Controls.Add(this.btnCerrarSesion);
             this.panel1.Controls.Add(this.btnClienteJuridico);
@@ -75,12 +77,14 @@
             // btnEmpleado
             // 
             this.btnEmpleado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(0)))), ((int)(((byte)(90)))));
+            this.btnEmpleado.BackgroundImage = global::Interfaces_ptc.Properties.Resources.Empleado;
             this.btnEmpleado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnEmpleado.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnEmpleado.FlatAppearance.BorderSize = 0;
             this.btnEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEmpleado.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEmpleado.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnEmpleado.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEmpleado.Location = new System.Drawing.Point(0, 385);
             this.btnEmpleado.Name = "btnEmpleado";
             this.btnEmpleado.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -93,11 +97,12 @@
             // 
             // btnCerrarSesion
             // 
+            this.btnCerrarSesion.BackgroundImage = global::Interfaces_ptc.Properties.Resources.Salir1;
             this.btnCerrarSesion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnCerrarSesion.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnCerrarSesion.FlatAppearance.BorderSize = 0;
             this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrarSesion.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrarSesion.Font = new System.Drawing.Font("Cambria", 11F);
             this.btnCerrarSesion.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnCerrarSesion.Location = new System.Drawing.Point(0, 642);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
@@ -112,6 +117,7 @@
             // btnClienteJuridico
             // 
             this.btnClienteJuridico.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(0)))), ((int)(((byte)(90)))));
+            this.btnClienteJuridico.BackgroundImage = global::Interfaces_ptc.Properties.Resources.Clientejuridico;
             this.btnClienteJuridico.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnClienteJuridico.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnClienteJuridico.FlatAppearance.BorderSize = 0;
@@ -130,6 +136,7 @@
             // 
             // btnClienteNatural
             // 
+            this.btnClienteNatural.BackgroundImage = global::Interfaces_ptc.Properties.Resources.ClientesNaturales;
             this.btnClienteNatural.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnClienteNatural.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnClienteNatural.FlatAppearance.BorderSize = 0;
@@ -148,6 +155,7 @@
             // 
             // btnProducto
             // 
+            this.btnProducto.BackgroundImage = global::Interfaces_ptc.Properties.Resources.Producto;
             this.btnProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnProducto.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnProducto.FlatAppearance.BorderSize = 0;
@@ -166,6 +174,7 @@
             // 
             // btnProveedores
             // 
+            this.btnProveedores.BackgroundImage = global::Interfaces_ptc.Properties.Resources.Proveedores;
             this.btnProveedores.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnProveedores.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnProveedores.FlatAppearance.BorderSize = 0;
@@ -231,6 +240,7 @@
             // 
             // btnVentas
             // 
+            this.btnVentas.BackgroundImage = global::Interfaces_ptc.Properties.Resources.Ventas1;
             this.btnVentas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnVentas.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnVentas.FlatAppearance.BorderSize = 0;
@@ -302,6 +312,27 @@
             this.pictureBox5.TabIndex = 11;
             this.pictureBox5.TabStop = false;
             // 
+            // btnPerfil
+            // 
+            this.btnPerfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(0)))), ((int)(((byte)(90)))));
+            this.btnPerfil.BackgroundImage = global::Interfaces_ptc.Properties.Resources.Empleado;
+            this.btnPerfil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPerfil.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnPerfil.FlatAppearance.BorderSize = 0;
+            this.btnPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPerfil.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPerfil.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnPerfil.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPerfil.Location = new System.Drawing.Point(0, 429);
+            this.btnPerfil.Name = "btnPerfil";
+            this.btnPerfil.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnPerfil.Size = new System.Drawing.Size(250, 44);
+            this.btnPerfil.TabIndex = 20;
+            this.btnPerfil.Text = "Mi perfil";
+            this.btnPerfil.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPerfil.UseVisualStyleBackColor = false;
+            this.btnPerfil.Click += new System.EventHandler(this.btnPerfil_Click);
+            // 
             // frmmenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -349,5 +380,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnEmpleado;
+        private System.Windows.Forms.Button btnPerfil;
     }
 }

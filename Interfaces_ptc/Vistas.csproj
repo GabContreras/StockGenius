@@ -52,6 +52,12 @@
     <Compile Include="frmClienteJuridico.Designer.cs">
       <DependentUpon>frmClienteJuridico.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCuenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCuenta.Designer.cs">
+      <DependentUpon>frmCuenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     </Compile>
     <EmbeddedResource Include="frmClienteJuridico.resx">
       <DependentUpon>frmClienteJuridico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCuenta.resx">
+      <DependentUpon>frmCuenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEmpleados.resx">
       <DependentUpon>frmEmpleados.cs</DependentUpon>
@@ -226,6 +235,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Emprendedor1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Clientejuridico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ClientesNaturales.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Empleado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salir2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ventas1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Producto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Proveedores.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Salir1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
