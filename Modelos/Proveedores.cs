@@ -32,7 +32,20 @@ namespace Modelos
             return dt;
 
         }
-        public bool InsertarProovedores()
+
+        public static DataTable Buscar(string termino)
+        {
+            SqlConnection con = Conexion.Conectar();
+            string comando = $"select * from proveedor " +
+                $"where Nombre like '%{termino}%'";
+            SqlDataAdapter ad = new SqlDataAdapter(comando, con);
+
+            DataTable dt = new DataTable();
+            ad.Fill(dt);
+            return dt;
+        }
+
+            public bool InsertarProovedores()
         {
            
                 SqlConnection con = Conexion.Conectar();

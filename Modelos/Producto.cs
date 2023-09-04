@@ -155,6 +155,19 @@ namespace Modelos
                 return false;
             }
         }
-        
+        public static DataTable Buscar(string termino)
+        {
+            SqlConnection con = Conexion.Conectar();
+            string comando = $"SELECT P.Id_Producto, P.Nombre , P.Descripcion, P.Stock, P.PrecioUnitario as Precio, Pr.Nombre AS Proveedor, P.imagen as imagen \r\n" +
+                $"FROM Producto P \r\n" +
+                $"INNER JOIN Proveedor Pr ON P.Id_Proveedor = Pr.Id_Proveedor\r\n" +
+                $"where P.nombre like '%{termino}%'";
+            SqlDataAdapter ad = new SqlDataAdapter(comando, con);
+
+            DataTable dt = new DataTable();
+            ad.Fill(dt);
+            return dt;
+        }
+
     }
 }

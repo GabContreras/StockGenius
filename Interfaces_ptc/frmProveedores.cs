@@ -24,7 +24,10 @@ namespace Interfaces_ptc
 
             }
         }
-
+        private void Actualizar()
+        {
+            dgvProveedores.DataSource = Proveedores.Buscar(txtBuscar.Text);
+        }
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -40,10 +43,16 @@ namespace Interfaces_ptc
             dgvProveedores.DataSource = Proveedores.CargarProveedores();
             dgvProveedores.Columns[0].Visible = false;
         }
-
+        private void LimpiarCampos()
+        {
+            txtNombre.Text = "";
+            txtDireccion.Text = "";
+            txtTelefono.Text = "";
+        }
         private void frmProveedores_Load(object sender, EventArgs e)
         {
             MostrarProveedores();
+            Actualizar();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -66,6 +75,7 @@ namespace Interfaces_ptc
                     {
                         MessageBox.Show("Proovedor agregado satisfactoriamente", "Éxito");
                         MostrarProveedores();
+                        LimpiarCampos();
                     }
                     else
                     {
@@ -90,6 +100,7 @@ namespace Interfaces_ptc
                 {
                     MessageBox.Show("Proveedor eliminado satisfactoriamente", "Éxito");
                     MostrarProveedores();
+                    LimpiarCampos();
                 }
                 else
                 {
@@ -118,6 +129,7 @@ namespace Interfaces_ptc
                 {
                     MessageBox.Show("Proveedor actualizado satisfactoriamente", "Éxito");
                     MostrarProveedores();
+                    LimpiarCampos();
                 }
                 else
                 {
@@ -141,12 +153,7 @@ namespace Interfaces_ptc
 
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Permite solo letras y espacios en blanco
-            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && e.KeyChar != ' ')
-            {
-                MessageBox.Show("Solo letras son permitidas", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                e.Handled = true; // Suprime el carácter
-            }
+            
         }
 
         private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
@@ -164,6 +171,11 @@ namespace Interfaces_ptc
                 MessageBox.Show("Solo se permite un símbolo +", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true; // Suprime el carácter
             }
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            Actualizar();
         }
     }
 }

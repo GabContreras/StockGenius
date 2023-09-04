@@ -63,6 +63,7 @@ namespace Interfaces_ptc
         private void frmCliente_Load(object sender, EventArgs e)
         {
             MostrarClientes();
+            Actualizar();
         }
         private void MostrarClientes()
         {
@@ -248,6 +249,14 @@ namespace Interfaces_ptc
                 MessageBox.Show("Solo letras son permitidas", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true; // Suprime el carácter
             }
+        }
+        private void Actualizar()
+        {
+            dgvClientes.DataSource = ClienteNatural.Buscar(txtBuscar.Text);            
+        }
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            Actualizar();
         }
     }
 }

@@ -51,6 +51,8 @@ namespace Interfaces_ptc
             CargarProv();
             MostrarProductos();
             cbProveedor.SelectedIndex = -1;
+            Actualizar();
+
         }
         private void MostrarProductos()
         {
@@ -340,6 +342,15 @@ namespace Interfaces_ptc
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            Actualizar();
+        }
+        private void Actualizar()
+        {
+            dgvProductos.DataSource = Producto.Buscar(txtBuscar.Text);
         }
     }
 }

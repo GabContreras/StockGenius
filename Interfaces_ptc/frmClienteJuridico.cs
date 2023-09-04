@@ -53,6 +53,8 @@ namespace Interfaces_ptc
         private void frmClienteJuridico_Load(object sender, EventArgs e)
         {
             MostrarClientes();
+            Actualizar();
+
         }
         private void MostrarClientes()
         {
@@ -229,6 +231,14 @@ namespace Interfaces_ptc
                 MessageBox.Show("Solo se permite un símbolo +", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true; // Suprime el carácter
             }
+        }
+        private void Actualizar()
+        {
+            dgvClientes.DataSource = ClienteJuridico.Buscar(txtBuscar.Text);
+        }
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            Actualizar();
         }
     }
 }

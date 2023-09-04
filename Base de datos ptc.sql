@@ -284,3 +284,26 @@ SELECT  E.Id_Empleado, U.id_Rol,R.Nombre as Rol, U.NombreUsuario AS Usuario, U.c
 				INNER JOIN Usuario U ON E.id_Usuario = U.id_Usuario
 				INNER JOIN Rol R on U.id_Rol= R.id_Rol
 				where E.nombre like '%a%'
+
+select * from proveedor
+where Nombre like '%a%'
+
+SELECT P.Id_Producto, P.Nombre , P.Descripcion, P.Stock, P.PrecioUnitario as Precio, Pr.Nombre AS Proveedor, P.imagen as imagen 
+                FROM Producto P 
+				INNER JOIN Proveedor Pr ON P.Id_Proveedor = Pr.Id_Proveedor
+					where P.nombre like '%a%'
+
+
+SELECT Id_Cliente, Nombre , Apellido, DUI, Telefono, Dirección, Edad 
+                FROM Cliente
+                WHERE DUI IS NOT NULL AND Apellido IS NOT NULL AND Edad IS NOT NULL and Cliente.nombre like '%a%'
+			
+SELECT Id_Cliente, Nombre as NombreEmpresa,Telefono, Dirección, NIT, NRC, Giro, Categoria
+                FROM Cliente
+                WHERE NIT IS NOT NULL AND NRC IS NOT NULL AND Giro IS NOT NULL AND Categoria IS NOT NULL and Cliente.Nombre like '%R%';
+
+SELECT DP.Id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Producto,DP.cantidad,P.PrecioUnitario as Precio,
+                 DP.cantidad * P.PrecioUnitario AS Total
+				 FROM Detalle_Pedido DP
+                INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto
+				where P.Nombre like '%S%'

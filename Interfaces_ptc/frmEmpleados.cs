@@ -90,6 +90,7 @@ namespace Interfaces_ptc
             CargarRol();
             MostrarEmpleados();
             cbRol.SelectedIndex = -1;
+            Actualizar();
         }
         private void MostrarEmpleados()
         {
@@ -326,23 +327,16 @@ namespace Interfaces_ptc
             MostrarEmpleados();
 
         }
+        private void Actualizar()
+        {
+            dgvEmpleados.DataSource = Empleados.Buscar(txtBuscar.Text);
 
+            dgvEmpleados.Columns[0].Visible = false;
+            dgvEmpleados.Columns[1].Visible = false;
+            dgvEmpleados.Columns[4].Visible = false;
+        }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                dgvEmpleados.DataSource = null;
-                dgvEmpleados.DataSource = Empleados.Buscar(txtBuscar.Text);
-
-                dgvEmpleados.Columns[0].Visible = false;
-                dgvEmpleados.Columns[1].Visible = false;
-                dgvEmpleados.Columns[4].Visible = false;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
 
         private void txtCargo_KeyPress(object sender, KeyPressEventArgs e)
@@ -395,6 +389,11 @@ namespace Interfaces_ptc
                 MessageBox.Show("Solo se permite un símbolo +", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true; // Suprime el carácter
             }
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            Actualizar();
         }
     }
 }

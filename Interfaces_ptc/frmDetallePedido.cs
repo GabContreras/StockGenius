@@ -33,6 +33,8 @@ namespace Interfaces_ptc
             CargarPed();
             cargarProd();
             MostrarDetallePedido();
+            Actualizar();
+
         }
         private void MostrarDetallePedido()
         {
@@ -191,6 +193,15 @@ namespace Interfaces_ptc
         {
             frmStock s= new frmStock();
             s.ShowDialog();
+        }
+        private void Actualizar()
+        {
+            dgvDetallePedido.DataSource = DetallePedido.Buscar(txtBuscar.Text);
+        }
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            Actualizar();
+
         }
     }
 }
