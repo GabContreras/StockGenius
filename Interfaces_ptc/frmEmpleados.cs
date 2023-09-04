@@ -251,7 +251,7 @@ namespace Interfaces_ptc
         {
             try
             {
-                if (txtNombreUsuario.Text == "" ||  txtCargo.Text == "" || txtNombre.Text == "" || txtApellido.Text == ""
+                if (txtNombreUsuario.Text == "" || txtCargo.Text == "" || txtNombre.Text == "" || txtApellido.Text == ""
                     || txtTelefono.Text == "" || txtDui.Text == "" || txtCorreo.Text == "")
                 {
                     MessageBox.Show("No dejar campos vacíos",
@@ -268,10 +268,35 @@ namespace Interfaces_ptc
 
                     Usuario U = new Usuario();
                     U.NombreUsuario = txtNombreUsuario.Text;
-                    U.Contraseña = encr.Encriptar(txtContraseña.Text);
                     U.Id_Rol = (int)cbRol.SelectedValue;
                     U.Id_usuario = (int)dgvEmpleados.CurrentRow.Cells[2].Value;
-                    if (U.ActualizarUsuario() == true)
+                    U.Contraseña = encr.Encriptar(txtContraseña.Text);
+                    // Verificar si la contraseña no está vacía y actualizar el usuario
+                    if (txtContraseña.Text == "")
+                    {
+                        if (U.ActualizarUsuarioConTxtContraseñaVacio() == true)
+                        {
+                            Empleados E = new Empleados();
+                            E.Id_empleado = (int)dgvEmpleados.CurrentRow.Cells[0].Value;
+                            E.Nombre_Empleado = txtNombre.Text;
+                            E.Apellido = txtApellido.Text;
+                            E.Telefono = txtTelefono.Text;
+                            E.Dui = txtDui.Text;
+                            E.Correo = txtCorreo.Text;
+                            E.Cargo = txtCargo.Text;
+                            E.Id_Usuario = Usuario.ConseguirIdUsuario(txtNombreUsuario.Text);
+
+                            // Actualizar el empleado después de actualizar el usuario
+                            if (E.ActualizarEmpleado())
+                            {
+                                MessageBox.Show("Empleado actualizado satisfactoriamente", "Éxito");
+                                MostrarEmpleados();
+                                LimpiarCampos();
+                            }
+                        }
+                    }
+
+                    else if (U.ActualizarUsuario() == true)
                     {
                         Empleados E = new Empleados();
                         E.Id_empleado = (int)dgvEmpleados.CurrentRow.Cells[0].Value;
@@ -283,23 +308,15 @@ namespace Interfaces_ptc
                         E.Cargo = txtCargo.Text;
                         E.Id_Usuario = Usuario.ConseguirIdUsuario(txtNombreUsuario.Text);
 
-                        if (E.ActualizarEmpleado() == true)
+                        // Actualizar el empleado después de actualizar el usuario
+                        if (E.ActualizarEmpleado())
                         {
                             MessageBox.Show("Empleado actualizado satisfactoriamente", "Éxito");
                             MostrarEmpleados();
                             LimpiarCampos();
                         }
-                        else
-                        {
-                            MessageBox.Show("Se produjo un error fatal", "Advertencia");
-                        }
-                        MostrarEmpleados();
+
                     }
-                    else
-                    {
-                        MessageBox.Show("Se produjo un error", "Advertencia");
-                    }
-                    MostrarEmpleados();
                 }
             }
             catch (Exception ex)
@@ -307,6 +324,7 @@ namespace Interfaces_ptc
                 MessageBox.Show(ex.Message);
             }
             MostrarEmpleados();
+
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

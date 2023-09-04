@@ -107,6 +107,26 @@ namespace Modelos
                 return false;
             }
         }
+        public bool ActualizarUsuarioConTxtContraseñaVacio()
+        {
+            SqlConnection con = Conexion.Conectar();
+            string comando = "update Usuario \r\n " +
+                "set NombreUsuario=@nombre,id_Rol=@rol WHERE id_Usuario = @id";
+            SqlCommand cmd = new SqlCommand(comando, con);
+
+            cmd.Parameters.AddWithValue("@nombre", nombreUsuario);
+            cmd.Parameters.AddWithValue("@rol", id_Rol);
+            cmd.Parameters.AddWithValue("@id", id_usuario);
+            if (cmd.ExecuteNonQuery() > 0)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+        }
         public bool EliminarUsuario(int id)
         {
             SqlConnection con = Conexion.Conectar();
