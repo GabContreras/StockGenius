@@ -1,6 +1,6 @@
 ﻿namespace Interfaces_ptc
 {
-    partial class frmCliente
+    partial class frmClienteNatural
     {
         /// <summary>
         /// Required designer variable.
@@ -466,13 +466,13 @@
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Cambria", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.label9.Font = new System.Drawing.Font("Cambria", 12.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(24, 6);
+            this.label9.Location = new System.Drawing.Point(7, 9);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(258, 25);
+            this.label9.Size = new System.Drawing.Size(291, 20);
             this.label9.TabIndex = 100;
-            this.label9.Text = "Administracion de clientes";
+            this.label9.Text = "Administracion de clientes naturales";
             // 
             // tableLayoutPanel11
             // 
@@ -516,14 +516,14 @@
             this.txtBuscar.Size = new System.Drawing.Size(399, 26);
             this.txtBuscar.TabIndex = 114;
             // 
-            // frmCliente
+            // frmClienteNatural
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(124)))));
             this.ClientSize = new System.Drawing.Size(618, 522);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "frmCliente";
+            this.Name = "frmClienteNatural";
             this.Text = "Cliente";
             this.Load += new System.EventHandler(this.frmCliente_Load);
             this.tableLayoutPanel1.ResumeLayout(false);

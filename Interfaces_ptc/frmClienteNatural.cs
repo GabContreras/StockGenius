@@ -12,9 +12,9 @@ using Modelos;
 
 namespace Interfaces_ptc
 {
-    public partial class frmCliente : Form
+    public partial class frmClienteNatural : Form
     {
-        public frmCliente()
+        public frmClienteNatural()
         {
             InitializeComponent();
         }
@@ -62,8 +62,12 @@ namespace Interfaces_ptc
         private void MostrarClientes()
         {
             dgvClientes.DataSource = null;
-            dgvClientes.DataSource = Clientes.CargarClientes();
+            dgvClientes.DataSource = ClienteNatural.CargarClientes();
 
+            dgvClientes.Columns[7].Visible = false;
+            dgvClientes.Columns[8].Visible = false;
+            dgvClientes.Columns[9].Visible = false;
+            dgvClientes.Columns[10].Visible = false;
         }
 
         private void dgvClientes_DoubleClick(object sender, EventArgs e)
@@ -97,7 +101,7 @@ namespace Interfaces_ptc
                 }
                 else
                 {
-                    Clientes p = new Clientes();
+                    ClienteNatural p = new ClienteNatural();
                     p.Nombre = txtNombre.Text;
                     p.Apellido = txtApellido.Text;
                     p.Dui = txtDui.Text;
@@ -128,7 +132,7 @@ namespace Interfaces_ptc
             try
             {
                 int id = int.Parse(dgvClientes.CurrentRow.Cells[0].Value.ToString());
-                Clientes p = new Clientes();
+                ClienteNatural p = new ClienteNatural();
                 if (p.EliminarCliente(id) == true)
                 {
                     MessageBox.Show("Cliente eliminado satisfactoriamente", "Éxito");
@@ -158,7 +162,7 @@ namespace Interfaces_ptc
                         "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else { 
-                Clientes p = new Clientes();
+                ClienteNatural p = new ClienteNatural();
                 p.Nombre = txtNombre.Text;
                 p.Apellido = txtApellido.Text;
                 p.Dui = txtDui.Text;

@@ -44,10 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClienteJuridico.cs" />
     <Compile Include="Encrypt.cs" />
     <Compile Include="Roles.cs" />
     <Compile Include="Conexion.cs" />
-    <Compile Include="Clientes.cs" />
+    <Compile Include="ClienteNatural.cs" />
     <Compile Include="DetallePedido.cs" />
     <Compile Include="Empleados.cs" />
     <Compile Include="Factura.cs" />

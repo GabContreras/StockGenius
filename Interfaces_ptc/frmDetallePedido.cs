@@ -81,7 +81,7 @@ namespace Interfaces_ptc
 
                 //El valor que se muestra en el combobox
                 //Se coloca el nombre de la columna en la tabla
-                cbProducto.DisplayMember = "Nombre_Producto";
+                cbProducto.DisplayMember = "Nombre";
 
                 //Valor que no se muestra (id)
                 //Se coloca el nombre de la columna en la tabla
@@ -110,16 +110,24 @@ namespace Interfaces_ptc
         {
             try
             {
-                if (txtCantidad.Text == "" )
+                if (txtCantidad.Text == "")
                 {
                     MessageBox.Show("No dejar campos vacios",
                    "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (cbPedido.SelectedIndex < 0)
+                {
+                    MessageBox.Show("Escoja un número de pedido primero");
+                }
+                else if (cbProducto.SelectedIndex < 0)
+                {
+                    MessageBox.Show("Escoja un producto primero");
                 }
                 else
                 {
                     DetallePedido p = new DetallePedido();
                     Producto pp = new Producto();
-                    
+
                     p.Id_pedido = int.Parse(cbPedido.Text);
                     p.Id_Producto = (int)cbProducto.SelectedValue;
                     p.Cantidad = int.Parse(txtCantidad.Text);

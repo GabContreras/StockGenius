@@ -9,7 +9,7 @@ using System.Collections;
 
 namespace Modelos
 {
-    public class Clientes
+    public class ClienteNatural
     {
         private int id_Cliente;
         private string nombre;
@@ -41,7 +41,7 @@ namespace Modelos
         public static DataTable CargarClientes2()
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = "select Id_Cliente ,concat (Nombre,' ', Apellido, ', ', DUI ) as 'Cliente' from cliente;";
+            string comando = "select c.Id_Cliente, c.Nombre as NombreCliente,c.DUI ,c.Nit as NIT,c.NRC\r\nfrom cliente c";
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
 
             DataTable dt = new DataTable();

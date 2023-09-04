@@ -22,25 +22,25 @@ namespace Interfaces_ptc
             OcultarSubMenu();
 
             v = u;             
-             if(u.Id_Rol == 3)
-              {
-                btnEmpleado.Visible = false;
-                btnProveedores.Visible= false; 
-                btnProducto.Visible= false;
-            }
-            else if(u.Id_Rol==4)
-            {
-                btnProveedores.Visible = false;
-                btnProducto.Visible = false;
-                btnCliente.Visible= false;
-                btnVentas.Visible = false;
-            }
-            else if(u.Id_Rol==5)
-            {
-                btnCliente.Visible = false;
-                btnEmpleado.Visible = false;
-                btnVentas.Visible = false;
-            }
+            // if(u.Id_Rol == 3)
+            //{
+            //    btnClienteJuridico.Visible = false;
+            //    btnProveedores.Visible= false; 
+            //    btnProducto.Visible= false;
+            //}
+            //else if(u.Id_Rol==4)
+            //{
+            //    btnProveedores.Visible = false;
+            //    btnProducto.Visible = false;
+            //    btnCliente.Visible= false;
+            //    btnVentas.Visible = false;
+            //}
+            //else if(u.Id_Rol==5)
+            //{
+            //    btnCliente.Visible = false;
+            //    btnClienteJuridico.Visible = false;
+            //    btnVentas.Visible = false;
+            //}
 
 
         }
@@ -133,7 +133,7 @@ namespace Interfaces_ptc
 
         private void btnCliente_Click(object sender, EventArgs e)
         {
-            openChildFormInPanel(new frmCliente());
+            openChildFormInPanel(new frmClienteNatural());
             OcultarSubMenu();
         }
 
@@ -153,8 +153,7 @@ namespace Interfaces_ptc
 
         private void btnAdministrarEmpleados_Click(object sender, EventArgs e)
         {
-            
-            openChildFormInPanel(new frmEmpleados(v));
+            openChildFormInPanel(new frmClienteJuridico());
             OcultarSubMenu();
         }
 
@@ -180,6 +179,12 @@ namespace Interfaces_ptc
         private void frmmenu_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnEmpleado_Click_1(object sender, EventArgs e)
+        {
+            openChildFormInPanel(new frmEmpleados(v));
+            OcultarSubMenu();
         }
     }
 }

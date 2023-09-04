@@ -46,10 +46,6 @@ on update cascade
 );
 go
 
-update Usuario
-set NombreUsuario= 'Admin3', id_Rol=1 WHERE id_Usuario = 2
-select * from usuario 
-
 create table proveedor(
 Id_Proveedor int PRIMARY KEY identity(1,1),
 Nombre varchar(50) not null,
@@ -60,27 +56,35 @@ go
 
 Create table Cliente(
 Id_Cliente int PRIMARY KEY identity(1,1),
-Nombre varchar(50) not null,
-Apellido varchar(50) not null,
-DUI varchar (12) unique not null,
-Telefono varchar(50) not null,
-Dirección varchar(150) not null,
-Edad int check (edad>=18)
+Nombre varchar(50) , --Nombre de cliente natural o juridico (empresa)
+Apellido varchar(50),
+DUI varchar (10),
+Telefono varchar(50) ,
+Dirección varchar(150),
+Edad int check (edad>=18),
+
+NIT varchar(16) , 
+NRC varchar(8) ,  --Numero de registro de contribuyente 569-0 tiene que tener un guion
+Giro varchar(100), --A qué se dedica
+Categoria varchar(7)  CHECK (Categoria IN ('Pequeño', 'Mediano', 'Grande'))--Pequeño, Mediano, Grande)
 );
 go
 
-create table clienteJuridico(
-id_ClienteJuridico int primary key identity(1,1),
-Empresa varchar(50) unique not null,
-NIT varchar(16) unique not null,
-NRC varchar(8) unique not null, --Numero de registro de contribuyente 569-0 tiene que tener un guion
-Giro varchar(100) not null, --A qué se dedica
-Categoria varchar(20), --Pequeño, Mediano, Grande)
-Dirección varchar(100),
-teléfono varchar(9) 
 
-);
-go
+SELECT Id_Cliente, Nombre as NombreEmpresa, Apellido, DUI, Telefono, Dirección, Edad, NIT, NRC, Giro, Categoria
+FROM Cliente
+WHERE NIT IS NOT NULL AND NRC IS NOT NULL AND Giro IS NOT NULL AND Categoria IS NOT NULL;
+
+
+-- Create a filtered unique index for NIT column
+CREATE UNIQUE INDEX UX_NIT_Unique ON Cliente (NIT) WHERE NIT IS NOT NULL;
+
+-- Create a filtered unique index for NRC column
+CREATE UNIQUE INDEX UX_NRC_Unique ON Cliente (NRC) WHERE NRC IS NOT NULL;
+
+-- Create a unique index for DUI column
+CREATE UNIQUE INDEX UX_DUI_Unique ON Cliente (DUI);
+
 
 Create table Producto(
 Id_Producto int PRIMARY KEY identity(1,1),
@@ -96,25 +100,21 @@ on delete cascade
 on update cascade
 );
 go
+CREATE TABLE Pedido(
+    Id_Pedido INT PRIMARY KEY IDENTITY(1, 1),
+    Id_Cliente INT, -- Este campo puede ser el Id_Cliente o el Id_ClienteJuridico
+    Id_Empleado INT NOT NULL,
+    Fecha_Pedido DATE NOT NULL,
+    Estado VARCHAR(10) CHECK (Estado IN ('En proceso', 'Completo', 'Anulado')),
+	Tipo_Cliente varchar(8) check(Tipo_Cliente IN ('Natural', 'Juridico')),
 
-Create table Pedido(
-Id_Pedido int PRIMARY KEY identity(1,1),
-Id_Cliente int not null,
-Id_Empleado int not null,
-Fecha_Pedido Date not null,
-Estado varchar(30) check(Estado='En proceso'),
-
-constraint FK_Cliente 
-FOREIGN KEY (Id_Cliente) references Cliente(Id_Cliente)
-ON DELETE NO ACTION -- Si el cliente se borra, la venta se mantiene almacenada en la tabla
-ON UPDATE CASCADE, --Si el ID de Cliente se actualiza, también se cambia en la tabla de ventas
-
-constraint FK_Empleado
-FOREIGN KEY (Id_Empleado) references Empleado(Id_Empleado)
-ON DELETE NO ACTION -- Si el cliente se borra, la venta se mantiene almacenada en la tabla
-ON UPDATE CASCADE --Si el ID de Cliente se actualiza, también se cambia en la tabla de ventas
+    CONSTRAINT FK_Cliente
+    FOREIGN KEY (Id_Cliente) REFERENCES Cliente(Id_Cliente)
+        ON DELETE NO ACTION
+        ON UPDATE CASCADE,
 );
-go
+
+
 
 CREATE TABLE Detalle_Pedido (
     Id_Detalle INT PRIMARY KEY IDENTITY(1, 1),
@@ -145,26 +145,38 @@ on delete cascade
 on update cascade
 );
 go
+
 insert into Rol(Nombre)
 values ('Administrador'),
-('Gerente General'),
-('Vendedor'),
-('Técnico de selección'),
-('Gerente de compras');
+('Comprador'),
+('Gerente de compras'),
+('Encargado de bodega'),
+('Vendedor');
 go
+
+
+SELECT P.Id_Pedido, C.Nombre AS Cliente, E.Nombre AS Empleado, P.Fecha_Pedido as Fecha, p.Estado, p.Tipo_Cliente as "Tipo De Cliente"
+FROM Pedido P
+                INNER JOIN Cliente C ON P.Id_Cliente = C.Id_Cliente
+				INNER JOIN Empleado E ON P.Id_Empleado = E.Id_Empleado;
+
+				select c.Id_Cliente, c.Nombre as NombreCliente,c.DUI ,c.Nit as NIT,c.NRC
+				from cliente c
+
+        SELECT Id_Cliente, Nombre as "NombreEmpresa", Apellido, DUI, Telefono, Dirección, Edad, NIT, NRC, Giro, Categoria
+        FROM Cliente
+        WHERE NIT IS NOT NULL AND NRC IS NOT NULL AND Giro IS NOT NULL AND Categoria IS NOT NULL;
 
 --compra al proveedor (comprador (agregar y actualizar nada más en productos y proovedor) 
 --recepcion de mercaderia (gerente de compras(tiene acceso a todo lo de proovedor y producto)
---almacenaje de mercaderia (Encargado de bodega(acceso a productos pero solo para actualizar adicional o sea no le puede quitar al stockupdate Producto  set  Stock= 123 + 12
+--almacenaje de mercaderia (Encargado de bodega(acceso a productos pero solo para actualizar adicional o sea no le puede quitar al stock  update Producto  set  Stock= 123 + 12
 --WHERE Id_Producto = 1 )
+--venta (vendedor(Acceso a ventas y clientes pero solo agregar y actualizar)
 
 select * from producto
 
 update Producto  set  Stock= 123 + 12
 WHERE Id_Producto = 1
-
---venta (vendedor(Acceso a ventas y clientes pero solo agregar y actualizar)
---
 
 
 select* from Empleado

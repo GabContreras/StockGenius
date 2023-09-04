@@ -41,17 +41,14 @@ namespace Interfaces_ptc
         private void MostrarClientes()
         {
             dgvCliente.DataSource = null;
-            dgvCliente.DataSource = Clientes.CargarClientes();
+            dgvCliente.DataSource = ClienteNatural.CargarClientes2();
             dgvCliente.Columns[0].Visible = false;
-            dgvCliente.Columns[4].Visible = false;
-            dgvCliente.Columns[5].Visible = false;
-            dgvCliente.Columns[6].Visible = false;
+            
 
         }
         private void dgvPedido_DoubleClick(object sender, EventArgs e)
         {
             cbEmpleado.Text = dgvPedido.CurrentRow.Cells[2].Value.ToString();
-            dtpFecha.Text = dgvPedido.CurrentRow.Cells[3].Value.ToString();
         }
         private void CargarEmple()
         {
@@ -81,28 +78,13 @@ namespace Interfaces_ptc
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             try
-            {
-                DateTime fechaActual = DateTime.Now;
-                DateTime fechaPedido = dtpFecha.Value;
-
-                // Validación: No permitir fechas futuras
-                if (fechaPedido > fechaActual)
-                {
-                    MessageBox.Show("No se pueden hacer pedidos en fechas futuras", "Advertencia");
-                    return; // Salir del método sin agregar el pedido
-                }
-
-                // Validación: No permitir fechas muy pasadas (más de 30 días atrás)
-                if (fechaPedido < fechaActual.AddDays(-30))
-                {
-                    MessageBox.Show("La fecha de pedido es demasiado antigua", "Advertencia");
-                    return; // Salir del método sin agregar el pedido
-                }
-
+            {   
                 Pedido p = new Pedido();
                 p.Id_Cliente = (int)dgvCliente.CurrentRow.Cells[0].Value;
                 p.Id_Empleado = (int)cbEmpleado.SelectedValue;
-                p.Fecha_Pedido = fechaPedido;
+                p.Fecha_Pedido = DateTime.Now;
+                p.Estado = "En proceso";
+                p.Tipo_Cliente = cbTipoDeCliente.Text;
 
                 if (p.InsertarPedido() == true)
                 {
@@ -152,7 +134,7 @@ namespace Interfaces_ptc
                 p.Id_Pedido = (int)dgvPedido.CurrentRow.Cells[0].Value;
                 p.Id_Cliente = (int)dgvCliente.CurrentRow.Cells[0].Value;
                 p.Id_Empleado = (int)cbEmpleado.SelectedValue;
-                p.Fecha_Pedido = dtpFecha.Value;
+                p.Fecha_Pedido = DateTime.Now;
                 if (p.ActualizarPedido() == true)
                 {
                     MessageBox.Show("Pedido actualizado satisfactoriamente", "Éxito");

@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmmenu));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnMiPerfil = new System.Windows.Forms.Button();
-            this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.btnEmpleado = new System.Windows.Forms.Button();
+            this.btnCerrarSesion = new System.Windows.Forms.Button();
+            this.btnClienteJuridico = new System.Windows.Forms.Button();
             this.btnCliente = new System.Windows.Forms.Button();
             this.btnProducto = new System.Windows.Forms.Button();
             this.btnProveedores = new System.Windows.Forms.Button();
@@ -45,7 +45,6 @@
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panelVentasubMenu.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -58,10 +57,9 @@
             // 
             this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(0)))), ((int)(((byte)(90)))));
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.btnMiPerfil);
-            this.panel1.Controls.Add(this.btnCerrarSesion);
             this.panel1.Controls.Add(this.btnEmpleado);
+            this.panel1.Controls.Add(this.btnCerrarSesion);
+            this.panel1.Controls.Add(this.btnClienteJuridico);
             this.panel1.Controls.Add(this.btnCliente);
             this.panel1.Controls.Add(this.btnProducto);
             this.panel1.Controls.Add(this.btnProveedores);
@@ -74,23 +72,24 @@
             this.panel1.Size = new System.Drawing.Size(250, 687);
             this.panel1.TabIndex = 0;
             // 
-            // btnMiPerfil
+            // btnEmpleado
             // 
-            this.btnMiPerfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(0)))), ((int)(((byte)(90)))));
-            this.btnMiPerfil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnMiPerfil.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMiPerfil.FlatAppearance.BorderSize = 0;
-            this.btnMiPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMiPerfil.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMiPerfil.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnMiPerfil.Location = new System.Drawing.Point(0, 385);
-            this.btnMiPerfil.Name = "btnMiPerfil";
-            this.btnMiPerfil.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnMiPerfil.Size = new System.Drawing.Size(250, 44);
-            this.btnMiPerfil.TabIndex = 19;
-            this.btnMiPerfil.Text = "Mi perfil";
-            this.btnMiPerfil.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMiPerfil.UseVisualStyleBackColor = false;
+            this.btnEmpleado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(0)))), ((int)(((byte)(90)))));
+            this.btnEmpleado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnEmpleado.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnEmpleado.FlatAppearance.BorderSize = 0;
+            this.btnEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEmpleado.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmpleado.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnEmpleado.Location = new System.Drawing.Point(0, 385);
+            this.btnEmpleado.Name = "btnEmpleado";
+            this.btnEmpleado.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnEmpleado.Size = new System.Drawing.Size(250, 44);
+            this.btnEmpleado.TabIndex = 19;
+            this.btnEmpleado.Text = "Empleados";
+            this.btnEmpleado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEmpleado.UseVisualStyleBackColor = false;
+            this.btnEmpleado.Click += new System.EventHandler(this.btnEmpleado_Click_1);
             // 
             // btnCerrarSesion
             // 
@@ -110,24 +109,24 @@
             this.btnCerrarSesion.UseVisualStyleBackColor = true;
             this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
             // 
-            // btnEmpleado
+            // btnClienteJuridico
             // 
-            this.btnEmpleado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(0)))), ((int)(((byte)(90)))));
-            this.btnEmpleado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnEmpleado.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnEmpleado.FlatAppearance.BorderSize = 0;
-            this.btnEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEmpleado.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEmpleado.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnEmpleado.Location = new System.Drawing.Point(0, 341);
-            this.btnEmpleado.Name = "btnEmpleado";
-            this.btnEmpleado.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnEmpleado.Size = new System.Drawing.Size(250, 44);
-            this.btnEmpleado.TabIndex = 5;
-            this.btnEmpleado.Text = "Empleados";
-            this.btnEmpleado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEmpleado.UseVisualStyleBackColor = false;
-            this.btnEmpleado.Click += new System.EventHandler(this.btnAdministrarEmpleados_Click);
+            this.btnClienteJuridico.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(0)))), ((int)(((byte)(90)))));
+            this.btnClienteJuridico.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnClienteJuridico.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnClienteJuridico.FlatAppearance.BorderSize = 0;
+            this.btnClienteJuridico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClienteJuridico.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClienteJuridico.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnClienteJuridico.Location = new System.Drawing.Point(0, 341);
+            this.btnClienteJuridico.Name = "btnClienteJuridico";
+            this.btnClienteJuridico.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnClienteJuridico.Size = new System.Drawing.Size(250, 44);
+            this.btnClienteJuridico.TabIndex = 5;
+            this.btnClienteJuridico.Text = "Clientes Jurídicos";
+            this.btnClienteJuridico.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClienteJuridico.UseVisualStyleBackColor = false;
+            this.btnClienteJuridico.Click += new System.EventHandler(this.btnAdministrarEmpleados_Click);
             // 
             // btnCliente
             // 
@@ -142,7 +141,7 @@
             this.btnCliente.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnCliente.Size = new System.Drawing.Size(250, 45);
             this.btnCliente.TabIndex = 4;
-            this.btnCliente.Text = "Clientes";
+            this.btnCliente.Text = "Clientes Naturales";
             this.btnCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCliente.UseVisualStyleBackColor = true;
             this.btnCliente.Click += new System.EventHandler(this.btnCliente_Click);
@@ -303,24 +302,6 @@
             this.pictureBox5.TabIndex = 11;
             this.pictureBox5.TabStop = false;
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(0)))), ((int)(((byte)(90)))));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(0, 429);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(250, 44);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "Mi perfil";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.UseVisualStyleBackColor = false;
-            // 
             // frmmenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -363,11 +344,10 @@
         private System.Windows.Forms.Panel panelContenedor;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pbLogo;
-        private System.Windows.Forms.Button btnEmpleado;
+        private System.Windows.Forms.Button btnClienteJuridico;
         private System.Windows.Forms.Button btnCerrarSesion;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnMiPerfil;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnEmpleado;
     }
 }
