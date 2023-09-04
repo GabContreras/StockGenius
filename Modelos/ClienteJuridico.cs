@@ -32,9 +32,9 @@ namespace Modelos
         public static DataTable CargarClientes()
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = "SELECT Id_Cliente, Nombre as \"NombreEmpresa\", Apellido, DUI, Telefono, Dirección, Edad, NIT, NRC, Giro, Categoria\r\n" +
-                "FROM Cliente\r\n" +
-                "WHERE NIT IS NOT NULL AND NRC IS NOT NULL AND Giro IS NOT NULL AND Categoria IS NOT NULL;";
+            string comando = " SELECT Id_Cliente, Nombre as NombreEmpresa,Telefono, Dirección, NIT, NRC, Giro, Categoria\r\n " +
+                " FROM Cliente\r\n " +
+                " WHERE NIT IS NOT NULL AND NRC IS NOT NULL AND Giro IS NOT NULL AND Categoria IS NOT NULL;\r\n";
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
 
             DataTable dt = new DataTable();
@@ -58,6 +58,51 @@ namespace Modelos
             cmd.Parameters.AddWithValue("@NRC", nRC);
             cmd.Parameters.AddWithValue("@Giro", giro);
             cmd.Parameters.AddWithValue("@Categoria", categoria);
+
+            if (cmd.ExecuteNonQuery() > 0)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool EliminarCliente(int Id)
+        {
+            SqlConnection con = Conexion.Conectar();
+            string comando = "DELETE FROM Cliente WHERE Id_Cliente = @Id_Cliente";
+            SqlCommand cmd = new SqlCommand(comando, con);
+            cmd.Parameters.AddWithValue("@Id_Cliente", Id);
+
+            if (cmd.ExecuteNonQuery() > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool ActualizarCliente()
+        {
+            SqlConnection con = Conexion.Conectar();
+            string comando = "update cliente \r\n" +
+                " set Nombre=@nombre,Telefono=@Telefono,Dirección=@Dirección,NIT=@NIT,NRC=@NRC," +
+                "Giro=@Giro,Categoria=@Categoria" +
+                " WHERE id_cliente = @id";
+            SqlCommand cmd = new SqlCommand(comando, con);
+
+            cmd.Parameters.AddWithValue("@nombre", nombreEmpresa);
+            cmd.Parameters.AddWithValue("@Telefono", telefono);
+            cmd.Parameters.AddWithValue("@Dirección", direccion);
+            cmd.Parameters.AddWithValue("@NIT", nIT);
+            cmd.Parameters.AddWithValue("@NRC", nRC);
+            cmd.Parameters.AddWithValue("@Giro", giro);
+            cmd.Parameters.AddWithValue("@Categoria", categoria);
+            cmd.Parameters.AddWithValue("@id", id_cliente);
 
             if (cmd.ExecuteNonQuery() > 0)
             {

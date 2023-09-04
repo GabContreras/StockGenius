@@ -89,6 +89,7 @@ namespace Interfaces_ptc
         {
             CargarRol();
             MostrarEmpleados();
+            cbRol.SelectedIndex = -1;
         }
         private void MostrarEmpleados()
         {
@@ -148,10 +149,12 @@ namespace Interfaces_ptc
             txtTelefono.Text = "";
             txtDui.Text = "";
             txtCorreo.Text = "";
+            cbRol.SelectedIndex = -1;
+
         }
 
-            private void btnAgregar_Click(object sender, EventArgs e)
-            {
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
             try
             {
                 if (txtNombreUsuario.Text == "" || txtContraseña.Text == "" || txtCargo.Text == "" || txtNombre.Text == "" || txtApellido.Text == ""
@@ -159,6 +162,11 @@ namespace Interfaces_ptc
                 {
                     MessageBox.Show("No dejar campos vacíos",
                         "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (!txtCorreo.Text.Contains("@"))
+                {
+                    MessageBox.Show("El campo de correo debe contener el símbolo '@'",
+                        "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
                 else
                 {
@@ -250,6 +258,11 @@ namespace Interfaces_ptc
                     MessageBox.Show("No dejar campos vacíos",
                         "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+                else if (!txtCorreo.Text.Contains("@"))
+                {
+                    MessageBox.Show("El campo de correo debe contener el símbolo '@'",
+                        "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
                 else
                 {
                     Encrypt encr = new Encrypt();
@@ -312,6 +325,58 @@ namespace Interfaces_ptc
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void txtCargo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permite solo letras y espacios en blanco
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && e.KeyChar != ' ')
+            {
+                MessageBox.Show("Solo letras son permitidas", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true; // Suprime el carácter
+            }
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permite solo letras y espacios en blanco
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && e.KeyChar != ' ')
+            {
+                MessageBox.Show("Solo letras son permitidas", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true; // Suprime el carácter
+            }
+        }
+
+        private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permite solo letras y espacios en blanco
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && e.KeyChar != ' ')
+            {
+                MessageBox.Show("Solo letras son permitidas", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true; // Suprime el carácter
+            }
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void txtTelefonoDatos(object sender, KeyPressEventArgs e)
+        {
+            // Permitir solo números (0-9), guiones (-), un símbolo de más (+) y espacios.
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '-' && e.KeyChar != '+' && e.KeyChar != ' ')
+            {
+                MessageBox.Show("Solo números, '-', '+', son permitidos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true; // Suprime el carácter
+            }
+
+            // Verificar si se ha ingresado más de un símbolo de más (+).
+            if (e.KeyChar == '+' && (sender as System.Windows.Forms.TextBox).Text.Contains("+"))
+            {
+                MessageBox.Show("Solo se permite un símbolo +", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true; // Suprime el carácter
             }
         }
     }

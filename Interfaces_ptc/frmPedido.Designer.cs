@@ -371,7 +371,6 @@
             this.dgvPedido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPedido.Size = new System.Drawing.Size(622, 200);
             this.dgvPedido.TabIndex = 0;
-            this.dgvPedido.DoubleClick += new System.EventHandler(this.dgvPedido_DoubleClick);
             // 
             // frmPedido
             // 

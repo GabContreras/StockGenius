@@ -31,7 +31,9 @@ namespace Interfaces_ptc
         {
             CargarEmple();
             MostrarPedido();
-            MostrarClientes();
+            MostrarClientes(); 
+            cbEmpleado.SelectedIndex = -1;
+
         }
         private void MostrarPedido()
         {
@@ -48,7 +50,7 @@ namespace Interfaces_ptc
         }
         private void dgvPedido_DoubleClick(object sender, EventArgs e)
         {
-            cbEmpleado.Text = dgvPedido.CurrentRow.Cells[2].Value.ToString();
+          
         }
         private void CargarEmple()
         {
@@ -90,6 +92,7 @@ namespace Interfaces_ptc
                 {
                     MessageBox.Show("Pedido agregado satisfactoriamente", "Éxito");
                     MostrarPedido();
+                    LimpiarCampos();
                 }
                 else
                 {
@@ -104,6 +107,11 @@ namespace Interfaces_ptc
             }
         } 
 
+        private void LimpiarCampos()
+        {
+            cbEmpleado.SelectedIndex = -1;
+            cbTipoDeCliente.SelectedIndex= -1;
+        }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             try
@@ -114,6 +122,7 @@ namespace Interfaces_ptc
                 {
                     MessageBox.Show("Pedido eliminado satisfactoriamente", "Éxito");
                     MostrarPedido();
+                    LimpiarCampos();
                 }
                 else
                 {
@@ -139,6 +148,7 @@ namespace Interfaces_ptc
                 {
                     MessageBox.Show("Pedido actualizado satisfactoriamente", "Éxito");
                     MostrarPedido();
+                    LimpiarCampos();
                 }
                 else
                 {

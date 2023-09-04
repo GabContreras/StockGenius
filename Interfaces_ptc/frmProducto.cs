@@ -36,12 +36,12 @@ namespace Interfaces_ptc
         {
             CargarProv();
             MostrarProductos();
+            cbProveedor.SelectedIndex = -1;
         }
         private void MostrarProductos()
         {
             dgvProductos.DataSource = null;
             dgvProductos.DataSource = Producto.CargarProducto();
-
         }
         private void CargarProv()
         {
@@ -74,7 +74,6 @@ namespace Interfaces_ptc
             txtStock.Text = dgvProductos.CurrentRow.Cells[3].Value.ToString();
             cbProveedor.Text = dgvProductos.CurrentRow.Cells[5].Value.ToString();
             txtPrecio.Text = dgvProductos.CurrentRow.Cells[4].Value.ToString();
-
         }
         private void LimpiarCampos()
         {
@@ -82,6 +81,7 @@ namespace Interfaces_ptc
             txtDescripcion.Text = "";
             txtStock.Text = "";
             txtPrecio.Text = "";
+            cbProveedor.SelectedIndex = -1;
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {

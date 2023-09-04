@@ -34,7 +34,7 @@ Id_Empleado int PRIMARY KEY identity(1,1),
 Nombre varchar(50) not null,
 Apellido varchar(50) not null,
 Teléfono varchar(50) not null,
-DUI varchar (9) unique not null,
+DUI varchar (10) unique not null,
 Correo varchar(50)unique not null,
 Cargo varchar (50) not null,
 id_Usuario int not null,
@@ -63,7 +63,7 @@ Telefono varchar(50) ,
 Dirección varchar(150),
 Edad int check (edad>=18),
 
-NIT varchar(16) , 
+NIT varchar(17) , 
 NRC varchar(8) ,  --Numero de registro de contribuyente 569-0 tiene que tener un guion
 Giro varchar(100), --A qué se dedica
 Categoria varchar(7)  CHECK (Categoria IN ('Pequeño', 'Mediano', 'Grande'))--Pequeño, Mediano, Grande)
@@ -83,7 +83,8 @@ CREATE UNIQUE INDEX UX_NIT_Unique ON Cliente (NIT) WHERE NIT IS NOT NULL;
 CREATE UNIQUE INDEX UX_NRC_Unique ON Cliente (NRC) WHERE NRC IS NOT NULL;
 
 -- Create a unique index for DUI column
-CREATE UNIQUE INDEX UX_DUI_Unique ON Cliente (DUI);
+CREATE UNIQUE INDEX UX_DUI_Unique ON Cliente (DUI) where DUI is not null;
+
 
 
 Create table Producto(
@@ -163,9 +164,15 @@ FROM Pedido P
 				select c.Id_Cliente, c.Nombre as NombreCliente,c.DUI ,c.Nit as NIT,c.NRC
 				from cliente c
 
-        SELECT Id_Cliente, Nombre as "NombreEmpresa", Apellido, DUI, Telefono, Dirección, Edad, NIT, NRC, Giro, Categoria
+        SELECT Id_Cliente, Nombre as NombreEmpresa ,Telefono, Dirección, NIT, NRC, Giro, Categoria
         FROM Cliente
         WHERE NIT IS NOT NULL AND NRC IS NOT NULL AND Giro IS NOT NULL AND Categoria IS NOT NULL;
+
+		SELECT Id_Cliente, Nombre , Apellido, DUI, Telefono, Dirección, Edad 
+		FROM Cliente
+        WHERE DUI IS NOT NULL AND Apellido IS NOT NULL AND Edad IS NOT NULL;
+
+		select * from cliente
 
 --compra al proveedor (comprador (agregar y actualizar nada más en productos y proovedor) 
 --recepcion de mercaderia (gerente de compras(tiene acceso a todo lo de proovedor y producto)

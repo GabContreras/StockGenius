@@ -64,20 +64,23 @@ namespace Interfaces_ptc
             dgvClientes.DataSource = null;
             dgvClientes.DataSource = ClienteNatural.CargarClientes();
 
-            dgvClientes.Columns[7].Visible = false;
-            dgvClientes.Columns[8].Visible = false;
-            dgvClientes.Columns[9].Visible = false;
-            dgvClientes.Columns[10].Visible = false;
         }
 
         private void dgvClientes_DoubleClick(object sender, EventArgs e)
         {
-            txtNombre.Text = dgvClientes.CurrentRow.Cells[1].Value.ToString();
-            txtApellido.Text = dgvClientes.CurrentRow.Cells[2].Value.ToString();
-            txtDui.Text = dgvClientes.CurrentRow.Cells[3].Value.ToString();
-            txtTelefono.Text = dgvClientes.CurrentRow.Cells[4].Value.ToString();
-            txtDirección.Text = dgvClientes.CurrentRow.Cells[5].Value.ToString();
-            numEdad.Text = dgvClientes.CurrentRow.Cells[6].Value.ToString();
+            try
+            {
+                txtNombre.Text = dgvClientes.CurrentRow.Cells[1].Value.ToString();
+                txtApellido.Text = dgvClientes.CurrentRow.Cells[2].Value.ToString();
+                txtDui.Text = dgvClientes.CurrentRow.Cells[3].Value.ToString();
+                txtTelefono.Text = dgvClientes.CurrentRow.Cells[4].Value.ToString();
+                txtDirección.Text = dgvClientes.CurrentRow.Cells[5].Value.ToString();
+                numEdad.Text = dgvClientes.CurrentRow.Cells[6].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void LimpiarCampos()
@@ -87,6 +90,7 @@ namespace Interfaces_ptc
             txtDui.Text = "";
             txtTelefono.Text = "";
             txtDirección.Text = "";
+            numEdad.Value = 0;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -206,10 +210,17 @@ namespace Interfaces_ptc
 
         private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Permite números (0-9), el símbolo "+", el símbolo "-", y espacios en blanco
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '+' && e.KeyChar != '-' && e.KeyChar != ' ')
+            // Permitir solo números (0-9), guiones (-), un símbolo de más (+) y espacios.
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '-' && e.KeyChar != '+' && e.KeyChar != ' ')
             {
-                MessageBox.Show("Solo números - y + son permitidos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Solo números, '-', '+', son permitidos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true; // Suprime el carácter
+            }
+
+            // Verificar si se ha ingresado más de un símbolo de más (+).
+            if (e.KeyChar == '+' && (sender as TextBox).Text.Contains("+"))
+            {
+                MessageBox.Show("Solo se permite un símbolo +", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true; // Suprime el carácter
             }
         }

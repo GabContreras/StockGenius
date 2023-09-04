@@ -30,7 +30,9 @@ namespace Modelos
         public static DataTable CargarClientes()
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = "select * from Cliente;";
+            string comando = "SELECT Id_Cliente, Nombre , Apellido, DUI, Telefono, Dirección, Edad " +
+                "\r\nFROM Cliente\r\n" +
+                "WHERE DUI IS NOT NULL AND Apellido IS NOT NULL AND Edad IS NOT NULL;";
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
 
             DataTable dt = new DataTable();

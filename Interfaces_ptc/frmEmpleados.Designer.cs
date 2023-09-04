@@ -53,8 +53,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtDui = new System.Windows.Forms.MaskedTextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtDui = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.txtTelefono = new System.Windows.Forms.TextBox();
@@ -458,8 +458,8 @@
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel10.Controls.Add(this.txtDui, 0, 0);
             this.tableLayoutPanel10.Controls.Add(this.label6, 0, 0);
-            this.tableLayoutPanel10.Controls.Add(this.txtDui, 1, 0);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel10.Location = new System.Drawing.Point(3, 254);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
@@ -467,6 +467,17 @@
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel10.Size = new System.Drawing.Size(712, 24);
             this.tableLayoutPanel10.TabIndex = 4;
+            // 
+            // txtDui
+            // 
+            this.txtDui.Cursor = System.Windows.Forms.Cursors.AppStarting;
+            this.txtDui.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDui.Location = new System.Drawing.Point(349, 3);
+            this.txtDui.Mask = "99999999-9";
+            this.txtDui.Name = "txtDui";
+            this.txtDui.Size = new System.Drawing.Size(340, 20);
+            this.txtDui.TabIndex = 116;
+            this.txtDui.ValidatingType = typeof(int);
             // 
             // label6
             // 
@@ -479,19 +490,6 @@
             this.label6.Size = new System.Drawing.Size(44, 22);
             this.label6.TabIndex = 113;
             this.label6.Text = "Dui:";
-            // 
-            // txtDui
-            // 
-            this.txtDui.BackColor = System.Drawing.Color.White;
-            this.txtDui.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDui.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtDui.Font = new System.Drawing.Font("Cambria", 12F);
-            this.txtDui.ForeColor = System.Drawing.Color.Black;
-            this.txtDui.Location = new System.Drawing.Point(349, 3);
-            this.txtDui.MaxLength = 9;
-            this.txtDui.Name = "txtDui";
-            this.txtDui.Size = new System.Drawing.Size(340, 26);
-            this.txtDui.TabIndex = 113;
             // 
             // tableLayoutPanel7
             // 
@@ -533,6 +531,7 @@
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(340, 26);
             this.txtTelefono.TabIndex = 112;
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefonoDatos);
             // 
             // tableLayoutPanel11
             // 
@@ -562,6 +561,7 @@
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(340, 26);
             this.txtApellido.TabIndex = 114;
+            this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido_KeyPress);
             // 
             // label2
             // 
@@ -603,6 +603,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(340, 26);
             this.txtNombre.TabIndex = 114;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // label8
             // 
@@ -644,6 +645,7 @@
             this.txtCargo.Name = "txtCargo";
             this.txtCargo.Size = new System.Drawing.Size(340, 26);
             this.txtCargo.TabIndex = 118;
+            this.txtCargo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCargo_KeyPress);
             // 
             // label10
             // 
@@ -720,7 +722,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
-        private System.Windows.Forms.TextBox txtDui;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TextBox txtContraseña;
@@ -739,5 +740,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
         private System.Windows.Forms.TextBox txtCargo;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.MaskedTextBox txtDui;
     }
 }

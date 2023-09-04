@@ -170,9 +170,11 @@
             this.txtNombre.Font = new System.Drawing.Font("Cambria", 12F);
             this.txtNombre.ForeColor = System.Drawing.Color.Black;
             this.txtNombre.Location = new System.Drawing.Point(360, 3);
+            this.txtNombre.MaxLength = 50;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(348, 26);
             this.txtNombre.TabIndex = 112;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // label7
             // 
@@ -209,6 +211,7 @@
             this.txtDireccion.Font = new System.Drawing.Font("Cambria", 12F);
             this.txtDireccion.ForeColor = System.Drawing.Color.Black;
             this.txtDireccion.Location = new System.Drawing.Point(359, 3);
+            this.txtDireccion.MaxLength = 150;
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(350, 26);
             this.txtDireccion.TabIndex = 111;
@@ -260,9 +263,11 @@
             this.txtTelefono.Font = new System.Drawing.Font("Cambria", 12F);
             this.txtTelefono.ForeColor = System.Drawing.Color.Black;
             this.txtTelefono.Location = new System.Drawing.Point(359, 3);
+            this.txtTelefono.MaxLength = 50;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(350, 26);
             this.txtTelefono.TabIndex = 109;
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // tableLayoutPanel9
             // 

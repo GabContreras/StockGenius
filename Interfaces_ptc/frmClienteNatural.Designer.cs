@@ -37,8 +37,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtDui = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtDui = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtTelefono = new System.Windows.Forms.TextBox();
@@ -148,9 +148,9 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtNombre.BackColor = System.Drawing.Color.White;
             this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNombre.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtNombre.Font = new System.Drawing.Font("Cambria", 12F);
             this.txtNombre.ForeColor = System.Drawing.Color.Black;
             this.txtNombre.Location = new System.Drawing.Point(309, 3);
@@ -189,9 +189,9 @@
             // 
             // txtApellido
             // 
-            this.txtApellido.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtApellido.BackColor = System.Drawing.Color.White;
             this.txtApellido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtApellido.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtApellido.Font = new System.Drawing.Font("Cambria", 12F);
             this.txtApellido.ForeColor = System.Drawing.Color.Black;
             this.txtApellido.Location = new System.Drawing.Point(309, 3);
@@ -206,8 +206,8 @@
             this.tableLayoutPanel5.ColumnCount = 2;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Controls.Add(this.txtDui, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.label3, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.txtDui, 1, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 103);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -215,6 +215,17 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(612, 22);
             this.tableLayoutPanel5.TabIndex = 113;
+            // 
+            // txtDui
+            // 
+            this.txtDui.Cursor = System.Windows.Forms.Cursors.AppStarting;
+            this.txtDui.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDui.Location = new System.Drawing.Point(309, 3);
+            this.txtDui.Mask = "99999999-9";
+            this.txtDui.Name = "txtDui";
+            this.txtDui.Size = new System.Drawing.Size(300, 20);
+            this.txtDui.TabIndex = 115;
+            this.txtDui.ValidatingType = typeof(int);
             // 
             // label3
             // 
@@ -227,21 +238,6 @@
             this.label3.Size = new System.Drawing.Size(44, 22);
             this.label3.TabIndex = 112;
             this.label3.Text = "Dui:";
-            // 
-            // txtDui
-            // 
-            this.txtDui.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtDui.BackColor = System.Drawing.Color.White;
-            this.txtDui.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDui.Font = new System.Drawing.Font("Cambria", 12F);
-            this.txtDui.ForeColor = System.Drawing.Color.Black;
-            this.txtDui.Location = new System.Drawing.Point(309, 3);
-            this.txtDui.MaxLength = 9;
-            this.txtDui.Name = "txtDui";
-            this.txtDui.Size = new System.Drawing.Size(300, 26);
-            this.txtDui.TabIndex = 110;
-            this.txtDui.TextChanged += new System.EventHandler(this.txtDui_TextChanged);
-            this.txtDui.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDui_KeyPress);
             // 
             // tableLayoutPanel4
             // 
@@ -273,9 +269,9 @@
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtTelefono.BackColor = System.Drawing.Color.White;
             this.txtTelefono.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTelefono.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtTelefono.Font = new System.Drawing.Font("Cambria", 12F);
             this.txtTelefono.ForeColor = System.Drawing.Color.Black;
             this.txtTelefono.Location = new System.Drawing.Point(309, 3);
@@ -314,9 +310,9 @@
             // 
             // txtDirección
             // 
-            this.txtDirección.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtDirección.BackColor = System.Drawing.Color.White;
             this.txtDirección.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDirección.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtDirección.Font = new System.Drawing.Font("Cambria", 12F);
             this.txtDirección.ForeColor = System.Drawing.Color.Black;
             this.txtDirección.Location = new System.Drawing.Point(309, 3);
@@ -355,8 +351,8 @@
             // 
             // numEdad
             // 
-            this.numEdad.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.numEdad.BackColor = System.Drawing.Color.White;
+            this.numEdad.Dock = System.Windows.Forms.DockStyle.Fill;
             this.numEdad.Font = new System.Drawing.Font("Cambria", 12F);
             this.numEdad.ForeColor = System.Drawing.Color.Black;
             this.numEdad.Location = new System.Drawing.Point(309, 3);
@@ -562,7 +558,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtApellido;
-        private System.Windows.Forms.TextBox txtDui;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Label label2;
@@ -582,5 +577,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dgvClientes;
+        private System.Windows.Forms.MaskedTextBox txtDui;
     }
 }

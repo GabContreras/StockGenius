@@ -33,8 +33,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtNombreEmpresa = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtNIT = new System.Windows.Forms.MaskedTextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtNIT = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.txtNRC = new System.Windows.Forms.TextBox();
@@ -152,8 +152,8 @@
             this.tableLayoutPanel6.ColumnCount = 2;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.Controls.Add(this.txtNIT, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.label6, 0, 0);
-            this.tableLayoutPanel6.Controls.Add(this.txtNIT, 1, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 74);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
@@ -161,6 +161,17 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(622, 26);
             this.tableLayoutPanel6.TabIndex = 113;
+            // 
+            // txtNIT
+            // 
+            this.txtNIT.Cursor = System.Windows.Forms.Cursors.AppStarting;
+            this.txtNIT.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtNIT.Location = new System.Drawing.Point(314, 3);
+            this.txtNIT.Mask = "9999-999999-999-9";
+            this.txtNIT.Name = "txtNIT";
+            this.txtNIT.Size = new System.Drawing.Size(305, 20);
+            this.txtNIT.TabIndex = 114;
+            this.txtNIT.ValidatingType = typeof(int);
             // 
             // label6
             // 
@@ -173,19 +184,6 @@
             this.label6.Size = new System.Drawing.Size(45, 22);
             this.label6.TabIndex = 113;
             this.label6.Text = "NIT:";
-            // 
-            // txtNIT
-            // 
-            this.txtNIT.BackColor = System.Drawing.Color.White;
-            this.txtNIT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNIT.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtNIT.Font = new System.Drawing.Font("Cambria", 12F);
-            this.txtNIT.ForeColor = System.Drawing.Color.Black;
-            this.txtNIT.Location = new System.Drawing.Point(314, 3);
-            this.txtNIT.MaxLength = 50;
-            this.txtNIT.Name = "txtNIT";
-            this.txtNIT.Size = new System.Drawing.Size(305, 26);
-            this.txtNIT.TabIndex = 111;
             // 
             // tableLayoutPanel5
             // 
@@ -222,10 +220,11 @@
             this.txtNRC.Font = new System.Drawing.Font("Cambria", 12F);
             this.txtNRC.ForeColor = System.Drawing.Color.Black;
             this.txtNRC.Location = new System.Drawing.Point(314, 3);
-            this.txtNRC.MaxLength = 9;
+            this.txtNRC.MaxLength = 8;
             this.txtNRC.Name = "txtNRC";
             this.txtNRC.Size = new System.Drawing.Size(305, 26);
             this.txtNRC.TabIndex = 110;
+            this.txtNRC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNRC_KeyPress);
             // 
             // tableLayoutPanel4
             // 
@@ -239,7 +238,7 @@
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(622, 26);
             this.tableLayoutPanel4.TabIndex = 113;
             // 
@@ -267,6 +266,7 @@
             this.txtGiro.Name = "txtGiro";
             this.txtGiro.Size = new System.Drawing.Size(305, 26);
             this.txtGiro.TabIndex = 109;
+            this.txtGiro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGiro_KeyPress);
             // 
             // tableLayoutPanel3
             // 
@@ -298,6 +298,7 @@
             // cbCategoria
             // 
             this.cbCategoria.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCategoria.FormattingEnabled = true;
             this.cbCategoria.Items.AddRange(new object[] {
             "Pequeño",
@@ -320,7 +321,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(622, 26);
             this.tableLayoutPanel2.TabIndex = 111;
             // 
@@ -430,7 +431,7 @@
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 1;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
             this.tableLayoutPanel9.Size = new System.Drawing.Size(622, 39);
             this.tableLayoutPanel9.TabIndex = 116;
             // 
@@ -448,6 +449,7 @@
             this.btnActualizar.TabIndex = 105;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = false;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnAgregar
             // 
@@ -478,6 +480,7 @@
             this.btnEliminar.TabIndex = 101;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // tableLayoutPanel8
             // 
@@ -506,6 +509,7 @@
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(305, 26);
             this.txtTelefono.TabIndex = 115;
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // label4
             // 
@@ -580,10 +584,8 @@
         private System.Windows.Forms.TextBox txtNombreEmpresa;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtNIT;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtNRC;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtGiro;
@@ -605,5 +607,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.MaskedTextBox txtNIT;
+        private System.Windows.Forms.TextBox txtNRC;
     }
 }

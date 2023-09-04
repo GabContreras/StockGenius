@@ -161,6 +161,7 @@
             this.txtStock.Font = new System.Drawing.Font("Cambria", 12F);
             this.txtStock.ForeColor = System.Drawing.Color.Black;
             this.txtStock.Location = new System.Drawing.Point(314, 3);
+            this.txtStock.MaxLength = 7;
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(305, 26);
             this.txtStock.TabIndex = 112;
@@ -216,6 +217,7 @@
             this.txtDescripcion.Font = new System.Drawing.Font("Cambria", 12F);
             this.txtDescripcion.ForeColor = System.Drawing.Color.Black;
             this.txtDescripcion.Location = new System.Drawing.Point(314, 3);
+            this.txtDescripcion.MaxLength = 150;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(305, 26);
             this.txtDescripcion.TabIndex = 113;
@@ -245,6 +247,7 @@
             this.txtNombre.Font = new System.Drawing.Font("Cambria", 12F);
             this.txtNombre.ForeColor = System.Drawing.Color.Black;
             this.txtNombre.Location = new System.Drawing.Point(314, 3);
+            this.txtNombre.MaxLength = 50;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(305, 26);
             this.txtNombre.TabIndex = 112;
@@ -410,6 +413,7 @@
             this.txtPrecio.Font = new System.Drawing.Font("Cambria", 12F);
             this.txtPrecio.ForeColor = System.Drawing.Color.Black;
             this.txtPrecio.Location = new System.Drawing.Point(314, 3);
+            this.txtPrecio.MaxLength = 10;
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(305, 26);
             this.txtPrecio.TabIndex = 113;

@@ -247,6 +247,7 @@
             this.txtCantidad.Font = new System.Drawing.Font("Cambria", 12F);
             this.txtCantidad.ForeColor = System.Drawing.Color.Black;
             this.txtCantidad.Location = new System.Drawing.Point(314, 3);
+            this.txtCantidad.MaxLength = 7;
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(305, 26);
             this.txtCantidad.TabIndex = 112;
