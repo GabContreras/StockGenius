@@ -13,9 +13,16 @@ namespace Interfaces_ptc
 {
     public partial class frmPedido : Form
     {
-        public frmPedido()
+        public frmPedido(Usuario u)
         {
             InitializeComponent();
+
+            if (u.Id_Rol == 5)
+            {
+                btnEliminar.Visible = false;
+
+            }
+
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -13,9 +13,22 @@ namespace Interfaces_ptc
 {
     public partial class frmProducto : Form
     {
-        public frmProducto()
+        public frmProducto(Usuario u)
         {
             InitializeComponent();
+
+            if (u.Id_Rol == 2)
+            {
+                btnEliminar.Visible = false;
+           
+            }
+           
+            else if (u.Id_Rol == 4)
+            {
+                btnEliminar.Visible = false; 
+                btnAgregar.Visible= false;  
+            }
+            
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

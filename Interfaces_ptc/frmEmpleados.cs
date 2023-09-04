@@ -129,7 +129,6 @@ namespace Interfaces_ptc
                 txtCargo.Text = dgvEmpleados.CurrentRow.Cells[11].Value.ToString();
                 txtNombre.Text = dgvEmpleados.CurrentRow.Cells[4].Value.ToString();
                 txtApellido.Text = dgvEmpleados.CurrentRow.Cells[5].Value.ToString();
-                txtContraseña.Text = dgvEmpleados.CurrentRow.Cells[10].Value.ToString();
                 txtTelefono.Text = dgvEmpleados.CurrentRow.Cells[6].Value.ToString();
                 txtDui.Text = dgvEmpleados.CurrentRow.Cells[7].Value.ToString();
                 txtCorreo.Text = dgvEmpleados.CurrentRow.Cells[8].Value.ToString();

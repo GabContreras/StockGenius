@@ -14,9 +14,15 @@ namespace Interfaces_ptc
 {
     public partial class frmProveedores : Form
     {
-        public frmProveedores()
+        public frmProveedores(Usuario u)
         {
             InitializeComponent();
+
+            if (u.Id_Rol == 2)
+            {
+                btnEliminar.Visible = false;
+
+            }
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

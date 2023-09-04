@@ -14,9 +14,14 @@ namespace Interfaces_ptc
 {
     public partial class frmClienteNatural : Form
     {
-        public frmClienteNatural()
+        public frmClienteNatural(Usuario u)
         {
             InitializeComponent();
+            if (u.Id_Rol == 5)
+            {
+                btnEliminar.Visible = false;
+
+            }
         }
 
         private void label9_Click(object sender, EventArgs e)

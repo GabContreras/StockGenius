@@ -148,12 +148,19 @@ on update cascade
 go
 
 insert into Rol(Nombre)
-values ('Administrador'),
-('Comprador'),
-('Gerente de compras'),
-('Encargado de bodega'),
-('Vendedor');
+values ('Administrador'),--ya
+('Comprador'),--ya
+('Gerente de compras'),--ya
+('Encargado de bodega'),--ya
+('Vendedor');--ya
 go
+
+select * from rol
+--compra al proveedor (comprador (agregar y actualizar nada más en productos y proovedor) 
+--recepcion de mercaderia (gerente de compras(tiene acceso a todo lo de proovedor y producto)
+--almacenaje de mercaderia (Encargado de bodega(acceso a productos pero solo para actualizar adicional o sea no le puede quitar al stock  update Producto  set  Stock= 123 + 12
+--WHERE Id_Producto = 1 )
+--venta (vendedor(Acceso a ventas y clientes pero solo agregar y actualizar)
 
 
 SELECT P.Id_Pedido, C.Nombre AS Cliente, E.Nombre AS Empleado, P.Fecha_Pedido as Fecha, p.Estado, p.Tipo_Cliente as "Tipo De Cliente"
@@ -174,11 +181,6 @@ FROM Pedido P
 
 		select * from cliente
 
---compra al proveedor (comprador (agregar y actualizar nada más en productos y proovedor) 
---recepcion de mercaderia (gerente de compras(tiene acceso a todo lo de proovedor y producto)
---almacenaje de mercaderia (Encargado de bodega(acceso a productos pero solo para actualizar adicional o sea no le puede quitar al stock  update Producto  set  Stock= 123 + 12
---WHERE Id_Producto = 1 )
---venta (vendedor(Acceso a ventas y clientes pero solo agregar y actualizar)
 
 select * from producto
 

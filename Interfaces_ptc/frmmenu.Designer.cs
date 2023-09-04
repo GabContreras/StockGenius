@@ -33,7 +33,7 @@
             this.btnEmpleado = new System.Windows.Forms.Button();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.btnClienteJuridico = new System.Windows.Forms.Button();
-            this.btnCliente = new System.Windows.Forms.Button();
+            this.btnClienteNatural = new System.Windows.Forms.Button();
             this.btnProducto = new System.Windows.Forms.Button();
             this.btnProveedores = new System.Windows.Forms.Button();
             this.panelVentasubMenu = new System.Windows.Forms.Panel();
@@ -60,7 +60,7 @@
             this.panel1.Controls.Add(this.btnEmpleado);
             this.panel1.Controls.Add(this.btnCerrarSesion);
             this.panel1.Controls.Add(this.btnClienteJuridico);
-            this.panel1.Controls.Add(this.btnCliente);
+            this.panel1.Controls.Add(this.btnClienteNatural);
             this.panel1.Controls.Add(this.btnProducto);
             this.panel1.Controls.Add(this.btnProveedores);
             this.panel1.Controls.Add(this.panelVentasubMenu);
@@ -79,7 +79,7 @@
             this.btnEmpleado.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnEmpleado.FlatAppearance.BorderSize = 0;
             this.btnEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEmpleado.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmpleado.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEmpleado.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnEmpleado.Location = new System.Drawing.Point(0, 385);
             this.btnEmpleado.Name = "btnEmpleado";
@@ -116,7 +116,7 @@
             this.btnClienteJuridico.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnClienteJuridico.FlatAppearance.BorderSize = 0;
             this.btnClienteJuridico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClienteJuridico.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClienteJuridico.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClienteJuridico.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnClienteJuridico.Location = new System.Drawing.Point(0, 341);
             this.btnClienteJuridico.Name = "btnClienteJuridico";
@@ -128,23 +128,23 @@
             this.btnClienteJuridico.UseVisualStyleBackColor = false;
             this.btnClienteJuridico.Click += new System.EventHandler(this.btnAdministrarEmpleados_Click);
             // 
-            // btnCliente
+            // btnClienteNatural
             // 
-            this.btnCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnCliente.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCliente.FlatAppearance.BorderSize = 0;
-            this.btnCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCliente.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCliente.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnCliente.Location = new System.Drawing.Point(0, 296);
-            this.btnCliente.Name = "btnCliente";
-            this.btnCliente.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnCliente.Size = new System.Drawing.Size(250, 45);
-            this.btnCliente.TabIndex = 4;
-            this.btnCliente.Text = "Clientes Naturales";
-            this.btnCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCliente.UseVisualStyleBackColor = true;
-            this.btnCliente.Click += new System.EventHandler(this.btnCliente_Click);
+            this.btnClienteNatural.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnClienteNatural.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnClienteNatural.FlatAppearance.BorderSize = 0;
+            this.btnClienteNatural.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClienteNatural.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClienteNatural.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnClienteNatural.Location = new System.Drawing.Point(0, 296);
+            this.btnClienteNatural.Name = "btnClienteNatural";
+            this.btnClienteNatural.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnClienteNatural.Size = new System.Drawing.Size(250, 45);
+            this.btnClienteNatural.TabIndex = 4;
+            this.btnClienteNatural.Text = "Clientes Naturales";
+            this.btnClienteNatural.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClienteNatural.UseVisualStyleBackColor = true;
+            this.btnClienteNatural.Click += new System.EventHandler(this.btnCliente_Click);
             // 
             // btnProducto
             // 
@@ -152,7 +152,7 @@
             this.btnProducto.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnProducto.FlatAppearance.BorderSize = 0;
             this.btnProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProducto.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProducto.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProducto.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnProducto.Location = new System.Drawing.Point(0, 251);
             this.btnProducto.Name = "btnProducto";
@@ -170,7 +170,7 @@
             this.btnProveedores.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnProveedores.FlatAppearance.BorderSize = 0;
             this.btnProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProveedores.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProveedores.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProveedores.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnProveedores.Location = new System.Drawing.Point(0, 206);
             this.btnProveedores.Name = "btnProveedores";
@@ -199,7 +199,7 @@
             this.btnDetallePedido.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnDetallePedido.FlatAppearance.BorderSize = 0;
             this.btnDetallePedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDetallePedido.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDetallePedido.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDetallePedido.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnDetallePedido.Location = new System.Drawing.Point(0, 40);
             this.btnDetallePedido.Name = "btnDetallePedido";
@@ -217,7 +217,7 @@
             this.btnAdministrarPedido.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAdministrarPedido.FlatAppearance.BorderSize = 0;
             this.btnAdministrarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdministrarPedido.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdministrarPedido.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdministrarPedido.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnAdministrarPedido.Location = new System.Drawing.Point(0, 0);
             this.btnAdministrarPedido.Name = "btnAdministrarPedido";
@@ -235,7 +235,7 @@
             this.btnVentas.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnVentas.FlatAppearance.BorderSize = 0;
             this.btnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVentas.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVentas.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVentas.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnVentas.Location = new System.Drawing.Point(0, 81);
             this.btnVentas.Name = "btnVentas";
@@ -338,7 +338,7 @@
         private System.Windows.Forms.Panel panelVentasubMenu;
         private System.Windows.Forms.Button btnDetallePedido;
         private System.Windows.Forms.Button btnAdministrarPedido;
-        private System.Windows.Forms.Button btnCliente;
+        private System.Windows.Forms.Button btnClienteNatural;
         private System.Windows.Forms.Button btnProducto;
         private System.Windows.Forms.Button btnProveedores;
         private System.Windows.Forms.Panel panelContenedor;

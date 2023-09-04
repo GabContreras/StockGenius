@@ -21,27 +21,35 @@ namespace Interfaces_ptc
             InitializeComponent();
             OcultarSubMenu();
 
-            v = u;             
-            // if(u.Id_Rol == 3)
-            //{
-            //    btnClienteJuridico.Visible = false;
-            //    btnProveedores.Visible= false; 
-            //    btnProducto.Visible= false;
-            //}
-            //else if(u.Id_Rol==4)
-            //{
-            //    btnProveedores.Visible = false;
-            //    btnProducto.Visible = false;
-            //    btnCliente.Visible= false;
-            //    btnVentas.Visible = false;
-            //}
-            //else if(u.Id_Rol==5)
-            //{
-            //    btnCliente.Visible = false;
-            //    btnClienteJuridico.Visible = false;
-            //    btnVentas.Visible = false;
-            //}
-
+            v = u;
+            if (u.Id_Rol == 2)
+            {
+                btnClienteJuridico.Visible = false;
+                btnClienteNatural.Visible = false;
+                btnVentas.Visible = false;
+                btnEmpleado.Visible = false;
+            }
+            if (u.Id_Rol == 3)
+            {
+                btnClienteJuridico.Visible = false;
+                btnClienteNatural.Visible = false;
+                btnVentas.Visible = false;
+                btnEmpleado.Visible = false;
+            }
+            else if (u.Id_Rol == 4)
+            {
+                btnClienteJuridico.Visible = false;
+                btnClienteNatural.Visible = false;
+                btnVentas.Visible = false;
+                btnEmpleado.Visible = false;
+                btnProveedores.Visible = false;
+            }
+            else if (u.Id_Rol == 5)
+            {
+                btnProveedores.Visible = false;
+                btnProducto.Visible = false;
+                btnEmpleado.Visible = false;
+            }
 
         }
            
@@ -68,7 +76,7 @@ namespace Interfaces_ptc
         #region SubMenuPedidos
         private void btnDetallePedido_Click(object sender, EventArgs e)
         {
-            openChildFormInPanel(new frmPedido());
+            openChildFormInPanel(new frmPedido(v));
             //Agregar código para abrir los formularios deseados
             OcultarSubMenu();
         }
@@ -120,20 +128,20 @@ namespace Interfaces_ptc
 
         private void btnProveedor_Click(object sender, EventArgs e)
         {
-            openChildFormInPanel(new frmProveedores());
+            openChildFormInPanel(new frmProveedores(v));
             OcultarSubMenu();
         }
 
         private void btnProducto_Click(object sender, EventArgs e)
         {
-            openChildFormInPanel(new frmProducto());
+            openChildFormInPanel(new frmProducto(v));
             OcultarSubMenu();
 
         }
 
         private void btnCliente_Click(object sender, EventArgs e)
         {
-            openChildFormInPanel(new frmClienteNatural());
+            openChildFormInPanel(new frmClienteNatural(v));
             OcultarSubMenu();
         }
 
@@ -153,7 +161,7 @@ namespace Interfaces_ptc
 
         private void btnAdministrarEmpleados_Click(object sender, EventArgs e)
         {
-            openChildFormInPanel(new frmClienteJuridico());
+            openChildFormInPanel(new frmClienteJuridico(v));
             OcultarSubMenu();
         }
 

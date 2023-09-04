@@ -13,9 +13,14 @@ namespace Interfaces_ptc
 {
     public partial class frmClienteJuridico : Form
     {
-        public frmClienteJuridico()
+        public frmClienteJuridico(Usuario u)
         {
             InitializeComponent();
+            if (u.Id_Rol == 5)
+            {
+                btnEliminar.Visible = false;
+
+            }
         }
 
         private void dgvClientes_DoubleClick(object sender, EventArgs e)
