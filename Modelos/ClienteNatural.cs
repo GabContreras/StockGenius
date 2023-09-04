@@ -40,7 +40,7 @@ namespace Modelos
             return dt;
 
         }
-        public static DataTable CargarClientes2()
+        public static DataTable CargarAmbosClientes()
         {
             SqlConnection con = Conexion.Conectar();
             string comando = "select c.Id_Cliente, c.Nombre as NombreCliente,c.DUI ,c.Nit as NIT,c.NRC\r\nfrom cliente c";
@@ -124,6 +124,17 @@ namespace Modelos
             string comando = $"SELECT Id_Cliente, Nombre , Apellido, DUI, Telefono, Dirección, Edad \r\n" +
                 $"FROM Cliente\r\n" +
                 $"WHERE DUI IS NOT NULL AND Apellido IS NOT NULL AND Edad IS NOT NULL and Cliente.nombre like '%{termino}%'";
+            SqlDataAdapter ad = new SqlDataAdapter(comando, con);
+            DataTable dt = new DataTable();
+            ad.Fill(dt);
+            return dt;
+
+        }
+        public static DataTable Buscar2(string termino)
+        {
+            SqlConnection con = Conexion.Conectar();
+            string comando = $"select c.Id_Cliente, c.Nombre as NombreCliente,c.DUI ,c.Nit as NIT,c.NRC\r\n" +
+                $"from cliente c\r\nwhere c.Nombre like '%{termino}%'";
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
             DataTable dt = new DataTable();
             ad.Fill(dt);

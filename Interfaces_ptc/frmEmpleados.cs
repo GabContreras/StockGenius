@@ -91,6 +91,7 @@ namespace Interfaces_ptc
             MostrarEmpleados();
             cbRol.SelectedIndex = -1;
             Actualizar();
+           
         }
         private void MostrarEmpleados()
         {
@@ -101,7 +102,6 @@ namespace Interfaces_ptc
             dgvEmpleados.Columns[1].Visible = false;
             dgvEmpleados.Columns[2].Visible = false;
             dgvEmpleados.Columns[10].Visible = false;
-
         }
 
         private void cbCargo_SelectedIndexChanged(object sender, EventArgs e)
@@ -118,26 +118,6 @@ namespace Interfaces_ptc
         {
            
 
-        }
-        private void dgvEmpleados_DoubleClick(object sender, EventArgs e)
-        {
-            try
-            {
-                Encrypt encr = new Encrypt();
-
-                txtNombreUsuario.Text = dgvEmpleados.CurrentRow.Cells[9].Value.ToString();
-                cbRol.Text = dgvEmpleados.CurrentRow.Cells[3].Value.ToString();
-                txtCargo.Text = dgvEmpleados.CurrentRow.Cells[11].Value.ToString();
-                txtNombre.Text = dgvEmpleados.CurrentRow.Cells[4].Value.ToString();
-                txtApellido.Text = dgvEmpleados.CurrentRow.Cells[5].Value.ToString();
-                txtTelefono.Text = dgvEmpleados.CurrentRow.Cells[6].Value.ToString();
-                txtDui.Text = dgvEmpleados.CurrentRow.Cells[7].Value.ToString();
-                txtCorreo.Text = dgvEmpleados.CurrentRow.Cells[8].Value.ToString();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
         private void LimpiarCampos()
         {
@@ -394,6 +374,28 @@ namespace Interfaces_ptc
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
             Actualizar();
+        }
+
+        private void probando(object sender, EventArgs e)
+        {
+            try
+            {
+
+                txtNombreUsuario.Text = dgvEmpleados.CurrentRow.Cells[9].Value.ToString();
+                cbRol.Text = dgvEmpleados.CurrentRow.Cells[3].Value.ToString();
+
+                txtCargo.Text = dgvEmpleados.CurrentRow.Cells[11].Value.ToString();
+
+                txtNombre.Text = dgvEmpleados.CurrentRow.Cells[4].Value.ToString();
+                txtApellido.Text = dgvEmpleados.CurrentRow.Cells[5].Value.ToString();
+                txtTelefono.Text = dgvEmpleados.CurrentRow.Cells[6].Value.ToString();
+                txtDui.Text = dgvEmpleados.CurrentRow.Cells[7].Value.ToString();
+                txtCorreo.Text = dgvEmpleados.CurrentRow.Cells[8].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

@@ -40,7 +40,8 @@ namespace Interfaces_ptc
             MostrarPedido();
             MostrarClientes(); 
             cbEmpleado.SelectedIndex = -1;
-
+            ActualizarCliente();
+            ActualizarPedido();
         }
         private void MostrarPedido()
         {
@@ -50,10 +51,8 @@ namespace Interfaces_ptc
         private void MostrarClientes()
         {
             dgvCliente.DataSource = null;
-            dgvCliente.DataSource = ClienteNatural.CargarClientes2();
+            dgvCliente.DataSource = ClienteNatural.CargarAmbosClientes();
             dgvCliente.Columns[0].Visible = false;
-            
-
         }
         private void dgvPedido_DoubleClick(object sender, EventArgs e)
         {
@@ -169,6 +168,23 @@ namespace Interfaces_ptc
             }
             MostrarPedido();
         }
+        private void ActualizarCliente()
+        {
+            dgvCliente.DataSource = ClienteNatural.Buscar2(txtBuscarCliente.Text);
+            dgvCliente.Columns[0].Visible = false;
+        }
+        private void ActualizarPedido()
+        {
+            dgvPedido.DataSource = Pedido.Buscar(txtBuscar.Text);
+        }
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            ActualizarCliente();
+        }
 
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            ActualizarPedido();
+        }
     }
 }

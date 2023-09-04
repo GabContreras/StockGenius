@@ -87,16 +87,22 @@ namespace Interfaces_ptc
         }
         private void dgvProductos_DoubleClick(object sender, EventArgs e)
         {
-            txtNombre.Text = dgvProductos.CurrentRow.Cells[1].Value.ToString();
-            txtDescripcion.Text = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-            txtStock.Text = dgvProductos.CurrentRow.Cells[3].Value.ToString();
-            cbProveedor.Text = dgvProductos.CurrentRow.Cells[5].Value.ToString();
-            txtPrecio.Text = dgvProductos.CurrentRow.Cells[4].Value.ToString();
+            try
+            {
+                txtNombre.Text = dgvProductos.CurrentRow.Cells[1].Value.ToString();
+                txtDescripcion.Text = dgvProductos.CurrentRow.Cells[2].Value.ToString();
+                txtStock.Text = dgvProductos.CurrentRow.Cells[3].Value.ToString();
+                cbProveedor.Text = dgvProductos.CurrentRow.Cells[5].Value.ToString();
+                txtPrecio.Text = dgvProductos.CurrentRow.Cells[4].Value.ToString();
 
-            string ruta = (string)dgvProductos.CurrentRow.Cells[6].Value;
+                string ruta = (string)dgvProductos.CurrentRow.Cells[6].Value;
 
-            pbImagen.Image = Image.FromFile(ruta);
-
+                pbImagen.Image = Image.FromFile(ruta);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private void LimpiarCampos()
         {

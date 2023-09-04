@@ -299,7 +299,7 @@
             this.dgvEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEmpleados.Size = new System.Drawing.Size(712, 209);
             this.dgvEmpleados.TabIndex = 8;
-            this.dgvEmpleados.DoubleClick += new System.EventHandler(this.dgvEmpleados_DoubleClick);
+            this.dgvEmpleados.DoubleClick += new System.EventHandler(this.probando);
             // 
             // tableLayoutPanel9
             // 

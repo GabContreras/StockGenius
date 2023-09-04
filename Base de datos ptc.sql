@@ -75,18 +75,6 @@ SELECT Id_Cliente, Nombre as NombreEmpresa, Apellido, DUI, Telefono, Dirección, 
 FROM Cliente
 WHERE NIT IS NOT NULL AND NRC IS NOT NULL AND Giro IS NOT NULL AND Categoria IS NOT NULL;
 
-
--- Create a filtered unique index for NIT column
-CREATE UNIQUE INDEX UX_NIT_Unique ON Cliente (NIT) WHERE NIT IS NOT NULL;
-
--- Create a filtered unique index for NRC column
-CREATE UNIQUE INDEX UX_NRC_Unique ON Cliente (NRC) WHERE NRC IS NOT NULL;
-
--- Create a unique index for DUI column
-CREATE UNIQUE INDEX UX_DUI_Unique ON Cliente (DUI) where DUI is not null;
-
-
-
 Create table Producto(
 Id_Producto int PRIMARY KEY identity(1,1),
 Nombre varchar(50) not null unique,
@@ -156,88 +144,15 @@ values ('Administrador'),--ya
 ('Vendedor');--ya
 go
 
-SELECT P.Id_Producto, P.Nombre , P.Descripcion, P.Stock, P.PrecioUnitario as Precio, Pr.Nombre AS Proveedor, P.imagen as imagen
-                FROM Producto P 
-				INNER JOIN Proveedor Pr ON P.Id_Proveedor = Pr.Id_Proveedor
-select * from rol
---compra al proveedor (comprador (agregar y actualizar nada más en productos y proovedor) 
---recepcion de mercaderia (gerente de compras(tiene acceso a todo lo de proovedor y producto)
---almacenaje de mercaderia (Encargado de bodega(acceso a productos pero solo para actualizar adicional o sea no le puede quitar al stock  update Producto  set  Stock= 123 + 12
---WHERE Id_Producto = 1 )
---venta (vendedor(Acceso a ventas y clientes pero solo agregar y actualizar)
 
+-- Create a filtered unique index for NIT column
+CREATE UNIQUE INDEX UX_NIT_Unique ON Cliente (NIT) WHERE NIT IS NOT NULL;
 
-SELECT P.Id_Pedido, C.Nombre AS Cliente, E.Nombre AS Empleado, P.Fecha_Pedido as Fecha, p.Estado, p.Tipo_Cliente as "Tipo De Cliente"
-FROM Pedido P
-                INNER JOIN Cliente C ON P.Id_Cliente = C.Id_Cliente
-				INNER JOIN Empleado E ON P.Id_Empleado = E.Id_Empleado;
+-- Create a filtered unique index for NRC column
+CREATE UNIQUE INDEX UX_NRC_Unique ON Cliente (NRC) WHERE NRC IS NOT NULL;
 
-				select c.Id_Cliente, c.Nombre as NombreCliente,c.DUI ,c.Nit as NIT,c.NRC
-				from cliente c
-
-        SELECT Id_Cliente, Nombre as NombreEmpresa ,Telefono, Dirección, NIT, NRC, Giro, Categoria
-        FROM Cliente
-        WHERE NIT IS NOT NULL AND NRC IS NOT NULL AND Giro IS NOT NULL AND Categoria IS NOT NULL;
-
-		SELECT Id_Cliente, Nombre , Apellido, DUI, Telefono, Dirección, Edad 
-		FROM Cliente
-        WHERE DUI IS NOT NULL AND Apellido IS NOT NULL AND Edad IS NOT NULL;
-
-		select * from cliente
-
-
-select * from producto
-
-update Producto  set  Stock= 123 + 12
-WHERE Id_Producto = 1
-
-
-select* from Empleado
-select * from usuario
-
-insert into Usuario(NombreUsuario, contraseña,id_Rol)
-values ('Admin1', 'contraseña1',1), 
-('GerenteG1', 'contraseña2',2), 
-('Vendedor1', 'contraseña3',3), 
-('Técnico1', 'contraseña4',4),
-('GerenteC1', 'contraseña5',5);
-go
-
-SELECT  E.Id_Empleado, U.id_Rol,U.id_usuario,R.Nombre as Rol,E.Nombre AS Nombre,
- E.Apellido AS Apellido, E.Teléfono AS Telefono, E.DUI AS Dui, E.Correo AS Correo, U.NombreUsuario AS Usuario, U.contraseña AS Contraseña,E.Cargo AS Cargo
-                FROM Empleado E 
-				INNER JOIN Usuario U ON E.id_Usuario = U.id_Usuario
-				INNER JOIN Rol R on U.id_Rol= R.id_Rol
-				delete from usuario where id_usuario=2
-select * from usuario 
-select * from empleado 
-
-delete from usuario where Id_Usuario= 8
-
-select sum(total) as total from Detalle_Pedido 
-where Id_Pedido = 1
-
-insert into Empleado(Nombre, Apellido, Teléfono, DUI, Correo, Cargo, id_Usuario)
-values ('Pedro', 'López', '+503 7854-9655', '0809234-1', 'Elpepe@example.c om', 'Jefe', 1),
-('Ana', 'García', '+503 6543-9876', '1234567-8', 'ana@example.com', 'Gerente General', 2),
-  ('Carlos', 'Ramírez', '+503 7890-4321', '9876543-2', 'carlos@example.com', 'Vendedor', 3),
-  ('Sofia', 'Morales', '+503 6754-3241', '5678901-2', 'sofia@example.com', 'Técnico de selección', 4),
-  ('Luis', 'González', '+503 4532-9876', '4567890-1', 'luis@example.com','Gerente de compras', 5) ;
-  go
-
-
-  sELECT Id_Empleado ,concat (Nombre,' ', Apellido, ', ', DUI ) as 'Empleado' from Empleado
-
-
-  SELECT E.Id_Empleado, E.Nombre AS Nombre, E.Apellido AS Apellido, E.Teléfono AS Telefono, E.DUI AS Dui, E.Correo AS Correo,
-       E.Cargo AS Cargo, U.NombreUsuario AS Nombre_Usuario, U.contraseña AS Contraseña
-FROM Empleado E
-INNER JOIN Usuario U ON E.id_Usuario = U.id_Usuario
-
-
-SELECT PrecioUnitario FROM Producto WHERE Id_Producto =1
-
-select * from Detalle_Pedido
+-- Create a unique index for DUI column
+CREATE UNIQUE INDEX UX_DUI_Unique ON Cliente (DUI) where DUI is not null;
 
 CREATE TRIGGER CalcularTotalDetallePedido
 ON Detalle_Pedido
@@ -278,6 +193,100 @@ BEGIN
 END;
 
 
+
+
+SELECT P.Id_Pedido, C.Nombre AS Cliente, E.Nombre AS Empleado, P.Fecha_Pedido as Fecha, p.Estado, p.Tipo_Cliente as "Tipo De Cliente"
+                FROM Pedido P
+                INNER JOIN Cliente C ON P.Id_Cliente = C.Id_Cliente
+                INNER JOIN Empleado E ON P.Id_Empleado = E.Id_Empleado
+				where C.Nombre like '%c%'
+
+
+
+
+
+
+select c.Id_Cliente, c.Nombre as NombreCliente,c.DUI ,c.Nit as NIT,c.NRC
+from cliente c
+where c.Nombre like '%s%'
+
+
+
+
+select c.Id_Cliente, c.Nombre as NombreCliente,c.DUI ,c.Nit as NIT,c.NRC
+from cliente c
+
+
+
+SELECT P.Id_Producto, P.Nombre , P.Descripcion, P.Stock, P.PrecioUnitario as Precio, Pr.Nombre AS Proveedor, P.imagen as imagen
+                FROM Producto P 
+				INNER JOIN Proveedor Pr ON P.Id_Proveedor = Pr.Id_Proveedor
+select * from rol
+--compra al proveedor (comprador (agregar y actualizar nada más en productos y proovedor) 
+--recepcion de mercaderia (gerente de compras(tiene acceso a todo lo de proovedor y producto)
+--almacenaje de mercaderia (Encargado de bodega(acceso a productos pero solo para actualizar adicional o sea no le puede quitar al stock  update Producto  set  Stock= 123 + 12
+--WHERE Id_Producto = 1 )
+--venta (vendedor(Acceso a ventas y clientes pero solo agregar y actualizar)
+
+
+SELECT P.Id_Pedido, C.Nombre AS Cliente, E.Nombre AS Empleado, P.Fecha_Pedido as Fecha, p.Estado, p.Tipo_Cliente as "Tipo De Cliente"
+FROM Pedido P
+                INNER JOIN Cliente C ON P.Id_Cliente = C.Id_Cliente
+				INNER JOIN Empleado E ON P.Id_Empleado = E.Id_Empleado;
+
+				select c.Id_Cliente, c.Nombre as NombreCliente,c.DUI ,c.Nit as NIT,c.NRC
+				from cliente c
+
+        SELECT Id_Cliente, Nombre as NombreEmpresa ,Telefono, Dirección, NIT, NRC, Giro, Categoria
+        FROM Cliente
+        WHERE NIT IS NOT NULL AND NRC IS NOT NULL AND Giro IS NOT NULL AND Categoria IS NOT NULL;
+
+		SELECT Id_Cliente, Nombre , Apellido, DUI, Telefono, Dirección, Edad 
+		FROM Cliente
+        WHERE DUI IS NOT NULL AND Apellido IS NOT NULL AND Edad IS NOT NULL;
+
+		select * from cliente
+
+
+select * from producto
+
+update Producto  set  Stock= 123 + 12
+WHERE Id_Producto = 1
+
+
+select* from Empleado
+select * from usuario
+
+
+SELECT  E.Id_Empleado, U.id_Rol,U.id_usuario,R.Nombre as Rol,E.Nombre AS Nombre,
+ E.Apellido AS Apellido, E.Teléfono AS Telefono, E.DUI AS Dui, E.Correo AS Correo, U.NombreUsuario AS Usuario, U.contraseña AS Contraseña,E.Cargo AS Cargo
+                FROM Empleado E 
+				INNER JOIN Usuario U ON E.id_Usuario = U.id_Usuario
+				INNER JOIN Rol R on U.id_Rol= R.id_Rol
+				delete from usuario where id_usuario=2
+select * from usuario 
+select * from empleado 
+
+delete from usuario where Id_Usuario= 8
+
+select sum(total) as total from Detalle_Pedido 
+where Id_Pedido = 1
+
+
+  sELECT Id_Empleado ,concat (Nombre,' ', Apellido, ', ', DUI ) as 'Empleado' from Empleado
+
+
+  SELECT E.Id_Empleado, E.Nombre AS Nombre, E.Apellido AS Apellido, E.Teléfono AS Telefono, E.DUI AS Dui, E.Correo AS Correo,
+       E.Cargo AS Cargo, U.NombreUsuario AS Nombre_Usuario, U.contraseña AS Contraseña
+FROM Empleado E
+INNER JOIN Usuario U ON E.id_Usuario = U.id_Usuario
+
+
+SELECT PrecioUnitario FROM Producto WHERE Id_Producto =1
+
+select * from Detalle_Pedido
+
+
 SELECT  E.Id_Empleado, U.id_Rol,R.Nombre as Rol, U.NombreUsuario AS Usuario, U.contraseña AS Contraseña,E.Cargo AS Cargo, E.Nombre AS Nombre, E.Apellido AS Apellido,
                  E.Teléfono AS Telefono, E.DUI AS Dui, E.Correo AS Correo 
                 FROM Empleado E
@@ -307,3 +316,9 @@ SELECT DP.Id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Producto,DP.cantida
 				 FROM Detalle_Pedido DP
                 INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto
 				where P.Nombre like '%S%'
+
+				SELECT  E.Id_Empleado, U.id_Rol,U.id_usuario,R.Nombre as Rol,E.Nombre AS Nombre,
+                E.Apellido AS Apellido, E.Teléfono AS Telefono, E.DUI AS Dui, E.Correo AS Correo, U.NombreUsuario AS Usuario, U.contraseña AS Contraseña,E.Cargo AS Cargo  
+                 FROM Empleado E 
+                INNER JOIN Usuario U ON E.id_Usuario = U.id_Usuario
+                INNER JOIN Rol R on U.id_Rol= R.id_Rol
