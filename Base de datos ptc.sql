@@ -94,13 +94,14 @@ Descripcion varchar(150) not null,
 Stock int not null check (Stock>=0),
 Id_Proveedor int not null,
 PrecioUnitario decimal(10,2) check(PrecioUnitario>0),
-
+imagen nvarchar(max)	
 constraint FK_Proveedor
 FOREIGN KEY (Id_Proveedor) references Proveedor(Id_Proveedor)
 on delete cascade 
 on update cascade
 );
 go
+
 CREATE TABLE Pedido(
     Id_Pedido INT PRIMARY KEY IDENTITY(1, 1),
     Id_Cliente INT, -- Este campo puede ser el Id_Cliente o el Id_ClienteJuridico
@@ -155,6 +156,9 @@ values ('Administrador'),--ya
 ('Vendedor');--ya
 go
 
+SELECT P.Id_Producto, P.Nombre , P.Descripcion, P.Stock, P.PrecioUnitario as Precio, Pr.Nombre AS Proveedor, P.imagen as imagen
+                FROM Producto P 
+				INNER JOIN Proveedor Pr ON P.Id_Proveedor = Pr.Id_Proveedor
 select * from rol
 --compra al proveedor (comprador (agregar y actualizar nada más en productos y proovedor) 
 --recepcion de mercaderia (gerente de compras(tiene acceso a todo lo de proovedor y producto)

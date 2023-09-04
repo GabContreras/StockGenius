@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -55,6 +56,8 @@ namespace Interfaces_ptc
         {
             dgvProductos.DataSource = null;
             dgvProductos.DataSource = Producto.CargarProducto();
+            dgvProductos.Columns[6].Visible = false;
+
         }
         private void CargarProv()
         {
@@ -87,6 +90,11 @@ namespace Interfaces_ptc
             txtStock.Text = dgvProductos.CurrentRow.Cells[3].Value.ToString();
             cbProveedor.Text = dgvProductos.CurrentRow.Cells[5].Value.ToString();
             txtPrecio.Text = dgvProductos.CurrentRow.Cells[4].Value.ToString();
+
+            string ruta = (string)dgvProductos.CurrentRow.Cells[6].Value;
+
+            pbImagen.Image = Image.FromFile(ruta);
+
         }
         private void LimpiarCampos()
         {
@@ -95,41 +103,93 @@ namespace Interfaces_ptc
             txtStock.Text = "";
             txtPrecio.Text = "";
             cbProveedor.SelectedIndex = -1;
+            pbImagen.Image = null;
+            ofdImagen.Reset();
+
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            try
+            if (pbImagen.Image != null)
             {
-                if (txtNombre.Text == "" || txtDescripcion.Text == "" || txtStock.Text == "" || txtPrecio.Text == "")
+                string rutaImagen = ofdImagen.FileName;
+                string escritorio = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                string carpetaDestino = Path.Combine(escritorio, "Imagenes");
+
+                Directory.CreateDirectory(carpetaDestino);
+
+                string imagenDestino = Path.Combine(carpetaDestino, Guid.NewGuid().ToString() + Path.GetExtension(rutaImagen));
+                File.Copy(rutaImagen, imagenDestino);
+
+                try
                 {
+                    if (txtNombre.Text == "" || txtDescripcion.Text == "" || txtStock.Text == "" || txtPrecio.Text == "")
+                    {
                         MessageBox.Show("No dejar campos vacíos",
                             "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    Producto p = new Producto();
-                    p.Nombre = txtNombre.Text;
-                    p.Descripcion = txtDescripcion.Text;
-                    p.Stock = int.Parse(txtStock.Text);
-                    p.Id_Proveedor = (int)cbProveedor.SelectedValue;
-                    p.PrecioUnitario = double.Parse(txtPrecio.Text);
-                    if (p.InsertarProducto() == true)
-                    {
-                        MessageBox.Show("Producto agregado satisfactoriamente", "Éxito");
-                        MostrarProductos();
-                        LimpiarCampos();
                     }
                     else
                     {
-                        MessageBox.Show("Se produjo un error", "Advertencia");
+                        Producto p = new Producto();
+                        p.Nombre = txtNombre.Text;
+                        p.Descripcion = txtDescripcion.Text;
+                        p.Stock = int.Parse(txtStock.Text);
+                        p.Id_Proveedor = (int)cbProveedor.SelectedValue;
+                        p.PrecioUnitario = double.Parse(txtPrecio.Text);
+                        p.Imagen = imagenDestino;
+                        if (p.InsertarProducto() == true)
+                        {
+                            MessageBox.Show("Producto agregado satisfactoriamente", "Éxito");
+                            MostrarProductos();
+                            LimpiarCampos();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Se produjo un error", "Advertencia");
+                        }
                     }
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                MostrarProductos();
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                try
+                {
+                    if (txtNombre.Text == "" || txtDescripcion.Text == "" || txtStock.Text == "" || txtPrecio.Text == "")
+                    {
+                        MessageBox.Show("No dejar campos vacíos",
+                            "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        Producto p = new Producto();
+                        p.Nombre = txtNombre.Text;
+                        p.Descripcion = txtDescripcion.Text;
+                        p.Stock = int.Parse(txtStock.Text);
+                        p.Id_Proveedor = (int)cbProveedor.SelectedValue;
+                        p.PrecioUnitario = double.Parse(txtPrecio.Text);
+                        p.Imagen = "";
+                        if (p.InsertarProducto() == true)
+                        {
+                            MessageBox.Show("Producto agregado satisfactoriamente", "Éxito");
+                            MostrarProductos();
+                            LimpiarCampos();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Se produjo un error", "Advertencia");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
             }
-            MostrarProductos();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -150,39 +210,91 @@ namespace Interfaces_ptc
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            try
+            if (pbImagen.Image != null)
             {
-                if (txtNombre.Text == "" || txtDescripcion.Text == "" || txtStock.Text == "" || txtPrecio.Text == "")
+                string rutaImagen = ofdImagen.FileName;
+                string escritorio = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                string carpetaDestino = Path.Combine(escritorio, "Imagenes");
+
+                Directory.CreateDirectory(carpetaDestino);
+
+                string imagenDestino = Path.Combine(carpetaDestino, Guid.NewGuid().ToString() + Path.GetExtension(rutaImagen));
+                File.Copy(rutaImagen, imagenDestino);
                 {
-                    MessageBox.Show("No dejar campos vacíos",
-                        "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    Producto p = new Producto();
-                    p.Nombre = txtNombre.Text;
-                    p.Descripcion = txtDescripcion.Text;
-                    p.Stock = int.Parse(txtStock.Text);
-                    p.PrecioUnitario = double.Parse(txtPrecio.Text);
-                    p.Id_Proveedor = (int)cbProveedor.SelectedValue;
-                    p.Id_Producto = (int)dgvProductos.CurrentRow.Cells[0].Value;
-                    if (p.ActualizarProducto() == true)
+                    try
                     {
-                        MessageBox.Show("Producto actualizado satisfactoriamente", "Éxito");
-                        MostrarProductos();
-                        LimpiarCampos();
+                        if (txtNombre.Text == "" || txtDescripcion.Text == "" || txtStock.Text == "" || txtPrecio.Text == "")
+                        {
+                            MessageBox.Show("No dejar campos vacíos",
+                                "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            Producto p = new Producto();
+                            p.Nombre = txtNombre.Text;
+                            p.Descripcion = txtDescripcion.Text;
+                            p.Stock = int.Parse(txtStock.Text);
+                            p.PrecioUnitario = double.Parse(txtPrecio.Text);
+                            p.Imagen = imagenDestino;
+                            p.Id_Proveedor = (int)cbProveedor.SelectedValue;
+                            p.Id_Producto = (int)dgvProductos.CurrentRow.Cells[0].Value;
+                            if (p.ActualizarProducto() == true)
+                            {
+                                MessageBox.Show("Producto actualizado satisfactoriamente", "Éxito");
+                                MostrarProductos();
+                                LimpiarCampos();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Se produjo un error", "Advertencia");
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    MostrarProductos();
+                }
+            }
+            else
+            {
+                try
+                {
+                    if (txtNombre.Text == "" || txtDescripcion.Text == "" || txtStock.Text == "" || txtPrecio.Text == "")
+                    {
+                        MessageBox.Show("No dejar campos vacíos",
+                            "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-                        MessageBox.Show("Se produjo un error", "Advertencia");
+                        Producto p = new Producto();
+                        p.Nombre = txtNombre.Text;
+                        p.Descripcion = txtDescripcion.Text;
+                        p.Stock = int.Parse(txtStock.Text);
+                        p.PrecioUnitario = double.Parse(txtPrecio.Text);
+                        p.Imagen = "";
+                        p.Id_Proveedor = (int)cbProveedor.SelectedValue;
+                        p.Id_Producto = (int)dgvProductos.CurrentRow.Cells[0].Value;
+                        if (p.ActualizarProducto() == true)
+                        {
+                            MessageBox.Show("Producto actualizado satisfactoriamente", "Éxito");
+                            MostrarProductos();
+                            LimpiarCampos();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Se produjo un error", "Advertencia");
+                        }
                     }
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                MostrarProductos();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            MostrarProductos();
+
         }
 
         private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
@@ -209,6 +321,24 @@ namespace Interfaces_ptc
             {
                 MessageBox.Show("Solo números son permitidos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
+            }
+        }
+
+        private void btnCargar_Click(object sender, EventArgs e)
+        {
+            ofdImagen.Filter = "Archivos De Imagen | *.jpg; *.png; *.jpeg; *.png";
+
+            try
+            {
+                if (ofdImagen.ShowDialog() == DialogResult.OK)
+                {
+                    string ruta = ofdImagen.FileName;
+                    pbImagen.Image = Image.FromFile(ruta);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

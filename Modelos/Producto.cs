@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.SqlServer.Server;
 
 namespace Modelos
 {
@@ -16,6 +17,7 @@ namespace Modelos
         private int stock;
         private int id_Proveedor;
         private double precioUnitario;
+        private string imagen;
 
         public int Id_Producto { get => id_Producto; set => id_Producto = value; }
         public string Nombre { get => nombre; set => nombre = value; }
@@ -23,12 +25,13 @@ namespace Modelos
         public int Stock { get => stock; set => stock = value; }
         public int Id_Proveedor { get => id_Proveedor; set => id_Proveedor = value; }
         public double PrecioUnitario { get => precioUnitario; set => precioUnitario = value; }
+        public string Imagen { get => imagen; set => imagen = value; }
 
         public static DataTable CargarProducto()
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = "SELECT P.Id_Producto, P.Nombre , P.Descripcion, P.Stock, P.PrecioUnitario as Precio, Pr.Nombre AS Proveedor\r\n" +
-                "FROM Producto P\r\nINNER JOIN Proveedor Pr ON P.Id_Proveedor = Pr.Id_Proveedor;\r\n\r\n";
+            string comando = "SELECT P.Id_Producto, P.Nombre , P.Descripcion, P.Stock, P.PrecioUnitario as Precio, Pr.Nombre AS Proveedor, P.imagen as imagen\r\n " +
+                "               FROM Producto P \r\nINNER JOIN Proveedor Pr ON P.Id_Proveedor = Pr.Id_Proveedor";
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
             DataTable dt = new DataTable();
             ad.Fill(dt);
@@ -91,8 +94,8 @@ namespace Modelos
         public bool InsertarProducto()
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = "insert into Producto(Nombre, Descripcion, Stock, Id_Proveedor, PrecioUnitario) values \r\n" +
-                "(@nombre, @descripcion, @stock, @id_Proveedor, @precioUnitario)";
+            string comando = "insert into Producto(Nombre, Descripcion, Stock, Id_Proveedor, PrecioUnitario,imagen) values \r\n" +
+                "(@nombre, @descripcion, @stock, @id_Proveedor, @precioUnitario,@imagen)";
             SqlCommand cmd = new SqlCommand(comando, con);
 
             cmd.Parameters.AddWithValue("@nombre", nombre);
@@ -100,6 +103,7 @@ namespace Modelos
             cmd.Parameters.AddWithValue("@stock", stock);
             cmd.Parameters.AddWithValue("@id_Proveedor", id_Proveedor);
             cmd.Parameters.AddWithValue("@precioUnitario", precioUnitario);
+            cmd.Parameters.AddWithValue("@imagen", imagen);
 
             if (cmd.ExecuteNonQuery() > 0)
             {
@@ -129,7 +133,7 @@ namespace Modelos
         public bool ActualizarProducto()
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = "update Producto \r\n set nombre = @nombre,Descripcion=@descripcion, Stock=@stock, Id_Proveedor= @id_Proveedor, PrecioUnitario= @precioUnitario WHERE Id_Producto = @id";
+            string comando = "update Producto \r\n set nombre = @nombre,Descripcion=@descripcion, Stock=@stock, Id_Proveedor= @id_Proveedor, PrecioUnitario= @precioUnitario, imagen=@imagen WHERE Id_Producto = @id";
             SqlCommand cmd = new SqlCommand(comando, con);
 
             cmd.Parameters.AddWithValue("@nombre", nombre);
@@ -138,6 +142,7 @@ namespace Modelos
             cmd.Parameters.AddWithValue("@precioUnitario", precioUnitario);
             cmd.Parameters.AddWithValue("@id_Proveedor", id_Proveedor);
             cmd.Parameters.AddWithValue("@id", id_Producto);
+            cmd.Parameters.AddWithValue("@imagen", imagen);
 
 
             if (cmd.ExecuteNonQuery() > 0)
