@@ -15,20 +15,19 @@ namespace Modelos
         private int id_pedido;
         private int id_Producto;
         private int cantidad;
-        private double total;
+     
 
         public int Id_Detalle { get => id_Detalle; set => id_Detalle = value; }
         public int Id_pedido { get => id_pedido; set => id_pedido = value; }
         public int Id_Producto { get => id_Producto; set => id_Producto = value; }
         public int Cantidad { get => cantidad; set => cantidad = value; }
-        public double Total { get => total; set => total = value; }
+
 
             //Este método no es estático porque lleva un WHERE, y ahí se colocarán valores que pueden variar (parámetros)
         public DataTable CargarDetallePedido()
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = "SELECT DP.Id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Producto,DP.cantidad,P.PrecioUnitario as Precio,\r\n" +
-                "DP.cantidad * P.PrecioUnitario AS Total\r\n" +
+            string comando = "SELECT DP.Id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Producto,DP.cantidad,P.PrecioUnitario as Precio" +
                 "FROM Detalle_Pedido DP\r\n" +
                 "INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto\r\n" +
                 "where dp.Id_Pedido= @id;";
@@ -48,13 +47,13 @@ namespace Modelos
         public bool InsertarDpedido()
         {
                 SqlConnection con = Conexion.Conectar();
-                string comando = "INSERT INTO Detalle_Pedido(Id_Pedido, Id_Producto, cantidad,total) VALUES (@Id_Pedido, @Id_Producto, @cantidad, @total)";
+                string comando = "INSERT INTO Detalle_Pedido(Id_Pedido, Id_Producto, cantidad) VALUES (@Id_Pedido, @Id_Producto, @cantidad)";
                 SqlCommand cmd = new SqlCommand(comando, con);
 
                 cmd.Parameters.AddWithValue("@Id_Pedido", id_pedido);
                 cmd.Parameters.AddWithValue("@Id_Producto", id_Producto);
                 cmd.Parameters.AddWithValue("@cantidad", cantidad);
-                cmd.Parameters.AddWithValue("@total", total);
+       
                 if (cmd.ExecuteNonQuery() > 0)
                 {
                     return true;
@@ -84,11 +83,10 @@ namespace Modelos
         public static DataTable Buscar(string termino)
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = $"SELECT DP.Id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Producto,DP.cantidad,P.PrecioUnitario as Precio,\r\n" +
-                $"DP.cantidad * P.PrecioUnitario AS Total\r\n" +
-                $"FROM Detalle_Pedido DP\r\n" +
+            string comando = $"SELECT DP.id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Producto,DP.cantidad,P.PrecioUnitario as Precio\r\n" +
+                $"FROM detalle_pedido DP\r\n" +
                 $"INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto\r\n" +
-                $"where P.Nombre like '%{termino}%'";
+                $" where P.Nombre like '%{termino}%'";
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
             DataTable dt = new DataTable();
             ad.Fill(dt);

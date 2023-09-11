@@ -110,8 +110,7 @@ CREATE TABLE Detalle_Pedido (
     Id_Detalle INT PRIMARY KEY IDENTITY(1, 1),
     Id_Pedido INT NOT NULL,
     Id_Producto INT NOT NULL,
-    Cantidad INT NOT NULL CHECK(Cantidad > 0),
-    Total DECIMAL(10, 2),
+    Cantidad INT NOT NULL CHECK(Cantidad > 0)
 
 constraint FK_Pedido
 FOREIGN KEY (Id_Pedido) references Pedido(Id_Pedido)
@@ -146,13 +145,6 @@ ON Detalle_Pedido
 AFTER INSERT
 AS
 BEGIN
-    -- Actualizar el total en Detalle_Pedido usando el precio unitario de Producto
-    UPDATE DP
-    SET Total = P.PrecioUnitario * DP.Cantidad
-    FROM Detalle_Pedido AS DP
-    INNER JOIN inserted AS I ON DP.Id_Detalle = I.Id_Detalle
-    INNER JOIN Producto AS P ON DP.Id_Producto = P.Id_Producto;
-
     -- Actualizar la cantidad en stock de Producto
     UPDATE P
     SET Stock = Stock - DP.Cantidad
@@ -179,163 +171,18 @@ BEGIN
     WHERE Id_Producto = @Id_Producto;
 END;
 
-SELECT P.Id_Pedido, C.Nombre AS Cliente, E.Nombre AS Empleado, P.Fecha_Pedido as Fecha, p.Estado, p.Tipo_Cliente as "Tipo De Cliente"
-                FROM Pedido P
-                INNER JOIN Cliente C ON P.Id_Cliente = C.Id_Cliente
-                INNER JOIN Empleado E ON P.Id_Empleado = E.Id_Empleado
-				where C.Nombre like '%c%'
+SELECT DP.ID_Producto as "Id Producto",DP.Id_Pedido as Pedido, P.nombre as Producto, sum(DP.cantidad) as Cantidad 
+FROM Detalle_Pedido DP
+inner join producto P on P.id_Producto = DP.id_Producto
+where id_pedido = 1
+group by P.nombre, DP.id_producto,DP.Id_Pedido
 
 
-
-				SELECT E.Id_Empleado,E.Nombre, E.Correo, U.NombreUsuario, e.id_Usuario
-				FROM Empleado E 
-				inner join Usuario U on E.id_Usuario= U.Id_Usuario
-				where e.id_Usuario= 2;
-
-
-				select * from Empleado
-
-
-select c.Id_Cliente, c.Nombre as NombreCliente,c.DUI ,c.Nit as NIT,c.NRC
-from cliente c
-where c.Nombre like '%s%'
-
-
-
-
-select c.Id_Cliente, c.Nombre as NombreCliente,c.DUI ,c.Nit as NIT,c.NRC
-from cliente c
-
-
-
-SELECT P.Id_Producto, P.Nombre , P.Descripcion, P.Stock, P.PrecioUnitario as Precio, Pr.Nombre AS Proveedor, P.imagen as imagen
-                FROM Producto P 
-				INNER JOIN Proveedor Pr ON P.Id_Proveedor = Pr.Id_Proveedor
-select * from rol
---compra al proveedor (comprador (agregar y actualizar nada más en productos y proovedor) 
---recepcion de mercaderia (gerente de compras(tiene acceso a todo lo de proovedor y producto)
---almacenaje de mercaderia (Encargado de bodega(acceso a productos pero solo para actualizar adicional o sea no le puede quitar al stock  update Producto  set  Stock= 123 + 12
---WHERE Id_Producto = 1 )
---venta (vendedor(Acceso a ventas y clientes pero solo agregar y actualizar)
-
-
-SELECT P.Id_Pedido, C.Nombre AS Cliente, E.Nombre AS Empleado, P.Fecha_Pedido as Fecha, p.Estado, p.Tipo_Cliente as "Tipo De Cliente"
-FROM Pedido P
-                INNER JOIN Cliente C ON P.Id_Cliente = C.Id_Cliente
-				INNER JOIN Empleado E ON P.Id_Empleado = E.Id_Empleado;
-
-				select c.Id_Cliente, c.Nombre as NombreCliente,c.DUI ,c.Nit as NIT,c.NRC
-				from cliente c
-
-        SELECT Id_Cliente, Nombre as NombreEmpresa ,Telefono, Dirección, NIT, NRC, Giro, Categoria
-        FROM Cliente
-        WHERE NIT IS NOT NULL AND NRC IS NOT NULL AND Giro IS NOT NULL AND Categoria IS NOT NULL;
-
-		SELECT Id_Cliente, Nombre , Apellido, DUI, Telefono, Dirección, Edad 
-		FROM Cliente
-        WHERE DUI IS NOT NULL AND Apellido IS NOT NULL AND Edad IS NOT NULL;
-
-		select * from cliente
-
-
-select * from producto
-
-update Producto  set  Stock= 123 + 12
-WHERE Id_Producto = 1
-
-
-select* from Empleado
-select * from usuario
-
-
-SELECT  E.Id_Empleado, U.id_Rol,U.id_usuario,R.Nombre as Rol,E.Nombre AS Nombre,
- E.Apellido AS Apellido, E.Teléfono AS Telefono, E.DUI AS Dui, E.Correo AS Correo, U.NombreUsuario AS Usuario, U.contraseña AS Contraseña,E.Cargo AS Cargo
-                FROM Empleado E 
-				INNER JOIN Usuario U ON E.id_Usuario = U.id_Usuario
-				INNER JOIN Rol R on U.id_Rol= R.id_Rol
-
-
-SELECT  E.Id_Empleado, U.id_Rol,U.id_usuario,R.Nombre as Rol,E.Nombre AS Nombre,
- E.Apellido AS Apellido, E.Teléfono AS Telefono, E.DUI AS Dui, E.Correo AS Correo, U.NombreUsuario AS Usuario, U.contraseña AS Contraseña,E.Cargo AS Cargo
-                FROM Empleado E 
-				INNER JOIN Usuario U ON E.id_Usuario = U.id_Usuario
-				INNER JOIN Rol R on U.id_Rol= R.id_Rol
-                where E.nombre like '%{termino}%'
-
-	
-
-select * from usuario 
-select * from empleado 
-
-delete from usuario where Id_Usuario= 8
-
-select sum(total) as total from Detalle_Pedido 
-where Id_Pedido = 1
-
-
-  sELECT Id_Empleado ,concat (Nombre,' ', Apellido, ', ', DUI ) as 'Empleado' from Empleado
-
-
-  SELECT E.Id_Empleado, E.Nombre AS Nombre, E.Apellido AS Apellido, E.Teléfono AS Telefono, E.DUI AS Dui, E.Correo AS Correo,
-       E.Cargo AS Cargo, U.NombreUsuario AS Nombre_Usuario, U.contraseña AS Contraseña
-FROM Empleado E
-INNER JOIN Usuario U ON E.id_Usuario = U.id_Usuario
-
-SELECT  E.Id_Empleado, U.id_Rol,U.id_usuario,R.Nombre as Rol,E.Nombre AS Nombre,
-                E.Apellido AS Apellido, E.Teléfono AS Telefono, E.DUI AS Dui, E.Correo AS Correo, U.NombreUsuario AS Usuario, U.contraseña AS Contraseña,E.Cargo AS Cargo 
-                FROM Empleado E 
-                INNER JOIN Usuario U ON E.id_Usuario = U.id_Usuario
-                INNER JOIN Rol R on U.id_Rol= R.id_Rol
-
-
-SELECT PrecioUnitario FROM Producto WHERE Id_Producto =1
-
-select * from Detalle_Pedido
-
-
-SELECT  E.Id_Empleado, U.id_Rol,R.Nombre as Rol, U.NombreUsuario AS Usuario, U.contraseña AS Contraseña,E.Cargo AS Cargo, E.Nombre AS Nombre, E.Apellido AS Apellido,
-                 E.Teléfono AS Telefono, E.DUI AS Dui, E.Correo AS Correo 
-                FROM Empleado E
-				INNER JOIN Usuario U ON E.id_Usuario = U.id_Usuario
-				INNER JOIN Rol R on U.id_Rol= R.id_Rol
-				where E.nombre like '%a%'
-
-select * from proveedor
-where Nombre like '%a%'
-
-SELECT P.Id_Producto, P.Nombre , P.Descripcion, P.Stock, P.PrecioUnitario as Precio, Pr.Nombre AS Proveedor, P.imagen as imagen 
-                FROM Producto P 
-				INNER JOIN Proveedor Pr ON P.Id_Proveedor = Pr.Id_Proveedor
-					where P.nombre like '%a%'
-
-
-SELECT Id_Cliente, Nombre , Apellido, DUI, Telefono, Dirección, Edad 
-                FROM Cliente
-                WHERE DUI IS NOT NULL AND Apellido IS NOT NULL AND Edad IS NOT NULL and Cliente.nombre like '%a%'
-			
-SELECT Id_Cliente, Nombre as NombreEmpresa,Telefono, Dirección, NIT, NRC, Giro, Categoria
-                FROM Cliente
-                WHERE NIT IS NOT NULL AND NRC IS NOT NULL AND Giro IS NOT NULL AND Categoria IS NOT NULL and Cliente.Nombre like '%R%';
-
-SELECT DP.Id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Producto,DP.cantidad,P.PrecioUnitario as Precio,
-                 DP.cantidad * P.PrecioUnitario AS Total
-				 FROM Detalle_Pedido DP
+SELECT DP.id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Producto,DP.cantidad,P.PrecioUnitario as Precio
+                FROM detalle_pedido DP
                 INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto
-				where P.Nombre like '%S%'
+                where P.Nombre like '%Tecl%'
 
-				SELECT  E.Id_Empleado, U.id_Rol,U.id_usuario,R.Nombre as Rol,E.Nombre AS Nombre,
-                E.Apellido AS Apellido, E.Teléfono AS Telefono, E.DUI AS Dui, E.Correo AS Correo, U.NombreUsuario AS Usuario, U.contraseña AS Contraseña,E.Cargo AS Cargo  
-                 FROM Empleado E 
-                INNER JOIN Usuario U ON E.id_Usuario = U.id_Usuario
-                INNER JOIN Rol R on U.id_Rol= R.id_Rol
 
-				SELECT DP.Id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Producto,DP.cantidad,P.PrecioUnitario as Precio,
-                DP.cantidad * P.PrecioUnitario AS Total
-				FROM Detalle_Pedido DP
-                INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto
-				where dp.Id_Pedido= 2;
-
-				
-SELECT Id_Cliente, Nombre as NombreEmpresa, Apellido, DUI, Telefono, Dirección, Edad, NIT, NRC, Giro, Categoria
-FROM Cliente
-WHERE NIT IS NOT NULL AND NRC IS NOT NULL AND Giro IS NOT NULL AND Categoria IS NOT NULL;
+				select * from detalle_pedido
+				select * from producto

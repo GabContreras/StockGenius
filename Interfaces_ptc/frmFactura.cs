@@ -16,5 +16,11 @@ namespace Interfaces_ptc
         {
             InitializeComponent();
         }
+
+        private void frmFactura_Load(object sender, EventArgs e)
+        {
+
+            this.reportViewer1.RefreshReport();
+        }
     }
 }

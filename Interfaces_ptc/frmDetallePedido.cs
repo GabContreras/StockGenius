@@ -33,7 +33,7 @@ namespace Interfaces_ptc
         {
             CargarPed();
             cargarProd();
-
+            //MostrarDetallePedido();
             Actualizar();
             cbPedido.SelectedIndex = -1;
             cbProducto.SelectedIndex = -1;
@@ -142,7 +142,6 @@ namespace Interfaces_ptc
                     p.Id_pedido = int.Parse(cbPedido.Text);
                     p.Id_Producto = (int)cbProducto.SelectedValue;
                     p.Cantidad = int.Parse(txtCantidad.Text);
-                    p.Total = ((int.Parse(txtCantidad.Text)) * pp.ObtenerPrecioProducto(p.Id_Producto));
                     // Se obtiene la cantidad en stock actual
                     int stockActual = pp.ObtenerStockProducto(p.Id_Producto);
 
@@ -196,7 +195,7 @@ namespace Interfaces_ptc
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-         }
+        }
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
@@ -205,7 +204,7 @@ namespace Interfaces_ptc
         }
         private void Actualizar()
         {
-            dgvDetallePedido.DataSource = DetallePedido.Buscar(txtBuscar.Text);
+          dgvDetallePedido.DataSource = DetallePedido.Buscar(txtBuscar.Text);
         }
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {

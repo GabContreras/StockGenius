@@ -212,7 +212,7 @@
             this.btnDetallePedido.Name = "btnDetallePedido";
             this.btnDetallePedido.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnDetallePedido.Size = new System.Drawing.Size(250, 36);
-            this.btnDetallePedido.TabIndex = 3;
+            this.btnDetallePedido.TabIndex = 2;
             this.btnDetallePedido.Text = "Detalle Pedido";
             this.btnDetallePedido.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDetallePedido.UseVisualStyleBackColor = true;
@@ -229,7 +229,7 @@
             this.btnAdministrarPedido.Name = "btnAdministrarPedido";
             this.btnAdministrarPedido.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnAdministrarPedido.Size = new System.Drawing.Size(250, 40);
-            this.btnAdministrarPedido.TabIndex = 2;
+            this.btnAdministrarPedido.TabIndex = 1;
             this.btnAdministrarPedido.Text = "Administrar Pedido";
             this.btnAdministrarPedido.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAdministrarPedido.UseVisualStyleBackColor = true;
