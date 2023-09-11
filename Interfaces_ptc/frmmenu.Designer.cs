@@ -75,19 +75,19 @@
             // btnEmpleado
             // 
             this.btnEmpleado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(0)))), ((int)(((byte)(90)))));
-            this.btnEmpleado.BackgroundImage = global::Interfaces_ptc.Properties.Resources.Empleado;
             this.btnEmpleado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnEmpleado.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnEmpleado.FlatAppearance.BorderSize = 0;
             this.btnEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEmpleado.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEmpleado.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnEmpleado.Image = global::Interfaces_ptc.Properties.Resources.Empleado;
             this.btnEmpleado.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEmpleado.Location = new System.Drawing.Point(0, 385);
             this.btnEmpleado.Name = "btnEmpleado";
             this.btnEmpleado.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnEmpleado.Size = new System.Drawing.Size(250, 44);
-            this.btnEmpleado.TabIndex = 19;
+            this.btnEmpleado.TabIndex = 8;
             this.btnEmpleado.Text = "Empleados";
             this.btnEmpleado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEmpleado.UseVisualStyleBackColor = false;
@@ -106,7 +106,7 @@
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnCerrarSesion.Size = new System.Drawing.Size(250, 45);
-            this.btnCerrarSesion.TabIndex = 18;
+            this.btnCerrarSesion.TabIndex = 9;
             this.btnCerrarSesion.Text = "Cerrar Sesión";
             this.btnCerrarSesion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCerrarSesion.UseVisualStyleBackColor = true;
@@ -126,7 +126,7 @@
             this.btnClienteJuridico.Name = "btnClienteJuridico";
             this.btnClienteJuridico.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnClienteJuridico.Size = new System.Drawing.Size(250, 44);
-            this.btnClienteJuridico.TabIndex = 5;
+            this.btnClienteJuridico.TabIndex = 7;
             this.btnClienteJuridico.Text = "Clientes Jurídicos";
             this.btnClienteJuridico.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClienteJuridico.UseVisualStyleBackColor = false;
@@ -145,7 +145,7 @@
             this.btnClienteNatural.Name = "btnClienteNatural";
             this.btnClienteNatural.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnClienteNatural.Size = new System.Drawing.Size(250, 45);
-            this.btnClienteNatural.TabIndex = 4;
+            this.btnClienteNatural.TabIndex = 6;
             this.btnClienteNatural.Text = "Clientes Naturales";
             this.btnClienteNatural.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClienteNatural.UseVisualStyleBackColor = true;
@@ -164,7 +164,7 @@
             this.btnProducto.Name = "btnProducto";
             this.btnProducto.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnProducto.Size = new System.Drawing.Size(250, 45);
-            this.btnProducto.TabIndex = 3;
+            this.btnProducto.TabIndex = 5;
             this.btnProducto.Text = "Productos";
             this.btnProducto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProducto.UseVisualStyleBackColor = true;
@@ -183,7 +183,7 @@
             this.btnProveedores.Name = "btnProveedores";
             this.btnProveedores.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnProveedores.Size = new System.Drawing.Size(250, 45);
-            this.btnProveedores.TabIndex = 2;
+            this.btnProveedores.TabIndex = 4;
             this.btnProveedores.Text = "Proveedores";
             this.btnProveedores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProveedores.UseVisualStyleBackColor = true;
@@ -212,7 +212,7 @@
             this.btnDetallePedido.Name = "btnDetallePedido";
             this.btnDetallePedido.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnDetallePedido.Size = new System.Drawing.Size(250, 36);
-            this.btnDetallePedido.TabIndex = 2;
+            this.btnDetallePedido.TabIndex = 3;
             this.btnDetallePedido.Text = "Detalle Pedido";
             this.btnDetallePedido.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDetallePedido.UseVisualStyleBackColor = true;
@@ -220,7 +220,6 @@
             // 
             // btnAdministrarPedido
             // 
-            this.btnAdministrarPedido.BackgroundImage = global::Interfaces_ptc.Properties.Resources.iconoAdministrarPedido;
             this.btnAdministrarPedido.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAdministrarPedido.FlatAppearance.BorderSize = 0;
             this.btnAdministrarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -230,7 +229,7 @@
             this.btnAdministrarPedido.Name = "btnAdministrarPedido";
             this.btnAdministrarPedido.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnAdministrarPedido.Size = new System.Drawing.Size(250, 40);
-            this.btnAdministrarPedido.TabIndex = 1;
+            this.btnAdministrarPedido.TabIndex = 2;
             this.btnAdministrarPedido.Text = "Administrar Pedido";
             this.btnAdministrarPedido.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAdministrarPedido.UseVisualStyleBackColor = true;
@@ -245,11 +244,12 @@
             this.btnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVentas.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVentas.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnVentas.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.btnVentas.Location = new System.Drawing.Point(0, 81);
             this.btnVentas.Name = "btnVentas";
             this.btnVentas.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnVentas.Size = new System.Drawing.Size(250, 45);
-            this.btnVentas.TabIndex = 0;
+            this.btnVentas.TabIndex = 1;
             this.btnVentas.Text = "Ventas";
             this.btnVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVentas.UseVisualStyleBackColor = true;
@@ -302,7 +302,6 @@
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Image = global::Interfaces_ptc.Properties.Resources.iconoProveedores;
             this.pictureBox5.Location = new System.Drawing.Point(6, 297);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(46, 39);

@@ -77,7 +77,7 @@ namespace Interfaces_ptc
             MostrarEmpleados();
             cbRol.SelectedIndex = -1;
             Actualizar();
-           
+
         }
         private void MostrarEmpleados()
         {
@@ -176,7 +176,6 @@ namespace Interfaces_ptc
             {
                 MessageBox.Show(ex.Message);
             }
-            MostrarEmpleados();
         }
 
         private void frmEmpleados_FormClosed(object sender, FormClosedEventArgs e)
@@ -299,7 +298,8 @@ namespace Interfaces_ptc
 
             dgvEmpleados.Columns[0].Visible = false;
             dgvEmpleados.Columns[1].Visible = false;
-            dgvEmpleados.Columns[4].Visible = false;
+            dgvEmpleados.Columns[2].Visible = false;
+            dgvEmpleados.Columns[10].Visible = false;
         }
         private void btnBuscar_Click(object sender, EventArgs e)
         {

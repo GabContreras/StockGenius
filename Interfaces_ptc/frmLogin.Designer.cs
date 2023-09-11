@@ -31,15 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.cbMostraContraInicio = new System.Windows.Forms.CheckBox();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.txtPassword = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.btnRegistro = new System.Windows.Forms.Button();
-            this.txtUser = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnSalir = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtUser = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,10 +47,10 @@
             this.cbMostraContraInicio.AutoSize = true;
             this.cbMostraContraInicio.BackColor = System.Drawing.Color.White;
             this.cbMostraContraInicio.ForeColor = System.Drawing.Color.White;
-            this.cbMostraContraInicio.Location = new System.Drawing.Point(385, 221);
+            this.cbMostraContraInicio.Location = new System.Drawing.Point(385, 224);
             this.cbMostraContraInicio.Name = "cbMostraContraInicio";
             this.cbMostraContraInicio.Size = new System.Drawing.Size(15, 14);
-            this.cbMostraContraInicio.TabIndex = 6;
+            this.cbMostraContraInicio.TabIndex = 3;
             this.cbMostraContraInicio.UseVisualStyleBackColor = false;
             this.cbMostraContraInicio.CheckedChanged += new System.EventHandler(this.cbMostraContraInicio_CheckedChanged);
             // 
@@ -67,22 +66,10 @@
             this.btnLogin.Location = new System.Drawing.Point(55, 265);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(345, 41);
-            this.btnLogin.TabIndex = 5;
+            this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Acceder";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.button2_Click_1);
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(55, 218);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtPassword.Size = new System.Drawing.Size(345, 19);
-            this.txtPassword.TabIndex = 3;
-            this.txtPassword.Tag = "Contrai";
-            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // label10
             // 
@@ -94,36 +81,6 @@
             this.label10.Size = new System.Drawing.Size(96, 20);
             this.label10.TabIndex = 2;
             this.label10.Text = "Contraseña:";
-            // 
-            // btnRegistro
-            // 
-            this.btnRegistro.BackColor = System.Drawing.Color.Black;
-            this.btnRegistro.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnRegistro.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ScrollBar;
-            this.btnRegistro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
-            this.btnRegistro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistro.ForeColor = System.Drawing.Color.White;
-            this.btnRegistro.Location = new System.Drawing.Point(122, 352);
-            this.btnRegistro.Name = "btnRegistro";
-            this.btnRegistro.Size = new System.Drawing.Size(213, 43);
-            this.btnRegistro.TabIndex = 4;
-            this.btnRegistro.Text = "Registrarse";
-            this.btnRegistro.UseVisualStyleBackColor = false;
-            this.btnRegistro.Click += new System.EventHandler(this.btnRegistro_Click);
-            this.btnRegistro.MouseEnter += new System.EventHandler(this.btnMouseEnter);
-            this.btnRegistro.MouseLeave += new System.EventHandler(this.btnMouseLeave);
-            // 
-            // txtUser
-            // 
-            this.txtUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUser.Location = new System.Drawing.Point(55, 151);
-            this.txtUser.Name = "txtUser";
-            this.txtUser.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtUser.Size = new System.Drawing.Size(345, 19);
-            this.txtUser.TabIndex = 3;
-            this.txtUser.Tag = "Usuarioi";
             // 
             // label11
             // 
@@ -169,7 +126,7 @@
             this.btnSalir.Location = new System.Drawing.Point(350, 7);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(96, 27);
-            this.btnSalir.TabIndex = 7;
+            this.btnSalir.TabIndex = 6;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click_1);
@@ -179,25 +136,49 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(160, 329);
+            this.label1.Location = new System.Drawing.Point(144, 320);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(147, 20);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "¿No tienes cuenta?";
+            this.label1.Size = new System.Drawing.Size(156, 20);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Olvidé mi contraseña";
+            // 
+            // txtUser
+            // 
+            this.txtUser.BackColor = System.Drawing.Color.White;
+            this.txtUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtUser.Font = new System.Drawing.Font("Cambria", 12F);
+            this.txtUser.ForeColor = System.Drawing.Color.Black;
+            this.txtUser.Location = new System.Drawing.Point(55, 151);
+            this.txtUser.MaxLength = 30;
+            this.txtUser.Name = "txtUser";
+            this.txtUser.Size = new System.Drawing.Size(345, 26);
+            this.txtUser.TabIndex = 1;
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.BackColor = System.Drawing.Color.White;
+            this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPassword.Font = new System.Drawing.Font("Cambria", 12F);
+            this.txtPassword.ForeColor = System.Drawing.Color.Black;
+            this.txtPassword.Location = new System.Drawing.Point(55, 218);
+            this.txtPassword.MaxLength = 30;
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(345, 26);
+            this.txtPassword.TabIndex = 2;
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(0)))), ((int)(((byte)(90)))));
-            this.ClientSize = new System.Drawing.Size(458, 330);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnSalir);
+            this.ClientSize = new System.Drawing.Size(458, 383);
             this.Controls.Add(this.cbMostraContraInicio);
             this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.btnRegistro);
             this.Controls.Add(this.txtUser);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnSalir);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label14);
@@ -215,15 +196,14 @@
         #endregion
         private System.Windows.Forms.CheckBox cbMostraContraInicio;
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button btnRegistro;
-        private System.Windows.Forms.TextBox txtUser;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtUser;
+        private System.Windows.Forms.TextBox txtPassword;
     }
 }
 

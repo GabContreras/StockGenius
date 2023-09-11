@@ -49,6 +49,7 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.btnFactura = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetallePedido)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -350,6 +351,7 @@
             this.tableLayoutPanel9.ColumnCount = 2;
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel9.Controls.Add(this.btnFactura, 0, 0);
             this.tableLayoutPanel9.Controls.Add(this.txtBuscar, 0, 0);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel9.Location = new System.Drawing.Point(3, 254);
@@ -372,6 +374,20 @@
             this.txtBuscar.Size = new System.Drawing.Size(305, 26);
             this.txtBuscar.TabIndex = 115;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
+            // 
+            // btnFactura
+            // 
+            this.btnFactura.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnFactura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(130)))), ((int)(((byte)(173)))));
+            this.btnFactura.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnFactura.Font = new System.Drawing.Font("Cambria", 12F);
+            this.btnFactura.ForeColor = System.Drawing.Color.White;
+            this.btnFactura.Location = new System.Drawing.Point(412, 7);
+            this.btnFactura.Name = "btnFactura";
+            this.btnFactura.Size = new System.Drawing.Size(109, 32);
+            this.btnFactura.TabIndex = 116;
+            this.btnFactura.Text = "Generar Factura ";
+            this.btnFactura.UseVisualStyleBackColor = false;
             // 
             // frmDetallePedido
             // 
@@ -424,5 +440,6 @@
         private System.Windows.Forms.DataGridView dgvDetallePedido;
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.Button btnDetalles;
+        private System.Windows.Forms.Button btnFactura;
     }
 }

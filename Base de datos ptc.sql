@@ -71,9 +71,6 @@ Categoria varchar(7)  CHECK (Categoria IN ('Pequeño', 'Mediano', 'Grande'))--Peq
 go
 
 
-SELECT Id_Cliente, Nombre as NombreEmpresa, Apellido, DUI, Telefono, Dirección, Edad, NIT, NRC, Giro, Categoria
-FROM Cliente
-WHERE NIT IS NOT NULL AND NRC IS NOT NULL AND Giro IS NOT NULL AND Categoria IS NOT NULL;
 
 Create table Producto(
 Id_Producto int PRIMARY KEY identity(1,1),
@@ -109,8 +106,6 @@ CREATE TABLE Pedido(
 );
 
 
-select * from pedido
-
 CREATE TABLE Detalle_Pedido (
     Id_Detalle INT PRIMARY KEY IDENTITY(1, 1),
     Id_Pedido INT NOT NULL,
@@ -127,19 +122,6 @@ FOREIGN KEY (Id_Producto) references Producto(Id_Producto)
 on delete cascade 
 on update cascade,
 );
-
-
-create table Factura(
-Id_Factura int PRIMARY KEY identity(1,1),
-Id_Pedido int not null,
-TotalFinal decimal(10,2) not null check (TotalFinal>0),
-
-constraint FK_Pedidos
-FOREIGN KEY (Id_Pedido) references Pedido(Id_Pedido)
-on delete cascade 
-on update cascade
-);
-go
 
 insert into Rol(Nombre)
 values ('Administrador'),--ya
@@ -196,9 +178,6 @@ BEGIN
     SET Stock = Stock + @CantidadEliminada
     WHERE Id_Producto = @Id_Producto;
 END;
-
-
-select * from Usuario
 
 SELECT P.Id_Pedido, C.Nombre AS Cliente, E.Nombre AS Empleado, P.Fecha_Pedido as Fecha, p.Estado, p.Tipo_Cliente as "Tipo De Cliente"
                 FROM Pedido P
@@ -274,7 +253,17 @@ SELECT  E.Id_Empleado, U.id_Rol,U.id_usuario,R.Nombre as Rol,E.Nombre AS Nombre,
                 FROM Empleado E 
 				INNER JOIN Usuario U ON E.id_Usuario = U.id_Usuario
 				INNER JOIN Rol R on U.id_Rol= R.id_Rol
-				delete from usuario where id_usuario=2
+
+
+SELECT  E.Id_Empleado, U.id_Rol,U.id_usuario,R.Nombre as Rol,E.Nombre AS Nombre,
+ E.Apellido AS Apellido, E.Teléfono AS Telefono, E.DUI AS Dui, E.Correo AS Correo, U.NombreUsuario AS Usuario, U.contraseña AS Contraseña,E.Cargo AS Cargo
+                FROM Empleado E 
+				INNER JOIN Usuario U ON E.id_Usuario = U.id_Usuario
+				INNER JOIN Rol R on U.id_Rol= R.id_Rol
+                where E.nombre like '%{termino}%'
+
+	
+
 select * from usuario 
 select * from empleado 
 
@@ -345,3 +334,8 @@ SELECT DP.Id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Producto,DP.cantida
 				FROM Detalle_Pedido DP
                 INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto
 				where dp.Id_Pedido= 2;
+
+				
+SELECT Id_Cliente, Nombre as NombreEmpresa, Apellido, DUI, Telefono, Dirección, Edad, NIT, NRC, Giro, Categoria
+FROM Cliente
+WHERE NIT IS NOT NULL AND NRC IS NOT NULL AND Giro IS NOT NULL AND Categoria IS NOT NULL;

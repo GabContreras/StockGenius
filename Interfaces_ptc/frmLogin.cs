@@ -102,22 +102,6 @@ namespace Interfaces_ptc
 
         private void btnRegistro_Click(object sender, EventArgs e)
         {
-            try
-            {
-                frmRegistrar registrar = new frmRegistrar();
-                registrar.Show();
-
-                registrar.FormClosed += delegate
-                {
-                    this.Show();
-                };
-
-                this.Hide();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
 
         private void btnAcceder_Click(object sender, EventArgs e)
