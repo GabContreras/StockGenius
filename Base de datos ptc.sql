@@ -62,7 +62,7 @@ DUI varchar (10),
 Telefono varchar(50) ,
 Dirección varchar(150),
 Edad int check (edad>=18),
-
+Tipo_Cliente varchar(8) check(Tipo_Cliente IN ('Natural', 'Jurídico')) not null,
 NIT varchar(17) , 
 NRC varchar(8) ,  --Numero de registro de contribuyente 569-0 tiene que tener un guion
 Giro varchar(100), --A qué se dedica
@@ -70,15 +70,13 @@ Categoria varchar(7)  CHECK (Categoria IN ('Pequeño', 'Mediano', 'Grande'))--Peq
 );
 go
 
-
-
 Create table Producto(
 Id_Producto int PRIMARY KEY identity(1,1),
 Nombre varchar(50) not null unique,
 Descripcion varchar(150) not null,
 Stock int not null check (Stock>=0),
 Id_Proveedor int not null,
-PrecioUnitario decimal(10,2) check(PrecioUnitario>0),
+Precio_Unitario decimal(10,2) check(Precio_Unitario>0),
 imagen nvarchar(max)	
 constraint FK_Proveedor
 FOREIGN KEY (Id_Proveedor) references Proveedor(Id_Proveedor)
@@ -93,8 +91,6 @@ CREATE TABLE Pedido(
     Id_Empleado INT NOT NULL,
     Fecha_Pedido DATE NOT NULL,
     Estado VARCHAR(10) CHECK (Estado IN ('En proceso', 'Completo', 'Anulado')),
-	Tipo_Cliente varchar(8) check(Tipo_Cliente IN ('Natural', 'Juridico')),
-
     CONSTRAINT FK_Cliente
     FOREIGN KEY (Id_Cliente) REFERENCES Cliente(Id_Cliente)
         ON DELETE NO ACTION
@@ -130,7 +126,6 @@ values ('Administrador'),--ya
 ('Vendedor');--ya
 go
 
-
 -- Create a filtered unique index for NIT column
 CREATE UNIQUE INDEX UX_NIT_Unique ON Cliente (NIT) WHERE NIT IS NOT NULL;
 
@@ -139,6 +134,18 @@ CREATE UNIQUE INDEX UX_NRC_Unique ON Cliente (NRC) WHERE NRC IS NOT NULL;
 
 -- Create a unique index for DUI column
 CREATE UNIQUE INDEX UX_DUI_Unique ON Cliente (DUI) where DUI is not null;
+
+insert into Cliente(Nombre,Telefono,Dirección,NIT,NRC,Giro,Categoria,Tipo_Cliente) values 
+                ('Empresa épica','+503 7895-7854' , 'Avenida el pepe 1234', '12343-558-7', '5487-9', 'Vendemos cosas épicas','Mediano','Jurídico')
+
+insert into Cliente(Nombre, Apellido, DUI, Telefono, Dirección, Edad,Tipo_Cliente) values 
+                ('Marcelo josé', 'Hernández Hernández', '12345678-9', '+503 8745-9874', 'Avenida el pepe', 18,'Natural')
+
+SELECT Id_Cliente, Nombre as NombreEmpresa,Telefono, Dirección, NIT, NRC, Giro, Categoria, tipo_Cliente
+                FROM Cliente
+                 WHERE NIT IS NOT NULL AND NRC IS NOT NULL AND Giro IS NOT NULL AND Categoria IS NOT NULL;
+
+				select * from cliente
 
 CREATE TRIGGER CalcularTotalDetallePedido
 ON Detalle_Pedido
@@ -171,6 +178,10 @@ BEGIN
     WHERE Id_Producto = @Id_Producto;
 END;
 
+
+
+
+
 SELECT DP.ID_Producto as "Id Producto",DP.Id_Pedido as Pedido, P.nombre as Producto, sum(DP.cantidad) as Cantidad 
 FROM Detalle_Pedido DP
 inner join producto P on P.id_Producto = DP.id_Producto
@@ -183,6 +194,15 @@ SELECT DP.id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Producto,DP.cantida
                 INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto
                 where P.Nombre like '%Tecl%'
 
+SELECT DP.Id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Producto,DP.cantidad,P.Precio_Unitario as Precio
+                FROM Detalle_Pedido DP
+                INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto
+                where dp.Id_Pedido= 1
 
 				select * from detalle_pedido
 				select * from producto
+
+SELECT P.Id_Pedido, C.Nombre AS Cliente, E.Nombre AS Empleado, P.Fecha_Pedido as Fecha, p.Estado, C.Tipo_Cliente as "Tipo De Cliente"
+                FROM Pedido P
+                INNER JOIN Cliente C ON P.Id_Cliente = C.Id_Cliente
+                INNER JOIN Empleado E ON P.Id_Empleado = E.Id_Empleado;

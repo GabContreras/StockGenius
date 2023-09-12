@@ -47,9 +47,8 @@
             this.btnConsultar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnFactura = new System.Windows.Forms.Button();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetallePedido)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -57,21 +56,20 @@
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
-            this.tableLayoutPanel9.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.btnDetalles, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.dgvDetallePedido, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel4, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel5, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel6, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel8, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel9, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 6);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -95,11 +93,11 @@
             this.btnDetalles.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDetalles.Font = new System.Drawing.Font("Cambria", 12F);
             this.btnDetalles.ForeColor = System.Drawing.Color.White;
-            this.btnDetalles.Location = new System.Drawing.Point(259, 142);
+            this.btnDetalles.Location = new System.Drawing.Point(73, 10);
             this.btnDetalles.Name = "btnDetalles";
-            this.btnDetalles.Size = new System.Drawing.Size(109, 26);
+            this.btnDetalles.Size = new System.Drawing.Size(165, 26);
             this.btnDetalles.TabIndex = 106;
-            this.btnDetalles.Text = "Detalles";
+            this.btnDetalles.Text = "Cargar detalle";
             this.btnDetalles.UseVisualStyleBackColor = false;
             this.btnDetalles.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -296,6 +294,7 @@
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel8.Size = new System.Drawing.Size(622, 74);
             this.tableLayoutPanel8.TabIndex = 2;
             // 
@@ -346,21 +345,20 @@
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // tableLayoutPanel9
+            // tableLayoutPanel3
             // 
-            this.tableLayoutPanel9.ColumnCount = 2;
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel9.Controls.Add(this.btnFactura, 0, 0);
-            this.tableLayoutPanel9.Controls.Add(this.txtBuscar, 0, 0);
-            this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(3, 254);
-            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
-            this.tableLayoutPanel9.RowCount = 1;
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(622, 47);
-            this.tableLayoutPanel9.TabIndex = 2;
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.btnDetalles, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.btnFactura, 1, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 254);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(622, 47);
+            this.tableLayoutPanel3.TabIndex = 107;
             // 
             // btnFactura
             // 
@@ -369,25 +367,12 @@
             this.btnFactura.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnFactura.Font = new System.Drawing.Font("Cambria", 12F);
             this.btnFactura.ForeColor = System.Drawing.Color.White;
-            this.btnFactura.Location = new System.Drawing.Point(412, 7);
+            this.btnFactura.Location = new System.Drawing.Point(383, 7);
             this.btnFactura.Name = "btnFactura";
-            this.btnFactura.Size = new System.Drawing.Size(109, 32);
-            this.btnFactura.TabIndex = 116;
+            this.btnFactura.Size = new System.Drawing.Size(166, 32);
+            this.btnFactura.TabIndex = 118;
             this.btnFactura.Text = "Generar Factura ";
             this.btnFactura.UseVisualStyleBackColor = false;
-            // 
-            // txtBuscar
-            // 
-            this.txtBuscar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtBuscar.BackColor = System.Drawing.Color.White;
-            this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBuscar.Font = new System.Drawing.Font("Cambria", 12F);
-            this.txtBuscar.ForeColor = System.Drawing.Color.Black;
-            this.txtBuscar.Location = new System.Drawing.Point(3, 10);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(305, 26);
-            this.txtBuscar.TabIndex = 115;
-            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // frmDetallePedido
             // 
@@ -411,8 +396,7 @@
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
             this.tableLayoutPanel8.ResumeLayout(false);
-            this.tableLayoutPanel9.ResumeLayout(false);
-            this.tableLayoutPanel9.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -420,8 +404,6 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
-        private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnAgregar;
@@ -440,6 +422,7 @@
         private System.Windows.Forms.DataGridView dgvDetallePedido;
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.Button btnDetalles;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button btnFactura;
     }
 }

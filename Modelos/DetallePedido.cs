@@ -27,10 +27,10 @@ namespace Modelos
         public DataTable CargarDetallePedido()
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = "SELECT DP.Id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Producto,DP.cantidad,P.PrecioUnitario as Precio" +
-                "FROM Detalle_Pedido DP\r\n" +
-                "INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto\r\n" +
-                "where dp.Id_Pedido= @id;";
+            string comando = $"SELECT DP.id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Producto,DP.cantidad,P.Precio_Unitario as Precio\r\n" +
+                $"FROM detalle_pedido DP\r\n" +
+                 $"INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto\r\n" +
+                "where DP.Id_Pedido= @id;";
             SqlCommand cmd = new SqlCommand(comando, con);
 
             cmd.Parameters.AddWithValue("@id", id_pedido);
@@ -80,19 +80,19 @@ namespace Modelos
                 return false;
             }
         }
-        public static DataTable Buscar(string termino)
-        {
-            SqlConnection con = Conexion.Conectar();
-            string comando = $"SELECT DP.id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Producto,DP.cantidad,P.PrecioUnitario as Precio\r\n" +
-                $"FROM detalle_pedido DP\r\n" +
-                $"INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto\r\n" +
-                $" where P.Nombre like '%{termino}%'";
-            SqlDataAdapter ad = new SqlDataAdapter(comando, con);
-            DataTable dt = new DataTable();
-            ad.Fill(dt);
-            return dt;
+        //public static DataTable Buscar(string termino)
+        //{
+        //    SqlConnection con = Conexion.Conectar();
+        //    string comando = $"SELECT DP.id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Producto,DP.cantidad,P.Precio_Unitario as Precio\r\n" +
+        //        $"FROM detalle_pedido DP\r\n" +
+        //        $"INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto\r\n" +
+        //        $" where P.Nombre like '%{termino}%'";
+        //    SqlDataAdapter ad = new SqlDataAdapter(comando, con);
+        //    DataTable dt = new DataTable();
+        //    ad.Fill(dt);
+        //    return dt;
 
-        }
+        //}
 
 
     }

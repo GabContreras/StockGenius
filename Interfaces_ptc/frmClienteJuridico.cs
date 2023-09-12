@@ -89,6 +89,7 @@ namespace Interfaces_ptc
                     p.Categoria = cbCategoria.Text;
                     p.Direccion = txtDireccion.Text;
                     p.Telefono = txtTelefono.Text;
+                    p.Tipo_cliente = "Jurídico";
                     if (p.insertarCiente() == true)
                     {
                         MessageBox.Show("Cliente agregado satisfactoriamente", "Éxito");

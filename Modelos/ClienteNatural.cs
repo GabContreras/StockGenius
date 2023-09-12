@@ -18,6 +18,7 @@ namespace Modelos
         private string telefono;
         private string direccion;
         private int edad;
+        private string tipo_cliente;
 
         public int Id_Cliente { get => id_Cliente; set => id_Cliente = value; }
         public string Nombre { get => nombre; set => nombre = value; }
@@ -26,6 +27,7 @@ namespace Modelos
         public string Telefono { get => telefono; set => telefono = value; }
         public string Direccion { get => direccion; set => direccion = value; }
         public int Edad { get => edad; set => edad = value; }
+        public string Tipo_cliente { get => tipo_cliente; set => tipo_cliente = value; }
 
         public static DataTable CargarClientes()
         {
@@ -55,8 +57,8 @@ namespace Modelos
         public bool insertarCiente()
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = "insert into Cliente(Nombre, Apellido, DUI, Telefono, Dirección, Edad) values \r\n" +
-                "(@nombre, @apellido, @dui, @telefono, @dirección, @edad)";
+            string comando = "insert into Cliente(Nombre, Apellido, DUI, Telefono, Dirección, Edad,Tipo_Cliente) values \r\n" +
+                "(@nombre, @apellido, @dui, @telefono, @dirección, @edad,@Tipo_Cliente)";
             SqlCommand cmd = new SqlCommand(comando, con);
 
             cmd.Parameters.AddWithValue("@nombre", nombre);
@@ -65,7 +67,7 @@ namespace Modelos
             cmd.Parameters.AddWithValue("@telefono", telefono);
             cmd.Parameters.AddWithValue("@dirección", direccion);
             cmd.Parameters.AddWithValue("@edad", edad);
-
+            cmd.Parameters.AddWithValue("@Tipo_Cliente", tipo_cliente);
             if (cmd.ExecuteNonQuery() > 0)
             {
                 return true;

@@ -118,6 +118,7 @@ namespace Interfaces_ptc
                     p.Telefono = txtTelefono.Text;
                     p.Direccion = txtDirección.Text;
                     p.Edad = int.Parse(numEdad.Text);
+                    p.Tipo_cliente = "Natural";
                     if (p.insertarCiente() == true)
                     {
                         MessageBox.Show("Cliente agregado satisfactoriamente", "Éxito");

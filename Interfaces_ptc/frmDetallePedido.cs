@@ -33,20 +33,19 @@ namespace Interfaces_ptc
         {
             CargarPed();
             cargarProd();
-            //MostrarDetallePedido();
-            Actualizar();
             cbPedido.SelectedIndex = -1;
             cbProducto.SelectedIndex = -1;
         }
-        private void MostrarDetallePedido()
+        private void MostrarDetallePedido(int Id_pedido)
         {
             //Se carga el DGV en base al ID de venta seleccionado
             dgvDetallePedido.DataSource = null;
 
             DetallePedido dp = new DetallePedido();
-            dp.Id_pedido = int.Parse(cbPedido.Text);
+            dp.Id_pedido = Id_pedido;
 
             dgvDetallePedido.DataSource = dp.CargarDetallePedido();
+
             dgvDetallePedido.Columns[0].Visible = false;
 
     
@@ -73,6 +72,7 @@ namespace Interfaces_ptc
                 //El valor que se muestra en el combobox
                 //Se coloca el nombre de la columna en la tabla
                 cbPedido.DisplayMember = "Id_Pedido";
+                cbPedido.ValueMember = "Id_Pedido";
             }
 
             //Bloque de código por si da error
@@ -108,10 +108,16 @@ namespace Interfaces_ptc
 
         private void dgvDetallePedido_DoubleClick(object sender, EventArgs e)
         {
-            cbPedido.Text = dgvDetallePedido.CurrentRow.Cells[1].Value.ToString();
-            cbProducto.Text = dgvDetallePedido.CurrentRow.Cells[3].Value.ToString();
-            txtCantidad.Text = dgvDetallePedido.CurrentRow.Cells[4].Value.ToString();
-            
+            try
+            {
+                cbPedido.Text = dgvDetallePedido.CurrentRow.Cells[1].Value.ToString();
+                cbProducto.Text = dgvDetallePedido.CurrentRow.Cells[3].Value.ToString();
+                txtCantidad.Text = dgvDetallePedido.CurrentRow.Cells[4].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private void LimpiarCampo()
         {
@@ -139,7 +145,7 @@ namespace Interfaces_ptc
                     DetallePedido p = new DetallePedido();
                     Producto pp = new Producto();
 
-                    p.Id_pedido = int.Parse(cbPedido.Text);
+                    p.Id_pedido = (int)cbPedido.SelectedValue;
                     p.Id_Producto = (int)cbProducto.SelectedValue;
                     p.Cantidad = int.Parse(txtCantidad.Text);
                     // Se obtiene la cantidad en stock actual
@@ -150,7 +156,7 @@ namespace Interfaces_ptc
                         if (p.InsertarDpedido() == true)
                         {
                             MessageBox.Show("Detalle agregado satisfactoriamente", "Éxito");
-                            MostrarDetallePedido();
+                            MostrarDetallePedido((int)cbPedido.SelectedValue);
                             LimpiarCampo();
                         }
                         else
@@ -179,7 +185,7 @@ namespace Interfaces_ptc
                 if (p.EliminarDetallePedido(id) == true)
                 {
                     MessageBox.Show("Producto eliminado satisfactoriamente", "Éxito");
-                    MostrarDetallePedido();
+                    MostrarDetallePedido((int)cbPedido.SelectedValue);
                     LimpiarCampo();
                 }
                 else
@@ -202,16 +208,10 @@ namespace Interfaces_ptc
             frmStock s= new frmStock();
             s.ShowDialog();
         }
-        private void Actualizar()
-        {
-          dgvDetallePedido.DataSource = DetallePedido.Buscar(txtBuscar.Text);
-        }
+       
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-            Actualizar();
-
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             if (cbPedido.SelectedIndex < 0)
@@ -220,7 +220,7 @@ namespace Interfaces_ptc
             }
             else
             {
-                MostrarDetallePedido();
+                MostrarDetallePedido((int)cbPedido.SelectedValue);
             }
         }
     }

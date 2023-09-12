@@ -92,8 +92,6 @@ namespace Interfaces_ptc
                 p.Id_Empleado = (int)cbEmpleado.SelectedValue;
                 p.Fecha_Pedido = DateTime.Now;
                 p.Estado = "En proceso";
-                p.Tipo_Cliente = cbTipoDeCliente.Text;
-
                 if (p.InsertarPedido() == true)
                 {
                     MessageBox.Show("Pedido agregado satisfactoriamente", "Éxito");
@@ -116,7 +114,6 @@ namespace Interfaces_ptc
         private void LimpiarCampos()
         {
             cbEmpleado.SelectedIndex = -1;
-            cbTipoDeCliente.SelectedIndex= -1;
         }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
@@ -149,7 +146,6 @@ namespace Interfaces_ptc
                 p.Id_Pedido = (int)dgvPedido.CurrentRow.Cells[0].Value;
                 p.Id_Cliente = (int)dgvCliente.CurrentRow.Cells[0].Value;
                 p.Id_Empleado = (int)cbEmpleado.SelectedValue;
-                p.Fecha_Pedido = DateTime.Now;
                 if (p.ActualizarPedido() == true)
                 {
                     MessageBox.Show("Pedido actualizado satisfactoriamente", "Éxito");

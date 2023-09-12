@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.cbTipoDeCliente = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.cbEmpleado = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -50,7 +47,6 @@
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.dgvPedido = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
@@ -64,7 +60,6 @@
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel5, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel4, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
@@ -84,49 +79,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 38.97852F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(628, 522);
             this.tableLayoutPanel1.TabIndex = 5;
-            // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.ColumnCount = 2;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Controls.Add(this.cbTipoDeCliente, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 155);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 1;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(622, 32);
-            this.tableLayoutPanel5.TabIndex = 2;
-            // 
-            // cbTipoDeCliente
-            // 
-            this.cbTipoDeCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cbTipoDeCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbTipoDeCliente.Font = new System.Drawing.Font("Cambria", 12F);
-            this.cbTipoDeCliente.ForeColor = System.Drawing.Color.Black;
-            this.cbTipoDeCliente.FormattingEnabled = true;
-            this.cbTipoDeCliente.Items.AddRange(new object[] {
-            "Natural",
-            "Juridico"});
-            this.cbTipoDeCliente.Location = new System.Drawing.Point(314, 3);
-            this.cbTipoDeCliente.Name = "cbTipoDeCliente";
-            this.cbTipoDeCliente.Size = new System.Drawing.Size(305, 27);
-            this.cbTipoDeCliente.TabIndex = 114;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(3, 5);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 22);
-            this.label1.TabIndex = 112;
-            this.label1.Text = "Tipo de cliente";
             // 
             // tableLayoutPanel4
             // 
@@ -386,8 +338,6 @@
             this.Text = "AdministrarPedido";
             this.Load += new System.EventHandler(this.frmPedido_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel5.ResumeLayout(false);
-            this.tableLayoutPanel5.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -408,7 +358,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
         private System.Windows.Forms.TextBox txtBuscar;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Label label4;
@@ -423,8 +372,6 @@
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.DataGridView dgvCliente;
-        private System.Windows.Forms.ComboBox cbTipoDeCliente;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtBuscarCliente;
     }
 }

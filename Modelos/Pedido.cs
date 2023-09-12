@@ -15,21 +15,19 @@ namespace Modelos
         private int id_Cliente;
         private int id_Empleado;
         private DateTime fecha_Pedido;
-        private string tipo_Cliente;
         private string estado;
 
         public int Id_Pedido { get => id_Pedido; set => id_Pedido = value; }
         public int Id_Cliente { get => id_Cliente; set => id_Cliente = value; }
         public int Id_Empleado { get => id_Empleado; set => id_Empleado = value; }
         public DateTime Fecha_Pedido { get => fecha_Pedido; set => fecha_Pedido = value; }
-        public string Tipo_Cliente { get => tipo_Cliente; set => tipo_Cliente = value; }
         public string Estado { get => estado; set => estado = value; }
 
         public static DataTable CargarPedido()
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = "SELECT P.Id_Pedido, C.Nombre AS Cliente, E.Nombre AS Empleado, P.Fecha_Pedido as Fecha, p.Estado, p.Tipo_Cliente as \"Tipo De Cliente\"\r\n" +
-                "FROM Pedido P\r\n " +
+            string comando = "SELECT P.Id_Pedido, C.Nombre AS Cliente, E.Nombre AS Empleado, P.Fecha_Pedido as Fecha, p.Estado, C.Tipo_Cliente as \"Tipo De Cliente\"\r\n" +
+                "FROM Pedido P\r\n" +
                 "INNER JOIN Cliente C ON P.Id_Cliente = C.Id_Cliente\r\n" +
                 "INNER JOIN Empleado E ON P.Id_Empleado = E.Id_Empleado;";
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
@@ -43,14 +41,13 @@ namespace Modelos
         public bool InsertarPedido()
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = "insert into Pedido(Id_Cliente, Id_Empleado, Fecha_Pedido,Estado,Tipo_Cliente) values \r\n" +
-                "(@id_cliente, @id_empleado, @fecha_pedido, @Estado,@tipoc)";
+            string comando = "insert into Pedido(Id_Cliente, Id_Empleado, Fecha_Pedido,Estado) values \r\n" +
+                "(@id_cliente, @id_empleado, @fecha_pedido, @Estado)";
             SqlCommand cmd = new SqlCommand(comando, con);
             cmd.Parameters.AddWithValue("@id_cliente", id_Cliente);
             cmd.Parameters.AddWithValue("@id_empleado", id_Empleado);
             cmd.Parameters.AddWithValue("@fecha_pedido", fecha_Pedido);
             cmd.Parameters.AddWithValue("@Estado", estado);
-            cmd.Parameters.AddWithValue("@tipoc", Tipo_Cliente);
 
 
             if (cmd.ExecuteNonQuery() > 0)
@@ -83,12 +80,11 @@ namespace Modelos
         {
             SqlConnection con = Conexion.Conectar();
             string comando = "update Pedido \r\n" +
-                             "set Id_Cliente = @id_cliente, Id_Empleado = @id_empleado, Fecha_Pedido = @fecha_pedido \r\n" +
+                             "set Id_Cliente = @id_cliente, Id_Empleado = @id_empleado\r\n" +
                              "WHERE Id_Pedido = @id";
             SqlCommand cmd = new SqlCommand(comando, con);
             cmd.Parameters.AddWithValue("@id_cliente", Id_Cliente);
             cmd.Parameters.AddWithValue("@id_empleado", Id_Empleado);
-            cmd.Parameters.AddWithValue("@fecha_pedido", Fecha_Pedido);
             cmd.Parameters.AddWithValue("@id", Id_Pedido);
 
             if (cmd.ExecuteNonQuery() > 0)
@@ -104,7 +100,7 @@ namespace Modelos
         public static DataTable Buscar(string termino)
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = $"SELECT P.Id_Pedido, C.Nombre AS Cliente, E.Nombre AS Empleado, P.Fecha_Pedido as Fecha, p.Estado, p.Tipo_Cliente as \"Tipo De Cliente\"\r\n  " +
+            string comando = $"SELECT P.Id_Pedido, C.Nombre AS Cliente, E.Nombre AS Empleado, P.Fecha_Pedido as Fecha, p.Estado, C.Tipo_Cliente as \"Tipo De Cliente\"\r\n  " +
                 $"FROM Pedido P\r\n" +
                 $"INNER JOIN Cliente C ON P.Id_Cliente = C.Id_Cliente\r\n" +
                 $"INNER JOIN Empleado E ON P.Id_Empleado = E.Id_Empleado\r\n" +
