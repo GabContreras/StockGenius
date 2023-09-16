@@ -135,17 +135,90 @@ CREATE UNIQUE INDEX UX_NRC_Unique ON Cliente (NRC) WHERE NRC IS NOT NULL;
 -- Create a unique index for DUI column
 CREATE UNIQUE INDEX UX_DUI_Unique ON Cliente (DUI) where DUI is not null;
 
-insert into Cliente(Nombre,Telefono,Dirección,NIT,NRC,Giro,Categoria,Tipo_Cliente) values 
-                ('Empresa épica','+503 7895-7854' , 'Avenida el pepe 1234', '12343-558-7', '5487-9', 'Vendemos cosas épicas','Mediano','Jurídico')
+-- Insertar proveedores
+INSERT INTO Proveedor (Nombre, Dirección, Telefono)
+VALUES
+    ('ElectroComponentes SA', 'Calle Principal #123', '+503 1111-1112'),
+    ('Tecnología Total', 'Avenida Comercial #456', '+503 2222-2222'),
+    ('Distribuidora Electrónica', 'Calle Central #789', '+503 3333-3333'),
+    ('Comercializadora de Equipos', 'Avenida Industrial #1011', '+503 4444-4444'),
+    ('Suministros Electrónicos', 'Calle Mayor #1516', '+503 5555-5555'),
+    ('ElectroPro', 'Avenida de la Paz #1718', '+503 6666-6666'),	
+    ('Componentes Avanzados', 'Calle del Progreso #1920', '+503 7777-7777'),
+    ('ElectroDistribuidora', 'Avenida del Sol #2122', '+503 8888-8888'),
+    ('ElectroMundo', 'Calle de la Industria #2324', '+503 9999-9999'),
+    ('ElectroInnovación', 'Avenida de la Libertad #2526', '+503 1010-1010'),
+    ('Soluciones Electrónicas', 'Calle de la Esperanza #2728', '+503 1111-1113'),
+    ('ElectroExpress', 'Avenida de la Victoria #2930', '+503 1212-1212'),
+    ('Distribuidora Tecnológica', 'Calle de la Ciencia #3132', '+503 1313-1313'),
+    ('Componentes Electrónicos', 'Avenida de la Tecnología #3334', '+503 1414-1414'),
+    ('ElectroSalud', 'Calle de la Salud #3536', '+503 1515-1515'),
+    ('ElectroHogar', 'Avenida de la Casa #3738', '+503 1616-1616'),
+    ('Innovación Electrónica', 'Calle de la Innovación #3940', '+503 1717-1717'),
+    ('ElectroMovilidad', 'Avenida de la Movilidad #4142', '+503 1818-1818'),
+    ('ElectroBaterías', 'Calle de las Baterías #4344', '+503 1919-1919'),
+    ('Distribuidora Solar', 'Avenida Solar #4546', '+503 2020-2020');
+
+-- Insertar productos (hasta alcanzar 20 registros)
+INSERT INTO Producto (Nombre, Descripcion, Stock, Id_Proveedor, Precio_Unitario, Imagen)
+VALUES
+    ('Smartphone Galaxy S22', 'Potente smartphone con cámara de alta resolución', 100, 1, 699.99, 'galaxy_s22.jpg'),
+    ('Laptop Ultrabook X1', 'Laptop ultradelgada con pantalla táctil', 50, 2, 1199.99, 'ultrabook_x1.jpg'),
+    ('Tablet Android Pro', 'Tablet de alto rendimiento con sistema Android', 75, 1, 299.99, 'tablet_android_pro.jpg'),
+    ('TV LED 4K 55 pulgadas', 'Televisor con resolución 4K y pantalla LED', 200, 2, 699.99, 'tv_led_4k.jpg'),
+    ('Auriculares Inalámbricos X2', 'Auriculares Bluetooth con cancelación de ruido', 150, 1, 149.99, 'auriculares_x2.jpg'),
+    ('Cámara DSLR 24MP', 'Cámara réflex digital de alta calidad', 80, 2, 899.99, 'camara_dslr_24mp.jpg'),
+    ('Impresora Multifunción', 'Impresora láser multifunción de alta velocidad', 120, 1, 299.99, 'impresora_multifuncion.jpg'),
+    ('Monitor Curvo 27 pulgadas', 'Monitor de computadora con pantalla curva', 60, 2, 349.99, 'monitor_curvo_27.jpg'),
+    ('Teclado Mecánico RGB', 'Teclado para juegos mecánico con retroiluminación', 90, 1, 99.99, 'teclado_mecanico_rgb.jpg'),
+    ('Mouse Gaming G3', 'Mouse ergonómico de alto rendimiento para juegos', 40, 2, 49.99, 'mouse_gaming_g3.jpg'),
+    ('Router Wi-Fi 6', 'Router inalámbrico de última generación', 65, 1, 199.99, 'router_wifi_6.jpg'),
+    ('Disco Duro Externo 2TB', 'Almacenamiento externo de gran capacidad', 110, 2, 79.99, 'disco_duro_externo_2tb.jpg'),
+    ('Altavoces Bluetooth X5', 'Altavoces inalámbricos con calidad de sonido premium', 30, 1, 149.99, 'altavoces_x5.jpg'),
+    ('Smartwatch Fitness Pro', 'Reloj inteligente con seguimiento de actividad física', 85, 2, 129.99, 'smartwatch_fitness_pro.jpg'),
+    ('Tarjeta Gráfica GTX 3080', 'Tarjeta gráfica de alto rendimiento para juegos', 70, 1, 699.99, 'tarjeta_grafica_gtx_3080.jpg');
 
 insert into Cliente(Nombre, Apellido, DUI, Telefono, Dirección, Edad,Tipo_Cliente) values 
-                ('Marcelo josé', 'Hernández Hernández', '12345678-9', '+503 8745-9874', 'Avenida el pepe', 18,'Natural')
+                ('Marcelo josé', 'Hernández Hernández', '12345678-9', '+503 8745-9874', 'Avenida el pepe', 18,'Natural'),
+				('Juan Carlos', 'Pérez', '11111111-1', '+503 1111-1111', 'Dirección 1', 25, 'Natural'),
+				('Ana María', 'Gómez', '22222222-2', '+503 2222-2222', 'Dirección 2', 30, 'Natural'),
+				('Carlos Alberto', 'López', '33333333-3', '+503 3333-3333', 'Dirección 3', 35, 'Natural'),
+				('Elena Rodríguez', 'Ramírez', '44444444-4', '+503 4444-4444', 'Dirección 4', 40, 'Natural');
 
-SELECT Id_Cliente, Nombre as NombreEmpresa,Telefono, Dirección, NIT, NRC, Giro, Categoria, tipo_Cliente
-                FROM Cliente
-                 WHERE NIT IS NOT NULL AND NRC IS NOT NULL AND Giro IS NOT NULL AND Categoria IS NOT NULL;
+INSERT INTO Cliente (Nombre, Telefono, Dirección, NIT, NRC, Giro, Categoria, Tipo_Cliente) values
+    ('Empresa Tech', '+503 2345-6789', 'Calle Principal 123', '12345-678-9', '9876-5', 'Venta de productos electrónicos', 'Mediano', 'Jurídico'),
+    ('Consultoría ABC', '+503 555-1234', 'Avenida Central 456', '98765-432-1', '5432-1', 'Servicios de Consultoría Empresarial', 'Grande', 'Jurídico'),
+    ('Restaurante delicioso', '+503 7890-1234', 'Boulevard Elegante 789', '56789-123-4', '1234-5', 'Restaurante de comida gourmet', 'Pequeño', 'Jurídico'),
+    ('Tienda Express', '+503 7777-7777', 'Plaza Comercial 321', '55555-555-5', '1111-1', 'Venta de ropa y accesorios', 'Pequeño', 'Jurídico'),
+    ('Servicios de Limpieza', '+503 8888-8888', 'Calle Limpia 555', '44444-444-4', '2222-2', 'Servicios de Limpieza Residencial', 'Mediano', 'Jurídico');
+		
+-- Insertar usuarios
+INSERT INTO Usuario (NombreUsuario, Contraseña, id_Rol)
+VALUES
+    ('admin', 'contraseña_admin', 1),
+    ('comprador1', 'contraseña_comprador1', 2),
+    ('comprador2', 'contraseña_comprador2', 2),
+    ('gerente', 'contraseña_gerente', 3),
+    ('encargado', 'contraseña_encargado', 4),
+    ('vendedor1', 'contraseña_vendedor1', 5),
+    ('vendedor2', 'contraseña_vendedor2', 5),
+    ('user1', 'user1pass', 2),
+    ('user2', 'user2pass', 2),
+    ('user3', 'user3pass', 2);
 
-				select * from cliente
+	-- Insertar empleados
+INSERT INTO Empleado (Nombre, Apellido, Teléfono, DUI, Correo, Cargo, id_Usuario)
+VALUES
+    ('Juan', 'Pérez', '+503 1234-5678', '12345678-9', 'juan.perez@example.com', 'Gerente', 1),
+    ('Ana', 'Gómez', '+503 9876-5432', '98765432-1', 'ana.gomez@example.com', 'Comprador', 2),
+    ('Carlos', 'López', '+503 5555-5555', '55555555-5', 'carlos.lopez@example.com', 'Encargado de Bodega', 4),
+    ('Elena', 'Ramírez', '+503 7777-7777', '77777777-7', 'elena.ramirez@example.com', 'Vendedor', 6),
+    ('Pedro', 'Díaz', '+503 8888-8888', '88888888-8', 'pedro.diaz@example.com', 'Vendedor', 7),
+    ('Luis', 'Martínez', '+503 9999-9999', '99999999-9', 'luis.martinez@example.com', 'Vendedor', 8),
+    ('Sofía', 'Torres', '+503 1111-1111', '11111111-1', 'sofia.torres@example.com', 'Vendedor', 9),
+    ('María', 'Fernández', '+503 2222-2222', '22222222-2', 'maria.fernandez@example.com', 'Vendedor', 10),
+    ('David', 'García', '+503 3333-3333', '33333333-3', 'david.garcia@example.com', 'Vendedor', 11),
+    ('Laura', 'González', '+503 4444-4444', '44444444-4', 'laura.gonzalez@example.com', 'Vendedor', 12);
 
 CREATE TRIGGER CalcularTotalDetallePedido
 ON Detalle_Pedido
