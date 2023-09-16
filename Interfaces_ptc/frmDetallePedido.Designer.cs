@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnDetalles = new System.Windows.Forms.Button();
             this.dgvDetallePedido = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label9 = new System.Windows.Forms.Label();
@@ -48,6 +47,7 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnDetalles = new System.Windows.Forms.Button();
             this.btnFactura = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetallePedido)).BeginInit();
@@ -85,21 +85,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(628, 522);
             this.tableLayoutPanel1.TabIndex = 3;
-            // 
-            // btnDetalles
-            // 
-            this.btnDetalles.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnDetalles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(130)))), ((int)(((byte)(173)))));
-            this.btnDetalles.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDetalles.Font = new System.Drawing.Font("Cambria", 12F);
-            this.btnDetalles.ForeColor = System.Drawing.Color.White;
-            this.btnDetalles.Location = new System.Drawing.Point(73, 10);
-            this.btnDetalles.Name = "btnDetalles";
-            this.btnDetalles.Size = new System.Drawing.Size(165, 26);
-            this.btnDetalles.TabIndex = 106;
-            this.btnDetalles.Text = "Cargar detalle";
-            this.btnDetalles.UseVisualStyleBackColor = false;
-            this.btnDetalles.Click += new System.EventHandler(this.button1_Click);
             // 
             // dgvDetallePedido
             // 
@@ -294,7 +279,7 @@
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 74F));
             this.tableLayoutPanel8.Size = new System.Drawing.Size(622, 74);
             this.tableLayoutPanel8.TabIndex = 2;
             // 
@@ -360,6 +345,21 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(622, 47);
             this.tableLayoutPanel3.TabIndex = 107;
             // 
+            // btnDetalles
+            // 
+            this.btnDetalles.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnDetalles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(130)))), ((int)(((byte)(173)))));
+            this.btnDetalles.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDetalles.Font = new System.Drawing.Font("Cambria", 12F);
+            this.btnDetalles.ForeColor = System.Drawing.Color.White;
+            this.btnDetalles.Location = new System.Drawing.Point(73, 10);
+            this.btnDetalles.Name = "btnDetalles";
+            this.btnDetalles.Size = new System.Drawing.Size(165, 26);
+            this.btnDetalles.TabIndex = 106;
+            this.btnDetalles.Text = "Cargar detalle";
+            this.btnDetalles.UseVisualStyleBackColor = false;
+            this.btnDetalles.Click += new System.EventHandler(this.button1_Click);
+            // 
             // btnFactura
             // 
             this.btnFactura.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -373,6 +373,7 @@
             this.btnFactura.TabIndex = 118;
             this.btnFactura.Text = "Generar Factura ";
             this.btnFactura.UseVisualStyleBackColor = false;
+            this.btnFactura.Click += new System.EventHandler(this.btnFactura_Click);
             // 
             // frmDetallePedido
             // 

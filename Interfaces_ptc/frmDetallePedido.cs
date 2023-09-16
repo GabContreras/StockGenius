@@ -223,5 +223,20 @@ namespace Interfaces_ptc
                 MostrarDetallePedido((int)cbPedido.SelectedValue);
             }
         }
+
+        private void btnFactura_Click(object sender, EventArgs e)
+        {
+            if (cbPedido.SelectedIndex < 0)
+            {
+                MessageBox.Show("Escoja un número de venta primero");
+            }
+            else
+            {
+                int id_pedido = (int)cbPedido.SelectedValue;
+                frmFactura ff = new frmFactura(id_pedido);
+                ff.ShowDialog();
+            }
+            
+        }
     }
 }

@@ -44,6 +44,27 @@ namespace Modelos
 
             return dt;
         }
+        public DataTable CargarFactura()
+        {
+            SqlConnection con = Conexion.Conectar();
+            string comando = $"SELECT DP.ID_Producto, P.nombre, sum(DP.cantidad) as Cantidad,  P.Precio_Unitario\r\n" +
+                $"FROM Detalle_Pedido DP\r\n" +
+                $"inner join producto P on P.id_Producto = DP.id_Producto\r\n" +
+                $"where id_pedido = @id\r\n" +
+                $"group by P.nombre, DP.id_producto,DP.Id_Pedido, P.Precio_Unitario";
+            SqlCommand cmd = new SqlCommand(comando, con);
+
+            cmd.Parameters.AddWithValue("@id", id_pedido);
+
+            //El comando se agrega al SqlDataAdapter
+            SqlDataAdapter ad = new SqlDataAdapter(cmd);
+
+            DataTable dt = new DataTable();
+
+            ad.Fill(dt);
+
+            return dt;
+        }
         public bool InsertarDpedido()
         {
                 SqlConnection con = Conexion.Conectar();

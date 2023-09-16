@@ -28,25 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.rpFactura = new Microsoft.Reporting.WinForms.ReportViewer();
             this.SuspendLayout();
             // 
-            // reportViewer1
+            // rpFactura
             // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(800, 415);
-            this.reportViewer1.TabIndex = 0;
+            this.rpFactura.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rpFactura.LocalReport.ReportEmbeddedResource = "Interfaces_ptc.Report1.rdlc";
+            this.rpFactura.Location = new System.Drawing.Point(0, 0);
+            this.rpFactura.Margin = new System.Windows.Forms.Padding(4);
+            this.rpFactura.Name = "rpFactura";
+            this.rpFactura.ServerReport.BearerToken = null;
+            this.rpFactura.Size = new System.Drawing.Size(832, 749);
+            this.rpFactura.TabIndex = 0;
             // 
             // frmFactura
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 415);
-            this.Controls.Add(this.reportViewer1);
-            this.Font = new System.Drawing.Font("Cambria", 8.25F);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(832, 749);
+            this.Controls.Add(this.rpFactura);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "frmFactura";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -58,6 +62,6 @@
 
         #endregion
 
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private Microsoft.Reporting.WinForms.ReportViewer rpFactura;
     }
 }

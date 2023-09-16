@@ -160,23 +160,23 @@ VALUES
     ('Distribuidora Solar', 'Avenida Solar #4546', '+503 2020-2020');
 
 -- Insertar productos (hasta alcanzar 20 registros)
-INSERT INTO Producto (Nombre, Descripcion, Stock, Id_Proveedor, Precio_Unitario, Imagen)
+INSERT INTO Producto (Nombre, Descripcion, Stock, Id_Proveedor, Precio_Unitario)
 VALUES
-    ('Smartphone Galaxy S22', 'Potente smartphone con cámara de alta resolución', 100, 1, 699.99, 'galaxy_s22.jpg'),
-    ('Laptop Ultrabook X1', 'Laptop ultradelgada con pantalla táctil', 50, 2, 1199.99, 'ultrabook_x1.jpg'),
-    ('Tablet Android Pro', 'Tablet de alto rendimiento con sistema Android', 75, 1, 299.99, 'tablet_android_pro.jpg'),
-    ('TV LED 4K 55 pulgadas', 'Televisor con resolución 4K y pantalla LED', 200, 2, 699.99, 'tv_led_4k.jpg'),
-    ('Auriculares Inalámbricos X2', 'Auriculares Bluetooth con cancelación de ruido', 150, 1, 149.99, 'auriculares_x2.jpg'),
-    ('Cámara DSLR 24MP', 'Cámara réflex digital de alta calidad', 80, 2, 899.99, 'camara_dslr_24mp.jpg'),
-    ('Impresora Multifunción', 'Impresora láser multifunción de alta velocidad', 120, 1, 299.99, 'impresora_multifuncion.jpg'),
-    ('Monitor Curvo 27 pulgadas', 'Monitor de computadora con pantalla curva', 60, 2, 349.99, 'monitor_curvo_27.jpg'),
-    ('Teclado Mecánico RGB', 'Teclado para juegos mecánico con retroiluminación', 90, 1, 99.99, 'teclado_mecanico_rgb.jpg'),
-    ('Mouse Gaming G3', 'Mouse ergonómico de alto rendimiento para juegos', 40, 2, 49.99, 'mouse_gaming_g3.jpg'),
-    ('Router Wi-Fi 6', 'Router inalámbrico de última generación', 65, 1, 199.99, 'router_wifi_6.jpg'),
-    ('Disco Duro Externo 2TB', 'Almacenamiento externo de gran capacidad', 110, 2, 79.99, 'disco_duro_externo_2tb.jpg'),
-    ('Altavoces Bluetooth X5', 'Altavoces inalámbricos con calidad de sonido premium', 30, 1, 149.99, 'altavoces_x5.jpg'),
-    ('Smartwatch Fitness Pro', 'Reloj inteligente con seguimiento de actividad física', 85, 2, 129.99, 'smartwatch_fitness_pro.jpg'),
-    ('Tarjeta Gráfica GTX 3080', 'Tarjeta gráfica de alto rendimiento para juegos', 70, 1, 699.99, 'tarjeta_grafica_gtx_3080.jpg');
+    ('Smartphone Galaxy S22', 'Potente smartphone con cámara de alta resolución', 100, 1, 699.99),
+    ('Laptop Ultrabook X1', 'Laptop ultradelgada con pantalla táctil', 50, 2, 1199.99),
+    ('Tablet Android Pro', 'Tablet de alto rendimiento con sistema Android', 75, 1, 299.99),
+    ('TV LED 4K 55 pulgadas', 'Televisor con resolución 4K y pantalla LED', 200, 2, 699.99),
+    ('Auriculares Inalámbricos X2', 'Auriculares Bluetooth con cancelación de ruido', 150, 1, 149.99),
+    ('Cámara DSLR 24MP', 'Cámara réflex digital de alta calidad', 80, 2, 899.99),
+    ('Impresora Multifunción', 'Impresora láser multifunción de alta velocidad', 120, 1, 299.99),
+    ('Monitor Curvo 27 pulgadas', 'Monitor de computadora con pantalla curva', 60, 2, 349.99),
+    ('Teclado Mecánico RGB', 'Teclado para juegos mecánico con retroiluminación', 90, 1, 99.99),
+    ('Mouse Gaming G3', 'Mouse ergonómico de alto rendimiento para juegos', 40, 2, 49.99),
+    ('Router Wi-Fi 6', 'Router inalámbrico de última generación', 65, 1, 199.99),
+    ('Disco Duro Externo 2TB', 'Almacenamiento externo de gran capacidad', 110, 2, 79.99),
+    ('Altavoces Bluetooth X5', 'Altavoces inalámbricos con calidad de sonido premium', 30, 1, 149.99),
+    ('Smartwatch Fitness Pro', 'Reloj inteligente con seguimiento de actividad física', 85, 2, 129.99),
+    ('Tarjeta Gráfica GTX 3080', 'Tarjeta gráfica de alto rendimiento para juegos', 70, 1, 699.99);
 
 insert into Cliente(Nombre, Apellido, DUI, Telefono, Dirección, Edad,Tipo_Cliente) values 
                 ('Marcelo josé', 'Hernández Hernández', '12345678-9', '+503 8745-9874', 'Avenida el pepe', 18,'Natural'),
@@ -192,33 +192,36 @@ INSERT INTO Cliente (Nombre, Telefono, Dirección, NIT, NRC, Giro, Categoria, Tip
     ('Tienda Express', '+503 7777-7777', 'Plaza Comercial 321', '55555-555-5', '1111-1', 'Venta de ropa y accesorios', 'Pequeño', 'Jurídico'),
     ('Servicios de Limpieza', '+503 8888-8888', 'Calle Limpia 555', '44444-444-4', '2222-2', 'Servicios de Limpieza Residencial', 'Mediano', 'Jurídico');
 		
--- Insertar usuarios
-INSERT INTO Usuario (NombreUsuario, Contraseña, id_Rol)
-VALUES
-    ('admin', 'contraseña_admin', 1),
-    ('comprador1', 'contraseña_comprador1', 2),
-    ('comprador2', 'contraseña_comprador2', 2),
-    ('gerente', 'contraseña_gerente', 3),
-    ('encargado', 'contraseña_encargado', 4),
-    ('vendedor1', 'contraseña_vendedor1', 5),
-    ('vendedor2', 'contraseña_vendedor2', 5),
-    ('user1', 'user1pass', 2),
-    ('user2', 'user2pass', 2),
-    ('user3', 'user3pass', 2);
 
-	-- Insertar empleados
-INSERT INTO Empleado (Nombre, Apellido, Teléfono, DUI, Correo, Cargo, id_Usuario)
-VALUES
-    ('Juan', 'Pérez', '+503 1234-5678', '12345678-9', 'juan.perez@example.com', 'Gerente', 1),
-    ('Ana', 'Gómez', '+503 9876-5432', '98765432-1', 'ana.gomez@example.com', 'Comprador', 2),
-    ('Carlos', 'López', '+503 5555-5555', '55555555-5', 'carlos.lopez@example.com', 'Encargado de Bodega', 4),
-    ('Elena', 'Ramírez', '+503 7777-7777', '77777777-7', 'elena.ramirez@example.com', 'Vendedor', 6),
-    ('Pedro', 'Díaz', '+503 8888-8888', '88888888-8', 'pedro.diaz@example.com', 'Vendedor', 7),
-    ('Luis', 'Martínez', '+503 9999-9999', '99999999-9', 'luis.martinez@example.com', 'Vendedor', 8),
-    ('Sofía', 'Torres', '+503 1111-1111', '11111111-1', 'sofia.torres@example.com', 'Vendedor', 9),
-    ('María', 'Fernández', '+503 2222-2222', '22222222-2', 'maria.fernandez@example.com', 'Vendedor', 10),
-    ('David', 'García', '+503 3333-3333', '33333333-3', 'david.garcia@example.com', 'Vendedor', 11),
-    ('Laura', 'González', '+503 4444-4444', '44444444-4', 'laura.gonzalez@example.com', 'Vendedor', 12);
+--	-- -- Insertar usuarios con contraseñas encriptadas
+--INSERT INTO Usuario (NombreUsuario, Contraseña, id_Rol)
+--VALUES
+--    ('admin', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', 1), --admin 'contraseña_admin'
+--    ('comprador1', '98ebfc6ea518dca0e1171f80c59a9a127d46b91a', 2), --comprador 'contraseña_comprador1'
+--    ('comprador2', '065f677d28b66b9712d6bb67db1419f4afba6e34', 2), --comprador 'contraseña_comprador2'
+--    ('gerente', '5c8db69325d6e019fd34fe13fb1b324f89a9ab9d', 3), --Gerente de compras 'contraseña_gerente'
+--    ('encargado', 'bb8d24c504aacc7c3c5a645940cbe921127d126c0', 4), --Encargado de bodega 'contraseña_encargado'
+--    ('vendedor1', 'c2f0f5010321f7a66bb343fb0983eb05e8dd949f', 5), --Vendedor 'contraseña_vendedor1'
+--    ('vendedor2', 'cf695fca9e1b453123ae3924eb6c68d62f30f8b0', 5), --Vendedor 'contraseña_vendedor2'
+--    ('encargado2', '4f75a4f5475c07c9e74430d11b4b924101e5b7a6', 4); --Encargado de bodega 'encarg2'
+
+---- Insertar empleados
+--INSERT INTO Empleado (Nombre, Apellido, Teléfono, DUI, Correo, Cargo, id_Usuario)
+--VALUES
+--    ('Juan', 'Pérez', '+503 1234-5678', '12345678-9', 'juan.perez@example.com', 'Gerente General', 2), --admin
+--    ('Ana', 'Gómez', '+503 9876-5432', '98765432-1', 'ana.gomez@example.com', 'Comprador', 3), --comprador
+--    ('Carlos', 'López', '+503 5555-5555', '55555555-5', 'carlos.lopez@example.com', 'Comprador', 4), --comprador
+--    ('Elena', 'Ramírez', '+503 7777-7777', '77777777-7', 'elena.ramirez@example.com', 'Gerente de compras', 5), --Gerente de compras
+--    ('Pedro', 'Díaz', '+503 8888-8888', '88888888-8', 'pedro.diaz@example.com', 'Encargado de bodega', 6), --Encargado de bodega
+--    ('Luis', 'Martínez', '+503 9999-9999', '99999999-9', 'luis.martinez@example.com', 'Vendedor', 7), --Vendedor
+--    ('Sofía', 'Torres', '+503 1111-1111', '11111111-1', 'sofia.torres@example.com', 'Vendedor', 8), --Vendedor
+--    ('María', 'Fernández', '+503 2222-2222', '22222222-2', 'maria.fernandez@example.com', 'Encargado de bodega', 9); --Encargado de bodega
+
+	
+	SELECT DP.Id_Producto,P.Nombre,DP.cantidad,P.Precio_Unitario 
+                FROM detalle_pedido DP
+                 INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto
+                where Id_Pedido= 1
 
 CREATE TRIGGER CalcularTotalDetallePedido
 ON Detalle_Pedido
@@ -255,12 +258,13 @@ END;
 
 
 
-SELECT DP.ID_Producto as "Id Producto",DP.Id_Pedido as Pedido, P.nombre as Producto, sum(DP.cantidad) as Cantidad 
-FROM Detalle_Pedido DP
-inner join producto P on P.id_Producto = DP.id_Producto
-where id_pedido = 1
-group by P.nombre, DP.id_producto,DP.Id_Pedido
+SELECT DP.ID_Producto, P.nombre, sum(DP.cantidad) as Cantidad,  P.Precio_Unitario
+				FROM Detalle_Pedido DP
+                inner join producto P on P.id_Producto = DP.id_Producto
+                where id_pedido = 1
+                group by P.nombre, DP.id_producto,DP.Id_Pedido, P.Precio_Unitario
 
+				select * from Cliente
 
 SELECT DP.id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Producto,DP.cantidad,P.PrecioUnitario as Precio
                 FROM detalle_pedido DP
