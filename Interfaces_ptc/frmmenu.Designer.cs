@@ -83,7 +83,7 @@
             this.btnEmpleado.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEmpleado.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnEmpleado.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEmpleado.Location = new System.Drawing.Point(0, 399);
+            this.btnEmpleado.Location = new System.Drawing.Point(0, 393);
             this.btnEmpleado.Name = "btnEmpleado";
             this.btnEmpleado.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnEmpleado.Size = new System.Drawing.Size(250, 45);
@@ -122,7 +122,7 @@
             this.btnClienteJuridico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClienteJuridico.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClienteJuridico.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnClienteJuridico.Location = new System.Drawing.Point(0, 342);
+            this.btnClienteJuridico.Location = new System.Drawing.Point(0, 336);
             this.btnClienteJuridico.Name = "btnClienteJuridico";
             this.btnClienteJuridico.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnClienteJuridico.Size = new System.Drawing.Size(250, 57);
@@ -141,7 +141,7 @@
             this.btnClienteNatural.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClienteNatural.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClienteNatural.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnClienteNatural.Location = new System.Drawing.Point(0, 288);
+            this.btnClienteNatural.Location = new System.Drawing.Point(0, 282);
             this.btnClienteNatural.Name = "btnClienteNatural";
             this.btnClienteNatural.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnClienteNatural.Size = new System.Drawing.Size(250, 54);
@@ -160,7 +160,7 @@
             this.btnProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProducto.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProducto.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnProducto.Location = new System.Drawing.Point(0, 238);
+            this.btnProducto.Location = new System.Drawing.Point(0, 232);
             this.btnProducto.Name = "btnProducto";
             this.btnProducto.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnProducto.Size = new System.Drawing.Size(250, 50);
@@ -180,7 +180,7 @@
             this.btnProveedores.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProveedores.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnProveedores.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnProveedores.Location = new System.Drawing.Point(0, 181);
+            this.btnProveedores.Location = new System.Drawing.Point(0, 175);
             this.btnProveedores.Name = "btnProveedores";
             this.btnProveedores.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnProveedores.Size = new System.Drawing.Size(250, 57);
@@ -196,7 +196,7 @@
             this.panelVentasubMenu.Controls.Add(this.btnDetallePedido);
             this.panelVentasubMenu.Controls.Add(this.btnAdministrarPedido);
             this.panelVentasubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelVentasubMenu.Location = new System.Drawing.Point(0, 107);
+            this.panelVentasubMenu.Location = new System.Drawing.Point(0, 101);
             this.panelVentasubMenu.Name = "panelVentasubMenu";
             this.panelVentasubMenu.Size = new System.Drawing.Size(250, 74);
             this.panelVentasubMenu.TabIndex = 1;
@@ -249,7 +249,7 @@
             this.btnVentas.Location = new System.Drawing.Point(0, 55);
             this.btnVentas.Name = "btnVentas";
             this.btnVentas.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnVentas.Size = new System.Drawing.Size(250, 52);
+            this.btnVentas.Size = new System.Drawing.Size(250, 46);
             this.btnVentas.TabIndex = 1;
             this.btnVentas.Text = "Ventas";
             this.btnVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
