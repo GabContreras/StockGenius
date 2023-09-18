@@ -27,10 +27,12 @@ namespace Modelos
         public DataTable CargarDetallePedido()
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = $"SELECT DP.id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Producto,DP.cantidad,P.Precio_Unitario as Precio\r\n" +
+            string comando = $"SELECT DP.id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Producto,DP.cantidad,P.Precio_Unitario as Precio," +
+                $"Pd.Estado\r\n" +
                 $"FROM detalle_pedido DP\r\n" +
-                 $"INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto\r\n" +
-                "where DP.Id_Pedido= @id;";
+                $"INNER JOIN Pedido Pd on Dp.Id_Detalle= pd.Id_Pedido\r\n" +
+                $"INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto\r\n" +
+                $"where DP.Id_Pedido= @id;";
             SqlCommand cmd = new SqlCommand(comando, con);
 
             cmd.Parameters.AddWithValue("@id", id_pedido);

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Modelos
 {
@@ -30,6 +31,19 @@ namespace Modelos
                 "FROM Pedido P\r\n" +
                 "INNER JOIN Cliente C ON P.Id_Cliente = C.Id_Cliente\r\n" +
                 "INNER JOIN Empleado E ON P.Id_Empleado = E.Id_Empleado;";
+            SqlDataAdapter ad = new SqlDataAdapter(comando, con);
+
+            DataTable dt = new DataTable();
+            ad.Fill(dt);
+            return dt;
+
+        }
+
+        public static DataTable CargarPedidoOculto()
+        {
+            SqlConnection con = Conexion.Conectar();
+            string comando = "SELECT P.Id_Pedido, p.Estado\r\n" +
+                "FROM Pedido P";
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
 
             DataTable dt = new DataTable();
@@ -96,7 +110,28 @@ namespace Modelos
                 return false;
             }
         }
+        public bool ActualizarEstadoAlgenerarFactura()
+        {
+            SqlConnection con = Conexion.Conectar();
+            string comando = "update pedido \r\n" +
+                "set Estado= @estado \r\n" +
+                "where id_pedido= @id";
+            SqlCommand cmd = new SqlCommand(comando, con);
 
+            cmd.Parameters.AddWithValue("@estado", estado);
+            cmd.Parameters.AddWithValue("@id", id_Pedido);
+
+
+            if (cmd.ExecuteNonQuery() > 0)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+        }
         public static DataTable Buscar(string termino)
         {
             SqlConnection con = Conexion.Conectar();

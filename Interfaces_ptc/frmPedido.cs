@@ -119,17 +119,32 @@ namespace Interfaces_ptc
         {
             try
             {
-                int id = int.Parse(dgvPedido.CurrentRow.Cells[0].Value.ToString());
-                Pedido p = new Pedido();
-                if (p.EliminarPedido(id) == true)
+                // Obtener el estado del pedido desde el DataGridView
+                string estadoPedido = dgvPedido.CurrentRow.Cells["Estado"].Value.ToString();
+
+                // Verificar si el estado del pedido es "Completado" o "Anulado"
+                if (estadoPedido.Equals("Completado"))
                 {
-                    MessageBox.Show("Pedido eliminado satisfactoriamente", "Éxito");
-                    MostrarPedido();
-                    LimpiarCampos();
+                    MessageBox.Show("No se puede eliminar un pedido completado.", "Advertencia");
+                }
+                else if (estadoPedido.Equals("Anulado"))
+                {
+                    MessageBox.Show("No se puede eliminar un pedido anulado.", "Advertencia");
                 }
                 else
                 {
-                    MessageBox.Show("Se produjo un error al eliminar el pedido", "Advertencia");
+                    int id = int.Parse(dgvPedido.CurrentRow.Cells[0].Value.ToString());
+                    Pedido p = new Pedido();
+                    if (p.EliminarPedido(id) == true)
+                    {
+                        MessageBox.Show("Pedido eliminado satisfactoriamente", "Éxito");
+                        MostrarPedido();
+                        LimpiarCampos();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Se produjo un error al eliminar el pedido", "Advertencia");
+                    }
                 }
             }
             catch (Exception ex)
@@ -142,27 +157,42 @@ namespace Interfaces_ptc
         {
             try
             {
-                Pedido p = new Pedido();
-                p.Id_Pedido = (int)dgvPedido.CurrentRow.Cells[0].Value;
-                p.Id_Cliente = (int)dgvCliente.CurrentRow.Cells[0].Value;
-                p.Id_Empleado = (int)cbEmpleado.SelectedValue;
-                if (p.ActualizarPedido() == true)
+                // Obtener el estado del pedido desde el DataGridView
+                string estadoPedido = dgvPedido.CurrentRow.Cells["Estado"].Value.ToString();
+
+                // Verificar si el estado del pedido es "Completado" o "Anulado"
+                if (estadoPedido.Equals("Completado"))
                 {
-                    MessageBox.Show("Pedido actualizado satisfactoriamente", "Éxito");
-                    MostrarPedido();
-                    LimpiarCampos();
+                    MessageBox.Show("No se puede actualizar un pedido completado.", "Advertencia");
+                }
+                else if (estadoPedido.Equals("Anulado"))
+                {
+                    MessageBox.Show("No se puede actualizar un pedido anulado.", "Advertencia");
                 }
                 else
                 {
-                    MessageBox.Show("Se produjo un error", "Advertencia");
+                    Pedido p = new Pedido();
+                    p.Id_Pedido = (int)dgvPedido.CurrentRow.Cells[0].Value;
+                    p.Id_Cliente = (int)dgvCliente.CurrentRow.Cells[0].Value;
+                    p.Id_Empleado = (int)cbEmpleado.SelectedValue;
+
+                    if (p.ActualizarPedido() == true)
+                    {
+                        MessageBox.Show("Pedido actualizado satisfactoriamente", "Éxito");
+                        MostrarPedido();
+                        LimpiarCampos();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Se produjo un error", "Advertencia");
+                    }
+                    MostrarPedido();
                 }
-                MostrarPedido();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            MostrarPedido();
         }
         private void ActualizarCliente()
         {

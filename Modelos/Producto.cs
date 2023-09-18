@@ -37,8 +37,8 @@ namespace Modelos
             DataTable dt = new DataTable();
             ad.Fill(dt);
             return dt;
-
         }
+
         public static DataTable CargarStock()
         {
             SqlConnection con = Conexion.Conectar();
@@ -48,7 +48,6 @@ namespace Modelos
             DataTable dt = new DataTable();
             ad.Fill(dt);
             return dt;
-
         }
         public int ObtenerStockProducto(int idProducto)
         {
@@ -71,27 +70,7 @@ namespace Modelos
             return stock;
         }
 
-        public int ObtenerPrecioProducto(int idProducto)
-        {
-
-            // se agrega la consulta para sabe cuanto hay en stock
-            int PrecioUnitario = 0;
-            SqlConnection con = Conexion.Conectar();
-            string query = "SELECT Precio_Unitario FROM Producto WHERE Id_Producto = @Id_Producto";
-            SqlCommand cmd = new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@Id_Producto", idProducto);
-
-            using (SqlDataReader reader = cmd.ExecuteReader())
-            {
-                if (reader.Read())
-                {
-                    PrecioUnitario = Convert.ToInt32(reader["Precio_Unitario"]);
-                }
-            }
-
-            return PrecioUnitario;
-        }
-
+     
         public bool InsertarProducto()
         {
             SqlConnection con = Conexion.Conectar();

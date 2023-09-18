@@ -93,6 +93,16 @@ namespace Interfaces_ptc.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap elpsdpa {
+            get {
+                object obj = ResourceManager.GetObject("elpsdpa", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Empleado {
             get {
                 object obj = ResourceManager.GetObject("Empleado", resourceCulture);

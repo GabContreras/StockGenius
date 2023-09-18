@@ -90,7 +90,7 @@ CREATE TABLE Pedido(
     Id_Cliente INT, -- Este campo puede ser el Id_Cliente o el Id_ClienteJuridico
     Id_Empleado INT NOT NULL,
     Fecha_Pedido DATE NOT NULL,
-    Estado VARCHAR(10) CHECK (Estado IN ('En proceso', 'Completo', 'Anulado')),
+    Estado VARCHAR(10) CHECK (Estado IN ('En proceso', 'Completado', 'Anulado')),
     CONSTRAINT FK_Cliente
     FOREIGN KEY (Id_Cliente) REFERENCES Cliente(Id_Cliente)
         ON DELETE NO ACTION
@@ -100,7 +100,6 @@ CREATE TABLE Pedido(
         ON DELETE NO ACTION
         ON UPDATE CASCADE
 );
-
 
 CREATE TABLE Detalle_Pedido (
     Id_Detalle INT PRIMARY KEY IDENTITY(1, 1),
@@ -218,10 +217,19 @@ VALUES
     ('María', 'Fernández', '+503 2222-2222', '22222222-2', 'maria.fernandez@example.com', 'Encargado de bodega', 9); --Encargado de bodega
 
 	
-	SELECT DP.Id_Producto,P.Nombre,DP.cantidad,P.Precio_Unitario 
+	SELECT DP.id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Producto,DP.cantidad,P.Precio_Unitario as Precio, Pd.Estado
                 FROM detalle_pedido DP
-                 INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto
-                where Id_Pedido= 1
+				INNER JOIN Pedido Pd on Dp.Id_Detalle= pd.Id_Pedido
+				INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto
+                where DP.Id_Pedido= 1;
+
+				SELECT DP.id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Producto,DP.cantidad,P.Precio_Unitario as Precio,
+                Pd.Estado
+                FROM detalle_pedido DP
+                INNER JOIN Pedido Pd on Dp.Id_Detalle= pd.Id_Pedido
+                INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto
+                where DP.Id_Pedido= 2
+
 
 CREATE TRIGGER CalcularTotalDetallePedido
 ON Detalle_Pedido
@@ -254,7 +262,20 @@ BEGIN
     WHERE Id_Producto = @Id_Producto;
 END;
 
+SELECT P.Id_Pedido, p.Estado
+                FROM Pedido P
+               
+update pedido 
+set Estado= 'En proceso'
+where id_pedido= 1
 
+select * from Detalle_Pedido
+
+SELECT DP.ID_Producto, P.nombre, sum(DP.cantidad) as Cantidad,  P.Precio_Unitario
+                FROM Detalle_Pedido DP
+                inner join producto P on P.id_Producto = DP.id_Producto
+                where id_pedido = 1
+                group by P.nombre, DP.id_producto,DP.Id_Pedido, P.Precio_Unitario
 
 
 

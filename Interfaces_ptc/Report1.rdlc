@@ -6,21 +6,21 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>4.43421cm</Width>
+              <Width>2.89963cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.43421cm</Width>
+              <Width>2.89963cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.43421cm</Width>
+              <Width>2.89963cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.43421cm</Width>
+              <Width>2.89963cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.79844cm</Height>
+              <Height>1.09789cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -50,8 +50,7 @@
                       <rd:DefaultName>Textbox15</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
+                          <Style>None</Style>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -89,8 +88,7 @@
                       <rd:DefaultName>Textbox17</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
+                          <Style>None</Style>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -119,8 +117,7 @@
                       <rd:DefaultName>Textbox19</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
+                          <Style>None</Style>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -158,8 +155,7 @@
                       <rd:DefaultName>Textbox21</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
+                          <Style>None</Style>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -172,7 +168,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.79844cm</Height>
+              <Height>1.09789cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -195,8 +191,7 @@
                       <rd:DefaultName>Id_Producto</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
+                          <Style>None</Style>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -227,8 +222,7 @@
                       <rd:DefaultName>nombre</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
+                          <Style>None</Style>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -252,15 +246,14 @@
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Left</TextAlign>
+                            <TextAlign>Center</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>cantidad</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
+                          <Style>None</Style>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -295,8 +288,7 @@
                       <rd:DefaultName>Precio_Unitario</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
+                          <Style>None</Style>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -329,9 +321,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>0.10583cm</Top>
-        <Height>1.59687cm</Height>
-        <Width>17.73683cm</Width>
+        <Top>1.00541cm</Top>
+        <Left>2.84078cm</Left>
+        <Height>2.19577cm</Height>
+        <Width>11.59851cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -362,8 +355,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox23</rd:DefaultName>
-        <Top>2.15167cm</Top>
-        <Left>12.73683cm</Left>
+        <Top>3.6598cm</Top>
+        <Left>10.94253cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>1</ZIndex>
@@ -398,8 +391,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox23</rd:DefaultName>
-        <Top>2.15167cm</Top>
-        <Left>15.23683cm</Left>
+        <Top>3.6598cm</Top>
+        <Left>13.44253cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>2</ZIndex>
@@ -413,11 +406,38 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Line Name="Line5">
+        <Top>3.20118cm</Top>
+        <Height>0cm</Height>
+        <Width>17.57807cm</Width>
+        <ZIndex>3</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+        </Style>
+      </Line>
+      <Line Name="Line6">
+        <Top>2.1033cm</Top>
+        <Left>0cm</Left>
+        <Height>0cm</Height>
+        <Width>17.57807cm</Width>
+        <ZIndex>4</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+        </Style>
+      </Line>
     </ReportItems>
-    <Height>2in</Height>
-    <Style />
+    <Height>2.0625in</Height>
+    <Style>
+      <Border>
+        <Style>None</Style>
+      </Border>
+    </Style>
   </Body>
-  <Width>6.983in</Width>
+  <Width>6.9205in</Width>
   <Page>
     <PageHeader>
       <Height>2.58162cm</Height>
@@ -446,8 +466,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
-          <Top>0.24363cm</Top>
-          <Left>7.08766cm</Left>
+          <Top>0.4644cm</Top>
+          <Left>7.14545cm</Left>
           <Height>0.6cm</Height>
           <Width>3.26729cm</Width>
           <Style>
@@ -490,8 +510,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>1.3553cm</Top>
-          <Left>7.08766cm</Left>
+          <Top>1.57607cm</Top>
+          <Left>7.14545cm</Left>
           <Height>0.6cm</Height>
           <Width>3.26729cm</Width>
           <ZIndex>1</ZIndex>
@@ -510,7 +530,7 @@
           <Value>logo1</Value>
           <Sizing>Fit</Sizing>
           <Top>0.24363cm</Top>
-          <Left>1.50495cm</Left>
+          <Left>1.61565cm</Left>
           <Height>2.1616cm</Height>
           <Width>2.98167cm</Width>
           <ZIndex>2</ZIndex>
@@ -529,6 +549,7 @@
                 <TextRun>
                   <Value>Fecha:</Value>
                   <Style>
+                    <FontSize>14pt</FontSize>
                     <Color>White</Color>
                   </Style>
                 </TextRun>
@@ -540,6 +561,7 @@
                 <TextRun>
                   <Value />
                   <Style>
+                    <FontSize>14pt</FontSize>
                     <Color>White</Color>
                   </Style>
                 </TextRun>
@@ -548,9 +570,9 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox23</rd:DefaultName>
-          <Top>0.69977cm</Top>
-          <Left>12.42737cm</Left>
-          <Height>0.6cm</Height>
+          <Top>0.4644cm</Top>
+          <Left>12.89178cm</Left>
+          <Height>0.67634cm</Height>
           <Width>2.5cm</Width>
           <ZIndex>3</ZIndex>
           <Style>
@@ -572,6 +594,7 @@
                 <TextRun>
                   <Value>=Format(Today(), "dd/MM/yyyy")</Value>
                   <Style>
+                    <FontSize>12pt</FontSize>
                     <Color>White</Color>
                   </Style>
                 </TextRun>
@@ -582,8 +605,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox23</rd:DefaultName>
-          <Top>0.69977cm</Top>
-          <Left>14.92737cm</Left>
+          <Top>1.14074cm</Top>
+          <Left>12.89178cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <ZIndex>4</ZIndex>
@@ -3162,6 +3185,11 @@ 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
 +jEdAAAAAElFTkSuQmCC</ImageData>
+    </EmbeddedImage>
+    <EmbeddedImage Name="linea">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAACXBIWXMAAAsTAAALEwEAmpwYAAAEg0lEQVR4nO3WzQnCUBCF0ckjPbi3EuuxByGlaR/uLENILCERff5wz1kPw11+VQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/J9h8+VUrXb7U8ctAMCrlnau4/WydjZu/3hotdymFyYBAL0N81RVqwHQ+i8BAH6NAACAQAIAAAIJAAAIJAAAIJAAAIBAAgAAAgkAAAgkAAAgkAAAgEACAAACCQAACCQAACCQAACAQAIAAAIJAAAIJAAAIJAAAIBA45P39y4rAIA3GeZvLwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOBDHpuPDAwHEYYlAAAAAElFTkSuQmCC</ImageData>
     </EmbeddedImage>
   </EmbeddedImages>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>

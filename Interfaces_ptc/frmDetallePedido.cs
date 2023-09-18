@@ -24,7 +24,7 @@ namespace Interfaces_ptc
         private void button2_Click(object sender, EventArgs e)
         {
         }
-           private void btnSalir_Click(object sender, EventArgs e)
+        private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -47,8 +47,6 @@ namespace Interfaces_ptc
             dgvDetallePedido.DataSource = dp.CargarDetallePedido();
 
             dgvDetallePedido.Columns[0].Visible = false;
-
-    
         }
 
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
@@ -127,46 +125,70 @@ namespace Interfaces_ptc
         {
             try
             {
-                if (txtCantidad.Text == "")
+                // Cargar los detalles del pedido
+                MostrarDetallePedido((int)cbPedido.SelectedValue);
+
+                if (dgvDetallePedido.Rows.Count < 0)
                 {
-                    MessageBox.Show("No dejar campos vacios",
-                   "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else if (cbPedido.SelectedIndex < 0)
-                {
-                    MessageBox.Show("Escoja un número de pedido primero");
-                }
-                else if (cbProducto.SelectedIndex < 0)
-                {
-                    MessageBox.Show("Escoja un producto primero");
+                    // Obtener el estado del pedido desde el DataGridView
+                    string estadoPedido = dgvDetallePedido.Rows[0].Cells["Estado"].Value.ToString();
+
+                    // Verificar si el estado del pedido es "Completado" o "Anulado"
+                    if (estadoPedido.Equals("Completado"))
+                    {
+                        MessageBox.Show("No se pueden agregar productos a un pedido completado.", "Advertencia");
+                        return; // No continuar la ejecución del código
+                    }
+                    else if (estadoPedido.Equals("Anulado"))
+                    {
+                        MessageBox.Show("No se pueden agregar productos a un pedido anulado.", "Advertencia");
+                        return; // No continuar la ejecución del código
+                    }
                 }
                 else
                 {
-                    DetallePedido p = new DetallePedido();
-                    Producto pp = new Producto();
-
-                    p.Id_pedido = (int)cbPedido.SelectedValue;
-                    p.Id_Producto = (int)cbProducto.SelectedValue;
-                    p.Cantidad = int.Parse(txtCantidad.Text);
-                    // Se obtiene la cantidad en stock actual
-                    int stockActual = pp.ObtenerStockProducto(p.Id_Producto);
-
-                    if (stockActual >= p.Cantidad) // Se verifica si la cantidad excede el stock
+                    if (txtCantidad.Text == "")
                     {
-                        if (p.InsertarDpedido() == true)
-                        {
-                            MessageBox.Show("Detalle agregado satisfactoriamente", "Éxito");
-                            MostrarDetallePedido((int)cbPedido.SelectedValue);
-                            LimpiarCampo();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Se produjo un error", "Advertencia");
-                        }
+                        MessageBox.Show("No dejar campos vacíos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else if (cbPedido.SelectedIndex < 0)
+                    {
+                        MessageBox.Show("Escoja un número de pedido primero");
+                    }
+                    else if (cbProducto.SelectedIndex < 0)
+                    {
+                        MessageBox.Show("Escoja un producto primero");
                     }
                     else
                     {
-                        MessageBox.Show("La cantidad solicitada excede el stock disponible", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        DetallePedido p = new DetallePedido();
+                        Producto pp = new Producto();
+
+                        p.Id_pedido = (int)cbPedido.SelectedValue;
+                        p.Id_Producto = (int)cbProducto.SelectedValue;
+                        p.Cantidad = int.Parse(txtCantidad.Text);
+                        // Se obtiene la cantidad en stock actual
+                        int stockActual = pp.ObtenerStockProducto(p.Id_Producto);
+
+                        if (stockActual >= p.Cantidad) // Se verifica si la cantidad excede el stock
+                        {
+                            if (p.InsertarDpedido() == true)
+                            {
+                                MessageBox.Show("Detalle agregado satisfactoriamente", "Éxito");
+                                LimpiarCampo();
+
+                                // Después de insertar el detalle, recargamos los detalles del pedido
+                                MostrarDetallePedido((int)cbPedido.SelectedValue);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Se produjo un error", "Advertencia");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("La cantidad solicitada excede el stock disponible", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
                     }
                 }
             }
@@ -175,24 +197,47 @@ namespace Interfaces_ptc
                 MessageBox.Show(ex.Message);
             }
         }
-       
+
+
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             try
             {
-                int id = int.Parse(dgvDetallePedido.CurrentRow.Cells[0].Value.ToString());
-                DetallePedido p = new DetallePedido();
-                if (p.EliminarDetallePedido(id) == true)
+                int idPedido = (int)cbPedido.SelectedValue;
+
+                // Cargar los detalles del pedido
+                MostrarDetallePedido(idPedido);
+
+                // Obtener el estado del pedido desde el DataGridView
+                string estadoPedido = dgvDetallePedido.Rows[0].Cells["Estado"].Value.ToString();
+
+                // Verificar si el estado del pedido es "Completado" o "Anulado"
+                if (estadoPedido.Equals("Completado"))
                 {
-                    MessageBox.Show("Producto eliminado satisfactoriamente", "Éxito");
-                    MostrarDetallePedido((int)cbPedido.SelectedValue);
-                    LimpiarCampo();
+                    MessageBox.Show("No se pueden eliminar productos a un pedido completado.", "Advertencia");
+                }
+                else if (estadoPedido.Equals("Anulado"))
+                {
+                    MessageBox.Show("No se pueden agregar productos a un pedido anulado.", "Advertencia");
                 }
                 else
                 {
-                    MessageBox.Show("Se produjo un error", "Advertencia");
+                    int id = int.Parse(dgvDetallePedido.CurrentRow.Cells[0].Value.ToString());
+                    DetallePedido p = new DetallePedido();
+                    if (p.EliminarDetallePedido(id) == true)
+                    {
+                        MessageBox.Show("Producto eliminado satisfactoriamente", "Éxito");
+                        MostrarDetallePedido((int)cbPedido.SelectedValue);
+                        LimpiarCampo();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Se produjo un error", "Advertencia");
+                    }
                 }
             }
+        
+
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -235,7 +280,18 @@ namespace Interfaces_ptc
                 int id_pedido = (int)cbPedido.SelectedValue;
                 frmFactura ff = new frmFactura(id_pedido);
                 ff.ShowDialog();
+
+                Pedido p = new Pedido();
+                p.Id_Pedido = (int)cbPedido.SelectedValue;
+                p.Estado = "Completado";
+                p.ActualizarEstadoAlgenerarFactura();
             }
+            
+        }
+
+        private void cbPedido_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
             
         }
     }
