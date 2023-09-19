@@ -27,12 +27,12 @@ namespace Modelos
         public DataTable CargarDetallePedido()
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = $"SELECT DP.id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Producto,DP.cantidad,P.Precio_Unitario as Precio," +
-                $"Pd.Estado\r\n" +
-                $"FROM detalle_pedido DP\r\n" +
-                $"INNER JOIN Pedido Pd on Dp.Id_Detalle= pd.Id_Pedido\r\n" +
+            string comando = $"SELECT DP.Id_Detalle, DP.Id_Pedido, DP.Id_Producto, P.Nombre AS Producto, DP.Cantidad, P.Precio_Unitario AS Precio, PD.Estado AS" +
+                $" \"Estado\"\r\n" +
+                $"FROM Detalle_Pedido DP\r\n" +
+                $"INNER JOIN Pedido PD ON DP.Id_Pedido = PD.Id_Pedido\r\n" +
                 $"INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto\r\n" +
-                $"where DP.Id_Pedido= @id;";
+                $"WHERE DP.Id_Pedido = @id;";
             SqlCommand cmd = new SqlCommand(comando, con);
 
             cmd.Parameters.AddWithValue("@id", id_pedido);
@@ -70,7 +70,8 @@ namespace Modelos
         public bool InsertarDpedido()
         {
                 SqlConnection con = Conexion.Conectar();
-                string comando = "INSERT INTO Detalle_Pedido(Id_Pedido, Id_Producto, cantidad) VALUES (@Id_Pedido, @Id_Producto, @cantidad)";
+                string comando = "INSERT INTO Detalle_Pedido(Id_Pedido, Id_Producto, cantidad) VALUES (@Id_Pedido, @Id_Producto," +
+                "@cantidad)";
                 SqlCommand cmd = new SqlCommand(comando, con);
 
                 cmd.Parameters.AddWithValue("@Id_Pedido", id_pedido);
@@ -103,19 +104,7 @@ namespace Modelos
                 return false;
             }
         }
-        //public static DataTable Buscar(string termino)
-        //{
-        //    SqlConnection con = Conexion.Conectar();
-        //    string comando = $"SELECT DP.id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Producto,DP.cantidad,P.Precio_Unitario as Precio\r\n" +
-        //        $"FROM detalle_pedido DP\r\n" +
-        //        $"INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto\r\n" +
-        //        $" where P.Nombre like '%{termino}%'";
-        //    SqlDataAdapter ad = new SqlDataAdapter(comando, con);
-        //    DataTable dt = new DataTable();
-        //    ad.Fill(dt);
-        //    return dt;
-
-        //}
+        
 
 
     }

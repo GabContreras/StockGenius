@@ -46,7 +46,9 @@ namespace Interfaces_ptc
 
             dgvDetallePedido.DataSource = dp.CargarDetallePedido();
 
-            dgvDetallePedido.Columns[0].Visible = false;
+            ////dgvDetallePedido.Columns[0].Visible = false;
+            ////dgvDetallePedido.Columns[6].Visible = false;
+
         }
 
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
@@ -128,10 +130,9 @@ namespace Interfaces_ptc
                 // Cargar los detalles del pedido
                 MostrarDetallePedido((int)cbPedido.SelectedValue);
 
-                if (dgvDetallePedido.Rows.Count < 0)
-                {
+              
                     // Obtener el estado del pedido desde el DataGridView
-                    string estadoPedido = dgvDetallePedido.Rows[0].Cells["Estado"].Value.ToString();
+                    string estadoPedido = dgvDetallePedido.CurrentRow.Cells["Estado"].Value.ToString();
 
                     // Verificar si el estado del pedido es "Completado" o "Anulado"
                     if (estadoPedido.Equals("Completado"))
@@ -144,7 +145,7 @@ namespace Interfaces_ptc
                         MessageBox.Show("No se pueden agregar productos a un pedido anulado.", "Advertencia");
                         return; // No continuar la ejecución del código
                     }
-                }
+                
                 else
                 {
                     if (txtCantidad.Text == "")
@@ -190,7 +191,7 @@ namespace Interfaces_ptc
                             MessageBox.Show("La cantidad solicitada excede el stock disponible", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         }
                     }
-                }
+            }
             }
             catch (Exception ex)
             {
@@ -203,48 +204,56 @@ namespace Interfaces_ptc
         {
             try
             {
-                int idPedido = (int)cbPedido.SelectedValue;
-
                 // Cargar los detalles del pedido
-                MostrarDetallePedido(idPedido);
+                MostrarDetallePedido((int)cbPedido.SelectedValue);
 
-                // Obtener el estado del pedido desde el DataGridView
-                string estadoPedido = dgvDetallePedido.Rows[0].Cells["Estado"].Value.ToString();
-
-                // Verificar si el estado del pedido es "Completado" o "Anulado"
-                if (estadoPedido.Equals("Completado"))
+                if (dgvDetallePedido.Rows.Count > 0)
                 {
-                    MessageBox.Show("No se pueden eliminar productos a un pedido completado.", "Advertencia");
-                }
-                else if (estadoPedido.Equals("Anulado"))
-                {
-                    MessageBox.Show("No se pueden agregar productos a un pedido anulado.", "Advertencia");
+                    // Obtener el estado del pedido desde el DataGridView
+                    string estadoPedido = dgvDetallePedido.CurrentRow.Cells["Estado"].Value.ToString();
+                    // Verificar si el estado del pedido es "Completado" o "Anulado"
+                    if (estadoPedido.Equals("Completado"))
+                    {
+                        MessageBox.Show("No se pueden eliminar productos de un pedido completado.", "Advertencia");
+                        return; // No continuar la ejecución del código
+                    }
+                    else if (estadoPedido.Equals("Anulado"))
+                    {
+                        MessageBox.Show("No se pueden eliminar productos de un pedido anulado.", "Advertencia");
+                        return; // No continuar la ejecución del código
+                    }
                 }
                 else
                 {
-                    int id = int.Parse(dgvDetallePedido.CurrentRow.Cells[0].Value.ToString());
-                    DetallePedido p = new DetallePedido();
-                    if (p.EliminarDetallePedido(id) == true)
+                    if (dgvDetallePedido.CurrentRow != null)
                     {
-                        MessageBox.Show("Producto eliminado satisfactoriamente", "Éxito");
-                        MostrarDetallePedido((int)cbPedido.SelectedValue);
-                        LimpiarCampo();
+                        int id = int.Parse(dgvDetallePedido.CurrentRow.Cells[0].Value.ToString());
+                        DetallePedido p = new DetallePedido();
+                        if (p.EliminarDetallePedido(id) == true)
+                        {
+                            MessageBox.Show("Producto eliminado satisfactoriamente", "Éxito");
+                            MostrarDetallePedido((int)cbPedido.SelectedValue);
+                            LimpiarCampo();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Se produjo un error", "Advertencia");
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Se produjo un error", "Advertencia");
+                        MessageBox.Show("No hay una fila seleccionada en el DataGridView", "Advertencia");
                     }
                 }
             }
-        
-
-            catch (Exception ex)
+             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
 
-        private void btnActualizar_Click(object sender, EventArgs e)
+        
+private void btnActualizar_Click(object sender, EventArgs e)
         {
         }
 
@@ -293,6 +302,21 @@ namespace Interfaces_ptc
         {
            
             
+        }
+
+        private void dgvDetallePedido_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel8_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

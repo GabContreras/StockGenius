@@ -38,10 +38,12 @@ DUI varchar (10) unique not null,
 Correo varchar(50)unique not null,
 Cargo varchar (50) not null,
 id_Usuario int not null,
+--Estado varchar(50) check)
+
 
 constraint FK_Usuario
 FOREIGN KEY(id_Usuario) references Usuario(id_Usuario)
-on delete cascade
+on delete no action
 on update cascade
 );
 go
@@ -97,10 +99,9 @@ CREATE TABLE Pedido(
         ON UPDATE CASCADE,
  CONSTRAINT Fk_Empleado
     FOREIGN KEY (Id_Empleado) REFERENCES Empleado(Id_Empleado)
-        ON DELETE NO ACTION
+
         ON UPDATE CASCADE
 );
-
 CREATE TABLE Detalle_Pedido (
     Id_Detalle INT PRIMARY KEY IDENTITY(1, 1),
     Id_Pedido INT NOT NULL,
@@ -216,7 +217,14 @@ VALUES
     ('Sofía', 'Torres', '+503 1111-1111', '11111111-1', 'sofia.torres@example.com', 'Vendedor', 8), --Vendedor
     ('María', 'Fernández', '+503 2222-2222', '22222222-2', 'maria.fernandez@example.com', 'Encargado de bodega', 9); --Encargado de bodega
 
-	
+SELECT DP.id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Producto,DP.cantidad,P.Precio_Unitario as Precio, Pd.Estado 
+                FROM Detalle_pedido DP
+                INNER JOIN Pedido Pd on Dp.Id_Detalle= pd.Id_Pedido
+                INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto
+                where DP.Id_Pedido= 1
+
+				select * from Detalle_Pedido
+
 	SELECT DP.id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Producto,DP.cantidad,P.Precio_Unitario as Precio, Pd.Estado
                 FROM detalle_pedido DP
 				INNER JOIN Pedido Pd on Dp.Id_Detalle= pd.Id_Pedido
@@ -277,7 +285,19 @@ SELECT DP.ID_Producto, P.nombre, sum(DP.cantidad) as Cantidad,  P.Precio_Unitari
                 where id_pedido = 1
                 group by P.nombre, DP.id_producto,DP.Id_Pedido, P.Precio_Unitario
 
+SELECT DP.Id_Detalle, DP.Id_Pedido, DP.Id_Producto, P.Nombre AS Producto, DP.Cantidad, P.Precio_Unitario AS Precio, PD.Estado AS "Estado"
+                FROM Detalle_Pedido DP
+                INNER JOIN Pedido PD ON DP.Id_Pedido = PD.Id_Pedido
+                INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto
+                WHERE DP.Id_Pedido = 2;
 
+				select * from proveedor
+
+SELECT DP.id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Producto,DP.cantidad,P.Precio_Unitario as Precio, Pd.Estado 
+                FROM Detalle_pedido DP
+                INNER JOIN Pedido Pd on Dp.Id_Detalle= pd.Id_Pedido
+                INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto
+                where DP.Id_Pedido= 1
 
 SELECT DP.ID_Producto, P.nombre, sum(DP.cantidad) as Cantidad,  P.Precio_Unitario
 				FROM Detalle_Pedido DP

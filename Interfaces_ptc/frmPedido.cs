@@ -121,7 +121,6 @@ namespace Interfaces_ptc
             {
                 // Obtener el estado del pedido desde el DataGridView
                 string estadoPedido = dgvPedido.CurrentRow.Cells["Estado"].Value.ToString();
-
                 // Verificar si el estado del pedido es "Completado" o "Anulado"
                 if (estadoPedido.Equals("Completado"))
                 {
