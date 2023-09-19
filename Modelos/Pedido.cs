@@ -38,6 +38,24 @@ namespace Modelos
             return dt;
 
         }
+        public string ObtenerEstadoPedido(int idPedido)
+        {
+            string estado = ""; // Declarar la variable para almacenar el estado del pedido
+            SqlConnection con = Conexion.Conectar();
+            string query = "SELECT Estado FROM Pedido WHERE Id_Pedido = @Id_pedido;";
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@Id_pedido", idPedido);
+
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                if (reader.Read()) // Verificar si se obtuvo un resultado no nulo
+                {
+                    estado = reader["Estado"].ToString(); // Obtener el estado del resultado y asignarlo a la variable estado
+                }
+            }
+
+            return estado; // Devolver el estado del pedido
+        }
 
         public static DataTable CargarPedidoOculto()
         {

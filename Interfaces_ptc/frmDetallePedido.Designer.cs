@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.dgvDetallePedido = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label9 = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
@@ -49,14 +48,15 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnDetalles = new System.Windows.Forms.Button();
             this.btnFactura = new System.Windows.Forms.Button();
+            this.dgvDetallePedido = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetallePedido)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetallePedido)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -84,22 +84,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(575, 522);
             this.tableLayoutPanel1.TabIndex = 3;
-            // 
-            // dgvDetallePedido
-            // 
-            this.dgvDetallePedido.AllowUserToAddRows = false;
-            this.dgvDetallePedido.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvDetallePedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDetallePedido.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvDetallePedido.Location = new System.Drawing.Point(3, 293);
-            this.dgvDetallePedido.Name = "dgvDetallePedido";
-            this.dgvDetallePedido.ReadOnly = true;
-            this.dgvDetallePedido.RowHeadersVisible = false;
-            this.dgvDetallePedido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDetallePedido.Size = new System.Drawing.Size(569, 226);
-            this.dgvDetallePedido.TabIndex = 4;
-            this.dgvDetallePedido.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetallePedido_CellContentClick);
-            this.dgvDetallePedido.DoubleClick += new System.EventHandler(this.dgvDetallePedido_DoubleClick);
             // 
             // tableLayoutPanel2
             // 
@@ -293,7 +277,7 @@
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAgregar.Font = new System.Drawing.Font("Cambria", 12F);
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
-            this.btnAgregar.Location = new System.Drawing.Point(61, 21);
+            this.btnAgregar.Location = new System.Drawing.Point(61, 24);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(109, 32);
             this.btnAgregar.TabIndex = 105;
@@ -309,7 +293,7 @@
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEliminar.Font = new System.Drawing.Font("Cambria", 12F);
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.Location = new System.Drawing.Point(409, 21);
+            this.btnEliminar.Location = new System.Drawing.Point(409, 24);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(116, 32);
             this.btnEliminar.TabIndex = 107;
@@ -325,7 +309,7 @@
             this.btnConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnConsultar.Font = new System.Drawing.Font("Cambria", 10F);
             this.btnConsultar.ForeColor = System.Drawing.Color.White;
-            this.btnConsultar.Location = new System.Drawing.Point(206, 16);
+            this.btnConsultar.Location = new System.Drawing.Point(206, 19);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(167, 41);
             this.btnConsultar.TabIndex = 117;
@@ -380,6 +364,22 @@
             this.btnFactura.UseVisualStyleBackColor = false;
             this.btnFactura.Click += new System.EventHandler(this.btnFactura_Click);
             // 
+            // dgvDetallePedido
+            // 
+            this.dgvDetallePedido.AllowUserToAddRows = false;
+            this.dgvDetallePedido.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDetallePedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetallePedido.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDetallePedido.Location = new System.Drawing.Point(3, 293);
+            this.dgvDetallePedido.Name = "dgvDetallePedido";
+            this.dgvDetallePedido.ReadOnly = true;
+            this.dgvDetallePedido.RowHeadersVisible = false;
+            this.dgvDetallePedido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDetallePedido.Size = new System.Drawing.Size(569, 226);
+            this.dgvDetallePedido.TabIndex = 4;
+            this.dgvDetallePedido.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetallePedido_CellContentClick);
+            this.dgvDetallePedido.DoubleClick += new System.EventHandler(this.dgvDetallePedido_DoubleClick);
+            // 
             // frmDetallePedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -392,7 +392,6 @@
             this.Text = "DetallePedido";
             this.Load += new System.EventHandler(this.frmDetallePedido_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetallePedido)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
@@ -403,6 +402,7 @@
             this.tableLayoutPanel6.PerformLayout();
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetallePedido)).EndInit();
             this.ResumeLayout(false);
 
         }

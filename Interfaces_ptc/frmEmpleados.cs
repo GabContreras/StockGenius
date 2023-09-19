@@ -185,26 +185,19 @@ namespace Interfaces_ptc
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             try
-            {
-                int id = int.Parse(dgvEmpleados.CurrentRow.Cells[0].Value.ToString());
-                Empleados E = new Empleados();
-                
-                if (E.EliminarEmpleado(id) == true)
-                {
-                    
+            {  
                     int idU = int.Parse(dgvEmpleados.CurrentRow.Cells[2].Value.ToString());
                     Usuario U = new Usuario();
                     if (U.EliminarUsuario(idU) == true)
                     {
-                        MessageBox.Show("Empleado eliminado satisfactoriamente", "Éxito");
+                        MessageBox.Show("Empleado despedido satisfactoriamente", "Éxito");
                         MostrarEmpleados();
                         LimpiarCampos();
                     }
                     else
                     {
-                        MessageBox.Show("Se produjo un error al eliminar el empleado", "Advertencia");
-                    }
-                }
+                        MessageBox.Show("Se produjo un error al despedir el empleado", "Advertencia");
+                    }         
             }
             catch (Exception ex)
             {

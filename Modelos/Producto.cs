@@ -70,7 +70,8 @@ namespace Modelos
             return stock;
         }
 
-     
+       
+
         public bool InsertarProducto()
         {
             SqlConnection con = Conexion.Conectar();

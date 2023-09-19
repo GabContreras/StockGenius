@@ -29,6 +29,7 @@ on update cascade
 );
 go
 
+				
 create table Empleado(
 Id_Empleado int PRIMARY KEY identity(1,1),
 Nombre varchar(50) not null,
@@ -37,13 +38,12 @@ Teléfono varchar(50) not null,
 DUI varchar (10) unique not null,
 Correo varchar(50)unique not null,
 Cargo varchar (50) not null,
-id_Usuario int not null,
---Estado varchar(50) check)
+id_Usuario int,
 
 
 constraint FK_Usuario
 FOREIGN KEY(id_Usuario) references Usuario(id_Usuario)
-on delete no action
+on delete set null
 on update cascade
 );
 go
@@ -82,7 +82,7 @@ Precio_Unitario decimal(10,2) check(Precio_Unitario>0),
 imagen nvarchar(max)	
 constraint FK_Proveedor
 FOREIGN KEY (Id_Proveedor) references Proveedor(Id_Proveedor)
-on delete cascade 
+on delete no action 
 on update cascade
 );
 go
@@ -99,7 +99,7 @@ CREATE TABLE Pedido(
         ON UPDATE CASCADE,
  CONSTRAINT Fk_Empleado
     FOREIGN KEY (Id_Empleado) REFERENCES Empleado(Id_Empleado)
-
+        on delete no action
         ON UPDATE CASCADE
 );
 CREATE TABLE Detalle_Pedido (
@@ -216,14 +216,14 @@ VALUES
     ('Luis', 'Martínez', '+503 9999-9999', '99999999-9', 'luis.martinez@example.com', 'Vendedor', 7), --Vendedor
     ('Sofía', 'Torres', '+503 1111-1111', '11111111-1', 'sofia.torres@example.com', 'Vendedor', 8), --Vendedor
     ('María', 'Fernández', '+503 2222-2222', '22222222-2', 'maria.fernandez@example.com', 'Encargado de bodega', 9); --Encargado de bodega
-
+	
 SELECT DP.id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Producto,DP.cantidad,P.Precio_Unitario as Precio, Pd.Estado 
                 FROM Detalle_pedido DP
                 INNER JOIN Pedido Pd on Dp.Id_Detalle= pd.Id_Pedido
                 INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto
                 where DP.Id_Pedido= 1
 
-				select * from Detalle_Pedido
+				select * from empleado
 
 	SELECT DP.id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Producto,DP.cantidad,P.Precio_Unitario as Precio, Pd.Estado
                 FROM detalle_pedido DP
