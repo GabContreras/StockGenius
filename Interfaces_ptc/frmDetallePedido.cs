@@ -124,12 +124,12 @@ namespace Interfaces_ptc
 
                 if (estadoPedido.Equals("Completado"))
                 {
-                    MessageBox.Show("No se pueden agregar productos a un pedido completado.", "Advertencia");
+                    MessageBox.Show("No se pueden agregar productos a un pedido completado.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return; // No continuar la ejecución del código
                 }
                 else if (estadoPedido.Equals("Anulado"))
                 {
-                    MessageBox.Show("No se pueden agregar productos a un pedido anulado.", "Advertencia");
+                    MessageBox.Show("No se pueden agregar productos a un pedido anulado.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return; // No continuar la ejecución del código
                 }
 
@@ -186,26 +186,25 @@ namespace Interfaces_ptc
         {
             try
             {
-               
-                if (dgvDetallePedido.Rows.Count > 0)
-                {
-                    // Obtener el estado del pedido desde el DataGridView
-                    string estadoPedido = dgvDetallePedido.CurrentRow.Cells["Estado"].Value.ToString();
-                    // Verificar si el estado del pedido es "Completado" o "Anulado"
-                    if (estadoPedido.Equals("Completado"))
-                    {
-                        MessageBox.Show("No se pueden eliminar productos de un pedido completado.", "Advertencia");
-                        return; // No continuar la ejecución del código
-                    }
-                    else if (estadoPedido.Equals("Anulado"))
-                    {
-                        MessageBox.Show("No se pueden eliminar productos de un pedido anulado.", "Advertencia");
-                        return; // No continuar la ejecución del código
-                    }
-                    MostrarDetallePedido((int)cbPedido.SelectedValue);
+                MostrarDetallePedido((int)cbPedido.SelectedValue);
 
-                    if (dgvDetallePedido.CurrentRow != null)
-                    {
+                int pedidoId = (int)cbPedido.SelectedValue;
+                Pedido pd = new Pedido();
+                // Obtener el estado del pedido
+                string estadoPedido = pd.ObtenerEstadoPedido(pedidoId);
+
+                if (estadoPedido.Equals("Completado"))
+                {
+                    MessageBox.Show("No se pueden eliminar productos de un pedido completado.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return; // No continuar la ejecución del código
+                }
+                else if (estadoPedido.Equals("Anulado"))
+                {
+                    MessageBox.Show("No se pueden eliminar productos de un pedido anulado.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return; // No continuar la ejecución del código
+                }
+                else if (dgvDetallePedido.CurrentRow != null)
+                {
                         int id = int.Parse(dgvDetallePedido.CurrentRow.Cells[0].Value.ToString());
                         DetallePedido p = new DetallePedido();
                         if (p.EliminarDetallePedido(id) == true)
@@ -218,12 +217,12 @@ namespace Interfaces_ptc
                         {
                             MessageBox.Show("Se produjo un error", "Advertencia");
                         }
-                    }
+                }
                     else
                     {
                         MessageBox.Show("No hay una fila seleccionada en el DataGridView", "Advertencia");
                     }
-                }
+                
             }
             catch (Exception ex)
             {
@@ -265,14 +264,37 @@ namespace Interfaces_ptc
             }
             else
             {
-                int id_pedido = (int)cbPedido.SelectedValue;
-                frmFactura ff = new frmFactura(id_pedido);
-                ff.ShowDialog();
+                int pedidoId = (int)cbPedido.SelectedValue;
+                Pedido pd = new Pedido();
+                // Obtener el estado del pedido
+                string estadoPedido = pd.ObtenerEstadoPedido(pedidoId);
 
-                Pedido p = new Pedido();
-                p.Id_Pedido = (int)cbPedido.SelectedValue;
-                p.Estado = "Completado";
-                p.ActualizarEstadoAlgenerarFactura();
+                if (estadoPedido.Equals("Anulado"))
+                {
+                    MessageBox.Show("No se puede generar una factura para un pedido anulado.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return; // No continuar la ejecución del código
+                }
+                else
+                {
+                    DetallePedido dp = new DetallePedido();
+                    bool existencias = dp.ExisteDetallePedido(pedidoId);
+
+                    if (!existencias)
+                    {
+                        MessageBox.Show("No se puede generar una factura si no hay productos ligados al pedido", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return; // No continuar la ejecución del código
+                    }
+                    else
+                    {
+                        frmFactura ff = new frmFactura(pedidoId);
+                        ff.ShowDialog();
+
+                        Pedido p = new Pedido();
+                        p.Id_Pedido = (int)cbPedido.SelectedValue;
+                        p.Estado = "Completado";
+                        p.ActualizarEstadoAlgenerarFactura();
+                    }
+                }
             }
 
         }

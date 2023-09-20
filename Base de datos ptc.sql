@@ -117,7 +117,6 @@ FOREIGN KEY (Id_Producto) references Producto(Id_Producto)
 on delete cascade 
 on update cascade,
 );
-
 insert into Rol(Nombre)
 values ('Administrador'),--ya
 ('Comprador'),--ya

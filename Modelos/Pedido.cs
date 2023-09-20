@@ -57,18 +57,6 @@ namespace Modelos
             return estado; // Devolver el estado del pedido
         }
 
-        public static DataTable CargarPedidoOculto()
-        {
-            SqlConnection con = Conexion.Conectar();
-            string comando = "SELECT P.Id_Pedido, p.Estado\r\n" +
-                "FROM Pedido P";
-            SqlDataAdapter ad = new SqlDataAdapter(comando, con);
-
-            DataTable dt = new DataTable();
-            ad.Fill(dt);
-            return dt;
-
-        }
 
         public bool InsertarPedido()
         {
@@ -129,6 +117,28 @@ namespace Modelos
             }
         }
         public bool ActualizarEstadoAlgenerarFactura()
+        {
+            SqlConnection con = Conexion.Conectar();
+            string comando = "update pedido \r\n" +
+                "set Estado= @estado \r\n" +
+                "where id_pedido= @id";
+            SqlCommand cmd = new SqlCommand(comando, con);
+
+            cmd.Parameters.AddWithValue("@estado", estado);
+            cmd.Parameters.AddWithValue("@id", id_Pedido);
+
+
+            if (cmd.ExecuteNonQuery() > 0)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+        }
+        public bool AnularPedido()
         {
             SqlConnection con = Conexion.Conectar();
             string comando = "update pedido \r\n" +

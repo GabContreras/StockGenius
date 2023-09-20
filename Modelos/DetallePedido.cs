@@ -67,6 +67,26 @@ namespace Modelos
 
             return dt;
         }
+      
+        public bool ExisteDetallePedido(int idPedido)
+        {
+            bool existeDetalle = false;
+
+            SqlConnection con = Conexion.Conectar();
+            string query = "SELECT COUNT(*) FROM Detalle_Pedido WHERE Id_Pedido = @Id_pedido;";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@Id_pedido", idPedido);
+
+                int count = (int)cmd.ExecuteScalar(); // Obtener el resultado de la consulta como un entero
+
+                if (count > 0)
+                {
+                    existeDetalle = true;
+                }
+            
+            return existeDetalle;
+        }
+
         public bool InsertarDpedido()
         {
                 SqlConnection con = Conexion.Conectar();

@@ -19,8 +19,7 @@ namespace Interfaces_ptc
 
             if (u.Id_Rol == 5)
             {
-                btnEliminar.Visible = false;
-
+                btnAnular.Visible = false;
             }
 
         }
@@ -117,39 +116,7 @@ namespace Interfaces_ptc
         }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                // Obtener el estado del pedido desde el DataGridView
-                string estadoPedido = dgvPedido.CurrentRow.Cells["Estado"].Value.ToString();
-                // Verificar si el estado del pedido es "Completado" o "Anulado"
-                if (estadoPedido.Equals("Completado"))
-                {
-                    MessageBox.Show("No se puede eliminar un pedido completado.", "Advertencia");
-                }
-                else if (estadoPedido.Equals("Anulado"))
-                {
-                    MessageBox.Show("No se puede eliminar un pedido anulado.", "Advertencia");
-                }
-                else
-                {
-                    int id = int.Parse(dgvPedido.CurrentRow.Cells[0].Value.ToString());
-                    Pedido p = new Pedido();
-                    if (p.EliminarPedido(id) == true)
-                    {
-                        MessageBox.Show("Pedido eliminado satisfactoriamente", "Éxito");
-                        MostrarPedido();
-                        LimpiarCampos();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Se produjo un error al eliminar el pedido", "Advertencia");
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+           
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -210,6 +177,20 @@ namespace Interfaces_ptc
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
             ActualizarPedido();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+                int id_pedido = int.Parse(dgvPedido.CurrentRow.Cells[0].Value.ToString());
+               
+                Pedido p = new Pedido();
+                p.Id_Pedido = id_pedido;
+                p.Estado = "Anulado";
+                p.AnularPedido();
+                MessageBox.Show("Pedido anulado satisfactoriamente", "Éxito");
+            MostrarPedido();
+
         }
     }
 }
