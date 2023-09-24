@@ -26,7 +26,7 @@ namespace Interfaces_ptc
         {
             //Se crea un empleado al que se le asigna el usuario que inició sesión
             Usuario U = new Usuario();
-            Empleados emp = new Empleados();
+            Empleado emp = new Empleado();
             U.NombreUsuario = v.NombreUsuario;
 
             //Se ejecuta el método ObtenerInfo() del objeto 'emp' y se asigna la información obtenida a él mismo.

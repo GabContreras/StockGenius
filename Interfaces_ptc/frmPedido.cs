@@ -64,7 +64,7 @@ namespace Interfaces_ptc
             try
             {
                 cbEmpleado.DataSource = null;
-                cbEmpleado.DataSource = Empleados.CargarEmpleados2();
+                cbEmpleado.DataSource = Empleado.CargarEmpleados2();
 
                 //El valor que se muestra en el combobox
                 //Se coloca el nombre de la columna en la tabla

@@ -30,8 +30,7 @@ namespace Modelos
             string comando = $"SELECT DP.Id_Detalle, DP.Id_Pedido as \"Número de pedido\", DP.Id_Producto as \"Código de producto\"," +
                 $" P.Nombre AS Producto, DP.Cantidad, P.Precio_Unitario AS Precio\r\n" +
                 $"FROM Detalle_Pedido DP\r\n" +
-                $"INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto\r\n" +
-                $"WHERE DP.Id_Pedido = @id";
+                $"INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto\r\n";
             SqlCommand cmd = new SqlCommand(comando, con);
 
             cmd.Parameters.AddWithValue("@id", id_pedido);

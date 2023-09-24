@@ -22,9 +22,9 @@ namespace Interfaces_ptc
         private void frmDetallePedido_Load(object sender, EventArgs e)
         {
             CargarPed();
-            cargarProd();
+            Mostrarproductos();
             cbPedido.SelectedIndex = -1;
-            cbProducto.SelectedIndex = -1;
+            ActualizarProducto();
         }
         private void MostrarDetallePedido(int Id_pedido)
         {
@@ -70,22 +70,17 @@ namespace Interfaces_ptc
                 MessageBox.Show(ex.Message);
             }
         }
-        private void cargarProd()
+        private void Mostrarproductos()
         {
             //Manejo de excepciones 
             //El código que puede dar error
             try
             {
-                cbProducto.DataSource = null;
-                cbProducto.DataSource = Producto.CargarProducto();
+               dgvDetallePedido.DataSource = null;
+        
+                dgvProducto.DataSource = Producto.CargarProductoEnDetallePedido();
 
-                //El valor que se muestra en el combobox
-                //Se coloca el nombre de la columna en la tabla
-                cbProducto.DisplayMember = "Nombre";
-
-                //Valor que no se muestra (id)
-                //Se coloca el nombre de la columna en la tabla
-                cbProducto.ValueMember = "Id_Producto";
+                dgvProducto.Columns[0].Visible = false;
             }
 
             //Bloque de código por si da error
@@ -100,7 +95,6 @@ namespace Interfaces_ptc
             try
             {
                 cbPedido.Text = dgvDetallePedido.CurrentRow.Cells[1].Value.ToString();
-                cbProducto.Text = dgvDetallePedido.CurrentRow.Cells[3].Value.ToString();
                 txtCantidad.Text = dgvDetallePedido.CurrentRow.Cells[4].Value.ToString();
             }
             catch (Exception ex)
@@ -140,8 +134,8 @@ namespace Interfaces_ptc
                 {
                     MessageBox.Show("Escoja un número de pedido primero");
                 }
-                else if (cbProducto.SelectedIndex < 0)
-                {
+               else if (dgvProducto.SelectedRows.Count < 0)
+               {
                     MessageBox.Show("Escoja un producto primero");
                 }
                 else
@@ -150,7 +144,7 @@ namespace Interfaces_ptc
                     Producto pp = new Producto();
 
                     p.Id_pedido = pedidoId;
-                    p.Id_Producto = (int)cbProducto.SelectedValue;
+                    p.Id_Producto = (int)dgvProducto.CurrentRow.Cells[0].Value; ;
                     p.Cantidad = int.Parse(txtCantidad.Text);
 
                     // Se obtiene la cantidad en stock actual
@@ -160,7 +154,7 @@ namespace Interfaces_ptc
                     {
                         if (p.InsertarDpedido() == true)
                         {
-                            MessageBox.Show("Detalle agregado satisfactoriamente", "Éxito");
+                            MessageBox.Show("Producto agregado satisfactoriamente", "Éxito");
                             LimpiarCampo();
 
                             // Después de insertar el detalle, recargamos los detalles del pedido
@@ -310,6 +304,15 @@ namespace Interfaces_ptc
         private void tableLayoutPanel8_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+        private void ActualizarProducto()
+        {
+            dgvProducto.DataSource = Producto.BuscarEnDetallePedido(txtBuscarProducto.Text);
+            dgvProducto.Columns[0].Visible = false;
+        }
+        private void txtBuscarProducto_TextChanged(object sender, EventArgs e)
+        {
+            ActualizarProducto();
         }
     }
 }

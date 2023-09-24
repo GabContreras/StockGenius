@@ -48,10 +48,9 @@ namespace Interfaces_ptc
 
         private void frmProducto_Load(object sender, EventArgs e)
         {
-            CargarProv();
             MostrarProductos();
-            cbProveedor.SelectedIndex = -1;
             Actualizar();
+            MostrarProveedor();
 
         }
         private void MostrarProductos()
@@ -61,29 +60,12 @@ namespace Interfaces_ptc
             dgvProductos.Columns[6].Visible = false;
 
         }
-        private void CargarProv()
+        private void MostrarProveedor()
         {
-            //Manejo de excepciones 
-            //El código que puede dar error
-            try
-            {
-                cbProveedor.DataSource = null;
-                cbProveedor.DataSource = Proveedores.CargarProveedores();
+            dgvProveedor.DataSource = null;
+            dgvProveedor.DataSource = Proveedor.CargarProveedoresEnProducto();
+            dgvProveedor.Columns[0].Visible = false;
 
-                //El valor que se muestra en el combobox
-                //Se coloca el nombre de la columna en la tabla
-                cbProveedor.DisplayMember = "Nombre";
-
-                //Valor que no se muestra (id)
-                //Se coloca el nombre de la columna en la tabla
-                cbProveedor.ValueMember = "Id_Proveedor";
-            }
-
-            //Bloque de código por si da error
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
         private void dgvProductos_DoubleClick(object sender, EventArgs e)
         {
@@ -91,8 +73,6 @@ namespace Interfaces_ptc
             {
                 txtNombre.Text = dgvProductos.CurrentRow.Cells[1].Value.ToString();
                 txtDescripcion.Text = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                txtStock.Text = dgvProductos.CurrentRow.Cells[3].Value.ToString();
-                cbProveedor.Text = dgvProductos.CurrentRow.Cells[5].Value.ToString();
                 txtPrecio.Text = dgvProductos.CurrentRow.Cells[4].Value.ToString();
 
                 string ruta = (string)dgvProductos.CurrentRow.Cells[6].Value;
@@ -108,9 +88,7 @@ namespace Interfaces_ptc
         {
             txtNombre.Text = "";
             txtDescripcion.Text = "";
-            txtStock.Text = "";
             txtPrecio.Text = "";
-            cbProveedor.SelectedIndex = -1;
             pbImagen.Image = null;
             ofdImagen.Reset();
 
@@ -130,7 +108,7 @@ namespace Interfaces_ptc
 
                 try
                 {
-                    if (txtNombre.Text == "" || txtDescripcion.Text == "" || txtStock.Text == "" || txtPrecio.Text == "")
+                    if (txtNombre.Text == "" || txtDescripcion.Text == "" || txtPrecio.Text == "")
                     {
                         MessageBox.Show("No dejar campos vacíos",
                             "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -140,8 +118,7 @@ namespace Interfaces_ptc
                         Producto p = new Producto();
                         p.Nombre = txtNombre.Text;
                         p.Descripcion = txtDescripcion.Text;
-                        p.Stock = int.Parse(txtStock.Text);
-                        p.Id_Proveedor = (int)cbProveedor.SelectedValue;
+                        p.Id_Proveedor = (int)dgvProveedor.CurrentRow.Cells[0].Value;
                         p.PrecioUnitario = double.Parse(txtPrecio.Text);
                         p.Imagen = imagenDestino;
                         if (p.InsertarProducto() == true)
@@ -166,7 +143,7 @@ namespace Interfaces_ptc
             {
                 try
                 {
-                    if (txtNombre.Text == "" || txtDescripcion.Text == "" || txtStock.Text == "" || txtPrecio.Text == "")
+                    if (txtNombre.Text == "" || txtDescripcion.Text == "" || txtPrecio.Text == "")
                     {
                         MessageBox.Show("No dejar campos vacíos",
                             "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -176,8 +153,7 @@ namespace Interfaces_ptc
                         Producto p = new Producto();
                         p.Nombre = txtNombre.Text;
                         p.Descripcion = txtDescripcion.Text;
-                        p.Stock = int.Parse(txtStock.Text);
-                        p.Id_Proveedor = (int)cbProveedor.SelectedValue;
+                        p.Id_Proveedor = (int)dgvProveedor.CurrentRow.Cells[0].Value;
                         p.PrecioUnitario = double.Parse(txtPrecio.Text);
                         p.Imagen = "";
                         if (p.InsertarProducto() == true)
@@ -231,7 +207,7 @@ namespace Interfaces_ptc
                 {
                     try
                     {
-                        if (txtNombre.Text == "" || txtDescripcion.Text == "" || txtStock.Text == "" || txtPrecio.Text == "")
+                        if (txtNombre.Text == "" || txtDescripcion.Text == "" || txtPrecio.Text == "")
                         {
                             MessageBox.Show("No dejar campos vacíos",
                                 "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -241,10 +217,9 @@ namespace Interfaces_ptc
                             Producto p = new Producto();
                             p.Nombre = txtNombre.Text;
                             p.Descripcion = txtDescripcion.Text;
-                            p.Stock = int.Parse(txtStock.Text);
                             p.PrecioUnitario = double.Parse(txtPrecio.Text);
                             p.Imagen = imagenDestino;
-                            p.Id_Proveedor = (int)cbProveedor.SelectedValue;
+                            p.Id_Proveedor = (int)dgvProveedor.CurrentRow.Cells[0].Value;
                             p.Id_Producto = (int)dgvProductos.CurrentRow.Cells[0].Value;
                             if (p.ActualizarProducto() == true)
                             {
@@ -269,7 +244,7 @@ namespace Interfaces_ptc
             {
                 try
                 {
-                    if (txtNombre.Text == "" || txtDescripcion.Text == "" || txtStock.Text == "" || txtPrecio.Text == "")
+                    if (txtNombre.Text == "" || txtDescripcion.Text == "" || txtPrecio.Text == "")
                     {
                         MessageBox.Show("No dejar campos vacíos",
                             "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -279,10 +254,9 @@ namespace Interfaces_ptc
                         Producto p = new Producto();
                         p.Nombre = txtNombre.Text;
                         p.Descripcion = txtDescripcion.Text;
-                        p.Stock = int.Parse(txtStock.Text);
                         p.PrecioUnitario = double.Parse(txtPrecio.Text);
                         p.Imagen = "";
-                        p.Id_Proveedor = (int)cbProveedor.SelectedValue;
+                        p.Id_Proveedor = (int)dgvProveedor.CurrentRow.Cells[0].Value;
                         p.Id_Producto = (int)dgvProductos.CurrentRow.Cells[0].Value;
                         if (p.ActualizarProducto() == true)
                         {
@@ -357,6 +331,16 @@ namespace Interfaces_ptc
         private void Actualizar()
         {
             dgvProductos.DataSource = Producto.Buscar(txtBuscar.Text);
+        }
+
+        private void ActualizarProveedor()
+        {
+            dgvProveedor.DataSource = Proveedor.BuscarEnProducto(txtBuscarProveedor.Text);
+            dgvProveedor.Columns[0].Visible = false;
+        }
+        private void txtBuscarProveedor_TextChanged(object sender, EventArgs e)
+        {
+            ActualizarProveedor();
         }
     }
 }

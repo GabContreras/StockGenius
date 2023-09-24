@@ -40,10 +40,10 @@
             this.label9 = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnAnular = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnAnular = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.dgvPedido = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
@@ -239,6 +239,22 @@
             this.tableLayoutPanel8.Size = new System.Drawing.Size(622, 48);
             this.tableLayoutPanel8.TabIndex = 2;
             // 
+            // btnAnular
+            // 
+            this.btnAnular.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
+            this.btnAnular.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAnular.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(130)))), ((int)(((byte)(173)))));
+            this.btnAnular.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAnular.Font = new System.Drawing.Font("Cambria", 12F);
+            this.btnAnular.ForeColor = System.Drawing.Color.White;
+            this.btnAnular.Location = new System.Drawing.Point(445, 8);
+            this.btnAnular.Name = "btnAnular";
+            this.btnAnular.Size = new System.Drawing.Size(145, 32);
+            this.btnAnular.TabIndex = 120;
+            this.btnAnular.Text = "Anular pedido";
+            this.btnAnular.UseVisualStyleBackColor = false;
+            this.btnAnular.Click += new System.EventHandler(this.button1_Click);
+            // 
             // btnActualizar
             // 
             this.btnActualizar.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
@@ -283,22 +299,6 @@
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel9.Size = new System.Drawing.Size(622, 76);
             this.tableLayoutPanel9.TabIndex = 2;
-            // 
-            // btnAnular
-            // 
-            this.btnAnular.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
-            this.btnAnular.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAnular.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(130)))), ((int)(((byte)(173)))));
-            this.btnAnular.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAnular.Font = new System.Drawing.Font("Cambria", 12F);
-            this.btnAnular.ForeColor = System.Drawing.Color.White;
-            this.btnAnular.Location = new System.Drawing.Point(445, 8);
-            this.btnAnular.Name = "btnAnular";
-            this.btnAnular.Size = new System.Drawing.Size(145, 32);
-            this.btnAnular.TabIndex = 120;
-            this.btnAnular.Text = "Anular pedido";
-            this.btnAnular.UseVisualStyleBackColor = false;
-            this.btnAnular.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtBuscar
             // 

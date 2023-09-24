@@ -9,7 +9,7 @@ using System.Collections;
 
 namespace Modelos
 {
-    public class Empleados : Roles
+    public class Empleado : Roles
     {
         private int id_empleado;
         private string nombre_Empleado;
@@ -146,7 +146,7 @@ namespace Modelos
             return dt;
 
         }
-        public Empleados ObtenerInfo()
+        public Empleado ObtenerInfo()
         {
             SqlConnection con = Conexion.Conectar();
             string comando = "SELECT E.Id_Empleado,E.Nombre, E.Correo, U.NombreUsuario, e.id_Usuario\r\n" +
@@ -164,7 +164,7 @@ namespace Modelos
             if (rd.Read())
             {
                 //Si se obtuvo una coincidencia, creamos un Empleado y le asignamos valores a sus atributos. Los valores se asignan a partir del Lector y la información que recogió
-                Empleados emp = new Empleados();
+                Empleado emp = new Empleado();
                 Usuario u = new Usuario();
                 emp.Id_empleado = (int)rd[0];
                 emp.Nombre = (string)rd[1];

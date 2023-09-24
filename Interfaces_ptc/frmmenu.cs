@@ -57,6 +57,7 @@ namespace Interfaces_ptc
         private void OcultarSubMenu()
         {                
             panelVentasubMenu.Visible = false;
+            panelProductossubMenu.Visible = false;
         }
         private void mostrarSubMenu(Panel subMenu)
         {
@@ -134,8 +135,6 @@ namespace Interfaces_ptc
 
         private void btnProducto_Click(object sender, EventArgs e)
         {
-            openChildFormInPanel(new frmProducto(v));
-            OcultarSubMenu();
 
         }
 
@@ -191,14 +190,36 @@ namespace Interfaces_ptc
 
         private void btnEmpleado_Click_1(object sender, EventArgs e)
         {
-            openChildFormInPanel(new frmEmpleados(v));
-            OcultarSubMenu();
+         
         }
 
         private void btnPerfil_Click(object sender, EventArgs e)
         {
             frmCuenta c = new frmCuenta(v);
             c.ShowDialog();
+        }
+
+        private void btnAdministrarProductos_Click(object sender, EventArgs e)
+        {
+            openChildFormInPanel(new frmProducto(v));
+            OcultarSubMenu();
+        }
+
+        private void btnProducto_Click_1(object sender, EventArgs e)
+        {
+            mostrarSubMenu(panelProductossubMenu);
+        }
+
+        private void btnAgregarProductos_Click(object sender, EventArgs e)
+        {
+            openChildFormInPanel(new frmAgregarProductos(v));
+            OcultarSubMenu();
+        }
+
+        private void btnEmpleado_Click_2(object sender, EventArgs e)
+        {
+            openChildFormInPanel(new frmEmpleados(v));
+            OcultarSubMenu();
         }
     }
 }

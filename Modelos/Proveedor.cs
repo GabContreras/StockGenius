@@ -9,7 +9,7 @@ using System.IO;
 
 namespace Modelos
 {
-    public class Proveedores
+    public class Proveedor
     {
         private int id_Proveedor;
         private string nombre;
@@ -37,6 +37,18 @@ namespace Modelos
             return dt;
         }
 
+        public static DataTable CargarProveedoresEnProducto()
+        {
+            SqlConnection con = Conexion.Conectar();
+            string comando = "select P.Id_Proveedor, P.Nombre as Proveedor\r\n" +
+                "from Proveedor P\r\nWhere Estado= 'Activo'";
+
+            SqlDataAdapter ad = new SqlDataAdapter(comando, con);
+            DataTable dt = new DataTable();
+            ad.Fill(dt);
+            return dt;
+        }
+
 
         public static DataTable Buscar(string termino)
         {
@@ -50,8 +62,19 @@ namespace Modelos
             ad.Fill(dt);
             return dt;
         }
+        public static DataTable BuscarEnProducto(string termino)
+        {
+            SqlConnection con = Conexion.Conectar();
+            string comando = $"select P.Id_Proveedor, P.Nombre as Proveedor\r\n" +
+                $"from Proveedor P\r\n" +
+                $"Where nombre like '%{termino}%' and Estado= 'Activo' ";
+            SqlDataAdapter ad = new SqlDataAdapter(comando, con);
 
-            public bool InsertarProovedores()
+            DataTable dt = new DataTable();
+            ad.Fill(dt);
+            return dt;
+        }
+        public bool InsertarProovedores()
         {
            
                 SqlConnection con = Conexion.Conectar();

@@ -52,7 +52,8 @@ create table proveedor(
 Id_Proveedor int PRIMARY KEY identity(1,1),
 Nombre varchar(50) not null,
 Dirección varchar(150) not null,
-Telefono varchar(50) unique not null
+Telefono varchar(50) unique not null,
+Estado varchar(9) CHECK (Estado IN ('Activo', 'Inactivo'))
 );
 go
 
@@ -68,22 +69,37 @@ Tipo_Cliente varchar(8) check(Tipo_Cliente IN ('Natural', 'Jurídico')) not null,
 NIT varchar(17) , 
 NRC varchar(8) ,  --Numero de registro de contribuyente 569-0 tiene que tener un guion
 Giro varchar(100), --A qué se dedica
-Categoria varchar(7)  CHECK (Categoria IN ('Pequeño', 'Mediano', 'Grande'))--Pequeño, Mediano, Grande)
+Categoria varchar(7)  CHECK (Categoria IN ('Pequeño', 'Mediano', 'Grande')),--Pequeño, Mediano, Grande)
+Estado varchar(8) CHECK (Estado IN ('Activo', 'Inactivo'))
 );
 go
 
 Create table Producto(
 Id_Producto int PRIMARY KEY identity(1,1),
-Nombre varchar(50) not null unique,
+Nombre varchar(50) not null,
 Descripcion varchar(150) not null,
 Stock int not null check (Stock>=0),
 Id_Proveedor int not null,
 Precio_Unitario decimal(10,2) check(Precio_Unitario>0),
 imagen nvarchar(max)	
+
 constraint FK_Proveedor
 FOREIGN KEY (Id_Proveedor) references Proveedor(Id_Proveedor)
 on delete no action 
 on update cascade
+);
+go
+
+Create table IngresoProducto(
+Id_Ingreso int Primary key identity(1,1),
+fecha_Ingreso Date not null,
+Id_Producto int,
+
+constraint FK_Producto
+FOREIGN KEY (Id_Producto) references Producto(Id_Producto)
+on delete no action 
+on update cascade
+
 );
 go
 
@@ -135,28 +151,18 @@ CREATE UNIQUE INDEX UX_NRC_Unique ON Cliente (NRC) WHERE NRC IS NOT NULL;
 CREATE UNIQUE INDEX UX_DUI_Unique ON Cliente (DUI) where DUI is not null;
 
 -- Insertar proveedores
-INSERT INTO Proveedor (Nombre, Dirección, Telefono)
+INSERT INTO Proveedor (Nombre, Dirección, Telefono,Estado)
 VALUES
-    ('ElectroComponentes SA', 'Calle Principal #123', '+503 1111-1112'),
-    ('Tecnología Total', 'Avenida Comercial #456', '+503 2222-2222'),
-    ('Distribuidora Electrónica', 'Calle Central #789', '+503 3333-3333'),
-    ('Comercializadora de Equipos', 'Avenida Industrial #1011', '+503 4444-4444'),
-    ('Suministros Electrónicos', 'Calle Mayor #1516', '+503 5555-5555'),
-    ('ElectroPro', 'Avenida de la Paz #1718', '+503 6666-6666'),	
-    ('Componentes Avanzados', 'Calle del Progreso #1920', '+503 7777-7777'),
-    ('ElectroDistribuidora', 'Avenida del Sol #2122', '+503 8888-8888'),
-    ('ElectroMundo', 'Calle de la Industria #2324', '+503 9999-9999'),
-    ('ElectroInnovación', 'Avenida de la Libertad #2526', '+503 1010-1010'),
-    ('Soluciones Electrónicas', 'Calle de la Esperanza #2728', '+503 1111-1113'),
-    ('ElectroExpress', 'Avenida de la Victoria #2930', '+503 1212-1212'),
-    ('Distribuidora Tecnológica', 'Calle de la Ciencia #3132', '+503 1313-1313'),
-    ('Componentes Electrónicos', 'Avenida de la Tecnología #3334', '+503 1414-1414'),
-    ('ElectroSalud', 'Calle de la Salud #3536', '+503 1515-1515'),
-    ('ElectroHogar', 'Avenida de la Casa #3738', '+503 1616-1616'),
-    ('Innovación Electrónica', 'Calle de la Innovación #3940', '+503 1717-1717'),
-    ('ElectroMovilidad', 'Avenida de la Movilidad #4142', '+503 1818-1818'),
-    ('ElectroBaterías', 'Calle de las Baterías #4344', '+503 1919-1919'),
-    ('Distribuidora Solar', 'Avenida Solar #4546', '+503 2020-2020');
+    ('ElectroComponentes SA', 'Calle Principal #123', '+503 1111-1112','Activo'),
+    ('Tecnología Total', 'Avenida Comercial #456', '+503 2222-2222','Activo'),
+    ('Distribuidora Electrónica', 'Calle Central #789', '+503 3333-3333','Activo'),
+    ('Comercializadora de Equipos', 'Avenida Industrial #1011', '+503 4444-4444','Activo'),
+    ('Suministros Electrónicos', 'Calle Mayor #1516', '+503 5555-5555','Activo'),
+    ('ElectroPro', 'Avenida de la Paz #1718', '+503 6666-6666','Activo'),	
+    ('Componentes Avanzados', 'Calle del Progreso #1920', '+503 7777-7777','Activo'),
+    ('ElectroDistribuidora', 'Avenida del Sol #2122', '+503 8888-8888','Activo'),
+    ('ElectroMundo', 'Calle de la Industria #2324', '+503 9999-9999','Activo'),
+    ('ElectroInnovación', 'Avenida de la Libertad #2526', '+503 1010-1010','Activo');
 
 -- Insertar productos (hasta alcanzar 20 registros)
 INSERT INTO Producto (Nombre, Descripcion, Stock, Id_Proveedor, Precio_Unitario)
@@ -164,11 +170,11 @@ VALUES
     ('Smartphone Galaxy S22', 'Potente smartphone con cámara de alta resolución', 100, 1, 699.99),
     ('Laptop Ultrabook X1', 'Laptop ultradelgada con pantalla táctil', 50, 2, 1199.99),
     ('Tablet Android Pro', 'Tablet de alto rendimiento con sistema Android', 75, 1, 299.99),
-    ('TV LED 4K 55 pulgadas', 'Televisor con resolución 4K y pantalla LED', 200, 2, 699.99),
+    ('TV LED 4K 55 pulgadas', 'Televisor con resolución 4K y pantalla LED', 200, 3, 699.99),
     ('Auriculares Inalámbricos X2', 'Auriculares Bluetooth con cancelación de ruido', 150, 1, 149.99),
     ('Cámara DSLR 24MP', 'Cámara réflex digital de alta calidad', 80, 2, 899.99),
-    ('Impresora Multifunción', 'Impresora láser multifunción de alta velocidad', 120, 1, 299.99),
-    ('Monitor Curvo 27 pulgadas', 'Monitor de computadora con pantalla curva', 60, 2, 349.99),
+    ('Impresora Multifunción', 'Impresora láser multifunción de alta velocidad', 120, 4, 299.99),
+    ('Monitor Curvo 27 pulgadas', 'Monitor de computadora con pantalla curva', 60, 5, 349.99),
     ('Teclado Mecánico RGB', 'Teclado para juegos mecánico con retroiluminación', 90, 1, 99.99),
     ('Mouse Gaming G3', 'Mouse ergonómico de alto rendimiento para juegos', 40, 2, 49.99),
     ('Router Wi-Fi 6', 'Router inalámbrico de última generación', 65, 1, 199.99),
@@ -177,21 +183,21 @@ VALUES
     ('Smartwatch Fitness Pro', 'Reloj inteligente con seguimiento de actividad física', 85, 2, 129.99),
     ('Tarjeta Gráfica GTX 3080', 'Tarjeta gráfica de alto rendimiento para juegos', 70, 1, 699.99);
 
-insert into Cliente(Nombre, Apellido, DUI, Telefono, Dirección, Edad,Tipo_Cliente) values 
-                ('Marcelo josé', 'Hernández Hernández', '12345678-9', '+503 8745-9874', 'Avenida el pepe', 18,'Natural'),
-				('Juan Carlos', 'Pérez', '11111111-1', '+503 1111-1111', 'Dirección 1', 25, 'Natural'),
-				('Ana María', 'Gómez', '22222222-2', '+503 2222-2222', 'Dirección 2', 30, 'Natural'),
-				('Carlos Alberto', 'López', '33333333-3', '+503 3333-3333', 'Dirección 3', 35, 'Natural'),
-				('Elena Rodríguez', 'Ramírez', '44444444-4', '+503 4444-4444', 'Dirección 4', 40, 'Natural');
+insert into Cliente(Nombre, Apellido, DUI, Telefono, Dirección, Edad,Tipo_Cliente,Estado) values 
+                ('Marcelo josé', 'Hernández Hernández', '12345678-9', '+503 8745-9874', 'Avenida el pepe', 18,'Natural','Activo'),
+				('Juan Carlos', 'Pérez', '11111111-1', '+503 1111-1111', 'Dirección 1', 25, 'Natural','Activo'),
+				('Ana María', 'Gómez', '22222222-2', '+503 2222-2222', 'Dirección 2', 30, 'Natural','Activo'),
+				('Carlos Alberto', 'López', '33333333-3', '+503 3333-3333', 'Dirección 3', 35, 'Natural','Activo'),
+				('Elena Rodríguez', 'Ramírez', '44444444-4', '+503 4444-4444', 'Dirección 4', 40, 'Natural','Activo');
 
-INSERT INTO Cliente (Nombre, Telefono, Dirección, NIT, NRC, Giro, Categoria, Tipo_Cliente) values
-    ('Empresa Tech', '+503 2345-6789', 'Calle Principal 123', '12345-678-9', '9876-5', 'Venta de productos electrónicos', 'Mediano', 'Jurídico'),
-    ('Consultoría ABC', '+503 555-1234', 'Avenida Central 456', '98765-432-1', '5432-1', 'Servicios de Consultoría Empresarial', 'Grande', 'Jurídico'),
-    ('Restaurante delicioso', '+503 7890-1234', 'Boulevard Elegante 789', '56789-123-4', '1234-5', 'Restaurante de comida gourmet', 'Pequeño', 'Jurídico'),
-    ('Tienda Express', '+503 7777-7777', 'Plaza Comercial 321', '55555-555-5', '1111-1', 'Venta de ropa y accesorios', 'Pequeño', 'Jurídico'),
-    ('Servicios de Limpieza', '+503 8888-8888', 'Calle Limpia 555', '44444-444-4', '2222-2', 'Servicios de Limpieza Residencial', 'Mediano', 'Jurídico');
+INSERT INTO Cliente (Nombre, Telefono, Dirección, NIT, NRC, Giro, Categoria, Tipo_Cliente,Estado) values
+    ('Empresa Tech', '+503 2345-6789', 'Calle Principal 123', '12345-678-9', '9876-5', 'Venta de productos electrónicos', 'Mediano', 'Jurídico','Activo'),
+    ('Consultoría ABC', '+503 555-1234', 'Avenida Central 456', '98765-432-1', '5432-1', 'Servicios de Consultoría Empresarial', 'Grande', 'Jurídico','Activo'),
+    ('Restaurante delicioso', '+503 7890-1234', 'Boulevard Elegante 789', '56789-123-4', '1234-5', 'Restaurante de comida gourmet', 'Pequeño', 'Jurídico','Activo'),
+    ('Tienda Express', '+503 7777-7777', 'Plaza Comercial 321', '5555-555555-555-5', '1111-1', 'Venta de ropa y accesorios', 'Pequeño', 'Jurídico','Activo'),
+    ('Servicios de Limpieza', '+503 8888-8888', 'Calle Limpia 555', '44444-444-4', '2222-2', 'Servicios de Limpieza Residencial', 'Mediano', 'Jurídico','Activo');
 		
-
+		
 	-- -- Insertar usuarios con contraseñas encriptadas
 INSERT INTO Usuario (NombreUsuario, Contraseña, id_Rol)
 VALUES
@@ -323,3 +329,47 @@ SELECT P.Id_Pedido, C.Nombre AS Cliente, E.Nombre AS Empleado, P.Fecha_Pedido as
                 FROM Pedido P
                 INNER JOIN Cliente C ON P.Id_Cliente = C.Id_Cliente
                 INNER JOIN Empleado E ON P.Id_Empleado = E.Id_Empleado;
+
+				select P.Id_Proveedor as "Código de proveedor", p.Nombre,p.Dirección,P.Telefono
+		from Proveedor P
+		
+SELECT P.Id_Proveedor as "Código de proveedor", p.Nombre, p.Dirección, P.Telefono
+FROM proveedor P
+WHERE Nombre LIKE '%{termino}%' AND Estado = 'Activo';
+
+
+update proveedor set Estado= 'Inactivo' where Id_Proveedor= 1 
+
+SELECT DP.Id_Detalle, DP.Id_Pedido as "Número de pedido", DP.Id_Producto as "Código de producto", P.Nombre AS Producto, DP.Cantidad, P.Precio_Unitario AS Precio
+                FROM Detalle_Pedido DP
+               INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto
+                WHERE DP.Id_Pedido = 3
+
+
+				select *
+				from producto
+
+
+				select * from proveedor 
+
+				select P.Id_Producto, P.Nombre as Producto
+				from producto P
+				inner join proveedor PV on P.Id_Proveedor = PV.Id_Proveedor
+				where P.Nombre like '%Tecl%'
+
+			update Producto set stock= 1+12
+			where Id_Producto=1
+
+
+			select * from producto
+
+
+			select P.Id_Producto, P.Nombre as Producto, P.Stock
+                from producto P
+                inner join proveedor PV on P.Id_Proveedor = PV.Id_Proveedor
+            where P.Nombre like '%a%'
+
+			select P.Id_Producto, P.Nombre as Producto,p.Stock
+                from producto P
+               inner join proveedor PV on P.Id_Proveedor = PV.Id_Proveedor
+               where PV.Estado= 'Activo'

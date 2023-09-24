@@ -26,7 +26,7 @@ namespace Interfaces_ptc
         }
         private void Actualizar()
         {
-            dgvProveedores.DataSource = Proveedores.Buscar(txtBuscar.Text);
+            dgvProveedores.DataSource = Proveedor.Buscar(txtBuscar.Text);
         }
         private void btnSalir_Click(object sender, EventArgs e)
         {
@@ -40,7 +40,7 @@ namespace Interfaces_ptc
         private void MostrarProveedores()
         {
             dgvProveedores.DataSource = null;
-            dgvProveedores.DataSource = Proveedores.CargarProveedores();
+            dgvProveedores.DataSource = Proveedor.CargarProveedores();
             dgvProveedores.Columns[0].Visible = false;
         }
         private void LimpiarCampos()
@@ -66,7 +66,7 @@ namespace Interfaces_ptc
                 }
                 else
                 {
-                    Proveedores p = new Proveedores();
+                    Proveedor p = new Proveedor();
                     p.Nombre = txtNombre.Text;
                     p.Direccion = txtDireccion.Text;
                     p.Telefono = txtTelefono.Text;
@@ -96,7 +96,7 @@ namespace Interfaces_ptc
             try
             {
                     int id = int.Parse(dgvProveedores.CurrentRow.Cells[0].Value.ToString());
-                    Proveedores p = new Proveedores();
+                    Proveedor p = new Proveedor();
                     if (p.EliminarProveedores(id) == true)
                     {
                         MessageBox.Show("Proveedor Inactivado satisfactoriamente", "Éxito");
@@ -127,7 +127,7 @@ namespace Interfaces_ptc
             try
             {
 
-                Proveedores p = new Proveedores();
+                Proveedor p = new Proveedor();
                 p.Nombre = txtNombre.Text;
                 p.Direccion = txtDireccion.Text;
                 p.Telefono = txtTelefono.Text;

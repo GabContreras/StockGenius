@@ -38,6 +38,57 @@ namespace Modelos
             ad.Fill(dt);
             return dt;
         }
+        public static DataTable BuscarEnDetallePedido(string termino)
+        {
+            SqlConnection con = Conexion.Conectar();
+            string comando = $"select P.Id_Producto, P.Nombre as Producto\r\n" +
+                $"from producto P\r\n" +
+                $"inner join proveedor PV on P.Id_Proveedor = PV.Id_Proveedor\r\n" +
+                $"where P.Nombre like '%{termino}%'";
+            SqlDataAdapter ad = new SqlDataAdapter(comando, con);
+            DataTable dt = new DataTable();
+            ad.Fill(dt);
+            return dt;
+
+        }
+        public static DataTable BuscarEnproducto(string termino)
+        {
+            SqlConnection con = Conexion.Conectar();
+            string comando = $"select P.Id_Producto, P.Nombre as Producto, P.Stock\r\n" +
+                $"from producto P\r\n" +
+                $"inner join proveedor PV on P.Id_Proveedor = PV.Id_Proveedor\r\n" +
+                $"where P.Nombre like '%{termino}%'";
+            SqlDataAdapter ad = new SqlDataAdapter(comando, con);
+            DataTable dt = new DataTable();
+            ad.Fill(dt);
+            return dt;
+
+        }
+        public static DataTable CargarProductoEnDetallePedido()
+        {
+            SqlConnection con = Conexion.Conectar();
+            string comando = "select P.Id_Producto, P.Nombre as Producto\r\n" +
+                "from producto P\r\n" +
+                "inner join proveedor PV on P.Id_Proveedor = PV.Id_Proveedor\r\n" +
+                "where PV.Estado= 'Activo'";
+            SqlDataAdapter ad = new SqlDataAdapter(comando, con);
+            DataTable dt = new DataTable();
+            ad.Fill(dt);
+            return dt;
+        }
+
+        public static DataTable CargarProductoEnAgregarProducto()
+        {
+            SqlConnection con = Conexion.Conectar();
+            string comando = "select P.Id_Producto, P.Nombre as Producto,p.Stock\r\n" +
+                "from producto P\r\n" +
+                "inner join proveedor PV on P.Id_Proveedor = PV.Id_Proveedor\r\n" +
+                "where PV.Estado= 'Activo'";
+            SqlDataAdapter ad = new SqlDataAdapter(comando, con);
+            DataTable dt = new DataTable();
+            ad.Fill(dt);
+            return dt;
+        }
 
         public static DataTable CargarStock()
         {
@@ -116,18 +167,37 @@ namespace Modelos
             SqlConnection con = Conexion.Conectar();
             string comando = "update Producto \r\n " +
                 "set nombre = @nombre,Descripcion=@descripcion, " +
-                "Stock=@stock, Id_Proveedor= @id_Proveedor," +
+                "Id_Proveedor= @id_Proveedor," +
                 " Precio_Unitario= @Precio_Unitario, imagen=@imagen WHERE Id_Producto = @id";
             SqlCommand cmd = new SqlCommand(comando, con);
 
             cmd.Parameters.AddWithValue("@nombre", nombre);
             cmd.Parameters.AddWithValue("@descripcion", descripcion);
-            cmd.Parameters.AddWithValue("@stock", stock);
             cmd.Parameters.AddWithValue("@Precio_Unitario", precioUnitario);
             cmd.Parameters.AddWithValue("@id_Proveedor", id_Proveedor);
             cmd.Parameters.AddWithValue("@id", id_Producto);
             cmd.Parameters.AddWithValue("@imagen", imagen);
 
+
+            if (cmd.ExecuteNonQuery() > 0)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+        }
+        public bool ActualizarProducto2()
+        {
+            SqlConnection con = Conexion.Conectar();
+            string comando = "update Producto set stock= @stock\r\n" +
+                "where Id_Producto=@id";
+            SqlCommand cmd = new SqlCommand(comando, con);
+
+            cmd.Parameters.AddWithValue("@stock", stock);
+            cmd.Parameters.AddWithValue("@id", id_Producto);
 
             if (cmd.ExecuteNonQuery() > 0)
             {

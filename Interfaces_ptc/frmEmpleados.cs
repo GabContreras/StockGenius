@@ -82,7 +82,7 @@ namespace Interfaces_ptc
         private void MostrarEmpleados()
         {
             dgvEmpleados.DataSource = null;
-            dgvEmpleados.DataSource = Empleados.CargarEmpleados();
+            dgvEmpleados.DataSource = Empleado.CargarEmpleados();
 
             dgvEmpleados.Columns[0].Visible = false;
             dgvEmpleados.Columns[1].Visible = false;
@@ -145,7 +145,7 @@ namespace Interfaces_ptc
 
                     if (U.InsertarUsuario() == true)
                     {
-                        Empleados E = new Empleados();
+                        Empleado E = new Empleado();
                         E.Nombre_Empleado = txtNombre.Text;
                         E.Apellido = txtApellido.Text;
                         E.Telefono = txtTelefono.Text;
@@ -235,7 +235,7 @@ namespace Interfaces_ptc
                     {
                         if (U.ActualizarUsuarioConTxtContraseñaVacio() == true)
                         {
-                            Empleados E = new Empleados();
+                            Empleado E = new Empleado();
                             E.Id_empleado = (int)dgvEmpleados.CurrentRow.Cells[0].Value;
                             E.Nombre_Empleado = txtNombre.Text;
                             E.Apellido = txtApellido.Text;
@@ -257,7 +257,7 @@ namespace Interfaces_ptc
 
                     else if (U.ActualizarUsuario() == true)
                     {
-                        Empleados E = new Empleados();
+                        Empleado E = new Empleado();
                         E.Id_empleado = (int)dgvEmpleados.CurrentRow.Cells[0].Value;
                         E.Nombre_Empleado = txtNombre.Text;
                         E.Apellido = txtApellido.Text;
@@ -287,7 +287,7 @@ namespace Interfaces_ptc
         }
         private void Actualizar()
         {
-            dgvEmpleados.DataSource = Empleados.Buscar(txtBuscar.Text);
+            dgvEmpleados.DataSource = Empleado.Buscar(txtBuscar.Text);
 
             dgvEmpleados.Columns[0].Visible = false;
             dgvEmpleados.Columns[1].Visible = false;
