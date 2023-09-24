@@ -101,11 +101,23 @@
     <Compile Include="frmEmpleados.Designer.cs">
       <DependentUpon>frmEmpleados.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEscogeFecha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEscogeFecha.Designer.cs">
+      <DependentUpon>frmEscogeFecha.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmFactura.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmFactura.Designer.cs">
       <DependentUpon>frmFactura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMiPerfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMiPerfil.Designer.cs">
+      <DependentUpon>frmMiPerfil.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPedido.cs">
       <SubType>Form</SubType>
@@ -149,6 +161,12 @@
     <Compile Include="frmProducto.Designer.cs">
       <DependentUpon>frmProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReporteDeInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteDeInventario.Designer.cs">
+      <DependentUpon>frmReporteDeInventario.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmStock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,8 +193,14 @@
     <EmbeddedResource Include="frmEmpleados.resx">
       <DependentUpon>frmEmpleados.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmEscogeFecha.resx">
+      <DependentUpon>frmEscogeFecha.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmFactura.resx">
       <DependentUpon>frmFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMiPerfil.resx">
+      <DependentUpon>frmMiPerfil.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPedido.resx">
       <DependentUpon>frmPedido.cs</DependentUpon>
@@ -198,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmProducto.resx">
       <DependentUpon>frmProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteDeInventario.resx">
+      <DependentUpon>frmReporteDeInventario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmStock.resx">
       <DependentUpon>frmStock.cs</DependentUpon>

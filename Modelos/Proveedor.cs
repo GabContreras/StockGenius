@@ -41,7 +41,8 @@ namespace Modelos
         {
             SqlConnection con = Conexion.Conectar();
             string comando = "select P.Id_Proveedor, P.Nombre as Proveedor\r\n" +
-                "from Proveedor P\r\nWhere Estado= 'Activo'";
+                "from Proveedor P\r\n" +
+                "Where Estado= 'Activo'";
 
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
             DataTable dt = new DataTable();
@@ -74,6 +75,8 @@ namespace Modelos
             ad.Fill(dt);
             return dt;
         }
+
+      
         public bool InsertarProovedores()
         {
            

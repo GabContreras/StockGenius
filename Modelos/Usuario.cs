@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Modelos
 {
@@ -142,26 +143,47 @@ namespace Modelos
                 return false;
             }
         }
-        public bool RegistrarUsuario()
+        public (Usuario, Empleado) ObtenerInfo()
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = "insert into Usuario(NombreUsuario, contraseña,id_Rol) values\r\n" +
-                "(@nombre, @contraseña, 2)";
+            string comando = "SELECT U.Id_usuario, U.NombreUsuario, U.id_Rol, emp.Nombre, emp.Correo " +
+                             "FROM Usuario U " +
+                             "INNER JOIN Empleado AS emp ON U.Id_Usuario = emp.id_Usuario " +
+                             "WHERE U.NombreUsuario = @username";
             SqlCommand cmd = new SqlCommand(comando, con);
 
-            cmd.Parameters.AddWithValue("@nombre", nombreUsuario);
-            cmd.Parameters.AddWithValue("@contraseña", contraseña);
+            // Enviamos el valor del nombre de usuario para que pueda usarse en el WHERE
+            cmd.Parameters.AddWithValue("@username", nombreUsuario);
 
-            if (cmd.ExecuteNonQuery() > 0)
+            // Ejecutamos el lector
+            SqlDataReader rd = cmd.ExecuteReader();
+
+            if (rd.Read())
             {
-                return true;
-            }
+                // Si se obtuvo una coincidencia, creamos un Usuario y un Empleado
+                Usuario us = new Usuario();
 
+                 us.id_usuario = (int)rd[0];
+                 us.nombreUsuario = (string)rd[1];
+                 us.Id_Rol = (int)rd[2];
+
+
+                Empleado emp = new Empleado();
+
+                    emp.Nombre = (string)rd[3];
+                    emp.Correo = (string)rd[4];
+                
+
+                // Retornamos tanto el Usuario como el Empleado en una tupla
+                return (us,emp);
+            }
             else
             {
-                return false;
+                // Si no hubo coincidencia, retornamos dos valores nulos
+                return (null, null);
             }
         }
+
 
         public static bool VerificarUsuarios()
         {

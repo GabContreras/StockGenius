@@ -28,6 +28,7 @@ namespace Interfaces_ptc
                 btnClienteNatural.Visible = false;
                 btnVentas.Visible = false;
                 btnEmpleado.Visible = false;
+                btnAgregarProductos.Visible = false;    
             }
             if (u.Id_Rol == 3)
             {
@@ -35,6 +36,7 @@ namespace Interfaces_ptc
                 btnClienteNatural.Visible = false;
                 btnVentas.Visible = false;
                 btnEmpleado.Visible = false;
+                btnAgregarProductos.Visible = false;
             }
             else if (u.Id_Rol == 4)
             {
@@ -43,12 +45,14 @@ namespace Interfaces_ptc
                 btnVentas.Visible = false;
                 btnEmpleado.Visible = false;
                 btnProveedores.Visible = false;
+                btnAdministrarProductos.Visible = false;
             }
             else if (u.Id_Rol == 5)
             {
                 btnProveedores.Visible = false;
                 btnProducto.Visible = false;
                 btnEmpleado.Visible = false;
+                btnGenerarReporte.Visible = false;
             }
 
         }
@@ -220,6 +224,24 @@ namespace Interfaces_ptc
         {
             openChildFormInPanel(new frmEmpleados(v));
             OcultarSubMenu();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmEscogeFecha EF= new frmEscogeFecha(v);
+            EF.ShowDialog();
+            OcultarSubMenu();
+        }
+
+        private void frmmenu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMicuenta_Click(object sender, EventArgs e)
+        {
+            frmMiPerfil Mpf = new frmMiPerfil(v);
+            Mpf.ShowDialog();
         }
     }
 }

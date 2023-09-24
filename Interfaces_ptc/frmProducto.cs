@@ -58,6 +58,7 @@ namespace Interfaces_ptc
             dgvProductos.DataSource = null;
             dgvProductos.DataSource = Producto.CargarProducto();
             dgvProductos.Columns[6].Visible = false;
+            dgvProductos.Columns[7].Visible = false;
 
         }
         private void MostrarProveedor()
@@ -137,7 +138,6 @@ namespace Interfaces_ptc
                 {
                     MessageBox.Show(ex.Message);
                 }
-                MostrarProductos();
             }
             else
             {

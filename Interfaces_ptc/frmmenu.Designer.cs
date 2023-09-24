@@ -30,29 +30,31 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmmenu));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panelVentasubMenu = new System.Windows.Forms.Panel();
-            this.btnDetallePedido = new System.Windows.Forms.Button();
-            this.btnAdministrarPedido = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panelContenedor = new System.Windows.Forms.Panel();
+            this.btnMicuenta = new System.Windows.Forms.Button();
+            this.btnGenerarReporte = new System.Windows.Forms.Button();
+            this.btnEmpleado = new System.Windows.Forms.Button();
             this.panelProductossubMenu = new System.Windows.Forms.Panel();
             this.btnAgregarProductos = new System.Windows.Forms.Button();
             this.btnAdministrarProductos = new System.Windows.Forms.Button();
-            this.pbLogo = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.btnEmpleado = new System.Windows.Forms.Button();
             this.btnProducto = new System.Windows.Forms.Button();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.btnClienteJuridico = new System.Windows.Forms.Button();
             this.btnClienteNatural = new System.Windows.Forms.Button();
             this.btnProveedores = new System.Windows.Forms.Button();
+            this.panelVentasubMenu = new System.Windows.Forms.Panel();
+            this.btnDetallePedido = new System.Windows.Forms.Button();
+            this.btnAdministrarPedido = new System.Windows.Forms.Button();
             this.btnVentas = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panelContenedor = new System.Windows.Forms.Panel();
+            this.pbLogo = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            this.panelProductossubMenu.SuspendLayout();
             this.panelVentasubMenu.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelContenedor.SuspendLayout();
-            this.panelProductossubMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
@@ -61,6 +63,8 @@
             // 
             this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(0)))), ((int)(((byte)(90)))));
+            this.panel1.Controls.Add(this.btnMicuenta);
+            this.panel1.Controls.Add(this.btnGenerarReporte);
             this.panel1.Controls.Add(this.btnEmpleado);
             this.panel1.Controls.Add(this.panelProductossubMenu);
             this.panel1.Controls.Add(this.btnProducto);
@@ -77,85 +81,67 @@
             this.panel1.Size = new System.Drawing.Size(250, 687);
             this.panel1.TabIndex = 0;
             // 
-            // panelVentasubMenu
+            // btnMicuenta
             // 
-            this.panelVentasubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(130)))), ((int)(((byte)(173)))));
-            this.panelVentasubMenu.Controls.Add(this.btnDetallePedido);
-            this.panelVentasubMenu.Controls.Add(this.btnAdministrarPedido);
-            this.panelVentasubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelVentasubMenu.Location = new System.Drawing.Point(0, 101);
-            this.panelVentasubMenu.Name = "panelVentasubMenu";
-            this.panelVentasubMenu.Size = new System.Drawing.Size(250, 74);
-            this.panelVentasubMenu.TabIndex = 1;
+            this.btnMicuenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(0)))), ((int)(((byte)(90)))));
+            this.btnMicuenta.BackgroundImage = global::Interfaces_ptc.Properties.Resources.Empleado;
+            this.btnMicuenta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnMicuenta.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMicuenta.FlatAppearance.BorderSize = 0;
+            this.btnMicuenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMicuenta.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMicuenta.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnMicuenta.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnMicuenta.Location = new System.Drawing.Point(0, 557);
+            this.btnMicuenta.Name = "btnMicuenta";
+            this.btnMicuenta.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnMicuenta.Size = new System.Drawing.Size(250, 45);
+            this.btnMicuenta.TabIndex = 15;
+            this.btnMicuenta.Text = "Mi cuenta";
+            this.btnMicuenta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMicuenta.UseVisualStyleBackColor = false;
+            this.btnMicuenta.Click += new System.EventHandler(this.btnMicuenta_Click);
             // 
-            // btnDetallePedido
+            // btnGenerarReporte
             // 
-            this.btnDetallePedido.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnDetallePedido.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDetallePedido.FlatAppearance.BorderSize = 0;
-            this.btnDetallePedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDetallePedido.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDetallePedido.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnDetallePedido.Location = new System.Drawing.Point(0, 34);
-            this.btnDetallePedido.Name = "btnDetallePedido";
-            this.btnDetallePedido.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnDetallePedido.Size = new System.Drawing.Size(250, 40);
-            this.btnDetallePedido.TabIndex = 2;
-            this.btnDetallePedido.Text = "Detalle Pedido";
-            this.btnDetallePedido.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDetallePedido.UseVisualStyleBackColor = true;
-            this.btnDetallePedido.Click += new System.EventHandler(this.btnFactura_Click);
+            this.btnGenerarReporte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(0)))), ((int)(((byte)(90)))));
+            this.btnGenerarReporte.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnGenerarReporte.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnGenerarReporte.FlatAppearance.BorderSize = 0;
+            this.btnGenerarReporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGenerarReporte.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Bold);
+            this.btnGenerarReporte.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnGenerarReporte.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGenerarReporte.Location = new System.Drawing.Point(0, 512);
+            this.btnGenerarReporte.Name = "btnGenerarReporte";
+            this.btnGenerarReporte.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnGenerarReporte.Size = new System.Drawing.Size(250, 45);
+            this.btnGenerarReporte.TabIndex = 14;
+            this.btnGenerarReporte.Text = "Generar reporte de \r\ninventario";
+            this.btnGenerarReporte.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGenerarReporte.UseVisualStyleBackColor = false;
+            this.btnGenerarReporte.Click += new System.EventHandler(this.button1_Click);
             // 
-            // btnAdministrarPedido
+            // btnEmpleado
             // 
-            this.btnAdministrarPedido.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAdministrarPedido.FlatAppearance.BorderSize = 0;
-            this.btnAdministrarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdministrarPedido.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdministrarPedido.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAdministrarPedido.Location = new System.Drawing.Point(0, 0);
-            this.btnAdministrarPedido.Name = "btnAdministrarPedido";
-            this.btnAdministrarPedido.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnAdministrarPedido.Size = new System.Drawing.Size(250, 34);
-            this.btnAdministrarPedido.TabIndex = 1;
-            this.btnAdministrarPedido.Text = "Administrar Pedido";
-            this.btnAdministrarPedido.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdministrarPedido.UseVisualStyleBackColor = true;
-            this.btnAdministrarPedido.Click += new System.EventHandler(this.btnDetallePedido_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(250, 55);
-            this.panel2.TabIndex = 0;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Cambria", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(3, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(245, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Bienvenido a StockGenius";
-            // 
-            // panelContenedor
-            // 
-            this.panelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(124)))));
-            this.panelContenedor.Controls.Add(this.pbLogo);
-            this.panelContenedor.Controls.Add(this.pictureBox5);
-            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedor.Location = new System.Drawing.Point(250, 0);
-            this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(934, 687);
-            this.panelContenedor.TabIndex = 4;
+            this.btnEmpleado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(0)))), ((int)(((byte)(90)))));
+            this.btnEmpleado.BackgroundImage = global::Interfaces_ptc.Properties.Resources.Empleado;
+            this.btnEmpleado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnEmpleado.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnEmpleado.FlatAppearance.BorderSize = 0;
+            this.btnEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEmpleado.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmpleado.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnEmpleado.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEmpleado.Location = new System.Drawing.Point(0, 467);
+            this.btnEmpleado.Name = "btnEmpleado";
+            this.btnEmpleado.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnEmpleado.Size = new System.Drawing.Size(250, 45);
+            this.btnEmpleado.TabIndex = 13;
+            this.btnEmpleado.Text = "Empleados";
+            this.btnEmpleado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEmpleado.UseVisualStyleBackColor = false;
+            this.btnEmpleado.Click += new System.EventHandler(this.btnEmpleado_Click_2);
             // 
             // panelProductossubMenu
             // 
@@ -202,47 +188,6 @@
             this.btnAdministrarProductos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAdministrarProductos.UseVisualStyleBackColor = true;
             this.btnAdministrarProductos.Click += new System.EventHandler(this.btnAdministrarProductos_Click);
-            // 
-            // pbLogo
-            // 
-            this.pbLogo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
-            this.pbLogo.Location = new System.Drawing.Point(0, 0);
-            this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(934, 687);
-            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbLogo.TabIndex = 0;
-            this.pbLogo.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Location = new System.Drawing.Point(6, 297);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(46, 39);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 11;
-            this.pictureBox5.TabStop = false;
-            // 
-            // btnEmpleado
-            // 
-            this.btnEmpleado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(0)))), ((int)(((byte)(90)))));
-            this.btnEmpleado.BackgroundImage = global::Interfaces_ptc.Properties.Resources.Empleado;
-            this.btnEmpleado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnEmpleado.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnEmpleado.FlatAppearance.BorderSize = 0;
-            this.btnEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEmpleado.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEmpleado.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnEmpleado.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEmpleado.Location = new System.Drawing.Point(0, 467);
-            this.btnEmpleado.Name = "btnEmpleado";
-            this.btnEmpleado.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnEmpleado.Size = new System.Drawing.Size(250, 45);
-            this.btnEmpleado.TabIndex = 13;
-            this.btnEmpleado.Text = "Empleados";
-            this.btnEmpleado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEmpleado.UseVisualStyleBackColor = false;
-            this.btnEmpleado.Click += new System.EventHandler(this.btnEmpleado_Click_2);
             // 
             // btnProducto
             // 
@@ -341,6 +286,52 @@
             this.btnProveedores.UseVisualStyleBackColor = true;
             this.btnProveedores.Click += new System.EventHandler(this.btnProveedor_Click);
             // 
+            // panelVentasubMenu
+            // 
+            this.panelVentasubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(130)))), ((int)(((byte)(173)))));
+            this.panelVentasubMenu.Controls.Add(this.btnDetallePedido);
+            this.panelVentasubMenu.Controls.Add(this.btnAdministrarPedido);
+            this.panelVentasubMenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelVentasubMenu.Location = new System.Drawing.Point(0, 101);
+            this.panelVentasubMenu.Name = "panelVentasubMenu";
+            this.panelVentasubMenu.Size = new System.Drawing.Size(250, 74);
+            this.panelVentasubMenu.TabIndex = 1;
+            // 
+            // btnDetallePedido
+            // 
+            this.btnDetallePedido.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnDetallePedido.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDetallePedido.FlatAppearance.BorderSize = 0;
+            this.btnDetallePedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDetallePedido.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDetallePedido.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnDetallePedido.Location = new System.Drawing.Point(0, 34);
+            this.btnDetallePedido.Name = "btnDetallePedido";
+            this.btnDetallePedido.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnDetallePedido.Size = new System.Drawing.Size(250, 40);
+            this.btnDetallePedido.TabIndex = 2;
+            this.btnDetallePedido.Text = "Detalle Pedido";
+            this.btnDetallePedido.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDetallePedido.UseVisualStyleBackColor = true;
+            this.btnDetallePedido.Click += new System.EventHandler(this.btnFactura_Click);
+            // 
+            // btnAdministrarPedido
+            // 
+            this.btnAdministrarPedido.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAdministrarPedido.FlatAppearance.BorderSize = 0;
+            this.btnAdministrarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdministrarPedido.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdministrarPedido.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnAdministrarPedido.Location = new System.Drawing.Point(0, 0);
+            this.btnAdministrarPedido.Name = "btnAdministrarPedido";
+            this.btnAdministrarPedido.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnAdministrarPedido.Size = new System.Drawing.Size(250, 34);
+            this.btnAdministrarPedido.TabIndex = 1;
+            this.btnAdministrarPedido.Text = "Administrar Pedido";
+            this.btnAdministrarPedido.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAdministrarPedido.UseVisualStyleBackColor = true;
+            this.btnAdministrarPedido.Click += new System.EventHandler(this.btnDetallePedido_Click);
+            // 
             // btnVentas
             // 
             this.btnVentas.BackgroundImage = global::Interfaces_ptc.Properties.Resources.Ventas1;
@@ -361,6 +352,60 @@
             this.btnVentas.UseVisualStyleBackColor = true;
             this.btnVentas.Click += new System.EventHandler(this.btnPedidos_Click);
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(250, 55);
+            this.panel2.TabIndex = 0;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Cambria", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(3, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(245, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Bienvenido a StockGenius";
+            // 
+            // panelContenedor
+            // 
+            this.panelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(124)))));
+            this.panelContenedor.Controls.Add(this.pbLogo);
+            this.panelContenedor.Controls.Add(this.pictureBox5);
+            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContenedor.Location = new System.Drawing.Point(250, 0);
+            this.panelContenedor.Name = "panelContenedor";
+            this.panelContenedor.Size = new System.Drawing.Size(934, 687);
+            this.panelContenedor.TabIndex = 4;
+            // 
+            // pbLogo
+            // 
+            this.pbLogo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
+            this.pbLogo.Location = new System.Drawing.Point(0, 0);
+            this.pbLogo.Name = "pbLogo";
+            this.pbLogo.Size = new System.Drawing.Size(934, 687);
+            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLogo.TabIndex = 0;
+            this.pbLogo.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Location = new System.Drawing.Point(6, 297);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(46, 39);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 11;
+            this.pictureBox5.TabStop = false;
+            // 
             // frmmenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -377,14 +422,16 @@
             this.MinimumSize = new System.Drawing.Size(1200, 726);
             this.Name = "frmmenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "StockGenius";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmmenu_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmmenu_FormClosed);
+            this.Load += new System.EventHandler(this.frmmenu_Load);
             this.panel1.ResumeLayout(false);
+            this.panelProductossubMenu.ResumeLayout(false);
             this.panelVentasubMenu.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panelContenedor.ResumeLayout(false);
-            this.panelProductossubMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
@@ -412,5 +459,7 @@
         private System.Windows.Forms.Button btnAdministrarProductos;
         private System.Windows.Forms.Button btnProducto;
         private System.Windows.Forms.Button btnEmpleado;
+        private System.Windows.Forms.Button btnMicuenta;
+        private System.Windows.Forms.Button btnGenerarReporte;
     }
 }

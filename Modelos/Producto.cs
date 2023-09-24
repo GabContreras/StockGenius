@@ -30,9 +30,11 @@ namespace Modelos
         public static DataTable CargarProducto()
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = "SELECT P.Id_Producto, P.Nombre , P.Descripcion, P.Stock, P.Precio_Unitario as Precio, " +
-                "Pr.Nombre AS Proveedor, P.imagen as imagen\r\n " +
-                " FROM Producto P \r\nINNER JOIN Proveedor Pr ON P.Id_Proveedor = Pr.Id_Proveedor";
+            string comando = "SELECT P.Id_Producto as \"Código de producto\"," +
+                "P.Nombre , P.Descripcion as Descripción, P.Stock, P.Precio_Unitario as Precio,\r\n" +
+                "Pr.Nombre AS Proveedor, P.imagen as imagen, Pr.Id_Proveedor \r\n" +
+                "FROM Producto P\r\n" +
+                "INNER JOIN Proveedor Pr ON P.Id_Proveedor = Pr.Id_Proveedor";
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
             DataTable dt = new DataTable();
             ad.Fill(dt);
@@ -51,19 +53,7 @@ namespace Modelos
             return dt;
 
         }
-        public static DataTable BuscarEnproducto(string termino)
-        {
-            SqlConnection con = Conexion.Conectar();
-            string comando = $"select P.Id_Producto, P.Nombre as Producto, P.Stock\r\n" +
-                $"from producto P\r\n" +
-                $"inner join proveedor PV on P.Id_Proveedor = PV.Id_Proveedor\r\n" +
-                $"where P.Nombre like '%{termino}%'";
-            SqlDataAdapter ad = new SqlDataAdapter(comando, con);
-            DataTable dt = new DataTable();
-            ad.Fill(dt);
-            return dt;
-
-        }
+       
         public static DataTable CargarProductoEnDetallePedido()
         {
             SqlConnection con = Conexion.Conectar();
@@ -77,19 +67,7 @@ namespace Modelos
             return dt;
         }
 
-        public static DataTable CargarProductoEnAgregarProducto()
-        {
-            SqlConnection con = Conexion.Conectar();
-            string comando = "select P.Id_Producto, P.Nombre as Producto,p.Stock\r\n" +
-                "from producto P\r\n" +
-                "inner join proveedor PV on P.Id_Proveedor = PV.Id_Proveedor\r\n" +
-                "where PV.Estado= 'Activo'";
-            SqlDataAdapter ad = new SqlDataAdapter(comando, con);
-            DataTable dt = new DataTable();
-            ad.Fill(dt);
-            return dt;
-        }
-
+       
         public static DataTable CargarStock()
         {
             SqlConnection con = Conexion.Conectar();

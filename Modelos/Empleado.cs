@@ -46,6 +46,7 @@ namespace Modelos
             return dt;
 
         }
+
         public static DataTable CargarEmpleados2()
         {
             SqlConnection con = Conexion.Conectar();

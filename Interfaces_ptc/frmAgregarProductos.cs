@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlTypes;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -34,6 +35,8 @@ namespace Interfaces_ptc
             dgvProductos.DataSource = null;
             dgvProductos.DataSource = Producto.CargarProducto();
             dgvProductos.Columns[6].Visible = false;
+            dgvProductos.Columns[7].Visible = false;
+
         }
         private void Actualizar()
         {
@@ -50,18 +53,68 @@ namespace Interfaces_ptc
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            Producto p = new Producto();
-            int StockActual= (int)dgvProductos.CurrentRow.Cells[3].Value;
-            p.Id_Producto = (int)dgvProductos.CurrentRow.Cells[0].Value;
-            p.Stock = int.Parse(txtCantidad.Text)+ StockActual;
-            if (p.ActualizarProducto2() == true)
+            try
             {
-                MessageBox.Show("Producto actualizado satisfactoriamente", "Éxito");
-                MostrarProductos();
+                int Id_producto = (int)dgvProductos.CurrentRow.Cells[0].Value;
+                int Id_proveedor = (int)dgvProductos.CurrentRow.Cells[7].Value;
+                IngresoProducto IP = new IngresoProducto();
+
+                string estadoProveedor = IP.ObtenerEstadoProveedor(Id_proveedor);
+
+                if (estadoProveedor.Equals("Inactivo"))
+                {
+                    MessageBox.Show("No se puede agregar stock a si el proveedor está inactivo.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return; // No continuar la ejecución del código
+                }
+                if (txtCantidad.Text == "")
+                {
+                    MessageBox.Show("no dejar campos vacíos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else if (txtCantidad.Text == "0")
+                {
+                    MessageBox.Show("Ingrese una cantidad válida", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    int Cantidad = int.Parse(txtCantidad.Text);
+                    IP.Id_producto = Id_producto;
+                    IP.Fecha_ingreso = DateTime.Now;
+                    IP.Cantidad = Cantidad;
+                    if (IP.ingresarProducto() == true)
+                    {
+                        Producto p = new Producto();
+                        int StockActual = (int)dgvProductos.CurrentRow.Cells[3].Value;
+                        p.Id_Producto = Id_producto;
+                        p.Stock = Cantidad + StockActual;
+                        if (p.ActualizarProducto2() == true)
+                        {
+                            MessageBox.Show("Stock actualizado satisfactoriamente", "Éxito");
+                            MostrarProductos();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Se produjo un error", "Advertencia");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Se produjo un error", "Advertencia");
+                    }
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Se produjo un error", "Advertencia");
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si el carácter es un número
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                MessageBox.Show("Solo números son permitidos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
             }
         }
     }

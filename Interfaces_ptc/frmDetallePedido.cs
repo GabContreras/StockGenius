@@ -108,9 +108,9 @@ namespace Interfaces_ptc
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            MostrarDetallePedido((int)cbPedido.SelectedValue);
+                MostrarDetallePedido((int)cbPedido.SelectedValue);
 
-                 int pedidoId = (int)cbPedido.SelectedValue;
+                int pedidoId = (int)cbPedido.SelectedValue;
                 Pedido pd = new Pedido();
                 // Obtener el estado del pedido
                 string estadoPedido = pd.ObtenerEstadoPedido(pedidoId);
