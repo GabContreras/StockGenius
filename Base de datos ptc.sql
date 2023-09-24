@@ -90,12 +90,13 @@ on update cascade
 );
 go
 
-Create table IngresoProducto(
+Create table Ingreso_Producto(
 Id_Ingreso int Primary key identity(1,1),
 fecha_Ingreso Date not null,
+cantidad int not null, 
 Id_Producto int,
 
-constraint FK_Producto
+constraint FK_Producto2
 FOREIGN KEY (Id_Producto) references Producto(Id_Producto)
 on delete no action 
 on update cascade
@@ -138,8 +139,10 @@ values ('Administrador'),--ya
 ('Comprador'),--ya
 ('Gerente de compras'),--ya
 ('Encargado de bodega'),--ya
-('Vendedor');--ya
+('Vendedor'),
+('Master Admin');--ya
 go
+
 
 -- Create a filtered unique index for NIT column
 CREATE UNIQUE INDEX UX_NIT_Unique ON Cliente (NIT) WHERE NIT IS NOT NULL;
@@ -167,21 +170,20 @@ VALUES
 -- Insertar productos (hasta alcanzar 20 registros)
 INSERT INTO Producto (Nombre, Descripcion, Stock, Id_Proveedor, Precio_Unitario)
 VALUES
-    ('Smartphone Galaxy S22', 'Potente smartphone con cámara de alta resolución', 100, 1, 699.99),
-    ('Laptop Ultrabook X1', 'Laptop ultradelgada con pantalla táctil', 50, 2, 1199.99),
-    ('Tablet Android Pro', 'Tablet de alto rendimiento con sistema Android', 75, 1, 299.99),
-    ('TV LED 4K 55 pulgadas', 'Televisor con resolución 4K y pantalla LED', 200, 3, 699.99),
-    ('Auriculares Inalámbricos X2', 'Auriculares Bluetooth con cancelación de ruido', 150, 1, 149.99),
-    ('Cámara DSLR 24MP', 'Cámara réflex digital de alta calidad', 80, 2, 899.99),
-    ('Impresora Multifunción', 'Impresora láser multifunción de alta velocidad', 120, 4, 299.99),
-    ('Monitor Curvo 27 pulgadas', 'Monitor de computadora con pantalla curva', 60, 5, 349.99),
-    ('Teclado Mecánico RGB', 'Teclado para juegos mecánico con retroiluminación', 90, 1, 99.99),
-    ('Mouse Gaming G3', 'Mouse ergonómico de alto rendimiento para juegos', 40, 2, 49.99),
-    ('Router Wi-Fi 6', 'Router inalámbrico de última generación', 65, 1, 199.99),
-    ('Disco Duro Externo 2TB', 'Almacenamiento externo de gran capacidad', 110, 2, 79.99),
-    ('Altavoces Bluetooth X5', 'Altavoces inalámbricos con calidad de sonido premium', 30, 1, 149.99),
-    ('Smartwatch Fitness Pro', 'Reloj inteligente con seguimiento de actividad física', 85, 2, 129.99),
-    ('Tarjeta Gráfica GTX 3080', 'Tarjeta gráfica de alto rendimiento para juegos', 70, 1, 699.99);
+    ('Smartphone Galaxy S22', 'Potente smartphone con cámara de alta resolución', 0, 1, 699.99),
+    ('Laptop Ultrabook X1', 'Laptop ultradelgada con pantalla táctil', 0, 2, 1199.99),
+    ('Tablet Android Pro', 'Tablet de alto rendimiento con sistema Android', 0, 1, 299.99),
+    ('TV LED 4K 55 pulgadas', 'Televisor con resolución 4K y pantalla LED', 0, 3, 699.99),
+    ('Auriculares Inalámbricos X2', 'Auriculares Bluetooth con cancelación de ruido', 0, 1, 149.99),
+    ('Cámara DSLR 24MP', 'Cámara réflex digital de alta calidad', 0, 2, 899.99),
+    ('Impresora Multifunción', 'Impresora láser multifunción de alta velocidad', 0, 4, 299.99),
+    ('Monitor Curvo 27 pulgadas', 'Monitor de computadora con pantalla curva', 0, 5, 349.99),
+    ('Teclado Mecánico RGB', 'Teclado para juegos mecánico con retroiluminación', 0, 1, 99.99),
+    ('Mouse Gaming G3', 'Mouse ergonómico de alto rendimiento para juegos', 0, 2, 49.99);
+	go
+
+
+
 
 insert into Cliente(Nombre, Apellido, DUI, Telefono, Dirección, Edad,Tipo_Cliente,Estado) values 
                 ('Marcelo josé', 'Hernández Hernández', '12345678-9', '+503 8745-9874', 'Avenida el pepe', 18,'Natural','Activo'),
@@ -228,7 +230,15 @@ SELECT DP.id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Producto,DP.cantida
                 INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto
                 where DP.Id_Pedido= 1
 
-				select * from empleado
+SELECT E.Id_Empleado, E.Nombre, E.Apellido, E.DUI, R.Nombre
+FROM Empleado E
+INNER JOIN Usuario U ON E.Id_Usuario = U.Id_usuario
+inner join Rol R on U.id_Rol= R.id_Rol
+where R.Nombre= 'Vendedor'
+
+select c.Id_Cliente, c.Nombre as NombreCliente,c.DUI ,c.Nit as NIT,c.NRC
+                from cliente c
+				where C.Estado= 'Activo'
 
 	SELECT DP.id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Producto,DP.cantidad,P.Precio_Unitario as Precio, Pd.Estado
                 FROM detalle_pedido DP
@@ -274,6 +284,11 @@ BEGIN
     SET Stock = Stock + @CantidadEliminada
     WHERE Id_Producto = @Id_Producto;
 END;
+
+
+
+
+
 
 SELECT P.Id_Pedido, p.Estado
                 FROM Pedido P
@@ -373,3 +388,19 @@ SELECT DP.Id_Detalle, DP.Id_Pedido as "Número de pedido", DP.Id_Producto as "Cód
                 from producto P
                inner join proveedor PV on P.Id_Proveedor = PV.Id_Proveedor
                where PV.Estado= 'Activo'
+
+			SELECT P.Id_Producto, P.Nombre AS Producto, 
+       ISNULL(SUM(DP.Cantidad), 0) AS Stock_Inicial
+FROM Producto P
+LEFT JOIN Detalle_Pedido DP ON P.Id_Producto = DP.Id_Producto
+GROUP BY P.Id_Producto, P.Nombre;
+
+select * from producto
+
+SELECT Estado FROM proveedor WHERE Id_Proveedor = 1;
+
+SELECT P.Id_Producto as "Código de producto", P.Nombre , P.Descripcion as Descripción, P.Stock, P.Precio_Unitario as Precio,
+                Pr.Nombre AS Proveedor, P.imagen as imagen, Pr.Id_Proveedor 
+                 FROM Producto P
+				INNER JOIN Proveedor Pr ON P.Id_Proveedor = Pr.Id_Proveedor
+

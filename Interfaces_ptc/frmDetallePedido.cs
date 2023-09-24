@@ -60,8 +60,8 @@ namespace Interfaces_ptc
 
                 //El valor que se muestra en el combobox
                 //Se coloca el nombre de la columna en la tabla
-                cbPedido.DisplayMember = "Id_Pedido";
-                cbPedido.ValueMember = "Id_Pedido";
+                cbPedido.DisplayMember = "Número de pedido";
+                cbPedido.ValueMember = "Número de pedido";
             }
 
             //Bloque de código por si da error
@@ -108,6 +108,9 @@ namespace Interfaces_ptc
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            try
+            {
+
                 MostrarDetallePedido((int)cbPedido.SelectedValue);
 
                 int pedidoId = (int)cbPedido.SelectedValue;
@@ -134,8 +137,8 @@ namespace Interfaces_ptc
                 {
                     MessageBox.Show("Escoja un número de pedido primero");
                 }
-               else if (dgvProducto.SelectedRows.Count < 0)
-               {
+                else if (dgvProducto.SelectedRows.Count < 0)
+                {
                     MessageBox.Show("Escoja un producto primero");
                 }
                 else
@@ -170,8 +173,12 @@ namespace Interfaces_ptc
                         MessageBox.Show("La cantidad solicitada excede el stock disponible", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                 }
-            
-          
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
 

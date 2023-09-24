@@ -27,7 +27,7 @@ namespace Modelos
         public static DataTable CargarPedido()
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = "SELECT P.Id_Pedido, C.Nombre AS Cliente, E.Nombre AS Empleado, P.Fecha_Pedido as Fecha, p.Estado, C.Tipo_Cliente as \"Tipo De Cliente\"\r\n" +
+            string comando = "SELECT P.Id_Pedido as \"Número de pedido\", C.Nombre AS Cliente, E.Nombre AS Empleado, P.Fecha_Pedido as Fecha, p.Estado, C.Tipo_Cliente as \"Tipo De Cliente\"\r\n" +
                 "FROM Pedido P\r\n" +
                 "INNER JOIN Cliente C ON P.Id_Cliente = C.Id_Cliente\r\n" +
                 "INNER JOIN Empleado E ON P.Id_Empleado = E.Id_Empleado;";
@@ -163,7 +163,7 @@ namespace Modelos
         public static DataTable Buscar(string termino)
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = $"SELECT P.Id_Pedido, C.Nombre AS Cliente, E.Nombre AS Empleado, P.Fecha_Pedido as Fecha, p.Estado, C.Tipo_Cliente as \"Tipo De Cliente\"\r\n  " +
+            string comando = $"SELECT P.Id_Pedido as \"Número de pedido\", C.Nombre AS Cliente, E.Nombre AS Empleado, P.Fecha_Pedido as Fecha, p.Estado, C.Tipo_Cliente as \"Tipo De Cliente\"\r\n  " +
                 $"FROM Pedido P\r\n" +
                 $"INNER JOIN Cliente C ON P.Id_Cliente = C.Id_Cliente\r\n" +
                 $"INNER JOIN Empleado E ON P.Id_Empleado = E.Id_Empleado\r\n" +

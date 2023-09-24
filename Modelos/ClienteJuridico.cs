@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.SqlServer.Server;
 
 namespace Modelos
 {
@@ -19,6 +20,7 @@ namespace Modelos
         private string direccion;
         private string telefono;
         private string tipo_cliente;
+        private string estado;
         public int Id_cliente { get => id_cliente; set => id_cliente = value; }
         public string NombreEmpresa { get => nombreEmpresa; set => nombreEmpresa = value; }
         public string NIT { get => nIT; set => nIT = value; }
@@ -28,11 +30,12 @@ namespace Modelos
         public string Direccion { get => direccion; set => direccion = value; }
         public string Telefono { get => telefono; set => telefono = value; }
         public string Tipo_cliente { get => tipo_cliente; set => tipo_cliente = value; }
+        public string Estado { get => estado; set => estado = value; }
 
         public static DataTable CargarClientes()
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = "SELECT Id_Cliente, Nombre as NombreEmpresa,Telefono, Dirección, NIT, NRC, Giro, Categoria\r\n " +
+            string comando = "SELECT Id_Cliente as \"Código de cliente\", Nombre as NombreEmpresa,Telefono, Dirección, NIT, NRC, Giro, Categoria\r\n " +
                 " FROM Cliente\r\n " +
                 " WHERE NIT IS NOT NULL AND NRC IS NOT NULL AND Giro IS NOT NULL AND Categoria IS NOT NULL AND Estado = 'Activo';\r\n";
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
@@ -74,7 +77,7 @@ namespace Modelos
         public bool EliminarCliente(int Id)
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = "";
+            string comando = "update Cliente set Estado= 'Inactivo' where Id_Cliente=@Id_Cliente";
             SqlCommand cmd = new SqlCommand(comando, con);
             cmd.Parameters.AddWithValue("@Id_Cliente", Id);
 
@@ -118,7 +121,7 @@ namespace Modelos
         public static DataTable Buscar(string termino)
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = $"SELECT Id_Cliente, Nombre as NombreEmpresa,Telefono, Dirección, NIT, NRC, Giro, Categoria\r\n" +
+            string comando = $"SELECT Id_Cliente as \"Código de cliente\", Nombre as NombreEmpresa,Telefono, Dirección, NIT, NRC, Giro, Categoria\r\n" +
                 $"FROM Cliente\r\n" +
                 $"WHERE NIT IS NOT NULL AND NRC IS NOT NULL AND Giro IS NOT NULL AND Categoria IS NOT NULL AND Estado = 'Activo' and Cliente.Nombre like '%{termino}%';";
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);

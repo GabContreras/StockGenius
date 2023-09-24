@@ -146,7 +146,7 @@ namespace Interfaces_ptc
                 ClienteNatural p = new ClienteNatural();
                 if (p.EliminarCliente(id) == true)
                 {
-                    MessageBox.Show("Cliente eliminado satisfactoriamente", "Éxito");
+                    MessageBox.Show("Cliente inhabilitado satisfactoriamente", "Éxito");
                     MostrarClientes();
                     LimpiarCampos();
                 }

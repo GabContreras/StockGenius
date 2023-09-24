@@ -27,7 +27,7 @@ namespace Modelos
         {
             SqlConnection con = Conexion.Conectar();
             string comando = "SELECT P.Id_Proveedor AS \"Código de proveedor\", " +
-                             "p.Nombre, p.Dirección, P.Telefono " +
+                             "p.Nombre, p.Dirección, P.Telefono as Teléfono " +
                              "FROM Proveedor P " +
                              "WHERE Estado = 'Activo';";
 
@@ -55,7 +55,7 @@ namespace Modelos
         {
             SqlConnection con = Conexion.Conectar();
             string comando = $"SELECT P.Id_Proveedor as \"Código de proveedor\"," +
-                $"p.Nombre, p.Dirección, P.Telefono\r\nFROM proveedor P" +
+                $"p.Nombre, p.Dirección, P.Telefono as Teléfono\r\nFROM proveedor P" +
                 $"\r\nWHERE Nombre LIKE '%{termino}%' AND Estado = 'Activo';";
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
 

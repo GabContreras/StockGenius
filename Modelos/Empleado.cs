@@ -50,7 +50,10 @@ namespace Modelos
         public static DataTable CargarEmpleados2()
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = "SELECT Id_Empleado ,concat (Nombre,' ', Apellido, ', ', DUI ) as 'Empleado' from Empleado;\r\n";
+            string comando = "SELECT E.Id_Empleado, E.Nombre, E.Apellido, E.DUI, R.Nombre\r\n" +
+                "FROM Empleado E\r\nINNER JOIN Usuario U ON E.Id_Usuario = U.Id_usuario\r\n" +
+                "inner join Rol R on U.id_Rol= R.id_Rol\r\n" +
+                "where R.Nombre= 'Vendedor'";
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
 
             DataTable dt = new DataTable();

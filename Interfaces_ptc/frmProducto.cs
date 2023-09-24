@@ -20,13 +20,11 @@ namespace Interfaces_ptc
 
             if (u.Id_Rol == 2)
             {
-                btnEliminar.Visible = false;
            
             }
            
             else if (u.Id_Rol == 4)
             {
-                btnEliminar.Visible = false; 
                 btnAgregar.Visible= false;  
             }
             

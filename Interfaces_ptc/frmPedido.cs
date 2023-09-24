@@ -38,7 +38,6 @@ namespace Interfaces_ptc
             CargarEmple();
             MostrarPedido();
             MostrarClientes(); 
-            cbEmpleado.SelectedIndex = -1;
             ActualizarCliente();
             ActualizarPedido();
         }
@@ -63,16 +62,11 @@ namespace Interfaces_ptc
             //El código que puede dar error
             try
             {
-                cbEmpleado.DataSource = null;
-                cbEmpleado.DataSource = Empleado.CargarEmpleados2();
+                dgvEmpleado.DataSource = null;
+                dgvEmpleado.DataSource = Empleado.CargarEmpleados2();
+                dgvEmpleado.Columns[0].Visible = false;
+                dgvEmpleado.Columns[4].Visible = false;
 
-                //El valor que se muestra en el combobox
-                //Se coloca el nombre de la columna en la tabla
-                cbEmpleado.DisplayMember = "Empleado";
-
-                //Valor que no se muestra (id)
-                //Se coloca el nombre de la columna en la tabla
-                cbEmpleado.ValueMember = "Id_Empleado";
             }
 
             //Bloque de código por si da error
@@ -88,14 +82,13 @@ namespace Interfaces_ptc
             {   
                 Pedido p = new Pedido();
                 p.Id_Cliente = (int)dgvCliente.CurrentRow.Cells[0].Value;
-                p.Id_Empleado = (int)cbEmpleado.SelectedValue;
+                p.Id_Empleado = (int)dgvEmpleado.CurrentRow.Cells[0].Value; 
                 p.Fecha_Pedido = DateTime.Now;
                 p.Estado = "En proceso";
                 if (p.InsertarPedido() == true)
                 {
                     MessageBox.Show("Pedido agregado satisfactoriamente", "Éxito");
                     MostrarPedido();
-                    LimpiarCampos();
                 }
                 else
                 {
@@ -110,10 +103,7 @@ namespace Interfaces_ptc
             }
         } 
 
-        private void LimpiarCampos()
-        {
-            cbEmpleado.SelectedIndex = -1;
-        }
+    
         private void btnEliminar_Click(object sender, EventArgs e)
         {
            
@@ -140,13 +130,12 @@ namespace Interfaces_ptc
                     Pedido p = new Pedido();
                     p.Id_Pedido = (int)dgvPedido.CurrentRow.Cells[0].Value;
                     p.Id_Cliente = (int)dgvCliente.CurrentRow.Cells[0].Value;
-                    p.Id_Empleado = (int)cbEmpleado.SelectedValue;
+                    p.Id_Empleado = (int)dgvEmpleado.CurrentRow.Cells[0].Value;
 
                     if (p.ActualizarPedido() == true)
                     {
                         MessageBox.Show("Pedido actualizado satisfactoriamente", "Éxito");
                         MostrarPedido();
-                        LimpiarCampos();
                     }
                     else
                     {
@@ -190,6 +179,11 @@ namespace Interfaces_ptc
                 p.AnularPedido();
                 MessageBox.Show("Pedido anulado satisfactoriamente", "Éxito");
             MostrarPedido();
+
+        }
+
+        private void txtBuscarEmpleado_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

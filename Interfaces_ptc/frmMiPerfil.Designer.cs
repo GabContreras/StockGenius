@@ -38,7 +38,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtContraseña = new System.Windows.Forms.TextBox();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnCerrar
@@ -128,19 +129,29 @@
             this.label5.TabIndex = 16;
             this.label5.Text = "Contraseña:";
             // 
-            // textBox1
+            // txtContraseña
             // 
-            this.textBox1.Location = new System.Drawing.Point(116, 217);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(245, 20);
-            this.textBox1.TabIndex = 17;
+            this.txtContraseña.Location = new System.Drawing.Point(116, 217);
+            this.txtContraseña.Name = "txtContraseña";
+            this.txtContraseña.Size = new System.Drawing.Size(245, 20);
+            this.txtContraseña.TabIndex = 17;
+            // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(59, 257);
+            this.txtId.Name = "txtId";
+            this.txtId.ReadOnly = true;
+            this.txtId.Size = new System.Drawing.Size(245, 20);
+            this.txtId.TabIndex = 18;
+            this.txtId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // frmMiPerfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(373, 398);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtId);
+            this.Controls.Add(this.txtContraseña);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.txtUsuario);
@@ -171,6 +182,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtContraseña;
+        private System.Windows.Forms.TextBox txtId;
     }
 }

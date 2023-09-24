@@ -116,9 +116,10 @@ namespace Interfaces_ptc
             {
                 int id = int.Parse(dgvClientes.CurrentRow.Cells[0].Value.ToString());
                 ClienteJuridico p = new ClienteJuridico();
+                
                 if (p.EliminarCliente(id) == true)
                 {
-                    MessageBox.Show("Cliente eliminado satisfactoriamente", "Éxito");
+                    MessageBox.Show("Cliente Inhabilitado satisfactoriamente", "Éxito");
                     MostrarClientes();
                     LimpiarCampos();
                 }

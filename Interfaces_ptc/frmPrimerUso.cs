@@ -35,7 +35,7 @@ namespace Interfaces_ptc
                     Usuario us = new Usuario();
                     us.NombreUsuario = txtNombreUsuario.Text;
                     us.Contraseña = encr.Encriptar(txtContraseña.Text);
-                    us.Id_Rol = 1;
+                    us.Id_Rol = 6;
 
                     us.InsertarUsuario();
 

@@ -108,6 +108,25 @@ namespace Modelos
                 return false;
             }
         }
+        public bool ActualizarContraseña()
+        {
+            SqlConnection con = Conexion.Conectar();
+            string comando = "update Usuario \r\n " +
+                "set contraseña=@contraseña WHERE id_Usuario = @id";
+            SqlCommand cmd = new SqlCommand(comando, con);
+
+            cmd.Parameters.AddWithValue("@contraseña", contraseña);
+            cmd.Parameters.AddWithValue("@id", id_usuario);
+            if (cmd.ExecuteNonQuery() > 0)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+        }
         public bool ActualizarUsuarioConTxtContraseñaVacio()
         {
             SqlConnection con = Conexion.Conectar();
@@ -181,6 +200,40 @@ namespace Modelos
             {
                 // Si no hubo coincidencia, retornamos dos valores nulos
                 return (null, null);
+            }
+        }
+
+        public Usuario ObtenerInfoSoloUsuario()
+        {
+            SqlConnection con = Conexion.Conectar();
+            string comando = "SELECT Id_usuario, NombreUsuario, id_Rol " +
+                             "FROM Usuario " +
+                             "WHERE NombreUsuario = @username";
+            SqlCommand cmd = new SqlCommand(comando, con);
+
+            // Enviamos el valor del nombre de usuario para que pueda usarse en el WHERE
+            cmd.Parameters.AddWithValue("@username", nombreUsuario); // Cambiar 'Admin1' al valor deseado
+
+            // Ejecutamos el lector
+            SqlDataReader rd = cmd.ExecuteReader();
+
+            if (rd.Read())
+            {
+                // Si se obtuvo una coincidencia, creamos un Usuario
+                Usuario us = new Usuario
+                {
+                    id_usuario = (int)rd[0],
+                    nombreUsuario = (string)rd[1],
+                    Id_Rol = (int)rd[2]
+                };
+
+                // Retornamos solo el Usuario
+                return us;
+            }
+            else
+            {
+                // Si no hubo coincidencia, retornamos un valor nulo
+                return null;
             }
         }
 

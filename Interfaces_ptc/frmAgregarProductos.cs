@@ -26,6 +26,7 @@ namespace Interfaces_ptc
 
         private void frmAgregarProductos_Load(object sender, EventArgs e)
         {
+            Actualizar();
             MostrarProductos();
 
         }

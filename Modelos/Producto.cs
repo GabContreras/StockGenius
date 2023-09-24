@@ -190,8 +190,10 @@ namespace Modelos
         public static DataTable Buscar(string termino)
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = $"SELECT P.Id_Producto, P.Nombre , P.Descripcion, P.Stock, P.Precio_Unitario as Precio, Pr.Nombre AS Proveedor, P.imagen as imagen \r\n" +
-                $"FROM Producto P \r\n" +
+            string comando = $"SELECT P.Id_Producto as \"Código de producto\"," +
+                "P.Nombre , P.Descripcion as Descripción, P.Stock, P.Precio_Unitario as Precio,\r\n" +
+                "Pr.Nombre AS Proveedor, P.imagen as imagen, Pr.Id_Proveedor \r\n" +
+                "FROM Producto P\r\n" +
                 $"INNER JOIN Proveedor Pr ON P.Id_Proveedor = Pr.Id_Proveedor\r\n" +
                 $"where P.nombre like '%{termino}%'";
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);

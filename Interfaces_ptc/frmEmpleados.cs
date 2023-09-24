@@ -190,13 +190,13 @@ namespace Interfaces_ptc
                     Usuario U = new Usuario();
                     if (U.EliminarUsuario(idU) == true)
                     {
-                        MessageBox.Show("Empleado despedido satisfactoriamente", "Éxito");
+                        MessageBox.Show("Empleado inhabilitado satisfactoriamente", "Éxito");
                         MostrarEmpleados();
                         LimpiarCampos();
                     }
                     else
                     {
-                        MessageBox.Show("Se produjo un error al despedir el empleado", "Advertencia");
+                        MessageBox.Show("Se produjo un error al inhabilitar el empleado", "Advertencia");
                     }         
             }
             catch (Exception ex)
@@ -282,7 +282,7 @@ namespace Interfaces_ptc
             {
                 MessageBox.Show(ex.Message);
             }
-            MostrarEmpleados();
+         
 
         }
         private void Actualizar()
