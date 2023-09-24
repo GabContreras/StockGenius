@@ -19,6 +19,7 @@ namespace Modelos
         private string direccion;
         private int edad;
         private string tipo_cliente;
+        private string estado;
 
         public int Id_Cliente { get => id_Cliente; set => id_Cliente = value; }
         public string Nombre { get => nombre; set => nombre = value; }
@@ -28,13 +29,14 @@ namespace Modelos
         public string Direccion { get => direccion; set => direccion = value; }
         public int Edad { get => edad; set => edad = value; }
         public string Tipo_cliente { get => tipo_cliente; set => tipo_cliente = value; }
+        public string Estado { get => estado; set => estado = value; }
 
         public static DataTable CargarClientes()
         {
             SqlConnection con = Conexion.Conectar();
             string comando = "SELECT Id_Cliente, Nombre , Apellido, DUI, Telefono, Dirección, Edad " +
                 "\r\nFROM Cliente\r\n" +
-                "WHERE DUI IS NOT NULL AND Apellido IS NOT NULL AND Edad IS NOT NULL;";
+                "WHERE DUI IS NOT NULL AND Apellido IS NOT NULL AND Edad IS NOT NULL AND Estado = 'Activo';";
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
 
             DataTable dt = new DataTable();

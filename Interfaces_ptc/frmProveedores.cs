@@ -70,6 +70,7 @@ namespace Interfaces_ptc
                     p.Nombre = txtNombre.Text;
                     p.Direccion = txtDireccion.Text;
                     p.Telefono = txtTelefono.Text;
+                    p.Estado = "Activo";
 
                     if (p.InsertarProovedores() == true)
                     {
@@ -94,24 +95,30 @@ namespace Interfaces_ptc
         {
             try
             {
-                int id = int.Parse(dgvProveedores.CurrentRow.Cells[0].Value.ToString());
-                Proveedores p = new Proveedores();
-                if (p.EliminarProveedores(id) == true)
-                {
-                    MessageBox.Show("Proveedor eliminado satisfactoriamente", "Éxito");
-                    MostrarProveedores();
-                    LimpiarCampos();
-                }
-                else
-                {
-                    MessageBox.Show("Se produjo un error", "Advertencia");
-                }
+                    int id = int.Parse(dgvProveedores.CurrentRow.Cells[0].Value.ToString());
+                    Proveedores p = new Proveedores();
+                    if (p.EliminarProveedores(id) == true)
+                    {
+                        MessageBox.Show("Proveedor Inactivado satisfactoriamente", "Éxito");
+                        MostrarProveedores();
+                        LimpiarCampos();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Se produjo un error", "Advertencia");
+                   }
+            }
+            catch (NullReferenceException nre)
+            {
+                MessageBox.Show("Por favor, seleccione una fila antes de intentar eliminar un proveedor.", "Advertencia");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
             MostrarProveedores();
+
+
 
         }
 
@@ -137,11 +144,15 @@ namespace Interfaces_ptc
                 }
                 MostrarProveedores();
             }
+
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Por favor, seleccione una fila antes de intentar actualizar un proveedor.", "Advertencia");
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            MostrarProveedores();
         }
 
         private void dgvProveedores_DoubleClick(object sender, EventArgs e)

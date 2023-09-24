@@ -34,7 +34,7 @@ namespace Modelos
             SqlConnection con = Conexion.Conectar();
             string comando = "SELECT Id_Cliente, Nombre as NombreEmpresa,Telefono, Dirección, NIT, NRC, Giro, Categoria\r\n " +
                 " FROM Cliente\r\n " +
-                " WHERE NIT IS NOT NULL AND NRC IS NOT NULL AND Giro IS NOT NULL AND Categoria IS NOT NULL;\r\n";
+                " WHERE NIT IS NOT NULL AND NRC IS NOT NULL AND Giro IS NOT NULL AND Categoria IS NOT NULL AND Estado = 'Activo';\r\n";
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
 
             DataTable dt = new DataTable();
@@ -47,8 +47,8 @@ namespace Modelos
         public bool insertarCiente()
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = "insert into Cliente(Nombre,Telefono,Dirección,NIT,NRC,Giro,Categoria,Tipo_Cliente) values \r\n" +
-                "(@nombre, @Telefono, @Dirección, @NIT, @NRC, @Giro,@Categoria,@Tipo_Cliente)";
+            string comando = "insert into Cliente(Nombre,Telefono,Dirección,NIT,NRC,Giro,Categoria,Tipo_Cliente,Estado) values \r\n" +
+                "(@nombre, @Telefono, @Dirección, @NIT, @NRC, @Giro,@Categoria,@Tipo_Cliente,'Activo')";
             SqlCommand cmd = new SqlCommand(comando, con);
 
             cmd.Parameters.AddWithValue("@nombre", nombreEmpresa);
@@ -74,7 +74,7 @@ namespace Modelos
         public bool EliminarCliente(int Id)
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = "DELETE FROM Cliente WHERE Id_Cliente = @Id_Cliente";
+            string comando = "";
             SqlCommand cmd = new SqlCommand(comando, con);
             cmd.Parameters.AddWithValue("@Id_Cliente", Id);
 
@@ -120,7 +120,7 @@ namespace Modelos
             SqlConnection con = Conexion.Conectar();
             string comando = $"SELECT Id_Cliente, Nombre as NombreEmpresa,Telefono, Dirección, NIT, NRC, Giro, Categoria\r\n" +
                 $"FROM Cliente\r\n" +
-                $"WHERE NIT IS NOT NULL AND NRC IS NOT NULL AND Giro IS NOT NULL AND Categoria IS NOT NULL and Cliente.Nombre like '%{termino}%';";
+                $"WHERE NIT IS NOT NULL AND NRC IS NOT NULL AND Giro IS NOT NULL AND Categoria IS NOT NULL AND Estado = 'Activo' and Cliente.Nombre like '%{termino}%';";
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
             DataTable dt = new DataTable();
             ad.Fill(dt);
