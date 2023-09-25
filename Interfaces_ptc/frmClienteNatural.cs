@@ -122,6 +122,7 @@ namespace Interfaces_ptc
                     p.Telefono = txtTelefono.Text;
                     p.Direccion = txtDirección.Text;
                     p.Edad = int.Parse(numEdad.Text);
+                    p.Estado = "Activo";
                     p.Tipo_cliente = "Natural";
                     if (p.insertarCiente() == true)
                     {

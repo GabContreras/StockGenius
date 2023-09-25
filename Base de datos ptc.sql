@@ -142,8 +142,8 @@ values ('Administrador'),--ya
 ('Vendedor'),
 ('Master Admin');--ya
 go
-
-
+delete from cliente
+select * from Cliente
 -- Create a filtered unique index for NIT column
 CREATE UNIQUE INDEX UX_NIT_Unique ON Cliente (NIT) WHERE NIT IS NOT NULL;
 

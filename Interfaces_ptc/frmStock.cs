@@ -20,7 +20,10 @@ namespace Interfaces_ptc
         private void MostrarProductos()
         {
             dgvProductos.DataSource = null;
-            dgvProductos.DataSource = Producto.CargarStock();
+            dgvProductos.DataSource = Producto.CargarProducto();
+            dgvProductos.Columns[2].Visible = false;
+            dgvProductos.Columns[6].Visible = false;
+            dgvProductos.Columns[7].Visible = false;
 
         }
         private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -31,6 +34,15 @@ namespace Interfaces_ptc
         private void frmStock_Load(object sender, EventArgs e)
         {
             MostrarProductos();
+        }
+        private void Actualizar()
+        {
+            dgvProductos.DataSource = Producto.Buscar(txtBuscar.Text);
+        }
+       
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            Actualizar();
         }
     }
 }

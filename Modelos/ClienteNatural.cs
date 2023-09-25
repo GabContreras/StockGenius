@@ -61,8 +61,8 @@ namespace Modelos
         public bool insertarCiente()
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = "insert into Cliente(Nombre, Apellido, DUI, Telefono, Dirección, Edad,Tipo_Cliente) values \r\n" +
-                "(@nombre, @apellido, @dui, @telefono, @dirección, @edad,@Tipo_Cliente)";
+            string comando = "insert into Cliente(Nombre, Apellido, DUI, Telefono, Dirección, Edad,Tipo_Cliente,Estado) values \r\n" +
+                "(@nombre, @apellido, @dui, @telefono, @dirección, @edad,@Tipo_Cliente,'Activo')";
             SqlCommand cmd = new SqlCommand(comando, con);
 
             cmd.Parameters.AddWithValue("@nombre", nombre);
