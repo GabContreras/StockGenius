@@ -142,8 +142,8 @@ values ('Administrador'),--ya
 ('Vendedor'),
 ('Master Admin');--ya
 go
-delete from cliente
-select * from Cliente
+
+
 -- Create a filtered unique index for NIT column
 CREATE UNIQUE INDEX UX_NIT_Unique ON Cliente (NIT) WHERE NIT IS NOT NULL;
 
@@ -224,35 +224,7 @@ VALUES
     ('Sofía', 'Torres', '+503 1111-1111', '11111111-1', 'sofia.torres@example.com', 'Vendedor', 8), --Vendedor
     ('María', 'Fernández', '+503 2222-2222', '22222222-2', 'maria.fernandez@example.com', 'Encargado de bodega', 9); --Encargado de bodega
 	
-SELECT DP.id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Producto,DP.cantidad,P.Precio_Unitario as Precio, Pd.Estado 
-                FROM Detalle_pedido DP
-                INNER JOIN Pedido Pd on Dp.Id_Detalle= pd.Id_Pedido
-                INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto
-                where DP.Id_Pedido= 1
-
-SELECT E.Id_Empleado, E.Nombre, E.Apellido, E.DUI, R.Nombre
-FROM Empleado E
-INNER JOIN Usuario U ON E.Id_Usuario = U.Id_usuario
-inner join Rol R on U.id_Rol= R.id_Rol
-where R.Nombre= 'Vendedor'
-
-select c.Id_Cliente, c.Nombre as NombreCliente,c.DUI ,c.Nit as NIT,c.NRC
-                from cliente c
-				where C.Estado= 'Activo'
-
-	SELECT DP.id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Producto,DP.cantidad,P.Precio_Unitario as Precio, Pd.Estado
-                FROM detalle_pedido DP
-				INNER JOIN Pedido Pd on Dp.Id_Detalle= pd.Id_Pedido
-				INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto
-                where DP.Id_Pedido= 1;
-
-				SELECT DP.id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Producto,DP.cantidad,P.Precio_Unitario as Precio,
-                Pd.Estado
-                FROM detalle_pedido DP
-                INNER JOIN Pedido Pd on Dp.Id_Detalle= pd.Id_Pedido
-                INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto
-                where DP.Id_Pedido= 2
-
+	select * from Producto
 
 CREATE TRIGGER CalcularTotalDetallePedido
 ON Detalle_Pedido
@@ -288,57 +260,6 @@ END;
 
 
 
-
-SELECT DP.ID_Producto, P.nombre, SUM(DP.cantidad) AS Cantidad, P.Precio_Unitario,
-       PP.Fecha_Pedido, C.Nombre AS Nombre_Cliente, E.Nombre AS Nombre_Empleado
-FROM Detalle_Pedido DP
-INNER JOIN Producto P ON P.id_Producto = DP.id_Producto
-INNER JOIN Pedido PP ON DP.Id_Pedido = PP.Id_Pedido
-INNER JOIN Cliente C ON PP.Id_Cliente = C.Id_Cliente
-INNER JOIN Empleado E ON PP.Id_Empleado = E.Id_Empleado
-WHERE DP.Id_Pedido = 3
-GROUP BY P.nombre, DP.id_producto, DP.Id_Pedido, P.Precio_Unitario, PP.Fecha_Pedido, C.Nombre, E.Nombre;
-
-
-WITH Ingresos AS (
-    SELECT
-        IP.Id_Producto,
-        SUM(IP.cantidad) AS Ingresos
-    FROM
-        Ingreso_Producto IP
-    WHERE
-        IP.fecha_Ingreso >= '2023-09-01' AND IP.fecha_Ingreso <= '2023-09-30'
-    GROUP BY
-        IP.Id_Producto
-),
-Salidas AS (
-    SELECT
-        DP.Id_Producto,
-        SUM(DP.Cantidad) AS Salidas
-    FROM
-        Detalle_Pedido DP
-    INNER JOIN
-        Pedido Pd ON DP.Id_Pedido = Pd.Id_Pedido
-    WHERE
-        Pd.Estado = 'Completado'
-        AND Pd.fecha_Pedido >= '2023-09-01' AND Pd.fecha_Pedido <= '2023-09-30'
-    GROUP BY
-        DP.Id_Producto
-)
-SELECT
-    P.Id_Producto,
-    P.Nombre AS Producto,
-    ISNULL(I.Ingresos, 0) AS Ingresos,
-    ISNULL(S.Salidas, 0) AS Salidas,
-    P.Stock AS StockFinal
-FROM
-    Producto P
-LEFT JOIN
-    Ingresos I ON P.Id_Producto = I.Id_Producto
-LEFT JOIN
-    Salidas S ON P.Id_Producto = S.Id_Producto
-ORDER BY
-    P.Id_Producto;
 
 
 -- Actualiza los primeros 5 registros de Ingreso_Producto con fecha del 1 de agosto de 2023
@@ -462,4 +383,3 @@ ORDER BY
 
 
 
-	select * from proveedor
