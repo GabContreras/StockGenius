@@ -206,8 +206,15 @@ namespace Interfaces_ptc
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            try
-            {  
+             try
+            {
+                if (v.Id_Rol == 1)
+                {
+                    MessageBox.Show("No le puedes cambiar los datos a un Administrador",
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+                else {
                     int idU = int.Parse(dgvEmpleados.CurrentRow.Cells[2].Value.ToString());
                     Usuario U = new Usuario();
                     if (U.EliminarUsuario(idU) == true)
@@ -219,7 +226,8 @@ namespace Interfaces_ptc
                     else
                     {
                         MessageBox.Show("Se produjo un error al inhabilitar el empleado", "Advertencia");
-                    }         
+                    } 
+                }       
             }
             catch (Exception ex)
             {

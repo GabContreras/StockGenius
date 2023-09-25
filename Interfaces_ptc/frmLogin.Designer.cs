@@ -49,7 +49,7 @@
             this.cbMostraContraInicio.Location = new System.Drawing.Point(385, 224);
             this.cbMostraContraInicio.Name = "cbMostraContraInicio";
             this.cbMostraContraInicio.Size = new System.Drawing.Size(15, 14);
-            this.cbMostraContraInicio.TabIndex = 3;
+            this.cbMostraContraInicio.TabIndex = 4;
             this.cbMostraContraInicio.UseVisualStyleBackColor = false;
             this.cbMostraContraInicio.CheckedChanged += new System.EventHandler(this.cbMostraContraInicio_CheckedChanged);
             // 
@@ -65,7 +65,7 @@
             this.btnLogin.Location = new System.Drawing.Point(55, 265);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(345, 41);
-            this.btnLogin.TabIndex = 4;
+            this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Acceder";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.button2_Click_1);

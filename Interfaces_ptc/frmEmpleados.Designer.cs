@@ -55,6 +55,7 @@
             this.txtDui = new System.Windows.Forms.MaskedTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtTelefono = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.txtApellido = new System.Windows.Forms.TextBox();
@@ -65,7 +66,6 @@
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             this.txtCargo = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtTelefono = new System.Windows.Forms.MaskedTextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -491,6 +491,16 @@
             this.tableLayoutPanel7.Size = new System.Drawing.Size(712, 24);
             this.tableLayoutPanel7.TabIndex = 3;
             // 
+            // txtTelefono
+            // 
+            this.txtTelefono.Cursor = System.Windows.Forms.Cursors.AppStarting;
+            this.txtTelefono.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtTelefono.Location = new System.Drawing.Point(349, 3);
+            this.txtTelefono.Mask = "+503 9999-9999";
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(340, 20);
+            this.txtTelefono.TabIndex = 112;
+            // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -628,16 +638,6 @@
             this.label10.Size = new System.Drawing.Size(62, 22);
             this.label10.TabIndex = 4;
             this.label10.Text = "Cargo:";
-            // 
-            // txtTelefono
-            // 
-            this.txtTelefono.Cursor = System.Windows.Forms.Cursors.AppStarting;
-            this.txtTelefono.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtTelefono.Location = new System.Drawing.Point(349, 3);
-            this.txtTelefono.Mask = "+503 9999-9999";
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(340, 20);
-            this.txtTelefono.TabIndex = 112;
             // 
             // frmEmpleados
             // 
