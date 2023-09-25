@@ -146,7 +146,7 @@
             this.txtNombreEmpresa.MaxLength = 50;
             this.txtNombreEmpresa.Name = "txtNombreEmpresa";
             this.txtNombreEmpresa.Size = new System.Drawing.Size(305, 26);
-            this.txtNombreEmpresa.TabIndex = 112;
+            this.txtNombreEmpresa.TabIndex = 1;
             // 
             // tableLayoutPanel6
             // 
@@ -171,7 +171,7 @@
             this.txtNIT.Mask = "9999-999999-999-9";
             this.txtNIT.Name = "txtNIT";
             this.txtNIT.Size = new System.Drawing.Size(305, 20);
-            this.txtNIT.TabIndex = 114;
+            this.txtNIT.TabIndex = 2;
             this.txtNIT.ValidatingType = typeof(int);
             // 
             // label6
@@ -224,7 +224,7 @@
             this.txtNRC.MaxLength = 8;
             this.txtNRC.Name = "txtNRC";
             this.txtNRC.Size = new System.Drawing.Size(305, 26);
-            this.txtNRC.TabIndex = 110;
+            this.txtNRC.TabIndex = 3;
             this.txtNRC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNRC_KeyPress);
             // 
             // tableLayoutPanel4
@@ -266,7 +266,7 @@
             this.txtGiro.MaxLength = 50;
             this.txtGiro.Name = "txtGiro";
             this.txtGiro.Size = new System.Drawing.Size(305, 26);
-            this.txtGiro.TabIndex = 109;
+            this.txtGiro.TabIndex = 4;
             this.txtGiro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGiro_KeyPress);
             // 
             // tableLayoutPanel3
@@ -308,7 +308,7 @@
             this.cbCategoria.Location = new System.Drawing.Point(314, 3);
             this.cbCategoria.Name = "cbCategoria";
             this.cbCategoria.Size = new System.Drawing.Size(305, 21);
-            this.cbCategoria.TabIndex = 114;
+            this.cbCategoria.TabIndex = 5;
             // 
             // tableLayoutPanel2
             // 
@@ -337,7 +337,7 @@
             this.txtDireccion.MaxLength = 50;
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(305, 26);
-            this.txtDireccion.TabIndex = 115;
+            this.txtDireccion.TabIndex = 6;
             // 
             // label2
             // 
@@ -379,7 +379,7 @@
             this.button1.Location = new System.Drawing.Point(422, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(89, 24);
-            this.button1.TabIndex = 111;
+            this.button1.TabIndex = 12;
             this.button1.Text = "Salir";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -436,7 +436,7 @@
             this.txtBuscar.Location = new System.Drawing.Point(6, 5);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(399, 26);
-            this.txtBuscar.TabIndex = 114;
+            this.txtBuscar.TabIndex = 11;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // tableLayoutPanel9
@@ -468,7 +468,7 @@
             this.btnActualizar.Location = new System.Drawing.Point(256, 3);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(109, 30);
-            this.btnActualizar.TabIndex = 105;
+            this.btnActualizar.TabIndex = 9;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = false;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
@@ -483,7 +483,7 @@
             this.btnAgregar.Location = new System.Drawing.Point(49, 3);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(109, 30);
-            this.btnAgregar.TabIndex = 104;
+            this.btnAgregar.TabIndex = 8;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -499,7 +499,7 @@
             this.btnEliminar.Location = new System.Drawing.Point(463, 3);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(109, 30);
-            this.btnEliminar.TabIndex = 101;
+            this.btnEliminar.TabIndex = 10;
             this.btnEliminar.Text = "Inhabilitar";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -530,7 +530,7 @@
             this.txtTelefono.MaxLength = 50;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(305, 26);
-            this.txtTelefono.TabIndex = 115;
+            this.txtTelefono.TabIndex = 7;
             this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // label4

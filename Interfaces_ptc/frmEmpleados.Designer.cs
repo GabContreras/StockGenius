@@ -147,7 +147,7 @@
             this.btnSalir.Location = new System.Drawing.Point(486, 3);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(99, 29);
-            this.btnSalir.TabIndex = 111;
+            this.btnSalir.TabIndex = 14;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click_1);
@@ -191,7 +191,7 @@
             this.txtNombreUsuario.MaxLength = 30;
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.Size = new System.Drawing.Size(340, 26);
-            this.txtNombreUsuario.TabIndex = 112;
+            this.txtNombreUsuario.TabIndex = 1;
             // 
             // label1
             // 
@@ -202,7 +202,7 @@
             this.label1.Location = new System.Drawing.Point(3, 1);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(171, 22);
-            this.label1.TabIndex = 111;
+            this.label1.TabIndex = 1;
             this.label1.Text = "Nombre de usuario:";
             // 
             // tableLayoutPanel3
@@ -232,7 +232,7 @@
             this.txtContraseña.MaxLength = 100;
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Size = new System.Drawing.Size(340, 26);
-            this.txtContraseña.TabIndex = 113;
+            this.txtContraseña.TabIndex = 2;
             this.txtContraseña.UseSystemPasswordChar = true;
             // 
             // label4
@@ -244,7 +244,7 @@
             this.label4.Location = new System.Drawing.Point(3, 1);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(107, 22);
-            this.label4.TabIndex = 112;
+            this.label4.TabIndex = 2;
             this.label4.Text = "Contraseña:";
             // 
             // tableLayoutPanel5
@@ -273,7 +273,7 @@
             this.cbRol.Location = new System.Drawing.Point(349, 3);
             this.cbRol.Name = "cbRol";
             this.cbRol.Size = new System.Drawing.Size(340, 27);
-            this.cbRol.TabIndex = 117;
+            this.cbRol.TabIndex = 3;
             // 
             // label7
             // 
@@ -284,7 +284,7 @@
             this.label7.Location = new System.Drawing.Point(3, 1);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(42, 22);
-            this.label7.TabIndex = 116;
+            this.label7.TabIndex = 3;
             this.label7.Text = "Rol:";
             // 
             // dgvEmpleados
@@ -327,7 +327,7 @@
             this.txtBuscar.Location = new System.Drawing.Point(3, 8);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(350, 26);
-            this.txtBuscar.TabIndex = 115;
+            this.txtBuscar.TabIndex = 13;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // tableLayoutPanel8
@@ -359,7 +359,7 @@
             this.btnEliminar.Location = new System.Drawing.Point(538, 3);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(109, 35);
-            this.btnEliminar.TabIndex = 107;
+            this.btnEliminar.TabIndex = 12;
             this.btnEliminar.Text = "Inhabilitar";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -375,7 +375,7 @@
             this.btnActualizar.Location = new System.Drawing.Point(301, 3);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(109, 36);
-            this.btnActualizar.TabIndex = 106;
+            this.btnActualizar.TabIndex = 11;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = false;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
@@ -390,7 +390,7 @@
             this.btnAgregar.Location = new System.Drawing.Point(64, 3);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(109, 36);
-            this.btnAgregar.TabIndex = 105;
+            this.btnAgregar.TabIndex = 10;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -434,7 +434,7 @@
             this.txtCorreo.MaxLength = 50;
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(340, 26);
-            this.txtCorreo.TabIndex = 115;
+            this.txtCorreo.TabIndex = 9;
             // 
             // tableLayoutPanel10
             // 
@@ -460,7 +460,7 @@
             this.txtDui.Mask = "99999999-9";
             this.txtDui.Name = "txtDui";
             this.txtDui.Size = new System.Drawing.Size(340, 20);
-            this.txtDui.TabIndex = 116;
+            this.txtDui.TabIndex = 8;
             this.txtDui.ValidatingType = typeof(int);
             // 
             // label6
@@ -514,7 +514,7 @@
             this.txtTelefono.MaxLength = 50;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(340, 26);
-            this.txtTelefono.TabIndex = 112;
+            this.txtTelefono.TabIndex = 7;
             this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefonoDatos);
             // 
             // tableLayoutPanel11
@@ -544,7 +544,7 @@
             this.txtApellido.MaxLength = 50;
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(340, 26);
-            this.txtApellido.TabIndex = 114;
+            this.txtApellido.TabIndex = 6;
             this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido_KeyPress);
             // 
             // label2
@@ -586,7 +586,7 @@
             this.txtNombre.MaxLength = 50;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(340, 26);
-            this.txtNombre.TabIndex = 114;
+            this.txtNombre.TabIndex = 5;
             this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // label8
@@ -598,7 +598,7 @@
             this.label8.Location = new System.Drawing.Point(3, 1);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(81, 22);
-            this.label8.TabIndex = 113;
+            this.label8.TabIndex = 5;
             this.label8.Text = "Nombre:";
             // 
             // tableLayoutPanel13
@@ -628,7 +628,7 @@
             this.txtCargo.MaxLength = 50;
             this.txtCargo.Name = "txtCargo";
             this.txtCargo.Size = new System.Drawing.Size(340, 26);
-            this.txtCargo.TabIndex = 118;
+            this.txtCargo.TabIndex = 4;
             this.txtCargo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCargo_KeyPress);
             // 
             // label10
@@ -640,7 +640,7 @@
             this.label10.Location = new System.Drawing.Point(3, 1);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(62, 22);
-            this.label10.TabIndex = 117;
+            this.label10.TabIndex = 4;
             this.label10.Text = "Cargo:";
             // 
             // frmEmpleados

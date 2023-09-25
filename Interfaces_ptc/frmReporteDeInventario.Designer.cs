@@ -42,6 +42,7 @@
             this.rpInventario.ServerReport.BearerToken = null;
             this.rpInventario.Size = new System.Drawing.Size(832, 749);
             this.rpInventario.TabIndex = 1;
+            this.rpInventario.Load += new System.EventHandler(this.rpInventario_Load);
             // 
             // frmReporteDeInventario
             // 

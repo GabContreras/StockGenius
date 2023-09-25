@@ -47,7 +47,7 @@
             this.btnCerrar.Location = new System.Drawing.Point(134, 283);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(113, 60);
-            this.btnCerrar.TabIndex = 15;
+            this.btnCerrar.TabIndex = 18;
             this.btnCerrar.Text = "Cambiar contraseña";
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
@@ -134,7 +134,7 @@
             this.txtContraseña.Location = new System.Drawing.Point(116, 217);
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Size = new System.Drawing.Size(245, 20);
-            this.txtContraseña.TabIndex = 17;
+            this.txtContraseña.TabIndex = 15;
             // 
             // txtId
             // 
@@ -142,7 +142,7 @@
             this.txtId.Name = "txtId";
             this.txtId.ReadOnly = true;
             this.txtId.Size = new System.Drawing.Size(245, 20);
-            this.txtId.TabIndex = 18;
+            this.txtId.TabIndex = 17;
             this.txtId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // frmMiPerfil

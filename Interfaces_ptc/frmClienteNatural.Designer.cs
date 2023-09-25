@@ -116,7 +116,7 @@
             this.dgvClientes.RowHeadersWidth = 62;
             this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvClientes.Size = new System.Drawing.Size(612, 184);
-            this.dgvClientes.TabIndex = 119;
+            this.dgvClientes.TabIndex = 9;
             this.dgvClientes.DoubleClick += new System.EventHandler(this.dgvClientes_DoubleClick);
             // 
             // tableLayoutPanel7
@@ -143,7 +143,7 @@
             this.label7.Location = new System.Drawing.Point(3, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(81, 20);
-            this.label7.TabIndex = 114;
+            this.label7.TabIndex = 0;
             this.label7.Text = "Nombre:";
             // 
             // txtNombre
@@ -157,7 +157,7 @@
             this.txtNombre.MaxLength = 50;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(300, 26);
-            this.txtNombre.TabIndex = 112;
+            this.txtNombre.TabIndex = 0;
             this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // tableLayoutPanel6
@@ -389,7 +389,7 @@
             this.btnActualizar.Location = new System.Drawing.Point(251, 7);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(109, 32);
-            this.btnActualizar.TabIndex = 105;
+            this.btnActualizar.TabIndex = 1;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = false;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
@@ -404,7 +404,7 @@
             this.btnAgregar.Location = new System.Drawing.Point(47, 7);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(109, 32);
-            this.btnAgregar.TabIndex = 104;
+            this.btnAgregar.TabIndex = 2;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -420,7 +420,7 @@
             this.btnEliminar.Location = new System.Drawing.Point(453, 7);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(114, 32);
-            this.btnEliminar.TabIndex = 101;
+            this.btnEliminar.TabIndex = 0;
             this.btnEliminar.Text = "Inhabilitar";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -453,7 +453,7 @@
             this.btnSalir.Location = new System.Drawing.Point(414, 4);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(89, 26);
-            this.btnSalir.TabIndex = 110;
+            this.btnSalir.TabIndex = 0;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click_1);
@@ -467,7 +467,7 @@
             this.label9.Location = new System.Drawing.Point(7, 7);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(291, 20);
-            this.label9.TabIndex = 100;
+            this.label9.TabIndex = 1;
             this.label9.Text = "Administracion de clientes naturales";
             // 
             // tableLayoutPanel11
@@ -482,7 +482,7 @@
             this.tableLayoutPanel11.RowCount = 1;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel11.Size = new System.Drawing.Size(612, 41);
-            this.tableLayoutPanel11.TabIndex = 118;
+            this.tableLayoutPanel11.TabIndex = 7;
             // 
             // txtBuscar
             // 
@@ -494,7 +494,7 @@
             this.txtBuscar.Location = new System.Drawing.Point(3, 7);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(399, 26);
-            this.txtBuscar.TabIndex = 114;
+            this.txtBuscar.TabIndex = 0;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // frmClienteNatural

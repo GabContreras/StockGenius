@@ -108,7 +108,7 @@
             this.btnSalir.Location = new System.Drawing.Point(422, 8);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(89, 21);
-            this.btnSalir.TabIndex = 111;
+            this.btnSalir.TabIndex = 1;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -139,7 +139,7 @@
             this.txtCantidad.MaxLength = 10;
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(305, 26);
-            this.txtCantidad.TabIndex = 113;
+            this.txtCantidad.TabIndex = 2;
             this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // label4
@@ -164,7 +164,7 @@
             this.btnAgregar.Location = new System.Drawing.Point(259, 138);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(109, 39);
-            this.btnAgregar.TabIndex = 116;
+            this.btnAgregar.TabIndex = 3;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -193,7 +193,7 @@
             this.txtBuscar.Location = new System.Drawing.Point(3, 15);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(305, 26);
-            this.txtBuscar.TabIndex = 115;
+            this.txtBuscar.TabIndex = 4;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // dgvProductos

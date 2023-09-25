@@ -97,6 +97,7 @@
             this.dgvProveedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProveedores.Size = new System.Drawing.Size(712, 336);
             this.dgvProveedores.TabIndex = 119;
+            this.dgvProveedores.TabStop = false;
             this.dgvProveedores.DoubleClick += new System.EventHandler(this.dgvProveedores_DoubleClick);
             // 
             // tableLayoutPanel10
@@ -128,7 +129,7 @@
             this.btnSalir.Location = new System.Drawing.Point(489, 11);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(89, 26);
-            this.btnSalir.TabIndex = 110;
+            this.btnSalir.TabIndex = 114;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -357,7 +358,7 @@
             this.txtBuscar.Location = new System.Drawing.Point(47, 11);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(377, 26);
-            this.txtBuscar.TabIndex = 114;
+            this.txtBuscar.TabIndex = 110;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // frmProveedores

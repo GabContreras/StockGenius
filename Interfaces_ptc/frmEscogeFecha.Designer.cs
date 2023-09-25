@@ -46,7 +46,7 @@
             this.btnAgregar.Location = new System.Drawing.Point(158, 246);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(150, 79);
-            this.btnAgregar.TabIndex = 106;
+            this.btnAgregar.TabIndex = 3;
             this.btnAgregar.Text = "Generar Reporte";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -69,7 +69,7 @@
             this.dtpCierre.Location = new System.Drawing.Point(131, 173);
             this.dtpCierre.Name = "dtpCierre";
             this.dtpCierre.Size = new System.Drawing.Size(222, 20);
-            this.dtpCierre.TabIndex = 1;
+            this.dtpCierre.TabIndex = 2;
             // 
             // label5
             // 
@@ -89,7 +89,7 @@
             this.dtpFechaInicial.Location = new System.Drawing.Point(131, 66);
             this.dtpFechaInicial.Name = "dtpFechaInicial";
             this.dtpFechaInicial.Size = new System.Drawing.Size(222, 20);
-            this.dtpFechaInicial.TabIndex = 0;
+            this.dtpFechaInicial.TabIndex = 1;
             // 
             // frmEscogeFecha
             // 
@@ -104,6 +104,7 @@
             this.Controls.Add(this.label5);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmEscogeFecha";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -96,7 +96,7 @@
             this.btnMicuenta.Name = "btnMicuenta";
             this.btnMicuenta.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnMicuenta.Size = new System.Drawing.Size(250, 45);
-            this.btnMicuenta.TabIndex = 15;
+            this.btnMicuenta.TabIndex = 8;
             this.btnMicuenta.Text = "Mi cuenta";
             this.btnMicuenta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMicuenta.UseVisualStyleBackColor = false;
@@ -116,7 +116,7 @@
             this.btnGenerarReporte.Name = "btnGenerarReporte";
             this.btnGenerarReporte.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnGenerarReporte.Size = new System.Drawing.Size(250, 45);
-            this.btnGenerarReporte.TabIndex = 14;
+            this.btnGenerarReporte.TabIndex = 7;
             this.btnGenerarReporte.Text = "Generar reporte de \r\ninventario";
             this.btnGenerarReporte.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGenerarReporte.UseVisualStyleBackColor = false;
@@ -137,7 +137,7 @@
             this.btnEmpleado.Name = "btnEmpleado";
             this.btnEmpleado.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnEmpleado.Size = new System.Drawing.Size(250, 45);
-            this.btnEmpleado.TabIndex = 13;
+            this.btnEmpleado.TabIndex = 6;
             this.btnEmpleado.Text = "Empleados";
             this.btnEmpleado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEmpleado.UseVisualStyleBackColor = false;
@@ -202,7 +202,7 @@
             this.btnProducto.Name = "btnProducto";
             this.btnProducto.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnProducto.Size = new System.Drawing.Size(250, 50);
-            this.btnProducto.TabIndex = 11;
+            this.btnProducto.TabIndex = 4;
             this.btnProducto.Text = "Productos";
             this.btnProducto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProducto.UseVisualStyleBackColor = true;
@@ -240,7 +240,7 @@
             this.btnClienteJuridico.Name = "btnClienteJuridico";
             this.btnClienteJuridico.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnClienteJuridico.Size = new System.Drawing.Size(250, 57);
-            this.btnClienteJuridico.TabIndex = 7;
+            this.btnClienteJuridico.TabIndex = 3;
             this.btnClienteJuridico.Text = "Clientes Jurídicos";
             this.btnClienteJuridico.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClienteJuridico.UseVisualStyleBackColor = false;
@@ -258,7 +258,7 @@
             this.btnClienteNatural.Name = "btnClienteNatural";
             this.btnClienteNatural.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnClienteNatural.Size = new System.Drawing.Size(250, 54);
-            this.btnClienteNatural.TabIndex = 6;
+            this.btnClienteNatural.TabIndex = 2;
             this.btnClienteNatural.Text = "Clientes Naturales";
             this.btnClienteNatural.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClienteNatural.UseVisualStyleBackColor = true;
@@ -278,7 +278,7 @@
             this.btnProveedores.Name = "btnProveedores";
             this.btnProveedores.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnProveedores.Size = new System.Drawing.Size(250, 57);
-            this.btnProveedores.TabIndex = 4;
+            this.btnProveedores.TabIndex = 1;
             this.btnProveedores.Text = "Proveedores";
             this.btnProveedores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProveedores.UseVisualStyleBackColor = true;
@@ -344,7 +344,7 @@
             this.btnVentas.Name = "btnVentas";
             this.btnVentas.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnVentas.Size = new System.Drawing.Size(250, 46);
-            this.btnVentas.TabIndex = 1;
+            this.btnVentas.TabIndex = 0;
             this.btnVentas.Text = "Ventas";
             this.btnVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVentas.UseVisualStyleBackColor = true;

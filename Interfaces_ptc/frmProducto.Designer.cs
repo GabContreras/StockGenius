@@ -454,6 +454,7 @@
             this.dgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProductos.Size = new System.Drawing.Size(622, 176);
             this.dgvProductos.TabIndex = 4;
+            this.dgvProductos.TabStop = false;
             this.dgvProductos.DoubleClick += new System.EventHandler(this.dgvProductos_DoubleClick);
             // 
             // ofdImagen

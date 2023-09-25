@@ -39,7 +39,9 @@ namespace Interfaces_ptc
            
         }
 
-        
+        private void rpInventario_Load(object sender, EventArgs e)
+        {
 
+        }
     }
 }
