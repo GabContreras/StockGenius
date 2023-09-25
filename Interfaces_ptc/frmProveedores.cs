@@ -99,7 +99,7 @@ namespace Interfaces_ptc
                     Proveedor p = new Proveedor();
                     if (p.EliminarProveedores(id) == true)
                     {
-                        MessageBox.Show("Proveedor Inactivado satisfactoriamente", "Éxito");
+                        MessageBox.Show("Proveedor Inhabilitado satisfactoriamente", "Éxito");
                         MostrarProveedores();
                         LimpiarCampos();
                     }
@@ -108,9 +108,9 @@ namespace Interfaces_ptc
                         MessageBox.Show("Se produjo un error", "Advertencia");
                    }
             }
-            catch (NullReferenceException nre)
+            catch (NullReferenceException)
             {
-                MessageBox.Show("Por favor, seleccione una fila antes de intentar eliminar un proveedor.", "Advertencia");
+                MessageBox.Show("Por favor, seleccione a un proveedor antes de intentar Inhabilitarlo.", "Advertencia");
             }
             catch (Exception ex)
             {
@@ -126,23 +126,29 @@ namespace Interfaces_ptc
         {
             try
             {
-
-                Proveedor p = new Proveedor();
-                p.Nombre = txtNombre.Text;
-                p.Direccion = txtDireccion.Text;
-                p.Telefono = txtTelefono.Text;
-                p.Id_Proveedor = (int)dgvProveedores.CurrentRow.Cells[0].Value;
-                if (p.ActualizarProveedores() == true)
+                if (txtNombre.Text == "" || txtDireccion.Text == "" || txtTelefono.Text == "")
                 {
-                    MessageBox.Show("Proveedor actualizado satisfactoriamente", "Éxito");
-                    MostrarProveedores();
-                    LimpiarCampos();
+                    MessageBox.Show("No dejar campos vacios",
+                   "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Se produjo un error", "Advertencia");
+                    Proveedor p = new Proveedor();
+                    p.Nombre = txtNombre.Text;
+                    p.Direccion = txtDireccion.Text;
+                    p.Telefono = txtTelefono.Text;
+                    p.Id_Proveedor = (int)dgvProveedores.CurrentRow.Cells[0].Value;
+                    if (p.ActualizarProveedores() == true)
+                    {
+                        MessageBox.Show("Proveedor actualizado satisfactoriamente", "Éxito");
+                        MostrarProveedores();
+                        LimpiarCampos();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Se produjo un error", "Advertencia");
+                    }
                 }
-                MostrarProveedores();
             }
 
             catch (NullReferenceException)
@@ -157,9 +163,20 @@ namespace Interfaces_ptc
 
         private void dgvProveedores_DoubleClick(object sender, EventArgs e)
         {
-            txtNombre.Text = dgvProveedores.CurrentRow.Cells[1].Value.ToString();
-            txtDireccion.Text = dgvProveedores.CurrentRow.Cells[2].Value.ToString();
-            txtTelefono.Text = dgvProveedores.CurrentRow.Cells[3].Value.ToString();
+            try
+            {
+                txtNombre.Text = dgvProveedores.CurrentRow.Cells[1].Value.ToString();
+                txtDireccion.Text = dgvProveedores.CurrentRow.Cells[2].Value.ToString();
+                txtTelefono.Text = dgvProveedores.CurrentRow.Cells[3].Value.ToString();
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Por favor, seleccione a un Proveedor antes de cargar sus datos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)

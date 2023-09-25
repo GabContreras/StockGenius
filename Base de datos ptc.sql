@@ -289,118 +289,177 @@ END;
 
 
 
-
-SELECT P.Id_Pedido, p.Estado
-                FROM Pedido P
-               
-update pedido 
-set Estado= 'En proceso'
-where id_pedido= 1
-
-select * from Detalle_Pedido
-
-SELECT DP.ID_Producto, P.nombre, sum(DP.cantidad) as Cantidad,  P.Precio_Unitario
-                FROM Detalle_Pedido DP
-                inner join producto P on P.id_Producto = DP.id_Producto
-                where id_pedido = 1
-                group by P.nombre, DP.id_producto,DP.Id_Pedido, P.Precio_Unitario
-
-SELECT DP.Id_Detalle, DP.Id_Pedido, DP.Id_Producto, P.Nombre AS Producto, DP.Cantidad, P.Precio_Unitario AS Precio, PD.Estado AS "Estado"
-                FROM Detalle_Pedido DP
-                INNER JOIN Pedido PD ON DP.Id_Pedido = PD.Id_Pedido
-                INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto
-                WHERE DP.Id_Pedido = 2;
-
-				select * from proveedor
-
-SELECT DP.id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Producto,DP.cantidad,P.Precio_Unitario as Precio, Pd.Estado 
-                FROM Detalle_pedido DP
-                INNER JOIN Pedido Pd on Dp.Id_Detalle= pd.Id_Pedido
-                INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto
-                where DP.Id_Pedido= 1
-
-SELECT DP.ID_Producto, P.nombre, sum(DP.cantidad) as Cantidad,  P.Precio_Unitario
-				FROM Detalle_Pedido DP
-                inner join producto P on P.id_Producto = DP.id_Producto
-                where id_pedido = 1
-                group by P.nombre, DP.id_producto,DP.Id_Pedido, P.Precio_Unitario
-
-				select * from Cliente
-
-SELECT DP.id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Producto,DP.cantidad,P.PrecioUnitario as Precio
-                FROM detalle_pedido DP
-                INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto
-                where P.Nombre like '%Tecl%'
-
-SELECT DP.Id_Detalle,DP.Id_Pedido,DP.Id_Producto,P.Nombre AS Producto,DP.cantidad,P.Precio_Unitario as Precio
-                FROM Detalle_Pedido DP
-                INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto
-                where dp.Id_Pedido= 1
-
-				select * from detalle_pedido
-				select * from producto
-
-SELECT P.Id_Pedido, C.Nombre AS Cliente, E.Nombre AS Empleado, P.Fecha_Pedido as Fecha, p.Estado, C.Tipo_Cliente as "Tipo De Cliente"
-                FROM Pedido P
-                INNER JOIN Cliente C ON P.Id_Cliente = C.Id_Cliente
-                INNER JOIN Empleado E ON P.Id_Empleado = E.Id_Empleado;
-
-				select P.Id_Proveedor as "Código de proveedor", p.Nombre,p.Dirección,P.Telefono
-		from Proveedor P
-		
-SELECT P.Id_Proveedor as "Código de proveedor", p.Nombre, p.Dirección, P.Telefono
-FROM proveedor P
-WHERE Nombre LIKE '%{termino}%' AND Estado = 'Activo';
+SELECT DP.ID_Producto, P.nombre, SUM(DP.cantidad) AS Cantidad, P.Precio_Unitario,
+       PP.Fecha_Pedido, C.Nombre AS Nombre_Cliente, E.Nombre AS Nombre_Empleado
+FROM Detalle_Pedido DP
+INNER JOIN Producto P ON P.id_Producto = DP.id_Producto
+INNER JOIN Pedido PP ON DP.Id_Pedido = PP.Id_Pedido
+INNER JOIN Cliente C ON PP.Id_Cliente = C.Id_Cliente
+INNER JOIN Empleado E ON PP.Id_Empleado = E.Id_Empleado
+WHERE DP.Id_Pedido = 3
+GROUP BY P.nombre, DP.id_producto, DP.Id_Pedido, P.Precio_Unitario, PP.Fecha_Pedido, C.Nombre, E.Nombre;
 
 
-update proveedor set Estado= 'Inactivo' where Id_Proveedor= 1 
+WITH Ingresos AS (
+    SELECT
+        IP.Id_Producto,
+        SUM(IP.cantidad) AS Ingresos
+    FROM
+        Ingreso_Producto IP
+    WHERE
+        IP.fecha_Ingreso >= '2023-09-01' AND IP.fecha_Ingreso <= '2023-09-30'
+    GROUP BY
+        IP.Id_Producto
+),
+Salidas AS (
+    SELECT
+        DP.Id_Producto,
+        SUM(DP.Cantidad) AS Salidas
+    FROM
+        Detalle_Pedido DP
+    INNER JOIN
+        Pedido Pd ON DP.Id_Pedido = Pd.Id_Pedido
+    WHERE
+        Pd.Estado = 'Completado'
+        AND Pd.fecha_Pedido >= '2023-09-01' AND Pd.fecha_Pedido <= '2023-09-30'
+    GROUP BY
+        DP.Id_Producto
+)
+SELECT
+    P.Id_Producto,
+    P.Nombre AS Producto,
+    ISNULL(I.Ingresos, 0) AS Ingresos,
+    ISNULL(S.Salidas, 0) AS Salidas,
+    P.Stock AS StockFinal
+FROM
+    Producto P
+LEFT JOIN
+    Ingresos I ON P.Id_Producto = I.Id_Producto
+LEFT JOIN
+    Salidas S ON P.Id_Producto = S.Id_Producto
+ORDER BY
+    P.Id_Producto;
 
-SELECT DP.Id_Detalle, DP.Id_Pedido as "Número de pedido", DP.Id_Producto as "Código de producto", P.Nombre AS Producto, DP.Cantidad, P.Precio_Unitario AS Precio
-                FROM Detalle_Pedido DP
-               INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto
-                WHERE DP.Id_Pedido = 3
+
+-- Actualiza los primeros 5 registros de Ingreso_Producto con fecha del 1 de agosto de 2023
+UPDATE TOP(5) Ingreso_Producto
+SET fecha_Ingreso = '2023-08-01'
 
 
-				select *
-				from producto
+select * from Ingreso_Producto
 
 
-				select * from proveedor 
+	WITH Ingresos AS (
+    SELECT
+        IP.Id_Producto,
+        SUM(IP.cantidad) AS Ingresos
+    FROM
+        Ingreso_Producto IP
+    WHERE
+        IP.fecha_Ingreso >= '2023-09-01' AND IP.fecha_Ingreso <= '2023-09-30'
+    GROUP BY
+        IP.Id_Producto
+),
+Salidas AS (
+    SELECT
+        DP.Id_Producto,
+        SUM(DP.Cantidad) AS Salidas
+    FROM
+        Detalle_Pedido DP
+    INNER JOIN
+        Pedido Pd ON DP.Id_Pedido = Pd.Id_Pedido
+    WHERE
+        Pd.Estado = 'Completado'
+        AND Pd.fecha_Pedido >= '2023-09-01' AND Pd.fecha_Pedido <= '2023-09-30'
+    GROUP BY
+        DP.Id_Producto
+),
+StockInicial AS (
+    SELECT
+        IP.Id_Producto,
+        SUM(IP.cantidad) AS StockInicial
+    FROM
+        Ingreso_Producto IP
+    WHERE
+        IP.fecha_Ingreso < '2023-09-01'
+    GROUP BY
+        IP.Id_Producto
+)
+SELECT
+    P.Id_Producto,
+    P.Nombre AS Producto,
+    ISNULL(SI.StockInicial, 0) AS StockInicial,
+    ISNULL(I.Ingresos, 0) AS Ingresos,
+    ISNULL(S.Salidas, 0) AS Salidas,
+    P.Stock AS StockFinal
+FROM
+    Producto P
+LEFT JOIN
+    StockInicial SI ON P.Id_Producto = SI.Id_Producto
+LEFT JOIN
+    Ingresos I ON P.Id_Producto = I.Id_Producto
+LEFT JOIN
+    Salidas S ON P.Id_Producto = S.Id_Producto
+ORDER BY
+    P.Id_Producto;
 
-				select P.Id_Producto, P.Nombre as Producto
-				from producto P
-				inner join proveedor PV on P.Id_Proveedor = PV.Id_Proveedor
-				where P.Nombre like '%Tecl%'
+	
+WITH Ingresos AS (
+    SELECT
+        IP.Id_Producto,
+        SUM(IP.cantidad) AS Ingresos
+    FROM
+        Ingreso_Producto IP
+    WHERE
+        IP.fecha_Ingreso >= '2023-09-01' AND IP.fecha_Ingreso <=  '2023-09-30'
+    GROUP BY
+        IP.Id_Producto
+),
+Salidas AS (
+    SELECT
+        DP.Id_Producto,
+        SUM(DP.Cantidad) AS Salidas
+    FROM
+        Detalle_Pedido DP
+    INNER JOIN
+        Pedido Pd ON DP.Id_Pedido = Pd.Id_Pedido
+    WHERE
+        Pd.Estado = 'Completado'
+        AND Pd.fecha_Pedido >=  '2023-09-01' AND Pd.fecha_Pedido <=  '2023-09-30'
+    GROUP BY
+        DP.Id_Producto
+),
+StockInicial AS (
+    SELECT
+        IP.Id_Producto,
+        SUM(IP.cantidad) AS StockInicial
+    FROM
+        Ingreso_Producto IP
+    WHERE
+        IP.fecha_Ingreso < '2023-09-01'
+    GROUP BY
+        IP.Id_Producto
+)
+SELECT
+    P.Id_Producto,
+    P.Nombre AS Producto,
+     '2023-09-01' AS FechaInicio,
+    '2023-09-30' AS FechaFin,
+    ISNULL(SI.StockInicial, 0) AS StockInicial,
+    ISNULL(I.Ingresos, 0) AS Ingresos,
+    ISNULL(S.Salidas, 0) AS Salidas,
+    P.Stock AS StockFinal
+FROM
+    Producto P
+LEFT JOIN
+    StockInicial SI ON P.Id_Producto = SI.Id_Producto
+LEFT JOIN
+    Ingresos I ON P.Id_Producto = I.Id_Producto
+LEFT JOIN
+    Salidas S ON P.Id_Producto = S.Id_Producto
+ORDER BY
+    P.Id_Producto;
 
-			update Producto set stock= 1+12
-			where Id_Producto=1
 
 
-			select * from producto
-
-
-			select P.Id_Producto, P.Nombre as Producto, P.Stock
-                from producto P
-                inner join proveedor PV on P.Id_Proveedor = PV.Id_Proveedor
-            where P.Nombre like '%a%'
-
-			select P.Id_Producto, P.Nombre as Producto,p.Stock
-                from producto P
-               inner join proveedor PV on P.Id_Proveedor = PV.Id_Proveedor
-               where PV.Estado= 'Activo'
-
-			SELECT P.Id_Producto, P.Nombre AS Producto, 
-       ISNULL(SUM(DP.Cantidad), 0) AS Stock_Inicial
-FROM Producto P
-LEFT JOIN Detalle_Pedido DP ON P.Id_Producto = DP.Id_Producto
-GROUP BY P.Id_Producto, P.Nombre;
-
-select * from producto
-
-SELECT Estado FROM proveedor WHERE Id_Proveedor = 1;
-
-SELECT P.Id_Producto as "Código de producto", P.Nombre , P.Descripcion as Descripción, P.Stock, P.Precio_Unitario as Precio,
-                Pr.Nombre AS Proveedor, P.imagen as imagen, Pr.Id_Proveedor 
-                 FROM Producto P
-				INNER JOIN Proveedor Pr ON P.Id_Proveedor = Pr.Id_Proveedor
-
+	select * from proveedor

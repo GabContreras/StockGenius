@@ -91,21 +91,7 @@ namespace Modelos
             }
         }
 
-        public bool EliminarEmpleado(int id)
-        {
-            SqlConnection con = Conexion.Conectar();
-            string comando = "DELETE FROM Empleado WHERE Id_Empleado = @Id_Empleado";
-            SqlCommand cmd = new SqlCommand(comando, con);
-            cmd.Parameters.AddWithValue("@Id_Empleado", id);
-            if (cmd.ExecuteNonQuery() > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+       
         public bool ActualizarEmpleado()
         {
             SqlConnection con = Conexion.Conectar();
@@ -144,6 +130,21 @@ namespace Modelos
                 $"INNER JOIN Usuario U ON E.id_Usuario = U.id_Usuario\r\n" +
                 $"INNER JOIN Rol R on U.id_Rol= R.id_Rol\r\n" +
                 $"where E.nombre like '%{termino}%'";
+            SqlDataAdapter ad = new SqlDataAdapter(comando, con);
+            DataTable dt = new DataTable();
+            ad.Fill(dt);
+            return dt;
+
+        }
+
+        public static DataTable Buscar2(string termino)
+        {
+            SqlConnection con = Conexion.Conectar();
+            string comando = $"SELECT E.Id_Empleado, E.Nombre, E.Apellido, E.DUI, R.Nombre\r\n" +
+                $"FROM Empleado E\r\n" +
+                $"INNER JOIN Usuario U ON E.Id_Usuario = U.Id_usuario\r\n" +
+                $"INNER JOIN Rol R on U.id_Rol= R.id_Rol\r\n" +
+                $"where R.Nombre= 'Vendedor' and E.nombre like '%{termino}%'";
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
             DataTable dt = new DataTable();
             ad.Fill(dt);

@@ -40,6 +40,7 @@ namespace Interfaces_ptc
             MostrarClientes(); 
             ActualizarCliente();
             ActualizarPedido();
+            ActualizarEmpleado();
         }
         private void MostrarPedido()
         {
@@ -170,21 +171,30 @@ namespace Interfaces_ptc
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            try
+            {
                 int id_pedido = int.Parse(dgvPedido.CurrentRow.Cells[0].Value.ToString());
-               
+
                 Pedido p = new Pedido();
                 p.Id_Pedido = id_pedido;
                 p.Estado = "Anulado";
                 p.AnularPedido();
                 MessageBox.Show("Pedido anulado satisfactoriamente", "Éxito");
-            MostrarPedido();
-
+                MostrarPedido();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
-
+        private void ActualizarEmpleado()
+        {
+            dgvEmpleado.DataSource = Empleado.Buscar2(txtBuscarEmpleado.Text);
+            dgvEmpleado.Columns[0].Visible = false;
+        }
         private void txtBuscarEmpleado_TextChanged(object sender, EventArgs e)
         {
-
+            ActualizarEmpleado();
         }
     }
 }

@@ -51,7 +51,10 @@ namespace Interfaces_ptc
     private void txtBuscarProducto_TextChanged(object sender, EventArgs e)
         {
         }
-
+        private void LimpiarCampo()
+        {
+            txtCantidad.Text = "";
+        }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             try
@@ -91,6 +94,7 @@ namespace Interfaces_ptc
                         {
                             MessageBox.Show("Stock actualizado satisfactoriamente", "Éxito");
                             MostrarProductos();
+                            LimpiarCampo();
                         }
                         else
                         {

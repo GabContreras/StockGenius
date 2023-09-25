@@ -35,25 +35,26 @@
             // rpInventario
             // 
             this.rpInventario.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rpInventario.LocalReport.ReportEmbeddedResource = "Interfaces_ptc.Report1.rdlc";
+            this.rpInventario.LocalReport.ReportEmbeddedResource = "Interfaces_ptc.Report2.rdlc";
             this.rpInventario.Location = new System.Drawing.Point(0, 0);
             this.rpInventario.Margin = new System.Windows.Forms.Padding(4);
             this.rpInventario.Name = "rpInventario";
             this.rpInventario.ServerReport.BearerToken = null;
-            this.rpInventario.Size = new System.Drawing.Size(768, 450);
+            this.rpInventario.Size = new System.Drawing.Size(832, 749);
             this.rpInventario.TabIndex = 1;
             // 
             // frmReporteDeInventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(768, 450);
+            this.ClientSize = new System.Drawing.Size(832, 749);
             this.Controls.Add(this.rpInventario);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmReporteDeInventario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reporte de movimiento de inventario";
+            this.Load += new System.EventHandler(this.frmReporteDeInventario_Load);
             this.ResumeLayout(false);
 
         }

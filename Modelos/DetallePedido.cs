@@ -30,7 +30,8 @@ namespace Modelos
             string comando = $"SELECT DP.Id_Detalle, DP.Id_Pedido as \"Número de pedido\", DP.Id_Producto as \"Código de producto\"," +
                 $" P.Nombre AS Producto, DP.Cantidad, P.Precio_Unitario AS Precio\r\n" +
                 $"FROM Detalle_Pedido DP\r\n" +
-                $"INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto\r\n";
+                $"INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto\r\n" +
+                $"where Id_Pedido=@id";
             SqlCommand cmd = new SqlCommand(comando, con);
 
             cmd.Parameters.AddWithValue("@id", id_pedido);
@@ -47,11 +48,15 @@ namespace Modelos
         public DataTable CargarFactura()
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = $"SELECT DP.ID_Producto, P.nombre, sum(DP.cantidad) as Cantidad,  P.Precio_Unitario\r\n" +
+            string comando = $"SELECT DP.ID_Producto, P.nombre, SUM(DP.cantidad) AS Cantidad, P.Precio_Unitario,\r\n" +
+                $"PP.Fecha_Pedido, C.Nombre AS Nombre_Cliente, E.Nombre AS Nombre_Empleado\r\n" +
                 $"FROM Detalle_Pedido DP\r\n" +
-                $"inner join producto P on P.id_Producto = DP.id_Producto\r\n" +
-                $"where id_pedido = @id\r\n" +
-                $"group by P.nombre, DP.id_producto,DP.Id_Pedido, P.Precio_Unitario";
+                $"INNER JOIN Producto P ON P.id_Producto = DP.id_Producto\r\n" +
+                $"INNER JOIN Pedido PP ON DP.Id_Pedido = PP.Id_Pedido\r\n" +
+                $"INNER JOIN Cliente C ON PP.Id_Cliente = C.Id_Cliente\r\n" +
+                $"INNER JOIN Empleado E ON PP.Id_Empleado = E.Id_Empleado\r\n" +
+                $"WHERE DP.Id_Pedido = @id\r\n" +
+                $"GROUP BY P.nombre, DP.id_producto, DP.Id_Pedido, P.Precio_Unitario, PP.Fecha_Pedido, C.Nombre, E.Nombre;\r\n";
             SqlCommand cmd = new SqlCommand(comando, con);
 
             cmd.Parameters.AddWithValue("@id", id_pedido);

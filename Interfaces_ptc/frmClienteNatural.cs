@@ -83,6 +83,10 @@ namespace Interfaces_ptc
                 txtDirección.Text = dgvClientes.CurrentRow.Cells[5].Value.ToString();
                 numEdad.Text = dgvClientes.CurrentRow.Cells[6].Value.ToString();
             }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Por favor, seleccione a un cliente antes de cargar sus datos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -154,6 +158,10 @@ namespace Interfaces_ptc
                 {
                     MessageBox.Show("Se produjo un error", "Advertencia");
                 }
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Por favor, seleccione a un cliente antes de inhabilitarlo", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {

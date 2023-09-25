@@ -49,6 +49,7 @@
             this.btnAgregar.TabIndex = 106;
             this.btnAgregar.Text = "Generar Reporte";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // label1
             // 

@@ -15,12 +15,16 @@ namespace Interfaces_ptc
 {
     public partial class frmEmpleados : Form
     {
+
+        Usuario v;
+        
         public frmEmpleados(Usuario u)
         {
             InitializeComponent();
 
+            v= u;
           
-           if (u.Id_Rol== 2)
+           if (v.Id_Rol== 2)
            {
                 btnEliminar.Visible = false;
                 btnActualizar.Visible = false;
@@ -53,16 +57,33 @@ namespace Interfaces_ptc
             //El código que puede dar error
             try
             {
-                cbRol.DataSource = null;
-                cbRol.DataSource = Roles.CargarRoles();
+                if (v.Id_Rol == 6)
+                {
+                    cbRol.DataSource = null;
+                    cbRol.DataSource = Roles.CargarRoles();
 
-                //El valor que se muestra en el combobox
-                //Se coloca el nombre de la columna en la tabla
-                cbRol.DisplayMember = "nombre";
+                    //El valor que se muestra en el combobox
+                    //Se coloca el nombre de la columna en la tabla
+                    cbRol.DisplayMember = "nombre";
 
-                //Valor que no se muestra (id)
-                //Se coloca el nombre de la columna en la tabla
-                cbRol.ValueMember = "id";
+                    //Valor que no se muestra (id)
+                    //Se coloca el nombre de la columna en la tabla
+                    cbRol.ValueMember = "id";
+                }
+                if (v.Id_Rol == 1)
+                {
+                    cbRol.DataSource = null;
+                    cbRol.DataSource = Roles.CargarRolesSiEsAdmin();
+
+                    //El valor que se muestra en el combobox
+                    //Se coloca el nombre de la columna en la tabla
+                    cbRol.DisplayMember = "nombre";
+
+                    //Valor que no se muestra (id)
+                    //Se coloca el nombre de la columna en la tabla
+                    cbRol.ValueMember = "id";
+                }
+
             }
 
             //Bloque de código por si da error
@@ -116,6 +137,7 @@ namespace Interfaces_ptc
             txtDui.Text = "";
             txtCorreo.Text = "";
             cbRol.SelectedIndex = -1;
+            txtBuscar.Text = "";
 
         }
 
@@ -210,30 +232,134 @@ namespace Interfaces_ptc
         {
             try
             {
-                if (txtNombreUsuario.Text == "" || txtCargo.Text == "" || txtNombre.Text == "" || txtApellido.Text == ""
+                if (v.Id_Rol == 1)
+                {
+                    if (txtNombreUsuario.Text == "" || txtCargo.Text == "" || txtNombre.Text == "" || txtApellido.Text == ""
                     || txtTelefono.Text == "" || txtDui.Text == "" || txtCorreo.Text == "")
-                {
-                    MessageBox.Show("No dejar campos vacíos",
-                        "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else if (!txtCorreo.Text.Contains("@"))
-                {
-                    MessageBox.Show("El campo de correo debe contener el símbolo '@'",
-                        "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    {
+                        MessageBox.Show("No dejar campos vacíos",
+                            "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else if (!txtCorreo.Text.Contains("@"))
+                    {
+                        MessageBox.Show("El campo de correo debe contener el símbolo '@'",
+                            "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                    else
+                    {
+                        int id_Admin = int.Parse(dgvEmpleados.CurrentRow.Cells[1].Value.ToString());
+                        if (id_Admin == 1)
+                        {
+                            MessageBox.Show("No le puedes cambiar los datos a un Administrador",
+                            "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                        else
+                        {
+                            Encrypt encr = new Encrypt();
+
+                            Usuario U = new Usuario();
+                            U.NombreUsuario = txtNombreUsuario.Text;
+                            U.Id_Rol = (int)cbRol.SelectedValue;
+                            U.Id_usuario = (int)dgvEmpleados.CurrentRow.Cells[2].Value;
+                            U.Contraseña = encr.Encriptar(txtContraseña.Text);
+                            // Verificar si la contraseña no está vacía y actualizar el usuario
+                            if (txtContraseña.Text == "")
+                            {
+                                if (U.ActualizarUsuarioConTxtContraseñaVacio() == true)
+                                {
+                                    Empleado E = new Empleado();
+                                    E.Id_empleado = (int)dgvEmpleados.CurrentRow.Cells[0].Value;
+                                    E.Nombre_Empleado = txtNombre.Text;
+                                    E.Apellido = txtApellido.Text;
+                                    E.Telefono = txtTelefono.Text;
+                                    E.Dui = txtDui.Text;
+                                    E.Correo = txtCorreo.Text;
+                                    E.Cargo = txtCargo.Text;
+                                    E.Id_Usuario = Usuario.ConseguirIdUsuario(txtNombreUsuario.Text);
+
+                                    // Actualizar el empleado después de actualizar el usuario
+                                    if (E.ActualizarEmpleado())
+                                    {
+                                        MessageBox.Show("Empleado actualizado satisfactoriamente", "Éxito");
+                                        MostrarEmpleados();
+                                        LimpiarCampos();
+                                    }
+                                }
+                            }
+
+                            else if (U.ActualizarUsuario() == true)
+                            {
+                                Empleado E = new Empleado();
+                                E.Id_empleado = (int)dgvEmpleados.CurrentRow.Cells[0].Value;
+                                E.Nombre_Empleado = txtNombre.Text;
+                                E.Apellido = txtApellido.Text;
+                                E.Telefono = txtTelefono.Text;
+                                E.Dui = txtDui.Text;
+                                E.Correo = txtCorreo.Text;
+                                E.Cargo = txtCargo.Text;
+                                E.Id_Usuario = Usuario.ConseguirIdUsuario(txtNombreUsuario.Text);
+
+                                // Actualizar el empleado después de actualizar el usuario
+                                if (E.ActualizarEmpleado())
+                                {
+                                    MessageBox.Show("Empleado actualizado satisfactoriamente", "Éxito");
+                                    MostrarEmpleados();
+                                    LimpiarCampos();
+                                }
+
+                            }
+                        }
+                    }
                 }
                 else
                 {
-                    Encrypt encr = new Encrypt();
 
-                    Usuario U = new Usuario();
-                    U.NombreUsuario = txtNombreUsuario.Text;
-                    U.Id_Rol = (int)cbRol.SelectedValue;
-                    U.Id_usuario = (int)dgvEmpleados.CurrentRow.Cells[2].Value;
-                    U.Contraseña = encr.Encriptar(txtContraseña.Text);
-                    // Verificar si la contraseña no está vacía y actualizar el usuario
-                    if (txtContraseña.Text == "")
+                    if (txtNombreUsuario.Text == "" || txtCargo.Text == "" || txtNombre.Text == "" || txtApellido.Text == ""
+                        || txtTelefono.Text == "" || txtDui.Text == "" || txtCorreo.Text == "")
                     {
-                        if (U.ActualizarUsuarioConTxtContraseñaVacio() == true)
+                        MessageBox.Show("No dejar campos vacíos",
+                            "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else if (!txtCorreo.Text.Contains("@"))
+                    {
+                        MessageBox.Show("El campo de correo debe contener el símbolo '@'",
+                            "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                    else
+                    {
+                        Encrypt encr = new Encrypt();
+
+                        Usuario U = new Usuario();
+                        U.NombreUsuario = txtNombreUsuario.Text;
+                        U.Id_Rol = (int)cbRol.SelectedValue;
+                        U.Id_usuario = (int)dgvEmpleados.CurrentRow.Cells[2].Value;
+                        U.Contraseña = encr.Encriptar(txtContraseña.Text);
+                        // Verificar si la contraseña no está vacía y actualizar el usuario
+                        if (txtContraseña.Text == "")
+                        {
+                            if (U.ActualizarUsuarioConTxtContraseñaVacio() == true)
+                            {
+                                Empleado E = new Empleado();
+                                E.Id_empleado = (int)dgvEmpleados.CurrentRow.Cells[0].Value;
+                                E.Nombre_Empleado = txtNombre.Text;
+                                E.Apellido = txtApellido.Text;
+                                E.Telefono = txtTelefono.Text;
+                                E.Dui = txtDui.Text;
+                                E.Correo = txtCorreo.Text;
+                                E.Cargo = txtCargo.Text;
+                                E.Id_Usuario = Usuario.ConseguirIdUsuario(txtNombreUsuario.Text);
+
+                                // Actualizar el empleado después de actualizar el usuario
+                                if (E.ActualizarEmpleado())
+                                {
+                                    MessageBox.Show("Empleado actualizado satisfactoriamente", "Éxito");
+                                    MostrarEmpleados();
+                                    LimpiarCampos();
+                                }
+                            }
+                        }
+
+                        else if (U.ActualizarUsuario() == true)
                         {
                             Empleado E = new Empleado();
                             E.Id_empleado = (int)dgvEmpleados.CurrentRow.Cells[0].Value;
@@ -252,29 +378,8 @@ namespace Interfaces_ptc
                                 MostrarEmpleados();
                                 LimpiarCampos();
                             }
+
                         }
-                    }
-
-                    else if (U.ActualizarUsuario() == true)
-                    {
-                        Empleado E = new Empleado();
-                        E.Id_empleado = (int)dgvEmpleados.CurrentRow.Cells[0].Value;
-                        E.Nombre_Empleado = txtNombre.Text;
-                        E.Apellido = txtApellido.Text;
-                        E.Telefono = txtTelefono.Text;
-                        E.Dui = txtDui.Text;
-                        E.Correo = txtCorreo.Text;
-                        E.Cargo = txtCargo.Text;
-                        E.Id_Usuario = Usuario.ConseguirIdUsuario(txtNombreUsuario.Text);
-
-                        // Actualizar el empleado después de actualizar el usuario
-                        if (E.ActualizarEmpleado())
-                        {
-                            MessageBox.Show("Empleado actualizado satisfactoriamente", "Éxito");
-                            MostrarEmpleados();
-                            LimpiarCampos();
-                        }
-
                     }
                 }
             }
@@ -357,18 +462,25 @@ namespace Interfaces_ptc
 
         private void probando(object sender, EventArgs e)
         {
-           
-
+            try
+            {
                 txtNombreUsuario.Text = dgvEmpleados.CurrentRow.Cells[9].Value.ToString();
                 cbRol.Text = dgvEmpleados.CurrentRow.Cells[3].Value.ToString();
-
                 txtCargo.Text = dgvEmpleados.CurrentRow.Cells[11].Value.ToString();
-
                 txtNombre.Text = dgvEmpleados.CurrentRow.Cells[4].Value.ToString();
                 txtApellido.Text = dgvEmpleados.CurrentRow.Cells[5].Value.ToString();
                 txtTelefono.Text = dgvEmpleados.CurrentRow.Cells[6].Value.ToString();
                 txtDui.Text = dgvEmpleados.CurrentRow.Cells[7].Value.ToString();
                 txtCorreo.Text = dgvEmpleados.CurrentRow.Cells[8].Value.ToString();
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Por favor, seleccione a un Empleado antes de cargar sus datos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         
     }

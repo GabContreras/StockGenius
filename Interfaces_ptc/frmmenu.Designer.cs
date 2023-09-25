@@ -84,7 +84,7 @@
             // btnMicuenta
             // 
             this.btnMicuenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(0)))), ((int)(((byte)(90)))));
-            this.btnMicuenta.BackgroundImage = global::Interfaces_ptc.Properties.Resources.Empleado;
+            this.btnMicuenta.BackgroundImage = global::Interfaces_ptc.Properties.Resources.ClientesNaturales;
             this.btnMicuenta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnMicuenta.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnMicuenta.FlatAppearance.BorderSize = 0;
@@ -230,7 +230,6 @@
             // btnClienteJuridico
             // 
             this.btnClienteJuridico.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(0)))), ((int)(((byte)(90)))));
-            this.btnClienteJuridico.BackgroundImage = global::Interfaces_ptc.Properties.Resources.Clientejuridico;
             this.btnClienteJuridico.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnClienteJuridico.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnClienteJuridico.FlatAppearance.BorderSize = 0;
@@ -249,7 +248,6 @@
             // 
             // btnClienteNatural
             // 
-            this.btnClienteNatural.BackgroundImage = global::Interfaces_ptc.Properties.Resources.ClientesNaturales;
             this.btnClienteNatural.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnClienteNatural.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnClienteNatural.FlatAppearance.BorderSize = 0;

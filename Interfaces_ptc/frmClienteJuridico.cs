@@ -35,6 +35,10 @@ namespace Interfaces_ptc
                 txtDireccion.Text = dgvClientes.CurrentRow.Cells[3].Value.ToString();
                 txtTelefono.Text = dgvClientes.CurrentRow.Cells[2].Value.ToString();
             }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Por favor, seleccione a un cliente antes de cargar sus datos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -67,7 +71,12 @@ namespace Interfaces_ptc
         {
             try
             {
-                if (txtNombreEmpresa.Text == "" || txtNIT.Text == "" || txtNRC.Text == "" ||
+                if (cbCategoria.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Por favor, seleccione una categoría válida",
+                        "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (txtNombreEmpresa.Text == "" || txtNIT.Text == "" || txtNRC.Text == "" ||
                     txtGiro.Text == "" || txtDireccion.Text == "" || txtTelefono.Text == "")
                 {
                     MessageBox.Show("No dejar campos vacíos",
@@ -128,6 +137,10 @@ namespace Interfaces_ptc
                     MessageBox.Show("Se produjo un error", "Advertencia");
                 }
             }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Por favor, seleccione a un cliente antes de inhabilitarlo", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -172,6 +185,10 @@ namespace Interfaces_ptc
                         MessageBox.Show("Se produjo un error", "Advertencia");
                     }
                 }
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Por favor, seleccione a un cliente antes de actualizar sus datos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {

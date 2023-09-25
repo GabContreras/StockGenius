@@ -129,7 +129,7 @@ namespace Modelos
             SqlConnection con = Conexion.Conectar();
             string comando = $"SELECT Id_Cliente as \"Código de cliente\", Nombre , Apellido, DUI, Telefono, Dirección, Edad \r\n" +
                 $"FROM Cliente\r\n" +
-                $"WHERE DUI IS NOT NULL AND Apellido IS NOT NULL AND Edad IS NOT NULL and Cliente.nombre like '%{termino}%'";
+                $"WHERE DUI IS NOT NULL AND Apellido IS NOT NULL AND Edad IS NOT NULL AND Estado = 'Activo' and Cliente.nombre like '%{termino}%'";
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
             DataTable dt = new DataTable();
             ad.Fill(dt);

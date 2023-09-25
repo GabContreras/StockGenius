@@ -40,6 +40,81 @@ namespace Modelos
             ad.Fill(dt);
             return dt;
         }
+        public DataTable GenerarInformeInventario(DateTime fechaInicio, DateTime fechaFin)
+        {
+            SqlConnection con = Conexion.Conectar();
+            string comando = @"WITH Ingresos AS (
+    SELECT
+        IP.Id_Producto,
+        SUM(IP.cantidad) AS Ingresos
+    FROM
+        Ingreso_Producto IP
+    WHERE
+        IP.fecha_Ingreso >= @FechaInicio AND IP.fecha_Ingreso <= @FechaFin
+    GROUP BY
+        IP.Id_Producto
+),
+Salidas AS (
+    SELECT
+        DP.Id_Producto,
+        SUM(DP.Cantidad) AS Salidas
+    FROM
+        Detalle_Pedido DP
+    INNER JOIN
+        Pedido Pd ON DP.Id_Pedido = Pd.Id_Pedido
+    WHERE
+        Pd.Estado = 'Completado'
+        AND Pd.fecha_Pedido >= @FechaInicio AND Pd.fecha_Pedido <= @FechaFin
+    GROUP BY
+        DP.Id_Producto
+),
+StockInicial AS (
+    SELECT
+        IP.Id_Producto,
+        SUM(IP.cantidad) AS StockInicial
+    FROM
+        Ingreso_Producto IP
+    WHERE
+        IP.fecha_Ingreso < @FechaInicio
+    GROUP BY
+        IP.Id_Producto
+)
+SELECT
+    P.Id_Producto,
+    P.Nombre AS Producto,
+    @FechaInicio AS FechaInicio,
+    @FechaFin AS FechaFin,
+    ISNULL(SI.StockInicial, 0) AS StockInicial,
+    ISNULL(I.Ingresos, 0) AS Ingresos,
+    ISNULL(S.Salidas, 0) AS Salidas,
+    P.Stock AS StockFinal
+FROM
+    Producto P
+LEFT JOIN
+    StockInicial SI ON P.Id_Producto = SI.Id_Producto
+LEFT JOIN
+    Ingresos I ON P.Id_Producto = I.Id_Producto
+LEFT JOIN
+    Salidas S ON P.Id_Producto = S.Id_Producto
+ORDER BY
+    P.Id_Producto;
+    ";
+
+            SqlCommand cmd = new SqlCommand(comando, con);
+            cmd.Parameters.AddWithValue("@FechaInicio", fechaInicio);
+            cmd.Parameters.AddWithValue("@FechaFin", fechaFin);
+
+            // El comando se agrega al SqlDataAdapter
+            SqlDataAdapter ad = new SqlDataAdapter(cmd);
+
+            DataTable dt = new DataTable();
+
+            ad.Fill(dt);
+
+            return dt;
+        }
+
+
         public static DataTable BuscarEnDetallePedido(string termino)
         {
             SqlConnection con = Conexion.Conectar();
