@@ -69,7 +69,7 @@
             this.MinimumSize = new System.Drawing.Size(553, 489);
             this.Name = "frmStock";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmStock";
+            this.Text = "Stock";
             this.Load += new System.EventHandler(this.frmStock_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             this.ResumeLayout(false);

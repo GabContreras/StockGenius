@@ -143,7 +143,7 @@ values ('Administrador'),--ya
 ('Master Admin');--ya
 go
 
-
+select * from Ingreso_Producto
 -- Create a filtered unique index for NIT column
 CREATE UNIQUE INDEX UX_NIT_Unique ON Cliente (NIT) WHERE NIT IS NOT NULL;
 
@@ -224,7 +224,7 @@ VALUES
     ('Sofía', 'Torres', '+503 1111-1111', '11111111-1', 'sofia.torres@example.com', 'Vendedor', 8), --Vendedor
     ('María', 'Fernández', '+503 2222-2222', '22222222-2', 'maria.fernandez@example.com', 'Encargado de bodega', 9); --Encargado de bodega
 	
-	select * from Producto
+	select * from Usuario
 
 CREATE TRIGGER CalcularTotalDetallePedido
 ON Detalle_Pedido
@@ -266,8 +266,6 @@ END;
 UPDATE TOP(5) Ingreso_Producto
 SET fecha_Ingreso = '2023-08-01'
 
-
-select * from Ingreso_Producto
 
 
 	WITH Ingresos AS (

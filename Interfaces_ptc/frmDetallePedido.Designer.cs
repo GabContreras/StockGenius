@@ -107,11 +107,11 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Cambria", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(68, 5);
+            this.label9.Location = new System.Drawing.Point(60, 5);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(147, 25);
+            this.label9.Size = new System.Drawing.Size(163, 25);
             this.label9.TabIndex = 112;
-            this.label9.Text = "Detalle Pedido";
+            this.label9.Text = "Detalle de venta";
             // 
             // btnSalir
             // 
@@ -407,7 +407,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.MaximumSize = new System.Drawing.Size(734, 661);
             this.Name = "frmDetallePedido";
-            this.Text = "DetallePedido";
+            this.Text = "Detalleventa";
             this.Load += new System.EventHandler(this.frmDetallePedido_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);

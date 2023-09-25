@@ -30,6 +30,8 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.dgvEmpleado = new System.Windows.Forms.DataGridView();
+            this.txtBuscarEmpleado = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.txtBuscarCliente = new System.Windows.Forms.TextBox();
@@ -45,17 +47,15 @@
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.dgvPedido = new System.Windows.Forms.DataGridView();
-            this.txtBuscarEmpleado = new System.Windows.Forms.TextBox();
-            this.dgvEmpleado = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleado)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleado)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -98,6 +98,34 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(622, 68);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
+            // dgvEmpleado
+            // 
+            this.dgvEmpleado.AllowUserToAddRows = false;
+            this.dgvEmpleado.AllowUserToDeleteRows = false;
+            this.dgvEmpleado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvEmpleado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEmpleado.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvEmpleado.Location = new System.Drawing.Point(313, 3);
+            this.dgvEmpleado.Name = "dgvEmpleado";
+            this.dgvEmpleado.ReadOnly = true;
+            this.dgvEmpleado.RowHeadersVisible = false;
+            this.dgvEmpleado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvEmpleado.Size = new System.Drawing.Size(306, 62);
+            this.dgvEmpleado.TabIndex = 118;
+            // 
+            // txtBuscarEmpleado
+            // 
+            this.txtBuscarEmpleado.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtBuscarEmpleado.BackColor = System.Drawing.Color.White;
+            this.txtBuscarEmpleado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBuscarEmpleado.Font = new System.Drawing.Font("Cambria", 12F);
+            this.txtBuscarEmpleado.ForeColor = System.Drawing.Color.Black;
+            this.txtBuscarEmpleado.Location = new System.Drawing.Point(127, 21);
+            this.txtBuscarEmpleado.Name = "txtBuscarEmpleado";
+            this.txtBuscarEmpleado.Size = new System.Drawing.Size(180, 26);
+            this.txtBuscarEmpleado.TabIndex = 117;
+            this.txtBuscarEmpleado.TextChanged += new System.EventHandler(this.txtBuscarEmpleado_TextChanged);
+            // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -124,7 +152,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 68F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(622, 68);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
@@ -135,7 +163,7 @@
             this.txtBuscarCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBuscarCliente.Font = new System.Drawing.Font("Cambria", 12F);
             this.txtBuscarCliente.ForeColor = System.Drawing.Color.Black;
-            this.txtBuscarCliente.Location = new System.Drawing.Point(127, 24);
+            this.txtBuscarCliente.Location = new System.Drawing.Point(127, 21);
             this.txtBuscarCliente.Name = "txtBuscarCliente";
             this.txtBuscarCliente.Size = new System.Drawing.Size(180, 26);
             this.txtBuscarCliente.TabIndex = 116;
@@ -147,7 +175,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(3, 26);
+            this.label4.Location = new System.Drawing.Point(3, 23);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(66, 22);
             this.label4.TabIndex = 111;
@@ -165,7 +193,7 @@
             this.dgvCliente.ReadOnly = true;
             this.dgvCliente.RowHeadersVisible = false;
             this.dgvCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCliente.Size = new System.Drawing.Size(306, 68);
+            this.dgvCliente.Size = new System.Drawing.Size(306, 62);
             this.dgvCliente.TabIndex = 112;
             // 
             // tableLayoutPanel2
@@ -189,11 +217,11 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Cambria", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(57, 4);
+            this.label9.Location = new System.Drawing.Point(62, 4);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(197, 25);
+            this.label9.Size = new System.Drawing.Size(187, 25);
             this.label9.TabIndex = 112;
-            this.label9.Text = "Administrar Pedido";
+            this.label9.Text = "Administrar Venta";
             // 
             // btnSalir
             // 
@@ -227,7 +255,7 @@
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel8.Size = new System.Drawing.Size(622, 44);
             this.tableLayoutPanel8.TabIndex = 2;
             // 
@@ -319,34 +347,6 @@
             this.dgvPedido.Size = new System.Drawing.Size(622, 202);
             this.dgvPedido.TabIndex = 0;
             // 
-            // txtBuscarEmpleado
-            // 
-            this.txtBuscarEmpleado.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtBuscarEmpleado.BackColor = System.Drawing.Color.White;
-            this.txtBuscarEmpleado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBuscarEmpleado.Font = new System.Drawing.Font("Cambria", 12F);
-            this.txtBuscarEmpleado.ForeColor = System.Drawing.Color.Black;
-            this.txtBuscarEmpleado.Location = new System.Drawing.Point(127, 21);
-            this.txtBuscarEmpleado.Name = "txtBuscarEmpleado";
-            this.txtBuscarEmpleado.Size = new System.Drawing.Size(180, 26);
-            this.txtBuscarEmpleado.TabIndex = 117;
-            this.txtBuscarEmpleado.TextChanged += new System.EventHandler(this.txtBuscarEmpleado_TextChanged);
-            // 
-            // dgvEmpleado
-            // 
-            this.dgvEmpleado.AllowUserToAddRows = false;
-            this.dgvEmpleado.AllowUserToDeleteRows = false;
-            this.dgvEmpleado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvEmpleado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEmpleado.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvEmpleado.Location = new System.Drawing.Point(313, 3);
-            this.dgvEmpleado.Name = "dgvEmpleado";
-            this.dgvEmpleado.ReadOnly = true;
-            this.dgvEmpleado.RowHeadersVisible = false;
-            this.dgvEmpleado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEmpleado.Size = new System.Drawing.Size(306, 62);
-            this.dgvEmpleado.TabIndex = 118;
-            // 
             // frmPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -356,11 +356,12 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.MaximumSize = new System.Drawing.Size(734, 661);
             this.Name = "frmPedido";
-            this.Text = "AdministrarPedido";
+            this.Text = "Administrar venta";
             this.Load += new System.EventHandler(this.frmPedido_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleado)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).EndInit();
@@ -370,7 +371,6 @@
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleado)).EndInit();
             this.ResumeLayout(false);
 
         }
