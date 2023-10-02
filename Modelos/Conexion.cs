@@ -9,7 +9,7 @@ namespace Modelos
 {
     public class Conexion
     {
-        private static string servidor = "DESKTOP-7K84JF6\\SQLEXPRESS";
+        private static string servidor = "DESKTOP-Q0P5Q03\\SQLEXPRESS";
         private static string baseDeDatos = "BaseDeDatosPtc";
         private string cadena;
 

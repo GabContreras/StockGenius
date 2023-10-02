@@ -42,6 +42,7 @@ namespace Modelos
 
             DataTable dt = new DataTable();
             ad.Fill(dt);
+            con.Close();
             return dt;
 
         }
@@ -65,11 +66,13 @@ namespace Modelos
 
             if (cmd.ExecuteNonQuery() > 0)
             {
+                con.Close();
                 return true;
             }
 
             else
             {
+                con.Close();
                 return false;
             }
         }
@@ -83,10 +86,12 @@ namespace Modelos
 
             if (cmd.ExecuteNonQuery() > 0)
             {
+                con.Close();
                 return true;
             }
             else
             {
+                con.Close();
                 return false;
             }
         }
@@ -110,11 +115,13 @@ namespace Modelos
 
             if (cmd.ExecuteNonQuery() > 0)
             {
+                con.Close();
                 return true;
             }
 
             else
             {
+                con.Close();
                 return false;
             }
         }
@@ -127,6 +134,7 @@ namespace Modelos
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
             DataTable dt = new DataTable();
             ad.Fill(dt);
+            con.Close();
             return dt;
         }
         

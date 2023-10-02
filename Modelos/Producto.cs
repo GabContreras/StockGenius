@@ -38,6 +38,7 @@ namespace Modelos
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
             DataTable dt = new DataTable();
             ad.Fill(dt);
+            con.Close();
             return dt;
         }
         public DataTable GenerarInformeInventario(DateTime fechaInicio, DateTime fechaFin)
@@ -111,6 +112,7 @@ ORDER BY
 
             ad.Fill(dt);
 
+            con.Close();
             return dt;
         }
 
@@ -125,6 +127,7 @@ ORDER BY
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
             DataTable dt = new DataTable();
             ad.Fill(dt);
+            con.Close();
             return dt;
 
         }
@@ -139,6 +142,7 @@ ORDER BY
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
             DataTable dt = new DataTable();
             ad.Fill(dt);
+            con.Close();
             return dt;
         }
 
@@ -151,6 +155,7 @@ ORDER BY
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
             DataTable dt = new DataTable();
             ad.Fill(dt);
+            con.Close();
             return dt;
         }
         public int ObtenerStockProducto(int idProducto)
@@ -170,7 +175,7 @@ ORDER BY
                     stock = Convert.ToInt32(reader["Stock"]);
                 }
             }
-
+            con.Close();
             return stock;
         }
 
@@ -192,11 +197,13 @@ ORDER BY
 
             if (cmd.ExecuteNonQuery() > 0)
             {
+                con.Close();
                 return true;
             }
 
             else
             {
+                con.Close();
                 return false;
             }
         }
@@ -208,10 +215,12 @@ ORDER BY
             cmd.Parameters.AddWithValue("@id_producto", id);
             if (cmd.ExecuteNonQuery() > 0)
             {
+                con.Close();
                 return true;
             }
             else
             {
+                con.Close();
                 return false;
             }
         }
@@ -234,11 +243,13 @@ ORDER BY
 
             if (cmd.ExecuteNonQuery() > 0)
             {
+                con.Close();
                 return true;
             }
 
             else
             {
+                con.Close();
                 return false;
             }
         }
@@ -254,11 +265,13 @@ ORDER BY
 
             if (cmd.ExecuteNonQuery() > 0)
             {
+                con.Close();
                 return true;
             }
 
             else
             {
+                con.Close();
                 return false;
             }
         }
@@ -275,6 +288,7 @@ ORDER BY
 
             DataTable dt = new DataTable();
             ad.Fill(dt);
+            con.Close();
             return dt;
         }
 

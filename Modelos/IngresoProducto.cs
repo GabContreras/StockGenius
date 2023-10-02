@@ -35,11 +35,13 @@ namespace Modelos
 
             if (cmd.ExecuteNonQuery() > 0)
             {
+                con.Close();
                 return true;
             }
 
             else
             {
+                con.Close();
                 return false;
             }
         }
@@ -60,6 +62,7 @@ namespace Modelos
                 }
             }
 
+            con.Close();
             return estado; // Devolver el estado del proveedor
         }
 

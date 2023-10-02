@@ -25,6 +25,7 @@ namespace Modelos
 
             DataTable dt = new DataTable();
             ad.Fill(dt);
+            con.Close();
             return dt;
         }
 
@@ -36,6 +37,7 @@ namespace Modelos
 
             DataTable dt = new DataTable();
             ad.Fill(dt);
+            con.Close();
             return dt;
         }
 

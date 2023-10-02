@@ -35,6 +35,7 @@ namespace Modelos
 
             DataTable dt = new DataTable();
             ad.Fill(dt);
+            con.Close();
             return dt;
 
         }
@@ -53,7 +54,7 @@ namespace Modelos
                     estado = reader["Estado"].ToString(); // Obtener el estado del resultado y asignarlo a la variable estado
                 }
             }
-
+            con.Close();
             return estado; // Devolver el estado del pedido
         }
 
@@ -72,29 +73,17 @@ namespace Modelos
 
             if (cmd.ExecuteNonQuery() > 0)
             {
+                con.Close();
                 return true;
             }
 
             else
             {
+                con.Close();
                 return false;
             }
         }
-        public bool EliminarPedido(int id)
-        {
-            SqlConnection con = Conexion.Conectar();
-            string comando = "DELETE FROM Pedido WHERE Id_Pedido = @id_pedido";
-            SqlCommand cmd = new SqlCommand(comando, con);
-            cmd.Parameters.AddWithValue("@id_pedido", id);
-            if (cmd.ExecuteNonQuery() > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+     
 
         public bool ActualizarPedido()
         {
@@ -109,10 +98,12 @@ namespace Modelos
 
             if (cmd.ExecuteNonQuery() > 0)
             {
+                con.Close();
                 return true;
             }
             else
             {
+                con.Close();
                 return false;
             }
         }
@@ -130,11 +121,13 @@ namespace Modelos
 
             if (cmd.ExecuteNonQuery() > 0)
             {
+                con.Close();
                 return true;
             }
 
             else
             {
+                con.Close();
                 return false;
             }
         }
@@ -152,11 +145,13 @@ namespace Modelos
 
             if (cmd.ExecuteNonQuery() > 0)
             {
+                con.Close();
                 return true;
             }
 
             else
             {
+                con.Close();
                 return false;
             }
         }
@@ -171,6 +166,7 @@ namespace Modelos
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
             DataTable dt = new DataTable();
             ad.Fill(dt);
+            con.Close();
             return dt;
         }
     }

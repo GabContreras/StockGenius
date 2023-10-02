@@ -43,6 +43,7 @@ namespace Modelos
 
             ad.Fill(dt);
 
+            con.Close();
             return dt;
         }
         public DataTable CargarFactura()
@@ -68,6 +69,7 @@ namespace Modelos
 
             ad.Fill(dt);
 
+            con.Close();
             return dt;
         }
       
@@ -86,7 +88,8 @@ namespace Modelos
                 {
                     existeDetalle = true;
                 }
-            
+
+            con.Close();
             return existeDetalle;
         }
 
@@ -103,11 +106,13 @@ namespace Modelos
        
                 if (cmd.ExecuteNonQuery() > 0)
                 {
-                    return true;
+                con.Close();
+                return true;
                 }
                 else
                 {
-                    return false;
+                con.Close();
+                return false;
                 }
           
         }
@@ -120,10 +125,13 @@ namespace Modelos
 
             if (cmd.ExecuteNonQuery() > 0)
             {
+                con.Close();
                 return true;
+
             }
             else
             {
+                con.Close();
                 return false;
             }
         }

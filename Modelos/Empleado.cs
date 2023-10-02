@@ -43,6 +43,7 @@ namespace Modelos
 
             DataTable dt = new DataTable();
             ad.Fill(dt);
+            con.Close();
             return dt;
 
         }
@@ -58,6 +59,7 @@ namespace Modelos
 
             DataTable dt = new DataTable();
             ad.Fill(dt);
+            con.Close();
             return dt;
 
         }
@@ -82,11 +84,13 @@ namespace Modelos
 
             if (cmd.ExecuteNonQuery() > 0)
             {
+                con.Close();
                 return true;
             }
 
             else
             {
+                con.Close();
                 return false;
             }
         }
@@ -113,11 +117,13 @@ namespace Modelos
 
             if (cmd.ExecuteNonQuery() > 0)
             {
+                con.Close();
                 return true;
             }
 
             else
             {
+                con.Close();
                 return false;
             }
         }
@@ -133,6 +139,7 @@ namespace Modelos
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
             DataTable dt = new DataTable();
             ad.Fill(dt);
+            con.Close();
             return dt;
 
         }
@@ -148,6 +155,7 @@ namespace Modelos
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
             DataTable dt = new DataTable();
             ad.Fill(dt);
+            con.Close();
             return dt;
 
         }
@@ -178,12 +186,15 @@ namespace Modelos
                 emp.id_Usuario = (int)rd[4];
 
                 //Retornamos el Empleado con sus valores ya asignados
+                con.Close();
                 return emp;
             }
             else
             {
                 //Si no hubo coincidencia, retornamos Null
+                con.Close();
                 return null;
+
             }
 
         }

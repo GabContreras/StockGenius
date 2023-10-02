@@ -38,10 +38,12 @@ namespace Modelos
                 u.nombreUsuario = (string)rd[1];
                 u.Id_Rol = (int)rd[3];
 
+                con.Close();
                 return u;
             }
             else
             {
+                con.Close();
                 return null;
             }
         }
@@ -55,13 +57,15 @@ namespace Modelos
 
                 if (rd.Read())
                 {
-                    
-                    return (int)rd[0]; //Lector en posición 0
+                    var x = (int)rd[0];
+                    con.Close();
+                    return x; //Lector en posición 0
                     
                 }
                 else
                 {
-                    return 0;
+                con.Close();
+                return 0;
                 }
             
         }
@@ -79,11 +83,13 @@ namespace Modelos
 
             if (cmd.ExecuteNonQuery() > 0)
             {
+                con.Close();
                 return true;
             }
 
             else
             {
+                con.Close();
                 return false;
             }
         }
@@ -100,11 +106,13 @@ namespace Modelos
             cmd.Parameters.AddWithValue("@id", id_usuario);
             if (cmd.ExecuteNonQuery() > 0)
             {
+                con.Close();
                 return true;
             }
 
             else
             {
+                con.Close();
                 return false;
             }
         }
@@ -119,11 +127,13 @@ namespace Modelos
             cmd.Parameters.AddWithValue("@id", id_usuario);
             if (cmd.ExecuteNonQuery() > 0)
             {
+                con.Close();
                 return true;
             }
 
             else
             {
+                con.Close();
                 return false;
             }
         }
@@ -139,11 +149,13 @@ namespace Modelos
             cmd.Parameters.AddWithValue("@id", id_usuario);
             if (cmd.ExecuteNonQuery() > 0)
             {
+                con.Close();
                 return true;
             }
 
             else
             {
+                con.Close();
                 return false;
             }
         }
@@ -155,10 +167,12 @@ namespace Modelos
             cmd.Parameters.AddWithValue("@id", id);
             if (cmd.ExecuteNonQuery() > 0)
             {
+                con.Close();
                 return true;
             }
             else
             {
+                con.Close();
                 return false;
             }
         }
@@ -191,14 +205,16 @@ namespace Modelos
 
                     emp.Nombre = (string)rd[3];
                     emp.Correo = (string)rd[4];
-                
+
 
                 // Retornamos tanto el Usuario como el Empleado en una tupla
+                con.Close();
                 return (us,emp);
             }
             else
             {
                 // Si no hubo coincidencia, retornamos dos valores nulos
+                con.Close();
                 return (null, null);
             }
         }
@@ -228,11 +244,13 @@ namespace Modelos
                 };
 
                 // Retornamos solo el Usuario
+                con.Close();
                 return us;
             }
             else
             {
                 // Si no hubo coincidencia, retornamos un valor nulo
+                con.Close();
                 return null;
             }
         }
@@ -248,10 +266,12 @@ namespace Modelos
 
             if (rdr.Read())
             {
+                con.Close();
                 return true;
             }
             else
             {
+                con.Close();
                 return false;
             }
         }
