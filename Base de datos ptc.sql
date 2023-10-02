@@ -381,3 +381,16 @@ ORDER BY
 
 
 
+	SELECT PP.id_Pedido,DP.ID_Producto, P.nombre,SUM(DP.cantidad) AS Cantidad, P.Precio_Unitario,
+                PP.Fecha_Pedido, C.Nombre AS Nombre_Cliente, C.DUI, C.NIT,C.Dirección,c.Giro, E.Nombre AS Nombre_Empleado
+                FROM Detalle_Pedido DP 
+                INNER JOIN Producto P ON P.id_Producto = DP.id_Producto
+                INNER JOIN Pedido PP ON DP.Id_Pedido = PP.Id_Pedido
+                INNER JOIN Cliente C ON PP.Id_Cliente = C.Id_Cliente
+                INNER JOIN Empleado E ON PP.Id_Empleado = E.Id_Empleado
+                WHERE DP.Id_Pedido = 1
+                GROUP BY P.nombre, DP.id_producto,P.Descripcion, DP.Id_Pedido,PP.Id_Pedido,C.DUI, C.NIT,C.Dirección,c.Giro, P.Precio_Unitario, PP.Fecha_Pedido, C.Nombre, E.Nombre;
+
+
+				select NIT from cliente where Id_Cliente= 1;
+

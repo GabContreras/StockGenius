@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -77,11 +78,19 @@ namespace Interfaces_ptc
                 string ruta = (string)dgvProductos.CurrentRow.Cells[6].Value;
 
                 pbImagen.Image = Image.FromFile(ruta);
+                ofdImagen.FileName = ruta;
+            }
+            catch (InvalidCastException)
+            {
+                MessageBox.Show("No hay imagen para cargar en la base de datos");
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+
+
         }
         private void LimpiarCampos()
         {
@@ -139,6 +148,10 @@ namespace Interfaces_ptc
                         MessageBox.Show(ex.Message);
                     }
                 }
+                catch(FileNotFoundException)
+                {
+                    MessageBox.Show("Por favor, vuelve a seleccionar la imagen que deseas agregar");
+                }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
@@ -177,7 +190,6 @@ namespace Interfaces_ptc
                 {
                     MessageBox.Show(ex.Message);
                 }
-
             }
         }
 
@@ -283,6 +295,10 @@ namespace Interfaces_ptc
                     }
                     MostrarProductos();
                 }
+            }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show("Por favor, vuelve a seleccionar la imagen que deseas actualizar");
             }
             catch (Exception ex)
             {
