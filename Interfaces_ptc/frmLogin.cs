@@ -72,7 +72,7 @@ namespace Interfaces_ptc
                 }
                 else 
                 {
-                    frmmenu menú = new frmmenu(u);
+                    frmMenu menú = new frmMenu(u);
                     menú.Show();
 
                     menú.FormClosed += delegate

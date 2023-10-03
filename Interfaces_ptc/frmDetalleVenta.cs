@@ -4,9 +4,9 @@ using System.Windows.Forms;
 
 namespace Interfaces_ptc
 {
-    public partial class frmDetallePedido : Form
+    public partial class frmDetalleVenta : Form
     {
-        public frmDetallePedido()
+        public frmDetalleVenta()
         {
             InitializeComponent();
         }

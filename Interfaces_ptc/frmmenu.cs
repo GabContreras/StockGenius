@@ -13,10 +13,10 @@ using System.Diagnostics.Contracts;
 
 namespace Interfaces_ptc
 {
-    public partial class frmmenu : Form
+    public partial class frmMenu : Form
     {
         Usuario v;
-        public frmmenu(Usuario u)
+        public frmMenu(Usuario u)
         {
             InitializeComponent();
             OcultarSubMenu();
@@ -81,14 +81,14 @@ namespace Interfaces_ptc
         #region SubMenuPedidos
         private void btnDetallePedido_Click(object sender, EventArgs e)
         {
-            openChildFormInPanel(new frmPedido(v));
+            openChildFormInPanel(new frmVenta(v));
             //Agregar código para abrir los formularios deseados
             OcultarSubMenu();
         }
 
         private void btnFactura_Click(object sender, EventArgs e)
         {
-            openChildFormInPanel(new frmDetallePedido());
+            openChildFormInPanel(new frmDetalleVenta());
             //Agregar código para abrir los formularios deseados
             OcultarSubMenu();
         }
@@ -199,8 +199,7 @@ namespace Interfaces_ptc
 
         private void btnPerfil_Click(object sender, EventArgs e)
         {
-            frmCuenta c = new frmCuenta(v);
-            c.ShowDialog();
+           
         }
 
         private void btnAdministrarProductos_Click(object sender, EventArgs e)

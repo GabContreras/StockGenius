@@ -1,6 +1,6 @@
 ﻿namespace Interfaces_ptc
 {
-    partial class frmmenu
+    partial class frmMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmmenu));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnMicuenta = new System.Windows.Forms.Button();
             this.btnGenerarReporte = new System.Windows.Forms.Button();

@@ -89,12 +89,6 @@
     <Compile Include="frmClienteJuridico.Designer.cs">
       <DependentUpon>frmClienteJuridico.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCuenta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmCuenta.Designer.cs">
-      <DependentUpon>frmCuenta.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,11 +113,11 @@
     <Compile Include="frmMiPerfil.Designer.cs">
       <DependentUpon>frmMiPerfil.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPedido.cs">
+    <Compile Include="frmVenta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPedido.Designer.cs">
-      <DependentUpon>frmPedido.cs</DependentUpon>
+    <Compile Include="frmVenta.Designer.cs">
+      <DependentUpon>frmVenta.cs</DependentUpon>
     </Compile>
     <Compile Include="frmClienteNatural.cs">
       <SubType>Form</SubType>
@@ -131,11 +125,11 @@
     <Compile Include="frmClienteNatural.Designer.cs">
       <DependentUpon>frmClienteNatural.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDetallePedido.cs">
+    <Compile Include="frmDetalleVenta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDetallePedido.Designer.cs">
-      <DependentUpon>frmDetallePedido.cs</DependentUpon>
+    <Compile Include="frmDetalleVenta.Designer.cs">
+      <DependentUpon>frmDetalleVenta.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -143,11 +137,11 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmmenu.cs">
+    <Compile Include="frmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmmenu.Designer.cs">
-      <DependentUpon>frmmenu.cs</DependentUpon>
+    <Compile Include="frmMenu.Designer.cs">
+      <DependentUpon>frmMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPrimerUso.cs">
       <SubType>Form</SubType>
@@ -187,9 +181,6 @@
     <EmbeddedResource Include="frmClienteJuridico.resx">
       <DependentUpon>frmClienteJuridico.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCuenta.resx">
-      <DependentUpon>frmCuenta.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmEmpleados.resx">
       <DependentUpon>frmEmpleados.cs</DependentUpon>
     </EmbeddedResource>
@@ -202,20 +193,20 @@
     <EmbeddedResource Include="frmMiPerfil.resx">
       <DependentUpon>frmMiPerfil.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPedido.resx">
-      <DependentUpon>frmPedido.cs</DependentUpon>
+    <EmbeddedResource Include="frmVenta.resx">
+      <DependentUpon>frmVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmClienteNatural.resx">
       <DependentUpon>frmClienteNatural.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDetallePedido.resx">
-      <DependentUpon>frmDetallePedido.cs</DependentUpon>
+    <EmbeddedResource Include="frmDetalleVenta.resx">
+      <DependentUpon>frmDetalleVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmmenu.resx">
-      <DependentUpon>frmmenu.cs</DependentUpon>
+    <EmbeddedResource Include="frmMenu.resx">
+      <DependentUpon>frmMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrimerUso.resx">
       <DependentUpon>frmPrimerUso.cs</DependentUpon>

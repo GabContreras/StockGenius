@@ -1,6 +1,6 @@
 ﻿namespace Interfaces_ptc
 {
-    partial class frmDetallePedido
+    partial class frmDetalleVenta
     {
         /// <summary>
         /// Required designer variable.
