@@ -110,8 +110,13 @@ namespace Interfaces_ptc
         {
             try
             {
-
-                MostrarDetallePedido((int)cbPedido.SelectedValue);
+                if (cbPedido.SelectedIndex < 0)
+                {
+                    MessageBox.Show("Escoja un número de venta primero");
+                    return;
+                }
+              
+                    MostrarDetallePedido((int)cbPedido.SelectedValue);
 
                 int pedidoId = (int)cbPedido.SelectedValue;
                 Pedido pd = new Pedido();

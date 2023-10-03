@@ -398,7 +398,7 @@
             this.dgvDetallePedido.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetallePedido_CellContentClick);
             this.dgvDetallePedido.DoubleClick += new System.EventHandler(this.dgvDetallePedido_DoubleClick);
             // 
-            // frmDetallePedido
+            // frmDetalleVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -406,7 +406,7 @@
             this.ClientSize = new System.Drawing.Size(575, 522);
             this.Controls.Add(this.tableLayoutPanel1);
             this.MaximumSize = new System.Drawing.Size(734, 661);
-            this.Name = "frmDetallePedido";
+            this.Name = "frmDetalleVenta";
             this.Text = "Detalleventa";
             this.Load += new System.EventHandler(this.frmDetallePedido_Load);
             this.tableLayoutPanel1.ResumeLayout(false);

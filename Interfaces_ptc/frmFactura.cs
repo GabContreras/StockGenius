@@ -24,7 +24,7 @@ namespace Interfaces_ptc
             ReportDataSource rp= new ReportDataSource("DataSet1",dt);
             rpFactura.LocalReport.DataSources.Add(rp);
             rpFactura.RefreshReport();
-            rpFactura.ZoomMode = ZoomMode.PageWidth;
+            rpFactura.ZoomMode = ZoomMode.FullPage;
         }
 
         private void frmFactura_Load(object sender, EventArgs e)
