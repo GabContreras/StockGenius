@@ -305,6 +305,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
+                              <Value>$</Value>
+                              <Style />
+                            </TextRun>
+                            <TextRun>
                               <Value>=Fields!Precio_Unitario.Value</Value>
                               <Style />
                             </TextRun>
@@ -363,7 +367,7 @@
         <Top>0.32379cm</Top>
         <Left>1.02946cm</Left>
         <Height>3.38478cm</Height>
-        <Width>15.3748cm</Width>
+        <Width>15.37481cm</Width>
         <Style>
           <Border>
             <Style>None</Style>

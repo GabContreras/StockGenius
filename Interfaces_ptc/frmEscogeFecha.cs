@@ -23,11 +23,20 @@ namespace Modelos
             // Obtener las fechas seleccionadas en los DateTimePickers
             DateTime fechaInicio = dtpFechaInicial.Value;
             DateTime fechaFin = dtpCierre.Value;
+            // Definir el intervalo mínimo de una semana en días
+            int diasMinimosDiferencia = 7;
 
             // Verificar si las fechas son válidas (por ejemplo, fechaFin >= fechaInicio)
             if (fechaFin < fechaInicio)
             {
                 MessageBox.Show("La fecha de cierre debe ser mayor o igual que la fecha inicial.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; // No continuar la ejecución del código
+            }
+
+            // Verificar si las fechas son válidas (por ejemplo, fechaFin >= fechaInicio + 7 días)
+            if (fechaFin < fechaInicio.AddDays(diasMinimosDiferencia))
+            {
+                MessageBox.Show("Debe haber al menos una semana de diferencia entre la fecha de inicio y la fecha de cierre.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return; // No continuar la ejecución del código
             }
 
