@@ -487,6 +487,7 @@
                     <FontStyle>Normal</FontStyle>
                     <FontSize>16pt</FontSize>
                     <FontWeight>Bold</FontWeight>
+                    <Color>White</Color>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -520,6 +521,7 @@
                   <Value>Reporte de movimiento de inventario</Value>
                   <Style>
                     <FontSize>14pt</FontSize>
+                    <Color>White</Color>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -550,8 +552,8 @@
           <Sizing>Fit</Sizing>
           <Top>0.37682cm</Top>
           <Left>0.83804cm</Left>
-          <Height>2.1616cm</Height>
-          <Width>2.98167cm</Width>
+          <Height>2.33957cm</Height>
+          <Width>2.87584cm</Width>
           <ZIndex>2</ZIndex>
           <Style>
             <Border>
@@ -567,7 +569,9 @@
               <TextRuns>
                 <TextRun>
                   <Value>Fecha de inicio:</Value>
-                  <Style />
+                  <Style>
+                    <Color>White</Color>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style>
@@ -578,7 +582,9 @@
               <TextRuns>
                 <TextRun>
                   <Value />
-                  <Style />
+                  <Style>
+                    <Color>White</Color>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style>
@@ -589,7 +595,9 @@
               <TextRuns>
                 <TextRun>
                   <Value />
-                  <Style />
+                  <Style>
+                    <Color>White</Color>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
@@ -619,7 +627,9 @@
               <TextRuns>
                 <TextRun>
                   <Value>Fecha de cierre:</Value>
-                  <Style />
+                  <Style>
+                    <Color>White</Color>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style>
@@ -630,7 +640,9 @@
               <TextRuns>
                 <TextRun>
                   <Value />
-                  <Style />
+                  <Style>
+                    <Color>White</Color>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style>
@@ -641,7 +653,9 @@
               <TextRuns>
                 <TextRun>
                   <Value />
-                  <Style />
+                  <Style>
+                    <Color>White</Color>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
@@ -671,7 +685,9 @@
               <TextRuns>
                 <TextRun>
                   <Value>=Format(Fields!FechaInicio.Value, "dd/MM/yyyy")</Value>
-                  <Style />
+                  <Style>
+                    <Color>White</Color>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style>
@@ -703,7 +719,9 @@
               <TextRuns>
                 <TextRun>
                   <Value>=Format(Fields!FechaFin.Value, "dd/MM/yyyy")</Value>
-                  <Style />
+                  <Style>
+                    <Color>White</Color>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style>
@@ -732,6 +750,7 @@
         <Border>
           <Style>None</Style>
         </Border>
+        <BackgroundColor>#00337c</BackgroundColor>
       </Style>
     </PageHeader>
     <PageHeight>29.7cm</PageHeight>

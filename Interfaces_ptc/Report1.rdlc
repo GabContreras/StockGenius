@@ -610,6 +610,7 @@
                     <FontStyle>Normal</FontStyle>
                     <FontSize>12pt</FontSize>
                     <FontWeight>Bold</FontWeight>
+                    <Color>White</Color>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -641,7 +642,9 @@
               <TextRuns>
                 <TextRun>
                   <Value>Factura</Value>
-                  <Style />
+                  <Style>
+                    <Color>White</Color>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style>
@@ -652,7 +655,9 @@
               <TextRuns>
                 <TextRun>
                   <Value />
-                  <Style />
+                  <Style>
+                    <Color>White</Color>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
@@ -679,9 +684,9 @@
           <Value>logo1</Value>
           <Sizing>Fit</Sizing>
           <Top>0.20201cm</Top>
-          <Left>1.02946cm</Left>
-          <Height>2.1616cm</Height>
-          <Width>2.98167cm</Width>
+          <Left>1.19133cm</Left>
+          <Height>2.53202cm</Height>
+          <Width>3.10514cm</Width>
           <ZIndex>2</ZIndex>
           <Style>
             <Border>
@@ -697,7 +702,9 @@
               <TextRuns>
                 <TextRun>
                   <Value>Fecha:</Value>
-                  <Style />
+                  <Style>
+                    <Color>White</Color>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
@@ -706,7 +713,9 @@
               <TextRuns>
                 <TextRun>
                   <Value />
-                  <Style />
+                  <Style>
+                    <Color>White</Color>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
@@ -736,7 +745,9 @@
               <TextRuns>
                 <TextRun>
                   <Value>=Format(Fields!Fecha_Pedido.Value, "dd/MM/yyyy")</Value>
-                  <Style />
+                  <Style>
+                    <Color>White</Color>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
@@ -763,6 +774,7 @@
         <Border>
           <Style>None</Style>
         </Border>
+        <BackgroundColor>#00337c</BackgroundColor>
       </Style>
     </PageHeader>
     <PageHeight>29.7cm</PageHeight>
