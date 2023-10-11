@@ -97,10 +97,9 @@ namespace Interfaces_ptc
                 }
                 MostrarPedido();
             }
-
-            catch (Exception ex)
+            catch (NullReferenceException)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Por favor, seleccione clientes o empleados válidos.");
             }
         } 
 
@@ -145,9 +144,9 @@ namespace Interfaces_ptc
                     MostrarPedido();
                 }
             }
-            catch (Exception ex)
+            catch (NullReferenceException)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Por favor, seleccione clientes o empleados válidos.");
             }
         }
         private void ActualizarCliente()
@@ -182,9 +181,9 @@ namespace Interfaces_ptc
                 MessageBox.Show("Pedido anulado satisfactoriamente", "Éxito");
                 MostrarPedido();
             }
-            catch (Exception ex)
+            catch (NullReferenceException)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Por favor, seleccione un pedido válido.");
             }
         }
         private void ActualizarEmpleado()

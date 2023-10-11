@@ -229,6 +229,10 @@ namespace Interfaces_ptc
                     } 
                 }       
             }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Por favor, seleccione un empleado antes de inhabilitarlo.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -390,6 +394,10 @@ namespace Interfaces_ptc
                         }
                     }
                 }
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Por favor, seleccione un empleado antes de actualizar sus datos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {

@@ -80,6 +80,10 @@ namespace Interfaces_ptc
                 pbImagen.Image = Image.FromFile(ruta);
                 ofdImagen.FileName = ruta;
             }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Por favor, seleccione a un Empleado antes de cargar sus datos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             catch (InvalidCastException)
             {
                 MessageBox.Show("No hay imagen para cargar en la base de datos");
@@ -143,12 +147,20 @@ namespace Interfaces_ptc
                             }
                         }
                     }
+                    catch (NullReferenceException)
+                    {
+                        MessageBox.Show("Por favor, intente seleccionar a un proveedor antes de agregar un producto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message);
                     }
                 }
-                catch(FileNotFoundException)
+                catch (NullReferenceException)
+                {
+                    MessageBox.Show("Por favor, intente seleccionar a un proveedor antes de agregar un producto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (FileNotFoundException)
                 {
                     MessageBox.Show("Por favor, vuelve a seleccionar la imagen que deseas agregar");
                 }
@@ -185,6 +197,10 @@ namespace Interfaces_ptc
                             MessageBox.Show("Se produjo un error", "Advertencia");
                         }
                     }
+                }
+                catch (NullReferenceException)
+                {
+                    MessageBox.Show("Por favor, intente seleccionar a un proveedor antes de agregar un producto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
@@ -252,6 +268,10 @@ namespace Interfaces_ptc
                                 }
                             }
                         }
+                        catch (NullReferenceException)
+                        {
+                            MessageBox.Show("Por favor, seleccione un producto antes de actualizar sus datos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                         catch (Exception ex)
                         {
                             MessageBox.Show(ex.Message);
@@ -289,12 +309,20 @@ namespace Interfaces_ptc
                             }
                         }
                     }
+                    catch (NullReferenceException)
+                    {
+                        MessageBox.Show("Por favor, seleccione un producto antes de actualizar sus datos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message);
                     }
                     MostrarProductos();
                 }
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Por favor, seleccione un producto antes de actualizar sus datos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (FileNotFoundException)
             {

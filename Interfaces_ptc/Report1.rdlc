@@ -596,7 +596,6 @@
     <PageHeader>
       <Height>3.07798cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
-      <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
         <Textbox Name="Textbox1">
           <CanGrow>true</CanGrow>
@@ -610,7 +609,6 @@
                     <FontStyle>Normal</FontStyle>
                     <FontSize>12pt</FontSize>
                     <FontWeight>Bold</FontWeight>
-                    <Color>White</Color>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -642,9 +640,7 @@
               <TextRuns>
                 <TextRun>
                   <Value>Factura</Value>
-                  <Style>
-                    <Color>White</Color>
-                  </Style>
+                  <Style />
                 </TextRun>
               </TextRuns>
               <Style>
@@ -655,9 +651,7 @@
               <TextRuns>
                 <TextRun>
                   <Value />
-                  <Style>
-                    <Color>White</Color>
-                  </Style>
+                  <Style />
                 </TextRun>
               </TextRuns>
               <Style />
@@ -702,9 +696,7 @@
               <TextRuns>
                 <TextRun>
                   <Value>Fecha:</Value>
-                  <Style>
-                    <Color>White</Color>
-                  </Style>
+                  <Style />
                 </TextRun>
               </TextRuns>
               <Style />
@@ -713,9 +705,7 @@
               <TextRuns>
                 <TextRun>
                   <Value />
-                  <Style>
-                    <Color>White</Color>
-                  </Style>
+                  <Style />
                 </TextRun>
               </TextRuns>
               <Style />
@@ -745,9 +735,7 @@
               <TextRuns>
                 <TextRun>
                   <Value>=Format(Fields!Fecha_Pedido.Value, "dd/MM/yyyy")</Value>
-                  <Style>
-                    <Color>White</Color>
-                  </Style>
+                  <Style />
                 </TextRun>
               </TextRuns>
               <Style />
@@ -774,7 +762,6 @@
         <Border>
           <Style>None</Style>
         </Border>
-        <BackgroundColor>#00337c</BackgroundColor>
       </Style>
     </PageHeader>
     <PageHeight>29.7cm</PageHeight>

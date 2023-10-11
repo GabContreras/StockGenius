@@ -201,6 +201,10 @@ namespace Interfaces_ptc
                     MessageBox.Show("Se produjo un error", "Advertencia");
                 }
             }
+       }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Por favor, seleccione a un cliente antes de actualizar sus datos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {

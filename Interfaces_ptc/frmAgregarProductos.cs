@@ -107,6 +107,10 @@ namespace Interfaces_ptc
                     }
                 }
             }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Por favor, seleccione un producto antes de ingresar stock.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);

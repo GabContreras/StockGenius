@@ -19,7 +19,7 @@ go
 Create table Usuario(
 Id_Usuario int PRIMARY KEY identity(1,1),
 NombreUsuario varchar(30) unique not null, 
-contraseña varchar(100) not null,
+contraseña varchar(300) not null,
 id_Rol int not null
 
 constraint FK_Rol
@@ -143,7 +143,6 @@ values ('Administrador'),--ya
 ('Master Admin');--ya
 go
 
-select * from Ingreso_Producto
 -- Create a filtered unique index for NIT column
 CREATE UNIQUE INDEX UX_NIT_Unique ON Cliente (NIT) WHERE NIT IS NOT NULL;
 
@@ -175,15 +174,8 @@ VALUES
     ('Tablet Android Pro', 'Tablet de alto rendimiento con sistema Android', 0, 1, 299.99),
     ('TV LED 4K 55 pulgadas', 'Televisor con resolución 4K y pantalla LED', 0, 3, 699.99),
     ('Auriculares Inalámbricos X2', 'Auriculares Bluetooth con cancelación de ruido', 0, 1, 149.99),
-    ('Cámara DSLR 24MP', 'Cámara réflex digital de alta calidad', 0, 2, 899.99),
-    ('Impresora Multifunción', 'Impresora láser multifunción de alta velocidad', 0, 4, 299.99),
-    ('Monitor Curvo 27 pulgadas', 'Monitor de computadora con pantalla curva', 0, 5, 349.99),
-    ('Teclado Mecánico RGB', 'Teclado para juegos mecánico con retroiluminación', 0, 1, 99.99),
-    ('Mouse Gaming G3', 'Mouse ergonómico de alto rendimiento para juegos', 0, 2, 49.99);
+    ('Cámara DSLR 24MP', 'Cámara réflex digital de alta calidad', 0, 2, 899.99);
 	go
-
-
-
 
 insert into Cliente(Nombre, Apellido, DUI, Telefono, Dirección, Edad,Tipo_Cliente,Estado) values 
                 ('Marcelo josé', 'Hernández Hernández', '12345678-9', '+503 8745-9874', 'Avenida el pepe', 18,'Natural','Activo'),
@@ -198,33 +190,7 @@ INSERT INTO Cliente (Nombre, Telefono, Dirección, NIT, NRC, Giro, Categoria, Tip
     ('Restaurante delicioso', '+503 7890-1234', 'Boulevard Elegante 789', '56789-123-4', '1234-5', 'Restaurante de comida gourmet', 'Pequeño', 'Jurídico','Activo'),
     ('Tienda Express', '+503 7777-7777', 'Plaza Comercial 321', '5555-555555-555-5', '1111-1', 'Venta de ropa y accesorios', 'Pequeño', 'Jurídico','Activo'),
     ('Servicios de Limpieza', '+503 8888-8888', 'Calle Limpia 555', '44444-444-4', '2222-2', 'Servicios de Limpieza Residencial', 'Mediano', 'Jurídico','Activo');
-		
-		
-	-- -- Insertar usuarios con contraseñas encriptadas
-INSERT INTO Usuario (NombreUsuario, Contraseña, id_Rol)
-VALUES
-    ('admin', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', 1), --admin 'contraseña_admin'
-    ('comprador1', '98ebfc6ea518dca0e1171f80c59a9a127d46b91a', 2), --comprador 'contraseña_comprador1'
-    ('comprador2', '065f677d28b66b9712d6bb67db1419f4afba6e34', 2), --comprador 'contraseña_comprador2'
-    ('gerente', '5c8db69325d6e019fd34fe13fb1b324f89a9ab9d', 3), --Gerente de compras 'contraseña_gerente'
-    ('encargado', 'bb8d24c504aacc7c3c5a645940cbe921127d126c0', 4), --Encargado de bodega 'contraseña_encargado'
-    ('vendedor1', 'c2f0f5010321f7a66bb343fb0983eb05e8dd949f', 5), --Vendedor 'contraseña_vendedor1'
-    ('vendedor2', 'cf695fca9e1b453123ae3924eb6c68d62f30f8b0', 5), --Vendedor 'contraseña_vendedor2'
-    ('encargado2', '4f75a4f5475c07c9e74430d11b4b924101e5b7a6', 4); --Encargado de bodega 'encarg2'
 
--- Insertar empleados
-INSERT INTO Empleado (Nombre, Apellido, Teléfono, DUI, Correo, Cargo, id_Usuario)
-VALUES
-    ('Juan', 'Pérez', '+503 1234-5678', '12345678-9', 'juan.perez@example.com', 'Gerente General', 2), --admin
-    ('Ana', 'Gómez', '+503 9876-5432', '98765432-1', 'ana.gomez@example.com', 'Comprador', 3), --comprador
-    ('Carlos', 'López', '+503 5555-5555', '55555555-5', 'carlos.lopez@example.com', 'Comprador', 4), --comprador
-    ('Elena', 'Ramírez', '+503 7777-7777', '77777777-7', 'elena.ramirez@example.com', 'Gerente de compras', 5), --Gerente de compras
-    ('Pedro', 'Díaz', '+503 8888-8888', '88888888-8', 'pedro.diaz@example.com', 'Encargado de bodega', 6), --Encargado de bodega
-    ('Luis', 'Martínez', '+503 9999-9999', '99999999-9', 'luis.martinez@example.com', 'Vendedor', 7), --Vendedor
-    ('Sofía', 'Torres', '+503 1111-1111', '11111111-1', 'sofia.torres@example.com', 'Vendedor', 8), --Vendedor
-    ('María', 'Fernández', '+503 2222-2222', '22222222-2', 'maria.fernandez@example.com', 'Encargado de bodega', 9); --Encargado de bodega
-	
-	select * from Usuario
 
 CREATE TRIGGER CalcularTotalDetallePedido
 ON Detalle_Pedido
@@ -257,15 +223,9 @@ BEGIN
     WHERE Id_Producto = @Id_Producto;
 END;
 
-
-
-
-
-
 -- Actualiza los primeros 5 registros de Ingreso_Producto con fecha del 1 de agosto de 2023
 UPDATE TOP(5) Ingreso_Producto
 SET fecha_Ingreso = '2023-08-01'
-
 
 
 	WITH Ingresos AS (
@@ -380,17 +340,4 @@ ORDER BY
     P.Id_Producto;
 
 
-
-	SELECT PP.id_Pedido,DP.ID_Producto, P.nombre,SUM(DP.cantidad) AS Cantidad, P.Precio_Unitario,
-                PP.Fecha_Pedido, C.Nombre AS Nombre_Cliente, C.DUI, C.NIT,C.Dirección,c.Giro, E.Nombre AS Nombre_Empleado
-                FROM Detalle_Pedido DP 
-                INNER JOIN Producto P ON P.id_Producto = DP.id_Producto
-                INNER JOIN Pedido PP ON DP.Id_Pedido = PP.Id_Pedido
-                INNER JOIN Cliente C ON PP.Id_Cliente = C.Id_Cliente
-                INNER JOIN Empleado E ON PP.Id_Empleado = E.Id_Empleado
-                WHERE DP.Id_Pedido = 1
-                GROUP BY P.nombre, DP.id_producto,P.Descripcion, DP.Id_Pedido,PP.Id_Pedido,C.DUI, C.NIT,C.Dirección,c.Giro, P.Precio_Unitario, PP.Fecha_Pedido, C.Nombre, E.Nombre;
-
-
-				select NIT from cliente where Id_Cliente= 1;
 

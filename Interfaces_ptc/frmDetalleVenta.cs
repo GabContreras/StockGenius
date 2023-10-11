@@ -89,19 +89,6 @@ namespace Interfaces_ptc
                 MessageBox.Show(ex.Message);
             }
         }
-
-        private void dgvDetallePedido_DoubleClick(object sender, EventArgs e)
-        {
-            try
-            {
-                cbPedido.Text = dgvDetallePedido.CurrentRow.Cells[1].Value.ToString();
-                txtCantidad.Text = dgvDetallePedido.CurrentRow.Cells[4].Value.ToString();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
         private void LimpiarCampo()
         {
             txtCantidad.Text = "";
@@ -191,6 +178,11 @@ namespace Interfaces_ptc
         {
             try
             {
+                if (cbPedido.SelectedIndex < 0)
+                {
+                    MessageBox.Show("Escoja un número de venta primero");
+                    return;
+                }
                 MostrarDetallePedido((int)cbPedido.SelectedValue);
 
                 int pedidoId = (int)cbPedido.SelectedValue;

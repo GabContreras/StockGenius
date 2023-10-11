@@ -41,6 +41,26 @@ namespace Modelos
             con.Close();
             return dt;
         }
+
+        public bool ExistenProductos()
+        {
+            bool existeProducto = false;
+
+            SqlConnection con = Conexion.Conectar();
+            string query = "SELECT COUNT(*) FROM Producto";
+            SqlCommand cmd = new SqlCommand(query, con);
+ 
+
+            int count = (int)cmd.ExecuteScalar(); // Obtener el resultado de la consulta como un entero
+
+            if (count > 0)
+            {
+                existeProducto = true;
+            }
+
+            con.Close();
+            return existeProducto;
+        }
         public DataTable GenerarInformeInventario(DateTime fechaInicio, DateTime fechaFin)
         {
             SqlConnection con = Conexion.Conectar();

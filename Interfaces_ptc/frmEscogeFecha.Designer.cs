@@ -70,6 +70,7 @@
             this.dtpCierre.Name = "dtpCierre";
             this.dtpCierre.Size = new System.Drawing.Size(222, 20);
             this.dtpCierre.TabIndex = 2;
+            this.dtpCierre.ValueChanged += new System.EventHandler(this.dtpCierre_ValueChanged);
             // 
             // label5
             // 
@@ -90,6 +91,7 @@
             this.dtpFechaInicial.Name = "dtpFechaInicial";
             this.dtpFechaInicial.Size = new System.Drawing.Size(222, 20);
             this.dtpFechaInicial.TabIndex = 1;
+            this.dtpFechaInicial.ValueChanged += new System.EventHandler(this.dtpFechaInicial_ValueChanged);
             // 
             // frmEscogeFecha
             // 

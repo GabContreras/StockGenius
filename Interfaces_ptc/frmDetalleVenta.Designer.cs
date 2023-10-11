@@ -396,7 +396,6 @@
             this.dgvDetallePedido.Size = new System.Drawing.Size(569, 209);
             this.dgvDetallePedido.TabIndex = 4;
             this.dgvDetallePedido.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetallePedido_CellContentClick);
-            this.dgvDetallePedido.DoubleClick += new System.EventHandler(this.dgvDetallePedido_DoubleClick);
             // 
             // frmDetalleVenta
             // 

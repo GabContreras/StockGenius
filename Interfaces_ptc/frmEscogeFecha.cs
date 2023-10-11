@@ -20,29 +20,67 @@ namespace Modelos
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            // Obtener las fechas seleccionadas en los DateTimePickers
-            DateTime fechaInicio = dtpFechaInicial.Value;
-            DateTime fechaFin = dtpCierre.Value;
-            // Definir el intervalo mínimo de una semana en días
-            int diasMinimosDiferencia = 7;
+            Producto P = new Producto();
+            bool existencias = P.ExistenProductos();
 
-            // Verificar si las fechas son válidas (por ejemplo, fechaFin >= fechaInicio)
-            if (fechaFin < fechaInicio)
+            if (!existencias)
             {
-                MessageBox.Show("La fecha de cierre debe ser mayor o igual que la fecha inicial.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("No se puede generar un reporte de inventario si no hay productos en el sistema", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return; // No continuar la ejecución del código
             }
-
-            // Verificar si las fechas son válidas (por ejemplo, fechaFin >= fechaInicio + 7 días)
-            if (fechaFin < fechaInicio.AddDays(diasMinimosDiferencia))
+            else
             {
-                MessageBox.Show("Debe haber al menos una semana de diferencia entre la fecha de inicio y la fecha de cierre.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return; // No continuar la ejecución del código
-            }
+                // Obtener las fechas seleccionadas en los DateTimePickers
+                DateTime fechaInicio = dtpFechaInicial.Value;
+                DateTime fechaFin = dtpCierre.Value;
 
-            // Llamar al formulario de informe de inventario y pasar las fechas como parámetros
-            frmReporteDeInventario frmInformeInventario = new frmReporteDeInventario(fechaInicio, fechaFin);
-            frmInformeInventario.ShowDialog();
+                // Verificar si las fechas son válidas (por ejemplo, fechaFin >= fechaInicio)
+                if (fechaFin < fechaInicio)
+                {
+                    MessageBox.Show("La fecha de cierre debe ser mayor o igual que la fecha inicial.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return; // No continuar la ejecución del código
+                }
+
+                // Llamar al formulario de informe de inventario y pasar las fechas como parámetros
+                frmReporteDeInventario frmInformeInventario = new frmReporteDeInventario(fechaInicio, fechaFin);
+                frmInformeInventario.ShowDialog();
+            }
+        }
+
+        private void dtpFechaInicial_ValueChanged(object sender, EventArgs e)
+        {
+            // Obtener la fecha seleccionada en el DateTimePicker
+            DateTime fechaSeleccionada = dtpFechaInicial.Value;
+
+            // Obtener la fecha actual
+            DateTime fechaActual = DateTime.Now;
+
+            // Verificar si la fecha seleccionada es una fecha futura
+            if (fechaSeleccionada > fechaActual)
+            {
+                MessageBox.Show("No se permite seleccionar fechas futuras.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                // Restaurar la fecha del DateTimePicker a la fecha actual
+                dtpFechaInicial.Value = fechaActual;
+            }
+        }
+
+        private void dtpCierre_ValueChanged(object sender, EventArgs e)
+        {
+            // Obtener la fecha seleccionada en el DateTimePicker
+            DateTime fechaSeleccionada = dtpCierre.Value;
+
+            // Obtener la fecha actual
+            DateTime fechaActual = DateTime.Now;
+
+            // Verificar si la fecha seleccionada es una fecha futura
+            if (fechaSeleccionada > fechaActual)
+            {
+                MessageBox.Show("No se permite seleccionar fechas futuras.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                // Restaurar la fecha del DateTimePicker a la fecha actual
+                dtpCierre.Value = fechaActual;
+            }
         }
     }
 }

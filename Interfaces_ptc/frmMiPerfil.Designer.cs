@@ -144,6 +144,7 @@
             this.txtId.Size = new System.Drawing.Size(245, 20);
             this.txtId.TabIndex = 17;
             this.txtId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtId.UseSystemPasswordChar = true;
             // 
             // frmMiPerfil
             // 

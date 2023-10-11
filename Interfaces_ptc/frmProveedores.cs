@@ -153,7 +153,7 @@ namespace Interfaces_ptc
 
             catch (NullReferenceException)
             {
-                MessageBox.Show("Por favor, seleccione una fila antes de intentar actualizar un proveedor.", "Advertencia");
+                MessageBox.Show("Por favor, seleccione a un proveedor antes de actualizar sus datos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
