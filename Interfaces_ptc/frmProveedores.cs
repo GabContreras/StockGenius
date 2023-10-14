@@ -59,7 +59,7 @@ namespace Interfaces_ptc
         {
             try
             {
-                if (txtNombre.Text == "" || txtDireccion.Text == "" || txtTelefono.Text == "")
+                if (string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtDireccion.Text) || string.IsNullOrWhiteSpace(txtTelefono.Text))
                 {
                     MessageBox.Show("No dejar campos vacios",
                    "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -126,7 +126,7 @@ namespace Interfaces_ptc
         {
             try
             {
-                if (txtNombre.Text == "" || txtDireccion.Text == "" || txtTelefono.Text == "")
+                if (string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtDireccion.Text) || string.IsNullOrWhiteSpace(txtTelefono.Text))
                 {
                     MessageBox.Show("No dejar campos vacios",
                    "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);

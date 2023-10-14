@@ -83,5 +83,27 @@ namespace Interfaces_ptc
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void txtContraseña_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si el carácter presionado es un espacio en blanco
+            if (e.KeyChar == ' ')
+            {
+                MessageBox.Show("La contraseña no puede contener espacios en blanco.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Handled = true; // Evitar la entrada de espacios en blanco
+            }
+        }
+
+        private void cbMostraContraInicio_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbMostraContraInicio.Checked)
+            {
+                txtContraseña.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txtContraseña.UseSystemPasswordChar = true;
+            }
+        }
     }
 }

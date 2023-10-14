@@ -138,7 +138,7 @@
             this.txtDescripcion.MaxLength = 150;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(305, 26);
-            this.txtDescripcion.TabIndex = 113;
+            this.txtDescripcion.TabIndex = 2;
             // 
             // tableLayoutPanel3
             // 
@@ -168,7 +168,7 @@
             this.txtNombre.MaxLength = 50;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(305, 26);
-            this.txtNombre.TabIndex = 112;
+            this.txtNombre.TabIndex = 1;
             // 
             // label1
             // 
@@ -222,7 +222,7 @@
             this.btnSalir.Location = new System.Drawing.Point(422, 3);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(89, 20);
-            this.btnSalir.TabIndex = 111;
+            this.btnSalir.TabIndex = 9;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click_1);
@@ -254,7 +254,7 @@
             this.txtBuscarProveedor.Location = new System.Drawing.Point(127, 21);
             this.txtBuscarProveedor.Name = "txtBuscarProveedor";
             this.txtBuscarProveedor.Size = new System.Drawing.Size(180, 26);
-            this.txtBuscarProveedor.TabIndex = 116;
+            this.txtBuscarProveedor.TabIndex = 3;
             this.txtBuscarProveedor.TextChanged += new System.EventHandler(this.txtBuscarProveedor_TextChanged);
             // 
             // label5
@@ -309,7 +309,7 @@
             this.btnCargar.Location = new System.Drawing.Point(79, 20);
             this.btnCargar.Name = "btnCargar";
             this.btnCargar.Size = new System.Drawing.Size(152, 28);
-            this.btnCargar.TabIndex = 107;
+            this.btnCargar.TabIndex = 5;
             this.btnCargar.Text = "Cargar imagen";
             this.btnCargar.UseVisualStyleBackColor = false;
             this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
@@ -352,7 +352,7 @@
             this.txtPrecio.MaxLength = 10;
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(305, 26);
-            this.txtPrecio.TabIndex = 113;
+            this.txtPrecio.TabIndex = 4;
             this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecio_KeyPress);
             // 
             // label4
@@ -393,7 +393,7 @@
             this.btnAgregar.Location = new System.Drawing.Point(49, 10);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(109, 24);
-            this.btnAgregar.TabIndex = 105;
+            this.btnAgregar.TabIndex = 6;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -409,15 +409,14 @@
             this.btnActualizar.Location = new System.Drawing.Point(463, 10);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(109, 24);
-            this.btnActualizar.TabIndex = 106;
+            this.btnActualizar.TabIndex = 7;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = false;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // tableLayoutPanel9
             // 
-            this.tableLayoutPanel9.ColumnCount = 2;
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel9.ColumnCount = 1;
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel9.Controls.Add(this.txtBuscar, 0, 0);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -435,10 +434,10 @@
             this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBuscar.Font = new System.Drawing.Font("Cambria", 12F);
             this.txtBuscar.ForeColor = System.Drawing.Color.Black;
-            this.txtBuscar.Location = new System.Drawing.Point(3, 3);
+            this.txtBuscar.Location = new System.Drawing.Point(151, 3);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(305, 26);
-            this.txtBuscar.TabIndex = 115;
+            this.txtBuscar.Size = new System.Drawing.Size(319, 26);
+            this.txtBuscar.TabIndex = 8;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // dgvProductos

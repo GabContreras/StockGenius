@@ -27,7 +27,7 @@ namespace Modelos
         public DataTable CargarDetallePedido()
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = $"SELECT DP.Id_Detalle, DP.Id_Pedido as \"Número de pedido\", DP.Id_Producto as \"Código de producto\"," +
+            string comando = $"SELECT DP.Id_Detalle as \"Número detalle\", DP.Id_Pedido as \"Número de pedido\", DP.Id_Producto as \"Código de producto\"," +
                 $" P.Nombre AS Producto, DP.Cantidad, P.Precio_Unitario AS Precio\r\n" +
                 $"FROM Detalle_Pedido DP\r\n" +
                 $"INNER JOIN Producto P ON DP.Id_Producto = P.Id_Producto\r\n" +
@@ -116,12 +116,12 @@ namespace Modelos
                 }
           
         }
-        public bool EliminarDetallePedido(int Id)
+        public bool EliminarDetallePedido(int id_Detalle)
         {
             SqlConnection con = Conexion.Conectar();
             string comando = "DELETE FROM Detalle_Pedido WHERE Id_Detalle = @Id_Detalle";
             SqlCommand cmd = new SqlCommand(comando, con);
-            cmd.Parameters.AddWithValue("@Id_Detalle", Id);
+            cmd.Parameters.AddWithValue("@Id_Detalle", id_Detalle);
 
             if (cmd.ExecuteNonQuery() > 0)
             {

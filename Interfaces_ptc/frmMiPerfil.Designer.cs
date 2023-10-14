@@ -40,6 +40,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.txtId = new System.Windows.Forms.TextBox();
+            this.cbMostraContraInicio = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // btnCerrar
@@ -47,7 +48,7 @@
             this.btnCerrar.Location = new System.Drawing.Point(134, 283);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(113, 60);
-            this.btnCerrar.TabIndex = 18;
+            this.btnCerrar.TabIndex = 6;
             this.btnCerrar.Text = "Cambiar contraseña";
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
@@ -58,7 +59,7 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.ReadOnly = true;
             this.txtUsuario.Size = new System.Drawing.Size(245, 20);
-            this.txtUsuario.TabIndex = 14;
+            this.txtUsuario.TabIndex = 3;
             this.txtUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtEmail
@@ -67,7 +68,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.ReadOnly = true;
             this.txtEmail.Size = new System.Drawing.Size(245, 20);
-            this.txtEmail.TabIndex = 13;
+            this.txtEmail.TabIndex = 2;
             this.txtEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtNombre
@@ -76,7 +77,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.ReadOnly = true;
             this.txtNombre.Size = new System.Drawing.Size(245, 20);
-            this.txtNombre.TabIndex = 12;
+            this.txtNombre.TabIndex = 1;
             this.txtNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label4
@@ -134,7 +135,9 @@
             this.txtContraseña.Location = new System.Drawing.Point(116, 217);
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Size = new System.Drawing.Size(245, 20);
-            this.txtContraseña.TabIndex = 15;
+            this.txtContraseña.TabIndex = 4;
+            this.txtContraseña.UseSystemPasswordChar = true;
+            this.txtContraseña.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContraseña_KeyPress);
             // 
             // txtId
             // 
@@ -142,15 +145,28 @@
             this.txtId.Name = "txtId";
             this.txtId.ReadOnly = true;
             this.txtId.Size = new System.Drawing.Size(245, 20);
-            this.txtId.TabIndex = 17;
+            this.txtId.TabIndex = 5;
             this.txtId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtId.UseSystemPasswordChar = true;
+            // 
+            // cbMostraContraInicio
+            // 
+            this.cbMostraContraInicio.AutoSize = true;
+            this.cbMostraContraInicio.BackColor = System.Drawing.Color.White;
+            this.cbMostraContraInicio.ForeColor = System.Drawing.Color.White;
+            this.cbMostraContraInicio.Location = new System.Drawing.Point(345, 220);
+            this.cbMostraContraInicio.Name = "cbMostraContraInicio";
+            this.cbMostraContraInicio.Size = new System.Drawing.Size(15, 14);
+            this.cbMostraContraInicio.TabIndex = 17;
+            this.cbMostraContraInicio.UseVisualStyleBackColor = false;
+            this.cbMostraContraInicio.CheckedChanged += new System.EventHandler(this.cbMostraContraInicio_CheckedChanged);
             // 
             // frmMiPerfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(373, 398);
+            this.Controls.Add(this.cbMostraContraInicio);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.txtContraseña);
             this.Controls.Add(this.label5);
@@ -187,5 +203,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtContraseña;
         private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.CheckBox cbMostraContraInicio;
     }
 }

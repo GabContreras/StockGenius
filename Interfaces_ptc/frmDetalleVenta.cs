@@ -36,7 +36,7 @@ namespace Interfaces_ptc
 
             dgvDetallePedido.DataSource = dp.CargarDetallePedido();
 
-            dgvDetallePedido.Columns[0].Visible = false;
+            //dgvDetallePedido.Columns[0].Visible = false;
 
         }
 
@@ -80,7 +80,7 @@ namespace Interfaces_ptc
         
                 dgvProducto.DataSource = Producto.CargarProductoEnDetallePedido();
 
-                dgvProducto.Columns[0].Visible = false;
+                //dgvProducto.Columns[0].Visible = false;
             }
 
             //Bloque de código por si da error
@@ -102,8 +102,7 @@ namespace Interfaces_ptc
                     MessageBox.Show("Escoja un número de venta primero");
                     return;
                 }
-              
-                    MostrarDetallePedido((int)cbPedido.SelectedValue);
+                MostrarDetallePedido((int)cbPedido.SelectedValue);
 
                 int pedidoId = (int)cbPedido.SelectedValue;
                 Pedido pd = new Pedido();
@@ -176,8 +175,7 @@ namespace Interfaces_ptc
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            try
-            {
+            
                 if (cbPedido.SelectedIndex < 0)
                 {
                     MessageBox.Show("Escoja un número de venta primero");
@@ -193,17 +191,16 @@ namespace Interfaces_ptc
 
                 if (estadoPedido.Equals("Completado"))
                 {
-                    MessageBox.Show("No se pueden agregar productos a un pedido completado.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("No se pueden eliminar productos a un pedido completado.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return; // No continuar la ejecución del código
                 }
                 else if (estadoPedido.Equals("Anulado"))
                 {
-                    MessageBox.Show("No se pueden agregar productos a un pedido anulado.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("No se pueden eliminar productos a un pedido anulado.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return; // No continuar la ejecución del código
                 }
-                        
                         DetallePedido p = new DetallePedido();
-                        if (p.EliminarDetallePedido(pedidoId) == true)
+                        if (p.EliminarDetallePedido((int)dgvDetallePedido.CurrentRow.Cells[0].Value) == true)
                         {
                             MessageBox.Show("Producto eliminado satisfactoriamente", "Éxito");
                             MostrarDetallePedido((int)cbPedido.SelectedValue);
@@ -213,11 +210,7 @@ namespace Interfaces_ptc
                         {
                             MessageBox.Show("Se produjo un error", "Advertencia");
                         }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            
         }
 
 

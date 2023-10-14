@@ -414,9 +414,8 @@
             // 
             // tableLayoutPanel11
             // 
-            this.tableLayoutPanel11.ColumnCount = 2;
+            this.tableLayoutPanel11.ColumnCount = 1;
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.23795F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.76206F));
             this.tableLayoutPanel11.Controls.Add(this.txtBuscar, 0, 0);
             this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel11.Location = new System.Drawing.Point(3, 291);
@@ -433,7 +432,7 @@
             this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBuscar.Font = new System.Drawing.Font("Cambria", 12F);
             this.txtBuscar.ForeColor = System.Drawing.Color.Black;
-            this.txtBuscar.Location = new System.Drawing.Point(6, 5);
+            this.txtBuscar.Location = new System.Drawing.Point(111, 5);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(399, 26);
             this.txtBuscar.TabIndex = 11;

@@ -107,8 +107,8 @@ namespace Interfaces_ptc
         {
             try
             {
-                if (txtNombre.Text == "" || txtApellido.Text == "" || txtDui.Text == "" || 
-                    txtTelefono.Text == ""|| txtDirección.Text=="")
+                if (string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtApellido.Text) || string.IsNullOrWhiteSpace(txtDui.Text) || 
+                    string.IsNullOrWhiteSpace(txtTelefono.Text) || string.IsNullOrWhiteSpace(txtDirección.Text))
                 {
                     MessageBox.Show("No dejar campos vacíos",
                         "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -175,8 +175,8 @@ namespace Interfaces_ptc
         {
             try
             {
-                if (txtNombre.Text == "" || txtApellido.Text == "" || txtDui.Text == "" ||
-                  txtTelefono.Text == "" || txtDirección.Text == "")
+                if (string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtApellido.Text) || string.IsNullOrWhiteSpace(txtDui.Text) ||
+                   string.IsNullOrWhiteSpace(txtTelefono.Text) || string.IsNullOrWhiteSpace(txtDirección.Text))
                 {
                     MessageBox.Show("No dejar campos vacíos",
                         "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);

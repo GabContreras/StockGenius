@@ -103,7 +103,8 @@ namespace Interfaces_ptc
             txtPrecio.Text = "";
             pbImagen.Image = null;
             ofdImagen.Reset();
-
+            pbImagen.Image = null;
+            ofdImagen.FileName = null;
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -122,7 +123,7 @@ namespace Interfaces_ptc
 
                     try
                     {
-                        if (txtNombre.Text == "" || txtDescripcion.Text == "" || txtPrecio.Text == "")
+                        if (string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtDescripcion.Text) || string.IsNullOrWhiteSpace(txtPrecio.Text))
                         {
                             MessageBox.Show("No dejar campos vacíos",
                                 "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -173,7 +174,7 @@ namespace Interfaces_ptc
             {
                 try
                 {
-                    if (txtNombre.Text == "" || txtDescripcion.Text == "" || txtPrecio.Text == "")
+                    if (string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtDescripcion.Text) || string.IsNullOrWhiteSpace(txtPrecio.Text))
                     {
                         MessageBox.Show("No dejar campos vacíos",
                             "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -242,7 +243,7 @@ namespace Interfaces_ptc
                     {
                         try
                         {
-                            if (txtNombre.Text == "" || txtDescripcion.Text == "" || txtPrecio.Text == "")
+                            if (string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtDescripcion.Text) || string.IsNullOrWhiteSpace(txtPrecio.Text))
                             {
                                 MessageBox.Show("No dejar campos vacíos",
                                     "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -283,7 +284,7 @@ namespace Interfaces_ptc
                 {
                     try
                     {
-                        if (txtNombre.Text == "" || txtDescripcion.Text == "" || txtPrecio.Text == "")
+                        if (string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtDescripcion.Text) || string.IsNullOrWhiteSpace(txtPrecio.Text))
                         {
                             MessageBox.Show("No dejar campos vacíos",
                                 "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);

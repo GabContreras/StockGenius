@@ -126,7 +126,7 @@
             this.btnSalir.Location = new System.Drawing.Point(382, 5);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(89, 26);
-            this.btnSalir.TabIndex = 111;
+            this.btnSalir.TabIndex = 9;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -156,7 +156,7 @@
             this.cbPedido.Location = new System.Drawing.Point(287, 3);
             this.cbPedido.Name = "cbPedido";
             this.cbPedido.Size = new System.Drawing.Size(279, 27);
-            this.cbPedido.TabIndex = 114;
+            this.cbPedido.TabIndex = 1;
             this.cbPedido.SelectedIndexChanged += new System.EventHandler(this.cbPedido_SelectedIndexChanged);
             // 
             // label4
@@ -212,7 +212,7 @@
             this.txtBuscarProducto.Location = new System.Drawing.Point(116, 20);
             this.txtBuscarProducto.Name = "txtBuscarProducto";
             this.txtBuscarProducto.Size = new System.Drawing.Size(164, 26);
-            this.txtBuscarProducto.TabIndex = 117;
+            this.txtBuscarProducto.TabIndex = 2;
             this.txtBuscarProducto.TextChanged += new System.EventHandler(this.txtBuscarProducto_TextChanged);
             // 
             // label2
@@ -253,7 +253,7 @@
             this.txtCantidad.MaxLength = 7;
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(279, 26);
-            this.txtCantidad.TabIndex = 112;
+            this.txtCantidad.TabIndex = 3;
             this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // label3
@@ -298,7 +298,7 @@
             this.btnAgregar.Location = new System.Drawing.Point(61, 20);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(109, 32);
-            this.btnAgregar.TabIndex = 105;
+            this.btnAgregar.TabIndex = 4;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -314,7 +314,7 @@
             this.btnEliminar.Location = new System.Drawing.Point(409, 20);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(116, 32);
-            this.btnEliminar.TabIndex = 107;
+            this.btnEliminar.TabIndex = 6;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -330,7 +330,7 @@
             this.btnConsultar.Location = new System.Drawing.Point(206, 16);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(167, 41);
-            this.btnConsultar.TabIndex = 117;
+            this.btnConsultar.TabIndex = 5;
             this.btnConsultar.Text = "Consultar disponibilidad";
             this.btnConsultar.UseVisualStyleBackColor = false;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
@@ -362,7 +362,7 @@
             this.btnDetalles.Location = new System.Drawing.Point(113, 6);
             this.btnDetalles.Name = "btnDetalles";
             this.btnDetalles.Size = new System.Drawing.Size(154, 34);
-            this.btnDetalles.TabIndex = 106;
+            this.btnDetalles.TabIndex = 7;
             this.btnDetalles.Text = "Cargar detalle";
             this.btnDetalles.UseVisualStyleBackColor = false;
             this.btnDetalles.Click += new System.EventHandler(this.button1_Click);
@@ -377,7 +377,7 @@
             this.btnFactura.Location = new System.Drawing.Point(300, 7);
             this.btnFactura.Name = "btnFactura";
             this.btnFactura.Size = new System.Drawing.Size(153, 32);
-            this.btnFactura.TabIndex = 118;
+            this.btnFactura.TabIndex = 8;
             this.btnFactura.Text = "Generar Factura ";
             this.btnFactura.UseVisualStyleBackColor = false;
             this.btnFactura.Click += new System.EventHandler(this.btnFactura_Click);

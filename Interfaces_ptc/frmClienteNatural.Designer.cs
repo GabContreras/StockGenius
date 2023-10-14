@@ -157,7 +157,7 @@
             this.txtNombre.MaxLength = 50;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(300, 26);
-            this.txtNombre.TabIndex = 0;
+            this.txtNombre.TabIndex = 1;
             this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // tableLayoutPanel6
@@ -198,7 +198,7 @@
             this.txtApellido.MaxLength = 50;
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(300, 26);
-            this.txtApellido.TabIndex = 111;
+            this.txtApellido.TabIndex = 2;
             this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido_KeyPress);
             // 
             // tableLayoutPanel5
@@ -224,7 +224,7 @@
             this.txtDui.Mask = "99999999-9";
             this.txtDui.Name = "txtDui";
             this.txtDui.Size = new System.Drawing.Size(300, 20);
-            this.txtDui.TabIndex = 115;
+            this.txtDui.TabIndex = 3;
             this.txtDui.ValidatingType = typeof(int);
             // 
             // label3
@@ -278,7 +278,7 @@
             this.txtTelefono.MaxLength = 50;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(300, 26);
-            this.txtTelefono.TabIndex = 109;
+            this.txtTelefono.TabIndex = 4;
             this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // tableLayoutPanel3
@@ -319,7 +319,7 @@
             this.txtDirección.MaxLength = 150;
             this.txtDirección.Name = "txtDirección";
             this.txtDirección.Size = new System.Drawing.Size(300, 26);
-            this.txtDirección.TabIndex = 108;
+            this.txtDirección.TabIndex = 5;
             // 
             // tableLayoutPanel2
             // 
@@ -358,7 +358,7 @@
             this.numEdad.Location = new System.Drawing.Point(309, 3);
             this.numEdad.Name = "numEdad";
             this.numEdad.Size = new System.Drawing.Size(300, 26);
-            this.numEdad.TabIndex = 109;
+            this.numEdad.TabIndex = 6;
             // 
             // tableLayoutPanel9
             // 
@@ -389,7 +389,7 @@
             this.btnActualizar.Location = new System.Drawing.Point(251, 7);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(109, 32);
-            this.btnActualizar.TabIndex = 1;
+            this.btnActualizar.TabIndex = 8;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = false;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
@@ -404,7 +404,7 @@
             this.btnAgregar.Location = new System.Drawing.Point(47, 7);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(109, 32);
-            this.btnAgregar.TabIndex = 2;
+            this.btnAgregar.TabIndex = 7;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -420,7 +420,7 @@
             this.btnEliminar.Location = new System.Drawing.Point(453, 7);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(114, 32);
-            this.btnEliminar.TabIndex = 0;
+            this.btnEliminar.TabIndex = 9;
             this.btnEliminar.Text = "Inhabilitar";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -453,7 +453,7 @@
             this.btnSalir.Location = new System.Drawing.Point(414, 4);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(89, 26);
-            this.btnSalir.TabIndex = 0;
+            this.btnSalir.TabIndex = 11;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click_1);
@@ -472,9 +472,8 @@
             // 
             // tableLayoutPanel11
             // 
-            this.tableLayoutPanel11.ColumnCount = 2;
+            this.tableLayoutPanel11.ColumnCount = 1;
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.23795F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.76206F));
             this.tableLayoutPanel11.Controls.Add(this.txtBuscar, 0, 0);
             this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel11.Location = new System.Drawing.Point(3, 253);
@@ -491,10 +490,10 @@
             this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBuscar.Font = new System.Drawing.Font("Cambria", 12F);
             this.txtBuscar.ForeColor = System.Drawing.Color.Black;
-            this.txtBuscar.Location = new System.Drawing.Point(3, 7);
+            this.txtBuscar.Location = new System.Drawing.Point(106, 7);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(399, 26);
-            this.txtBuscar.TabIndex = 0;
+            this.txtBuscar.TabIndex = 10;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // frmClienteNatural

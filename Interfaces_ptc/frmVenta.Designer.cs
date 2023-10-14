@@ -111,7 +111,7 @@
             this.dgvEmpleado.RowHeadersVisible = false;
             this.dgvEmpleado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEmpleado.Size = new System.Drawing.Size(306, 62);
-            this.dgvEmpleado.TabIndex = 118;
+            this.dgvEmpleado.TabIndex = 0;
             // 
             // txtBuscarEmpleado
             // 
@@ -123,7 +123,7 @@
             this.txtBuscarEmpleado.Location = new System.Drawing.Point(127, 21);
             this.txtBuscarEmpleado.Name = "txtBuscarEmpleado";
             this.txtBuscarEmpleado.Size = new System.Drawing.Size(180, 26);
-            this.txtBuscarEmpleado.TabIndex = 117;
+            this.txtBuscarEmpleado.TabIndex = 2;
             this.txtBuscarEmpleado.TextChanged += new System.EventHandler(this.txtBuscarEmpleado_TextChanged);
             // 
             // label2
@@ -166,7 +166,7 @@
             this.txtBuscarCliente.Location = new System.Drawing.Point(127, 21);
             this.txtBuscarCliente.Name = "txtBuscarCliente";
             this.txtBuscarCliente.Size = new System.Drawing.Size(180, 26);
-            this.txtBuscarCliente.TabIndex = 116;
+            this.txtBuscarCliente.TabIndex = 1;
             this.txtBuscarCliente.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label4
@@ -194,7 +194,7 @@
             this.dgvCliente.RowHeadersVisible = false;
             this.dgvCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCliente.Size = new System.Drawing.Size(306, 62);
-            this.dgvCliente.TabIndex = 112;
+            this.dgvCliente.TabIndex = 0;
             // 
             // tableLayoutPanel2
             // 
@@ -236,7 +236,7 @@
             this.btnSalir.Location = new System.Drawing.Point(422, 4);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(89, 25);
-            this.btnSalir.TabIndex = 111;
+            this.btnSalir.TabIndex = 7;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -270,7 +270,7 @@
             this.btnAnular.Location = new System.Drawing.Point(445, 6);
             this.btnAnular.Name = "btnAnular";
             this.btnAnular.Size = new System.Drawing.Size(145, 32);
-            this.btnAnular.TabIndex = 120;
+            this.btnAnular.TabIndex = 5;
             this.btnAnular.Text = "Anular pedido";
             this.btnAnular.UseVisualStyleBackColor = false;
             this.btnAnular.Click += new System.EventHandler(this.button1_Click);
@@ -286,7 +286,7 @@
             this.btnActualizar.Location = new System.Drawing.Point(256, 9);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(109, 26);
-            this.btnActualizar.TabIndex = 107;
+            this.btnActualizar.TabIndex = 4;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = false;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
@@ -301,15 +301,14 @@
             this.btnAgregar.Location = new System.Drawing.Point(49, 9);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(109, 26);
-            this.btnAgregar.TabIndex = 106;
+            this.btnAgregar.TabIndex = 3;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // tableLayoutPanel9
             // 
-            this.tableLayoutPanel9.ColumnCount = 2;
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel9.ColumnCount = 1;
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel9.Controls.Add(this.txtBuscar, 0, 0);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -327,10 +326,10 @@
             this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBuscar.Font = new System.Drawing.Font("Cambria", 12F);
             this.txtBuscar.ForeColor = System.Drawing.Color.Black;
-            this.txtBuscar.Location = new System.Drawing.Point(3, 22);
+            this.txtBuscar.Location = new System.Drawing.Point(158, 22);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(305, 26);
-            this.txtBuscar.TabIndex = 115;
+            this.txtBuscar.TabIndex = 6;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // dgvPedido
@@ -347,7 +346,7 @@
             this.dgvPedido.Size = new System.Drawing.Size(622, 202);
             this.dgvPedido.TabIndex = 0;
             // 
-            // frmPedido
+            // frmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -355,7 +354,7 @@
             this.ClientSize = new System.Drawing.Size(628, 522);
             this.Controls.Add(this.tableLayoutPanel1);
             this.MaximumSize = new System.Drawing.Size(734, 661);
-            this.Name = "frmPedido";
+            this.Name = "frmVenta";
             this.Text = "Administrar venta";
             this.Load += new System.EventHandler(this.frmPedido_Load);
             this.tableLayoutPanel1.ResumeLayout(false);

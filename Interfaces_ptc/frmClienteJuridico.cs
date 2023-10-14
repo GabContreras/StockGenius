@@ -76,8 +76,9 @@ namespace Interfaces_ptc
                     MessageBox.Show("Por favor, seleccione una categoría válida",
                         "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else if (txtNombreEmpresa.Text == "" || txtNIT.Text == "" || txtNRC.Text == "" ||
-                    txtGiro.Text == "" || txtDireccion.Text == "" || txtTelefono.Text == "")
+                else if (string.IsNullOrWhiteSpace(txtNombreEmpresa.Text) || string.IsNullOrWhiteSpace(txtNIT.Text) ||
+                    string.IsNullOrWhiteSpace(txtNRC.Text) || string.IsNullOrWhiteSpace(txtGiro.Text) ||
+                    string.IsNullOrWhiteSpace(txtDireccion.Text) || string.IsNullOrWhiteSpace(txtTelefono.Text))
                 {
                     MessageBox.Show("No dejar campos vacíos",
                         "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -152,8 +153,8 @@ namespace Interfaces_ptc
         {
             try
             {
-                if (txtNombreEmpresa.Text == "" || txtNIT.Text == "" || txtNRC.Text == "" ||
-                    txtGiro.Text == "" || txtDireccion.Text == "" || txtTelefono.Text == "")
+                if (string.IsNullOrWhiteSpace(txtNombreEmpresa.Text) || string.IsNullOrWhiteSpace(txtNIT.Text) || string.IsNullOrWhiteSpace(txtNRC.Text) ||
+                    string.IsNullOrWhiteSpace(txtGiro.Text) || string.IsNullOrWhiteSpace(txtDireccion.Text) || string.IsNullOrWhiteSpace(txtTelefono.Text))
                 {
                     MessageBox.Show("No dejar campos vacíos",
                         "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);

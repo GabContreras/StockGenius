@@ -129,7 +129,7 @@
             this.btnSalir.Location = new System.Drawing.Point(489, 11);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(89, 26);
-            this.btnSalir.TabIndex = 114;
+            this.btnSalir.TabIndex = 8;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -173,7 +173,7 @@
             this.txtNombre.MaxLength = 50;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(348, 26);
-            this.txtNombre.TabIndex = 112;
+            this.txtNombre.TabIndex = 1;
             this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // label7
@@ -214,7 +214,7 @@
             this.txtDireccion.MaxLength = 150;
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(350, 26);
-            this.txtDireccion.TabIndex = 111;
+            this.txtDireccion.TabIndex = 2;
             // 
             // label5
             // 
@@ -266,7 +266,7 @@
             this.txtTelefono.MaxLength = 50;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(350, 26);
-            this.txtTelefono.TabIndex = 109;
+            this.txtTelefono.TabIndex = 3;
             this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // tableLayoutPanel9
@@ -298,7 +298,7 @@
             this.btnActualizar.Location = new System.Drawing.Point(301, 14);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(109, 32);
-            this.btnActualizar.TabIndex = 105;
+            this.btnActualizar.TabIndex = 5;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = false;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
@@ -313,7 +313,7 @@
             this.btnAgregar.Location = new System.Drawing.Point(64, 14);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(109, 32);
-            this.btnAgregar.TabIndex = 104;
+            this.btnAgregar.TabIndex = 4;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -329,16 +329,15 @@
             this.btnEliminar.Location = new System.Drawing.Point(538, 14);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(109, 32);
-            this.btnEliminar.TabIndex = 101;
+            this.btnEliminar.TabIndex = 6;
             this.btnEliminar.Text = "Inhabilitar";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // tableLayoutPanel11
             // 
-            this.tableLayoutPanel11.ColumnCount = 2;
+            this.tableLayoutPanel11.ColumnCount = 1;
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.23795F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.76206F));
             this.tableLayoutPanel11.Controls.Add(this.txtBuscar, 0, 0);
             this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel11.Location = new System.Drawing.Point(3, 229);
@@ -355,10 +354,10 @@
             this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBuscar.Font = new System.Drawing.Font("Cambria", 12F);
             this.txtBuscar.ForeColor = System.Drawing.Color.Black;
-            this.txtBuscar.Location = new System.Drawing.Point(47, 11);
+            this.txtBuscar.Location = new System.Drawing.Point(167, 11);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(377, 26);
-            this.txtBuscar.TabIndex = 110;
+            this.txtBuscar.TabIndex = 7;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // frmProveedores

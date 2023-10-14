@@ -1,7 +1,7 @@
 use master 
 go
 
-drop database if exists BaseDeDatosPtc
+drop database BaseDeDatosPtc
 go
 
 create database BaseDeDatosPtc
@@ -9,6 +9,7 @@ go
 
 use BaseDeDatosPtc
 go
+
 
 create table Rol(
 id_Rol int PRIMARY KEY identity(1,1),
@@ -19,7 +20,7 @@ go
 Create table Usuario(
 Id_Usuario int PRIMARY KEY identity(1,1),
 NombreUsuario varchar(30) unique not null, 
-contraseña varchar(300) not null,
+contraseña varchar(300),
 id_Rol int not null
 
 constraint FK_Rol
@@ -178,166 +179,24 @@ VALUES
 	go
 
 insert into Cliente(Nombre, Apellido, DUI, Telefono, Dirección, Edad,Tipo_Cliente,Estado) values 
-                ('Marcelo josé', 'Hernández Hernández', '12345678-9', '+503 8745-9874', 'Avenida el pepe', 18,'Natural','Activo'),
-				('Juan Carlos', 'Pérez', '11111111-1', '+503 1111-1111', 'Dirección 1', 25, 'Natural','Activo'),
-				('Ana María', 'Gómez', '22222222-2', '+503 2222-2222', 'Dirección 2', 30, 'Natural','Activo'),
-				('Carlos Alberto', 'López', '33333333-3', '+503 3333-3333', 'Dirección 3', 35, 'Natural','Activo'),
-				('Elena Rodríguez', 'Ramírez', '44444444-4', '+503 4444-4444', 'Dirección 4', 40, 'Natural','Activo');
+                ('Marcelo josé', 'Hernández Hernández', '12345678-9', '8745-9874', 'Avenida el pepe', 18,'Natural','Activo'),
+				('Juan Carlos', 'Pérez', '11111111-1', '1111-1111', 'Avenida Aguilares 218 San Salvador CP, San Salvador 1101', 25, 'Natural','Activo'),
+				('Ana María', 'Gómez', '22222222-2', '2222-2222', 'Bouevard Santa Elena, lote #4, Antiguo Cuscatlán', 30, 'Natural','Activo'),
+				('Carlos Alberto', 'López', '33333333-3', '3333-3333', 'Redondel Fuentes Beethoven &, 75 Avenida Nte, San Salvador', 35, 'Natural','Activo'),
+				('Elena Rodríguez', 'Ramírez', '44444444-4', '4444-4444', 'C. Los Sisimiles 3130, San Salvador	', 40, 'Natural','Activo');
 
 INSERT INTO Cliente (Nombre, Telefono, Dirección, NIT, NRC, Giro, Categoria, Tipo_Cliente,Estado) values
-    ('Empresa Tech', '+503 2345-6789', 'Calle Principal 123', '12345-678-9', '9876-5', 'Venta de productos electrónicos', 'Mediano', 'Jurídico','Activo'),
-    ('Consultoría ABC', '+503 555-1234', 'Avenida Central 456', '98765-432-1', '5432-1', 'Servicios de Consultoría Empresarial', 'Grande', 'Jurídico','Activo'),
-    ('Restaurante delicioso', '+503 7890-1234', 'Boulevard Elegante 789', '56789-123-4', '1234-5', 'Restaurante de comida gourmet', 'Pequeño', 'Jurídico','Activo'),
+    ('Empresa Tech', '+503 2345-6789', 'Calle Principal 123', '5555-666666-777-6', '9876-5', 'Venta de productos electrónicos', 'Mediano', 'Jurídico','Activo'),
+    ('Consultoría ABC', '+503 555-1234', 'Avenida Central 456', '5555-444444-995-7', '5432-1', 'Servicios de Consultoría Empresarial', 'Grande', 'Jurídico','Activo'),
+    ('Restaurante delicioso', '+503 7890-1234', 'Boulevard Elegante 789', '5555-555555-555-8', '1234-5', 'Restaurante de comida gourmet', 'Pequeño', 'Jurídico','Activo'),
     ('Tienda Express', '+503 7777-7777', 'Plaza Comercial 321', '5555-555555-555-5', '1111-1', 'Venta de ropa y accesorios', 'Pequeño', 'Jurídico','Activo'),
-    ('Servicios de Limpieza', '+503 8888-8888', 'Calle Limpia 555', '44444-444-4', '2222-2', 'Servicios de Limpieza Residencial', 'Mediano', 'Jurídico','Activo');
+    ('Servicios de Limpieza', '+503 8888-8888', 'Calle Limpia 555', '6666-777777-888-9', '2222-2', 'Servicios de Limpieza Residencial', 'Mediano', 'Jurídico','Activo');
 
-
-CREATE TRIGGER CalcularTotalDetallePedido
-ON Detalle_Pedido
-AFTER INSERT
-AS
-BEGIN
-    -- Actualizar la cantidad en stock de Producto
-    UPDATE P
-    SET Stock = Stock - DP.Cantidad
-    FROM Producto AS P
-    INNER JOIN Detalle_Pedido AS DP ON P.Id_Producto = DP.Id_Producto
-    INNER JOIN inserted AS I ON DP.Id_Detalle = I.Id_Detalle;
-END;
-
-CREATE TRIGGER ActualizarStockDespuesEliminarDetalle
-ON Detalle_Pedido
-AFTER DELETE
-AS
-BEGIN
-    -- Obtener el Id_Producto y la cantidad eliminada del detalle borrado
-    DECLARE @Id_Producto INT;
-    DECLARE @CantidadEliminada INT;
-
-    SELECT @Id_Producto = Id_Producto, @CantidadEliminada = cantidad
-    FROM deleted;
-
-    -- Actualizar el stock en la tabla Producto sumando la cantidad eliminada
-    UPDATE Producto
-    SET Stock = Stock + @CantidadEliminada
-    WHERE Id_Producto = @Id_Producto;
-END;
 
 -- Actualiza los primeros 5 registros de Ingreso_Producto con fecha del 1 de agosto de 2023
-UPDATE TOP(5) Ingreso_Producto
-SET fecha_Ingreso = '2023-08-01'
+--UPDATE TOP(5) Ingreso_Producto
+--SET fecha_Ingreso = '2023-08-01'
 
-
-	WITH Ingresos AS (
-    SELECT
-        IP.Id_Producto,
-        SUM(IP.cantidad) AS Ingresos
-    FROM
-        Ingreso_Producto IP
-    WHERE
-        IP.fecha_Ingreso >= '2023-09-01' AND IP.fecha_Ingreso <= '2023-09-30'
-    GROUP BY
-        IP.Id_Producto
-),
-Salidas AS (
-    SELECT
-        DP.Id_Producto,
-        SUM(DP.Cantidad) AS Salidas
-    FROM
-        Detalle_Pedido DP
-    INNER JOIN
-        Pedido Pd ON DP.Id_Pedido = Pd.Id_Pedido
-    WHERE
-        Pd.Estado = 'Completado'
-        AND Pd.fecha_Pedido >= '2023-09-01' AND Pd.fecha_Pedido <= '2023-09-30'
-    GROUP BY
-        DP.Id_Producto
-),
-StockInicial AS (
-    SELECT
-        IP.Id_Producto,
-        SUM(IP.cantidad) AS StockInicial
-    FROM
-        Ingreso_Producto IP
-    WHERE
-        IP.fecha_Ingreso < '2023-09-01'
-    GROUP BY
-        IP.Id_Producto
-)
-SELECT
-    P.Id_Producto,
-    P.Nombre AS Producto,
-    ISNULL(SI.StockInicial, 0) AS StockInicial,
-    ISNULL(I.Ingresos, 0) AS Ingresos,
-    ISNULL(S.Salidas, 0) AS Salidas,
-    P.Stock AS StockFinal
-FROM
-    Producto P
-LEFT JOIN
-    StockInicial SI ON P.Id_Producto = SI.Id_Producto
-LEFT JOIN
-    Ingresos I ON P.Id_Producto = I.Id_Producto
-LEFT JOIN
-    Salidas S ON P.Id_Producto = S.Id_Producto
-ORDER BY
-    P.Id_Producto;
-
-	
-WITH Ingresos AS (
-    SELECT
-        IP.Id_Producto,
-        SUM(IP.cantidad) AS Ingresos
-    FROM
-        Ingreso_Producto IP
-    WHERE
-        IP.fecha_Ingreso >= '2023-09-01' AND IP.fecha_Ingreso <=  '2023-09-30'
-    GROUP BY
-        IP.Id_Producto
-),
-Salidas AS (
-    SELECT
-        DP.Id_Producto,
-        SUM(DP.Cantidad) AS Salidas
-    FROM
-        Detalle_Pedido DP
-    INNER JOIN
-        Pedido Pd ON DP.Id_Pedido = Pd.Id_Pedido
-    WHERE
-        Pd.Estado = 'Completado'
-        AND Pd.fecha_Pedido >=  '2023-09-01' AND Pd.fecha_Pedido <=  '2023-09-30'
-    GROUP BY
-        DP.Id_Producto
-),
-StockInicial AS (
-    SELECT
-        IP.Id_Producto,
-        SUM(IP.cantidad) AS StockInicial
-    FROM
-        Ingreso_Producto IP
-    WHERE
-        IP.fecha_Ingreso < '2023-09-01'
-    GROUP BY
-        IP.Id_Producto
-)
-SELECT
-    P.Id_Producto,
-    P.Nombre AS Producto,
-     '2023-09-01' AS FechaInicio,
-    '2023-09-30' AS FechaFin,
-    ISNULL(SI.StockInicial, 0) AS StockInicial,
-    ISNULL(I.Ingresos, 0) AS Ingresos,
-    ISNULL(S.Salidas, 0) AS Salidas,
-    P.Stock AS StockFinal
-FROM
-    Producto P
-LEFT JOIN
-    StockInicial SI ON P.Id_Producto = SI.Id_Producto
-LEFT JOIN
-    Ingresos I ON P.Id_Producto = I.Id_Producto
-LEFT JOIN
-    Salidas S ON P.Id_Producto = S.Id_Producto
-ORDER BY
-    P.Id_Producto;
 
 
 

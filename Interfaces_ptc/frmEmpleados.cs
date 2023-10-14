@@ -145,8 +145,11 @@ namespace Interfaces_ptc
         {
             try
             {
-                if (txtNombreUsuario.Text == "" || txtContraseña.Text == "" || txtCargo.Text == "" || txtNombre.Text == "" || txtApellido.Text == ""
-                    || txtTelefono.Text == "" || txtDui.Text == "" || txtCorreo.Text == "")
+                if (string.IsNullOrWhiteSpace(txtNombreUsuario.Text) || txtContraseña.Text == "" || 
+                    string.IsNullOrWhiteSpace(txtCargo.Text) || string.IsNullOrWhiteSpace(txtNombre.Text) 
+                    || string.IsNullOrWhiteSpace(txtApellido.Text)|| string.IsNullOrWhiteSpace(txtTelefono.Text) 
+                    || string.IsNullOrWhiteSpace(txtDui.Text) || string.IsNullOrWhiteSpace(txtCorreo.Text)
+                    )
                 {
                     MessageBox.Show("No dejar campos vacíos",
                         "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -498,7 +501,16 @@ namespace Interfaces_ptc
                 MessageBox.Show(ex.Message);
             }
         }
-        
+
+        private void txtContraseña_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si el carácter presionado es un espacio en blanco
+            if (e.KeyChar == ' ')
+            {
+                MessageBox.Show("La contraseña no puede contener espacios en blanco.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Handled = true; // Evitar la entrada de espacios en blanco
+            }
+        }
     }
 }
 

@@ -62,7 +62,7 @@
             this.btnSalir.Location = new System.Drawing.Point(498, 17);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(109, 31);
-            this.btnSalir.TabIndex = 130;
+            this.btnSalir.TabIndex = 4;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -102,7 +102,7 @@
             this.btnRegistrar.Location = new System.Drawing.Point(251, 423);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(109, 31);
-            this.btnRegistrar.TabIndex = 126;
+            this.btnRegistrar.TabIndex = 3;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = false;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
@@ -129,9 +129,10 @@
             this.txtContraseña.MaxLength = 30;
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Size = new System.Drawing.Size(225, 26);
-            this.txtContraseña.TabIndex = 124;
+            this.txtContraseña.TabIndex = 2;
             this.txtContraseña.UseSystemPasswordChar = true;
             this.txtContraseña.TextChanged += new System.EventHandler(this.txtContraseña_TextChanged);
+            this.txtContraseña.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContraseña_KeyPress);
             // 
             // txtNombreUsuario
             // 
@@ -143,7 +144,7 @@
             this.txtNombreUsuario.MaxLength = 30;
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.Size = new System.Drawing.Size(225, 26);
-            this.txtNombreUsuario.TabIndex = 123;
+            this.txtNombreUsuario.TabIndex = 1;
             // 
             // pictureBox2
             // 
@@ -175,6 +176,7 @@
             this.Name = "frmPrimerUso";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPrimerUso";
+            this.Load += new System.EventHandler(this.frmPrimerUso_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -117,7 +117,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.746395F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.1282F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(718, 622);
-            this.tableLayoutPanel1.TabIndex = 1;
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
             // 
@@ -147,7 +147,7 @@
             this.btnSalir.Location = new System.Drawing.Point(486, 3);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(99, 29);
-            this.btnSalir.TabIndex = 14;
+            this.btnSalir.TabIndex = 1;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click_1);
@@ -191,7 +191,7 @@
             this.txtNombreUsuario.MaxLength = 30;
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.Size = new System.Drawing.Size(340, 26);
-            this.txtNombreUsuario.TabIndex = 1;
+            this.txtNombreUsuario.TabIndex = 0;
             // 
             // label1
             // 
@@ -232,8 +232,9 @@
             this.txtContraseña.MaxLength = 100;
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Size = new System.Drawing.Size(340, 26);
-            this.txtContraseña.TabIndex = 2;
+            this.txtContraseña.TabIndex = 1;
             this.txtContraseña.UseSystemPasswordChar = true;
+            this.txtContraseña.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContraseña_KeyPress);
             // 
             // label4
             // 
@@ -273,7 +274,7 @@
             this.cbRol.Location = new System.Drawing.Point(349, 3);
             this.cbRol.Name = "cbRol";
             this.cbRol.Size = new System.Drawing.Size(340, 27);
-            this.cbRol.TabIndex = 3;
+            this.cbRol.TabIndex = 1;
             // 
             // label7
             // 
@@ -304,8 +305,7 @@
             // 
             // tableLayoutPanel9
             // 
-            this.tableLayoutPanel9.ColumnCount = 2;
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel9.ColumnCount = 1;
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel9.Controls.Add(this.txtBuscar, 0, 0);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -324,10 +324,10 @@
             this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBuscar.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscar.ForeColor = System.Drawing.Color.Black;
-            this.txtBuscar.Location = new System.Drawing.Point(3, 8);
+            this.txtBuscar.Location = new System.Drawing.Point(181, 8);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(350, 26);
-            this.txtBuscar.TabIndex = 13;
+            this.txtBuscar.TabIndex = 0;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // tableLayoutPanel8
@@ -359,7 +359,7 @@
             this.btnEliminar.Location = new System.Drawing.Point(538, 3);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(109, 35);
-            this.btnEliminar.TabIndex = 12;
+            this.btnEliminar.TabIndex = 1;
             this.btnEliminar.Text = "Inhabilitar";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -375,7 +375,7 @@
             this.btnActualizar.Location = new System.Drawing.Point(301, 3);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(109, 36);
-            this.btnActualizar.TabIndex = 11;
+            this.btnActualizar.TabIndex = 2;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = false;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
@@ -390,7 +390,7 @@
             this.btnAgregar.Location = new System.Drawing.Point(64, 3);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(109, 36);
-            this.btnAgregar.TabIndex = 10;
+            this.btnAgregar.TabIndex = 1;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -434,7 +434,7 @@
             this.txtCorreo.MaxLength = 50;
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(340, 26);
-            this.txtCorreo.TabIndex = 9;
+            this.txtCorreo.TabIndex = 1;
             // 
             // tableLayoutPanel10
             // 
@@ -460,7 +460,7 @@
             this.txtDui.Mask = "99999999-9";
             this.txtDui.Name = "txtDui";
             this.txtDui.Size = new System.Drawing.Size(340, 20);
-            this.txtDui.TabIndex = 8;
+            this.txtDui.TabIndex = 0;
             this.txtDui.ValidatingType = typeof(int);
             // 
             // label6
@@ -496,10 +496,10 @@
             this.txtTelefono.Cursor = System.Windows.Forms.Cursors.AppStarting;
             this.txtTelefono.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtTelefono.Location = new System.Drawing.Point(349, 3);
-            this.txtTelefono.Mask = "+503 9999-9999";
+            this.txtTelefono.Mask = "9999-9999";
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(340, 20);
-            this.txtTelefono.TabIndex = 112;
+            this.txtTelefono.TabIndex = 1;
             // 
             // label3
             // 
@@ -540,7 +540,7 @@
             this.txtApellido.MaxLength = 50;
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(340, 26);
-            this.txtApellido.TabIndex = 6;
+            this.txtApellido.TabIndex = 1;
             this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido_KeyPress);
             // 
             // label2
@@ -582,7 +582,7 @@
             this.txtNombre.MaxLength = 50;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(340, 26);
-            this.txtNombre.TabIndex = 5;
+            this.txtNombre.TabIndex = 1;
             this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // label8
@@ -624,7 +624,7 @@
             this.txtCargo.MaxLength = 50;
             this.txtCargo.Name = "txtCargo";
             this.txtCargo.Size = new System.Drawing.Size(340, 26);
-            this.txtCargo.TabIndex = 4;
+            this.txtCargo.TabIndex = 1;
             this.txtCargo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCargo_KeyPress);
             // 
             // label10

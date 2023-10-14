@@ -150,5 +150,10 @@ namespace Interfaces_ptc
         {
             Environment.Exit(0);
         }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
