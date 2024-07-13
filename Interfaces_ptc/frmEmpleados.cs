@@ -249,8 +249,10 @@ namespace Interfaces_ptc
             {
                 if (v.Id_Rol == 1)
                 {
-                    if (txtNombreUsuario.Text == "" || txtCargo.Text == "" || txtNombre.Text == "" || txtApellido.Text == ""
-                    || txtTelefono.Text == "" || txtDui.Text == "" || txtCorreo.Text == "")
+                    if (string.IsNullOrWhiteSpace(txtNombreUsuario.Text) || string.IsNullOrWhiteSpace(txtCargo.Text) ||
+                        string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtApellido.Text)
+                    || string.IsNullOrWhiteSpace(txtTelefono.Text) || string.IsNullOrWhiteSpace(txtDui.Text) ||
+                    string.IsNullOrWhiteSpace(txtCorreo.Text))
                     {
                         MessageBox.Show("No dejar campos vacíos",
                             "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -329,8 +331,10 @@ namespace Interfaces_ptc
                 else
                 {
 
-                    if (txtNombreUsuario.Text == "" || txtCargo.Text == "" || txtNombre.Text == "" || txtApellido.Text == ""
-                        || txtTelefono.Text == "" || txtDui.Text == "" || txtCorreo.Text == "")
+                    if (string.IsNullOrWhiteSpace(txtNombreUsuario.Text) || string.IsNullOrWhiteSpace(txtCargo.Text) ||
+                        string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtApellido.Text)
+                        || string.IsNullOrWhiteSpace(txtTelefono.Text) || string.IsNullOrWhiteSpace(txtDui.Text) ||
+                        string.IsNullOrWhiteSpace(txtCorreo.Text))
                     {
                         MessageBox.Show("No dejar campos vacíos",
                             "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);

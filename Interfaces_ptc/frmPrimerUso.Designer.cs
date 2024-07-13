@@ -44,7 +44,7 @@
             // cbMostrar
             // 
             this.cbMostrar.AutoSize = true;
-            this.cbMostrar.Location = new System.Drawing.Point(469, 351);
+            this.cbMostrar.Location = new System.Drawing.Point(467, 351);
             this.cbMostrar.Name = "cbMostrar";
             this.cbMostrar.Size = new System.Drawing.Size(15, 14);
             this.cbMostrar.TabIndex = 131;
@@ -113,11 +113,11 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Cambria", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(121, 179);
+            this.label9.Location = new System.Drawing.Point(112, 186);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(396, 50);
             this.label9.TabIndex = 125;
-            this.label9.Text = "         Bienvenido a Stock Genius,\r\nIngresa tus datos para crear una cuenta ";
+            this.label9.Text = "         Bienvenido a StockGenius,\r\nIngresa tus datos para crear una cuenta ";
             // 
             // txtContraseña
             // 

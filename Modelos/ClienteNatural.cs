@@ -34,7 +34,7 @@ namespace Modelos
         public static DataTable CargarClientes()
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = "SELECT Id_Cliente as \"Código de cliente\", Nombre , Apellido, DUI, Telefono, Dirección, Edad " +
+            string comando = "SELECT Id_Cliente as \"Código de cliente\", Nombre, Apellido, DUI, Telefono, Dirección, Edad " +
                 "\r\nFROM Cliente\r\n" +
                 "WHERE DUI IS NOT NULL AND Apellido IS NOT NULL AND Edad IS NOT NULL AND Estado = 'Activo';";
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
@@ -48,7 +48,7 @@ namespace Modelos
         public static DataTable CargarAmbosClientes()
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = "select c.Id_Cliente, c.Nombre as NombreCliente,c.DUI ,c.Nit as NIT,c.NRC\r\n" +
+            string comando = "select c.Id_Cliente, c.Nombre as Cliente ,c.DUI ,c.Nit as NIT,c.NRC\r\n" +
                 "from cliente c\r\n" +
                 "where C.Estado= 'Activo'";
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
@@ -148,7 +148,7 @@ namespace Modelos
         public static DataTable Buscar2(string termino)
         {
             SqlConnection con = Conexion.Conectar();
-            string comando = $"select c.Id_Cliente as \"Código de cliente\",c.Nombre as NombreCliente,c.DUI ,c.Nit as NIT,c.NRC\r\n" +
+            string comando = $"select c.Id_Cliente as \"Código de cliente\",c.Nombre as Cliente,c.DUI ,c.Nit as NIT,c.NRC\r\n" +
                 $"from cliente c\r\n" +
                 $"where C.Estado= 'Activo' AND c.Nombre like '%{termino}%'";
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);

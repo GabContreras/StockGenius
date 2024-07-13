@@ -82,7 +82,7 @@ namespace Interfaces_ptc
             }
             catch (NullReferenceException)
             {
-                MessageBox.Show("Por favor, seleccione a un Empleado antes de cargar sus datos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Por favor, seleccione un producto antes de cargar sus datos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (InvalidCastException)
             {

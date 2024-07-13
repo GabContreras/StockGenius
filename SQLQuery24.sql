@@ -11,22 +11,19 @@ BEGIN
     BEGIN
         -- Obtener el Id del pedido anulado
         DECLARE @PedidoId INT;
-        SELECT @PedidoId = Id_Pedido FROM inserted;
-
-        -- Calcular la suma de la cantidad total del pedido anulado
-        DECLARE @TotalCantidad INT;
-        SELECT @TotalCantidad = DP.Cantidad
-        FROM Detalle_Pedido DP
-        WHERE DP.Id_Pedido = @PedidoId;
+        SELECT @PedidoId = Id_Pedido
+		FROM inserted;
 
         -- Incrementar el stock de los productos en el pedido anulado
         UPDATE Producto
-        SET Stock = Stock + @TotalCantidad
-        WHERE Id_Producto IN (
-            SELECT DP.Id_Producto
-            FROM Detalle_Pedido DP
-            WHERE DP.Id_Pedido = @PedidoId
-        );
+        SET Stock = Stock +(select sum(DP.cantidad) 
+		from Detalle_Pedido DP 
+		where DP.id_pedido= @PedidoId
+		AND DP.id_producto= Producto.Id_Producto
+		)
+		where Id_Producto IN (select DP.id_Producto
+		from Detalle_Pedido DP 
+		where DP.Id_Pedido= @PedidoId);
     END
 END;
 go

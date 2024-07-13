@@ -1,3 +1,6 @@
+
+--Ejecutar primero y luego los triggers en cualquier orden
+
 use master 
 go
 
@@ -81,7 +84,7 @@ Nombre varchar(50) not null,
 Descripcion varchar(150) not null,
 Stock int not null check (Stock>=0),
 Id_Proveedor int not null,
-Precio_Unitario decimal(10,2) check(Precio_Unitario>0),
+Precio_Unitario decimal(10,2) check(Precio_Unitario>0.99),
 imagen nvarchar(max)	
 
 constraint FK_Proveedor
@@ -193,10 +196,9 @@ INSERT INTO Cliente (Nombre, Telefono, Dirección, NIT, NRC, Giro, Categoria, Tip
     ('Servicios de Limpieza', '+503 8888-8888', 'Calle Limpia 555', '6666-777777-888-9', '2222-2', 'Servicios de Limpieza Residencial', 'Mediano', 'Jurídico','Activo');
 
 
--- Actualiza los primeros 5 registros de Ingreso_Producto con fecha del 1 de agosto de 2023
---UPDATE TOP(5) Ingreso_Producto
---SET fecha_Ingreso = '2023-08-01'
-
+--Actualiza los primeros 5 registros de Ingreso_Producto con fecha del 1 de agosto de 2023
+--UPDATE TOP(6) Ingreso_Producto
+--SET fecha_Ingreso = '2023-09-01'
 
 
 
